@@ -1,19 +1,42 @@
 import { useState, type FormEvent } from "react";
+import { useServerFn } from "@tanstack/react-start";
+import { subscribeToList } from "@/lib/subscribe.functions";
 
 interface Props {
   variant?: "full" | "inline";
 }
 
+type Status = "idle" | "loading" | "success" | "error";
+
 export function EmailOptIn({ variant = "full" }: Props) {
+  const subscribe = useServerFn(subscribeToList);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
+  const [message, setMessage] = useState("");
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    // TODO: connect to email service (ConvertKit, MailerLite, Beehiiv, etc.)
-    setSubmitted(true);
+    setStatus("loading");
+    setMessage("");
+    try {
+      const result = await subscribe({ data: { email, firstName: name } });
+      if (result.ok) {
+        setStatus("success");
+        setMessage(result.message);
+        setEmail("");
+        setName("");
+      } else {
+        setStatus("error");
+        setMessage(result.message);
+      }
+    } catch {
+      setStatus("error");
+      setMessage("Something went wrong. Please try again.");
+    }
   }
+
+  const loading = status === "loading";
 
   if (variant === "inline") {
     return (
@@ -23,10 +46,10 @@ export function EmailOptIn({ variant = "full" }: Props) {
         <p className="text-earth-900/70 text-sm mb-5">
           30 renter-friendly swaps for under $100, delivered to your inbox.
         </p>
-        {submitted ? (
-          <p className="text-moss font-medium">Thank you — check your inbox!</p>
+        {status === "success" ? (
+          <p role="status" className="text-moss font-medium">{message}</p>
         ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3" noValidate>
             <label htmlFor="inline-email" className="sr-only">Email</label>
             <input
               id="inline-email"
@@ -35,15 +58,20 @@ export function EmailOptIn({ variant = "full" }: Props) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email address"
-              className="flex-1 bg-white border border-earth-900/10 px-5 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-moss/30 text-sm"
+              disabled={loading}
+              className="flex-1 bg-white border border-earth-900/10 px-5 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-moss/30 text-sm disabled:opacity-60"
             />
             <button
               type="submit"
-              className="bg-earth-900 text-white px-6 py-3 rounded-full font-medium hover:bg-earth-900/90 transition-colors text-sm"
+              disabled={loading}
+              className="bg-earth-900 text-white px-6 py-3 rounded-full font-medium hover:bg-earth-900/90 transition-colors text-sm disabled:opacity-60"
             >
-              Send it
+              {loading ? "Sending…" : "Send it"}
             </button>
           </form>
+        )}
+        {status === "error" && (
+          <p role="alert" className="mt-3 text-sm text-clay">{message}</p>
         )}
       </aside>
     );
@@ -59,10 +87,10 @@ export function EmailOptIn({ variant = "full" }: Props) {
         <p className="text-lg text-earth-900/70 mb-10 max-w-2xl mx-auto">
           Download our checklist of 30 renter-friendly, sustainable swaps that cost less than $100 total. Build your dream eco apartment without the waste — or the guilt.
         </p>
-        {submitted ? (
-          <p className="text-moss font-medium text-lg">Thank you — check your inbox for the checklist!</p>
+        {status === "success" ? (
+          <p role="status" className="text-moss font-medium text-lg">{message}</p>
         ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto" noValidate>
             <label htmlFor="optin-name" className="sr-only">First name</label>
             <input
               id="optin-name"
@@ -71,7 +99,8 @@ export function EmailOptIn({ variant = "full" }: Props) {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="First name"
-              className="flex-1 bg-white border border-earth-900/10 px-6 py-4 rounded-full focus:outline-none focus:ring-2 focus:ring-moss/30"
+              disabled={loading}
+              className="flex-1 bg-white border border-earth-900/10 px-6 py-4 rounded-full focus:outline-none focus:ring-2 focus:ring-moss/30 disabled:opacity-60"
             />
             <label htmlFor="optin-email" className="sr-only">Email</label>
             <input
@@ -81,15 +110,20 @@ export function EmailOptIn({ variant = "full" }: Props) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email address"
-              className="flex-1 bg-white border border-earth-900/10 px-6 py-4 rounded-full focus:outline-none focus:ring-2 focus:ring-moss/30"
+              disabled={loading}
+              className="flex-1 bg-white border border-earth-900/10 px-6 py-4 rounded-full focus:outline-none focus:ring-2 focus:ring-moss/30 disabled:opacity-60"
             />
             <button
               type="submit"
-              className="bg-earth-900 text-white px-8 py-4 rounded-full font-medium hover:bg-earth-900/90 transition-colors whitespace-nowrap"
+              disabled={loading}
+              className="bg-earth-900 text-white px-8 py-4 rounded-full font-medium hover:bg-earth-900/90 transition-colors whitespace-nowrap disabled:opacity-60"
             >
-              Send it to me
+              {loading ? "Sending…" : "Send it to me"}
             </button>
           </form>
+        )}
+        {status === "error" && (
+          <p role="alert" className="mt-6 text-clay">{message}</p>
         )}
         <ul className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-earth-900/50">
           <li>✓ 100% Renter Friendly</li>

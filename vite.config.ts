@@ -6,32 +6,32 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+const nitroConfig = {
+  preset: "static",
+  prerender: {
+    routes: [
+      "/",
+      "/blog",
+      "/about",
+      "/resources",
+      "/contact",
+      "/blog/small-apartment-eco-upgrade-checklist",
+      "/blog/zero-waste-kitchen-ideas-tiny-apartments",
+      "/blog/eco-friendly-small-apartment-decor-budget",
+      "/blog/beginner-sustainable-living-checklist-renters",
+      "/category/zero-waste-kitchen",
+      "/category/small-apartment-decor",
+      "/category/eco-habits-budget",
+    ],
+    crawlLinks: true,
+  },
+};
+
 export default defineConfig({
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
-    server: {
-      entry: "server",
-      prerender: {
-        routes: [
-          "/",
-          "/blog",
-          "/about",
-          "/resources",
-          "/contact",
-          "/blog/small-apartment-eco-upgrade-checklist",
-          "/blog/zero-waste-kitchen-ideas-tiny-apartments",
-          "/blog/eco-friendly-small-apartment-decor-budget",
-          "/blog/beginner-sustainable-living-checklist-renters",
-          "/category/zero-waste-kitchen",
-          "/category/small-apartment-decor",
-          "/category/eco-habits-budget",
-        ],
-        crawlLinks: true,
-      },
-    },
+    server: { entry: "server" },
   },
-  nitro: {
-    preset: "static",
-  },
+  nitro: nitroConfig as any,
 });

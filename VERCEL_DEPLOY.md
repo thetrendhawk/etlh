@@ -1,6 +1,6 @@
 # Deploying to Vercel
 
-This project is configured for **static pre-rendering** — every page is built as a static HTML file. This gives you the fastest load times, best SEO, and zero serverless cold starts.
+This project is configured for **Vercel SSR deployment** using the `vercel` Nitro preset. Every page is server-rendered for optimal SEO, while static assets are cached at the edge.
 
 ## Option 1: Connect GitHub repo to Vercel (recommended)
 
@@ -10,7 +10,7 @@ This project is configured for **static pre-rendering** — every page is built 
 4. In the project settings, use these values:
    - **Framework Preset**: `Other`
    - **Build Command**: `bun run build`
-   - **Output Directory**: `dist/client`
+   - **Output Directory**: *leave empty* — the `vercel` preset writes to `.vercel/output/` automatically
 5. Click **Deploy**.
 
 Vercel will automatically rebuild and redeploy whenever you push changes to your repo.
@@ -19,20 +19,23 @@ Vercel will automatically rebuild and redeploy whenever you push changes to your
 
 1. Install the Vercel CLI: `npm i -g vercel`
 2. Build locally: `bun run build`
-3. Deploy the static output:
+3. Deploy the prebuilt output:
    ```bash
-   vercel --yes dist/client
+   vercel --prebuilt
    ```
+   This uploads the `.vercel/output/` directory that the build generated.
 
 ## What changed for Vercel compatibility
 
-- **`nitro.config.ts`**: Sets Nitro to `static` preset and lists all routes to pre-render at build time.
-- **`public/sitemap.xml`**: A static sitemap file (replaces the dynamic server route).
-- **`EmailOptIn.tsx`**: Uses a browser-safe JSONP call to Mailchimp instead of a server function. This means the email form works on any static host with no backend required.
+- **`vite.config.ts`**: Added `nitro: { preset: "vercel" }` so the build produces Vercel's serverless-function format in `.vercel/output/`.
+- **`EmailOptIn.tsx`**: Uses a browser-safe JSONP call to Mailchimp instead of a server function. This makes the email form work reliably across any host with no backend required.
+- **`public/sitemap.xml`**: A static sitemap file for search engines.
 
-## After adding a new blog post
+## Build output locations
 
-1. Add the post to `src/lib/posts.ts` as usual.
-2. Add the new route to `nitro.config.ts` under `prerender.routes`.
-3. Add the post to `public/sitemap.xml`.
-4. Push to GitHub — Vercel will rebuild automatically.
+| Environment | Output directory | Format |
+|------------|------------------|--------|
+| Lovable sandbox | `dist/` | Cloudflare Worker |
+| Local / Vercel | `.vercel/output/` | Vercel serverless |
+
+The Lovable preview uses the Cloudflare format. Your Vercel site uses the Vercel format — both work from the same codebase.

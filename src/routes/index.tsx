@@ -1,29 +1,121 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
+import { EmailOptIn } from "@/components/EmailOptIn";
+import { PostCard } from "@/components/PostCard";
+import { categories, posts } from "@/lib/posts";
+import heroImg from "@/assets/hero-apartment.jpg";
+import catKitchen from "@/assets/cat-kitchen.jpg";
+import catDecor from "@/assets/cat-decor.jpg";
+import catHabits from "@/assets/cat-habits.jpg";
+
+const catImages = {
+  "zero-waste-kitchen": catKitchen,
+  "small-apartment-decor": catDecor,
+  "eco-habits-budget": catHabits,
+};
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Eco Tiny Living Hub — Sustainable Living for Small Apartments" },
+      { name: "description", content: "Cozy, sustainable small apartment living on a realistic budget. Zero-waste kitchen, eco decor, and budget habits for renters." },
+      { property: "og:title", content: "Eco Tiny Living Hub" },
+      { property: "og:description", content: "Sustainable living guides for renters in small apartments — zero waste kitchen, eco decor, budget-friendly habits." },
+      { property: "og:url", content: "/" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
-  component: Index,
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Home() {
+  const latest = posts.slice(0, 6);
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-earth-100 text-earth-900">
+      <SiteHeader />
+
+      <header className="max-w-6xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
+        <div className="space-y-8">
+          <h1 className="font-serif text-5xl md:text-7xl leading-[1.05] tracking-tight text-balance">
+            Your small space, <span className="italic text-moss">sustainably</span> curated.
+          </h1>
+          <p className="text-lg md:text-xl text-earth-900/70 max-w-md leading-relaxed">
+            Practical guides for creating a cozy, zero-waste apartment on a budget. Renter-friendly, planet-approved.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Link to="/blog" className="bg-moss text-white px-8 py-4 rounded-full font-medium hover:bg-moss-dark transition-colors">
+              Start reading
+            </Link>
+            <Link to="/resources" className="border border-earth-900/20 px-8 py-4 rounded-full font-medium hover:bg-earth-900/5 transition-colors">
+              View resources
+            </Link>
+          </div>
+        </div>
+        <div className="aspect-square rounded-3xl overflow-hidden outline-1 -outline-offset-1 outline-black/5">
+          <img
+            src={heroImg}
+            alt="Sunlit small apartment with houseplants and wooden furniture"
+            width={1200}
+            height={1200}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </header>
+
+      <section className="max-w-6xl mx-auto px-6 py-20 border-t border-earth-900/5">
+        <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
+          <div>
+            <span className="uppercase text-xs font-bold tracking-widest text-moss">Start here</span>
+            <h2 className="font-serif text-4xl md:text-5xl mt-3">Explore by interest</h2>
+          </div>
+          <p className="text-earth-900/60 max-w-sm text-sm">
+            Three core areas to help you build a sustainable apartment, one small win at a time.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {categories.map((c) => (
+            <Link
+              key={c.slug}
+              to="/category/$slug"
+              params={{ slug: c.slug }}
+              className="group block"
+            >
+              <div className="aspect-[4/3] bg-white rounded-2xl mb-4 overflow-hidden outline-1 -outline-offset-1 outline-black/5">
+                <img
+                  src={catImages[c.slug]}
+                  alt={c.name}
+                  loading="lazy"
+                  width={800}
+                  height={600}
+                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                />
+              </div>
+              <h3 className="text-xl font-serif group-hover:text-moss transition-colors">{c.name}</h3>
+              <p className="text-sm text-earth-900/60 mt-2 leading-relaxed">{c.intro}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <EmailOptIn />
+
+      <section className="max-w-6xl mx-auto px-6 py-24">
+        <div className="flex justify-between items-end mb-12 flex-wrap gap-4">
+          <div>
+            <h2 className="font-serif text-4xl md:text-5xl">Latest from the blog</h2>
+            <p className="text-earth-900/60 mt-2">Fresh ideas for your sustainable journey.</p>
+          </div>
+          <Link to="/blog" className="text-moss font-semibold underline underline-offset-4">
+            View all posts
+          </Link>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {latest.map((p) => <PostCard key={p.slug} post={p} />)}
+        </div>
+      </section>
+
+      <SiteFooter />
     </div>
   );
 }

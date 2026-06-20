@@ -3,7 +3,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { EmailOptIn } from "@/components/EmailOptIn";
 import { PostCard } from "@/components/PostCard";
-import { getPost, getCategory, getRelatedPosts, formatDate } from "@/lib/posts";
+import { getPost, getCategory, getRelatedPosts, formatDate, type Post } from "@/lib/posts";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
@@ -92,7 +92,7 @@ function PostPage() {
           <nav aria-label="Table of contents" className="mt-10 p-6 bg-white rounded-2xl border border-earth-900/5">
             <p className="text-xs uppercase tracking-widest text-earth-900/50 mb-3">In this post</p>
             <ol className="space-y-2 text-sm">
-              {post.toc.map((t, i) => (
+              {(post.toc as Post["toc"]).map((t, i: number) => (
                 <li key={t.id}>
                   <a href={`#${t.id}`} className="hover:text-moss">
                     <span className="text-earth-900/40 mr-2">{String(i + 1).padStart(2, "0")}</span>
@@ -105,7 +105,7 @@ function PostPage() {
         )}
 
         <div className="prose-content mt-12 space-y-6 text-lg leading-relaxed text-earth-900/85">
-          {post.body.map((block, i) => {
+          {(post.body as Post["body"]).map((block, i: number) => {
             if (block.type === "h2")
               return (
                 <h2 key={i} id={block.id} className="font-serif text-3xl md:text-4xl mt-12 mb-2 scroll-mt-24">
@@ -121,7 +121,7 @@ function PostPage() {
             if (block.type === "ul")
               return (
                 <ul key={i} className="list-disc pl-6 space-y-2">
-                  {block.items?.map((it, j) => <li key={j}>{it}</li>)}
+                  {block.items?.map((it: string, j: number) => <li key={j}>{it}</li>)}
                 </ul>
               );
             return <p key={i}>{block.text}</p>;

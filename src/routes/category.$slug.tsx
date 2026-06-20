@@ -52,7 +52,7 @@ function CategoryPage() {
           <p className="text-earth-900/60">No posts in this category yet — check back soon.</p>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {posts.map((p) => <PostCard key={p.slug} post={p} />)}
+            {posts.map((p: import("@/lib/posts").Post) => <PostCard key={p.slug} post={p} />)}
           </div>
         )}
       </main>

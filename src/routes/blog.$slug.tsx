@@ -131,7 +131,7 @@ function PostPage() {
         <EmailOptIn variant="inline" />
 
         <div className="mt-12 flex flex-wrap gap-2">
-          {post.tags.map((t) => (
+          {(post.tags as string[]).map((t: string) => (
             <span key={t} className="text-xs uppercase tracking-widest px-3 py-1.5 rounded-full bg-earth-900/5 text-earth-900/60">
               #{t}
             </span>

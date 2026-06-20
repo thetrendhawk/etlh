@@ -83,6 +83,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Eco Tiny Living Hub" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Eco Tiny Living Hub — Sustainable Living for Small Apartments" },
+      { name: "twitter:title", content: "Eco Tiny Living Hub — Sustainable Living for Small Apartments" },
+      { property: "og:description", content: "Practical, beginner-friendly guides for renters who want a zero-waste kitchen, eco-friendly small apartment decor, and sustainable habits on a budget." },
+      { name: "twitter:description", content: "Practical, beginner-friendly guides for renters who want a zero-waste kitchen, eco-friendly small apartment decor, and sustainable habits on a budget." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/618f9034-5cbc-4cac-aef8-143b55209d60" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/618f9034-5cbc-4cac-aef8-143b55209d60" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

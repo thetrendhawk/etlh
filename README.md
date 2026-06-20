@@ -44,18 +44,14 @@ Edit the `categories` array in the same file. Slugs are part of the URL — chan
 
 ## Connect the email opt-in to your email service
 
-Open `src/components/EmailOptIn.tsx`. Find the `handleSubmit` function — there's a `// TODO` comment.
-Replace it with an API call to your provider (ConvertKit, MailerLite, Beehiiv, etc.):
+The email opt-in form in `src/components/EmailOptIn.tsx` is already connected to **Mailchimp** via a client-side JSONP call. If you want to switch providers, replace the `subscribeViaJsonp` function with an API call to your new provider.
 
-```ts
-await fetch("https://api.convertkit.com/v3/forms/YOUR_FORM_ID/subscribe", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ api_key: "YOUR_KEY", email, first_name: name }),
-});
-```
+The contact form in `src/routes/contact.tsx` still uses a placeholder — wire it to your backend or a form service like Formspree.
 
-The contact form in `src/routes/contact.tsx` has the same TODO pattern.
+## Deploy to Vercel
+
+See [`VERCEL_DEPLOY.md`](VERCEL_DEPLOY.md) for step-by-step instructions.
+
 
 ## Design system
 

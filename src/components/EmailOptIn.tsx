@@ -1,6 +1,4 @@
 import { useState, type FormEvent } from "react";
-import { useServerFn } from "@tanstack/react-start";
-import { subscribeToList } from "@/lib/subscribe.functions";
 
 interface Props {
   variant?: "full" | "inline";
@@ -8,8 +6,52 @@ interface Props {
 
 type Status = "idle" | "loading" | "success" | "error";
 
+const MAILCHIMP_BASE = "https://gmail.us22.list-manage.com/subscribe/post-json";
+const U = "2b6b599ff49439c3c3a6a5927";
+const ID = "b33e3d79ce";
+const F_ID = "0074c2e1f0";
+
+function subscribeViaJsonp(email: string, firstName: string): Promise<any> {
+  return new Promise((resolve, reject) => {
+    const cb = "mc_cb_" + Date.now();
+    const params = new URLSearchParams({
+      u: U,
+      id: ID,
+      f_id: F_ID,
+      EMAIL: email,
+      FNAME: firstName ?? "",
+      // Honeypot field — must remain empty
+      [`b_${U}_${ID}`]: "",
+    });
+    const script = document.createElement("script");
+    const url = `${MAILCHIMP_BASE}?${params.toString()}&c=${cb}`;
+
+    (window as any)[cb] = (data: any) => {
+      resolve(data);
+      cleanup();
+    };
+
+    script.src = url;
+    script.onerror = () => {
+      reject(new Error("Failed to load subscription script"));
+      cleanup();
+    };
+
+    const cleanup = () => {
+      if (script.parentNode) document.head.removeChild(script);
+      delete (window as any)[cb];
+    };
+
+    document.head.appendChild(script);
+
+    setTimeout(() => {
+      reject(new Error("Subscription request timed out"));
+      cleanup();
+    }, 15000);
+  });
+}
+
 export function EmailOptIn({ variant = "full" }: Props) {
-  const subscribe = useServerFn(subscribeToList);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [status, setStatus] = useState<Status>("idle");
@@ -20,19 +62,22 @@ export function EmailOptIn({ variant = "full" }: Props) {
     setStatus("loading");
     setMessage("");
     try {
-      const result = await subscribe({ data: { email, firstName: name } });
-      if (result.ok) {
+      const payload = await subscribeViaJsonp(email, name);
+      if (payload.result === "success") {
         setStatus("success");
-        setMessage(result.message);
+        setMessage("You're in — check your inbox to confirm.");
         setEmail("");
         setName("");
       } else {
         setStatus("error");
-        setMessage(result.message);
+        const msg = String(payload.msg ?? "Something went wrong. Please try again.")
+          .replace(/<[^>]*>/g, "")
+          .trim();
+        setMessage(msg);
       }
     } catch {
       setStatus("error");
-      setMessage("Something went wrong. Please try again.");
+      setMessage("Network error. Please try again.");
     }
   }
 

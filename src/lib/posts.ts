@@ -2,7 +2,7 @@ import postKitchen from "@/assets/post-kitchen.jpg";
 import postDecor from "@/assets/post-decor.jpg";
 import postChecklist from "@/assets/post-checklist.jpg";
 import zeroWastePin1 from "@/assets/ZeroWastePin1.png";
-
+import zeroWastePin2 from "@/assets/ZeroWastePin2.png";
 
 export type CategorySlug = "zero-waste-kitchen" | "small-apartment-decor" | "eco-habits-budget";
 
@@ -53,6 +53,278 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+  slug: "low-waste-kitchen-tips-chef-habits",
+  title: "Low Waste Kitchen Tips: 11 Habits Chefs Use to Cut Food Waste",
+  excerpt:
+    "Steal 11 chef-inspired low waste kitchen habits that cut food waste, save money, and work in any small apartment.",
+  category: "zero-waste-kitchen",
+  date: "2026-06-21",
+  readingTime: "7 min read",
+  image: zeroWastePin2, // import this in your file
+  imageAlt:
+    "Small apartment kitchen with glass jars, fresh vegetables, and a cutting board laid out for cooking.",
+  tags: [
+    "low waste kitchen",
+    "zero waste cooking",
+    "reduce food waste",
+    "sustainable living",
+    "small apartment kitchen"
+  ],
+  toc: [
+    { id: "why-low-waste-kitchen", label: "Why Low Waste Kitchen Habits Matter" },
+    { id: "plan-meals-around-what-you-have", label: "Plan Meals Around What You Already Have" },
+    { id: "eat-me-first-shelf", label: "Create an “Eat Me First” Shelf" },
+    { id: "flex-recipes", label: "Use Flexible Recipes for Leftovers" },
+    { id: "treat-scraps-like-ingredients", label: "Treat Scraps Like Ingredients" },
+    { id: "skip-unnecessary-peeling", label: "Skip Unnecessary Peeling" },
+    { id: "batch-cook-components", label: "Batch Cook Components" },
+    { id: "freeze-early", label: "Freeze Food Early, Not at the Last Minute" },
+    { id: "leftovers-night", label: "Schedule a Weekly Leftovers Night" },
+    { id: "portion-like-a-pro", label: "Portion Like a Pro" },
+    { id: "label-and-store-smart", label: "Label, Date, and Store Food Smart" },
+    { id: "compost-and-start-small", label: "Compost What You Can & Start Small" }
+  ],
+  body: [
+    {
+      type: "p",
+      text:
+        "If your trash fills up with food and packaging every week, you’re not alone—and your grocery bill is paying the price. The good news is that many of the best low waste kitchen tips come straight from restaurant chefs and zero‑waste cooks who are forced to use every ingredient to the max.[web:182][web:185][web:186][web:187][web:196]"
+    },
+    {
+      type: "p",
+      text:
+        "This guide breaks down 11 chef‑inspired habits you can use in a small apartment kitchen to reduce food waste, save money, and make better food—without needing special tools or a huge pantry.[web:182][web:185][web:186][web:192][web:195]"
+    },
+
+    {
+      type: "h2",
+      id: "why-low-waste-kitchen",
+      text: "Why Low Waste Kitchen Habits Matter"
+    },
+    {
+      type: "p",
+      text:
+        "Globally, households waste a huge portion of food they buy, mostly through overbuying, poor storage, and forgotten leftovers.[web:186][web:189][web:195] Food waste doesn’t just cost money; it also wastes all the water, energy, and transport that went into growing and shipping that food.[web:186][web:187][web:192]"
+    },
+    {
+      type: "p",
+      text:
+        "Professional kitchens run on tight margins, so chefs have to squeeze maximum value out of every carrot, loaf of bread, and herb bunch. Many of their habits transfer perfectly to a home kitchen—and especially to small apartments where space is limited and wasted food is felt immediately.[web:182][web:185][web:186][web:188]"
+    },
+
+    {
+      type: "h2",
+      id: "plan-meals-around-what-you-have",
+      text: "Plan Meals Around What You Already Have"
+    },
+    {
+      type: "p",
+      text:
+        "Chefs rarely order new ingredients without checking inventory first, because over‑ordering leads to spoilage and lost profit.[web:185][web:186][web:192] At home, planning meals around what you already own is one of the strongest low‑waste habits you can build."
+    },
+    {
+      type: "ul",
+      items: [
+        "Before you shop, quickly scan your fridge, freezer, and pantry and list ingredients that need to be used soon, especially fresh produce and dairy.[web:186][web:189][web:192][web:195]",
+        "Choose recipes that feature those ingredients first, then add only the items you truly need to make them work.[web:186][web:187][web:192][web:195]",
+        "Keep a short weekly note in your phone or on the fridge labeled “Use This First” so you remember what to build meals around.[web:186][web:192]"
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "eat-me-first-shelf",
+      text: "Create an “Eat Me First” Shelf"
+    },
+    {
+      type: "p",
+      text:
+        "Many restaurant kitchens use clearly labeled bins or sections for ingredients that need to be used immediately. At home, an “Eat Me First” shelf is a simple way to copy that system and keep aging items visible.[web:185][web:186][web:189][web:192]"
+    },
+    {
+      type: "ul",
+      items: [
+        "Pick one shelf or bin in your fridge and label it “Eat Me First.” Put leftovers and foods close to their expiry date there.[web:186][web:189][web:192]",
+        "Create a smaller version in the pantry for near‑expiry dry goods, snacks, or baking ingredients.[web:173][web:186][web:192]",
+        "Check this shelf when planning lunch, snacks, or dinner so the oldest items get used before you open something new.[web:186][web:189]"
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "flex-recipes",
+      text: "Use Flexible Recipes for Leftovers"
+    },
+    {
+      type: "p",
+      text:
+        "Restaurants rely on flexible “catch‑all” recipes—like soups, curries, grain bowls, and frittatas—to use up mixed leftover ingredients.[web:184][web:186][web:187][web:193][web:196] At home, relying less on rigid recipes and more on formats makes it much easier to use what you have instead of running to the store for one missing item."
+    },
+    {
+      type: "ul",
+      items: [
+        "Stir‑fries, curries, and fried rice are ideal for mixed vegetables, leftover chicken, tofu, or beans.[web:184][web:186][web:187][web:193][web:196]",
+        "Grain bowls, tacos, and wraps handle small amounts of chopped veg, cooked meat, or roasted tray leftovers.[web:184][web:186][web:192][web:193]",
+        "Frittatas, omelets, and breakfast burritos are great for using up bits of cheese, herbs, and vegetables before they wilt.[web:186][web:189][web:191][web:193]"
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "treat-scraps-like-ingredients",
+      text: "Treat Scraps Like Ingredients, Not Trash"
+    },
+    {
+      type: "p",
+      text:
+        "Zero‑waste chefs look at stems, peels, and trimmings as potential flavor, not automatic garbage.[web:182][web:184][web:187][web:188][web:193][web:194] Using more of the ingredient means you get extra meals and nutrients from the same grocery budget."
+    },
+    {
+      type: "ul",
+      items: [
+        "Collect clean onion skins, carrot ends, celery leaves, herb stems, and bones in a freezer bag, then simmer a full bag into stock and freeze it in jars or cubes.[web:182][web:184][web:187][web:188][web:193][web:194][web:195][web:196]",
+        "Turn carrot tops, beet greens, or herb stems into pesto, chimichurri, or sautéed side dishes instead of throwing them away.[web:187][web:190][web:194][web:195][web:196]",
+        "Turn stale bread into homemade breadcrumbs or croutons for salads and soups.[web:182][web:183][web:188][web:191][web:193][web:195]"
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "skip-unnecessary-peeling",
+      text: "Skip Unnecessary Peeling"
+    },
+    {
+      type: "p",
+      text:
+        "Peeling vegetables often removes edible flesh and fiber that you pay for and then never eat. Food‑waste and health experts point out that scrubbing rather than peeling is usually enough for most produce.[web:183][web:186][web:189][web:195]"
+    },
+    {
+      type: "ul",
+      items: [
+        "Scrub potatoes, carrots, zucchini, cucumbers, and apples with a vegetable brush instead of peeling for everyday dishes.[web:183][web:186][web:189][web:195]",
+        "When you do need to cut off bad spots, trim minimally instead of taking thick slices around a bruise or blemish.[web:183][web:189]"
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "batch-cook-components",
+      text: "Batch Cook Components Instead of Full Meals"
+    },
+    {
+      type: "p",
+      text:
+        "Restaurant prep sessions focus on ready‑to‑use components—cooked grains, roasted vegetables, sauces—so the kitchen can assemble dishes quickly and use ingredients before they spoil.[web:184][web:186][web:190][web:193][web:196]"
+    },
+    {
+      type: "ul",
+      items: [
+        "Cook a big pot of rice, quinoa, or another grain once and use it across bowls, stir‑fries, stuffed peppers, and soups.[web:184][web:186][web:187][web:192]",
+        "Roast a tray of mixed vegetables at the start of the week to add to salads, pastas, and grain bowls.[web:184][web:186][web:193][web:196]",
+        "Blend a simple sauce or dressing from herbs, citrus, yogurt, or pan drippings to give leftovers a new flavor.[web:182][web:188][web:193]"
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "freeze-early",
+      text: "Freeze Food Early, Not at the Last Minute"
+    },
+    {
+      type: "p",
+      text:
+        "Many people freeze food only when it’s already on the edge, but food‑waste organizations recommend freezing items while they’re still in good condition so flavor and texture stay high.[web:184][web:185][web:186][web:190][web:192]"
+    },
+    {
+      type: "ul",
+      items: [
+        "Freeze extra cooked grains, beans, and lentils in flat bags or small containers for quick future meals.[web:184][web:186][web:187][web:192]",
+        "Portion sauces, stocks, and tomato paste into ice‑cube trays so you can grab exactly what you need.[web:184][web:186][web:188][web:193][web:195][web:196]",
+        "Label everything with the name and date so you actually use it instead of letting it become a mystery container.[web:186][web:193][web:195]"
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "leftovers-night",
+      text: "Schedule a Weekly Leftovers Night"
+    },
+    {
+      type: "p",
+      text:
+        "Restaurants write specials to move ingredients quickly; a home version is to dedicate one night each week to eating what’s already cooked.[web:184][web:185][web:186][web:189][web:191][web:195]"
+    },
+    {
+      type: "ul",
+      items: [
+        "Plan a weekly “fridge clean‑out” meal using whatever is in your Eat Me First shelf, freezer, and produce drawer.[web:184][web:186][web:187][web:192][web:193][web:196]",
+        "Serve different leftover dishes family‑style and treat it like a tasting night rather than a compromise dinner.[web:186][web:191][web:195]"
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "portion-like-a-pro",
+      text: "Portion Like a Pro"
+    },
+    {
+      type: "p",
+      text:
+        "Over‑portioning is a major source of plate waste in homes and restaurants. Chefs control portion sizes carefully because every untouched bite is money in the trash.[web:185][web:186][web:190][web:192][web:195]"
+    },
+    {
+      type: "ul",
+      items: [
+        "Cook realistic quantities for the number of people you’re feeding; you don’t always need to make a full 4–6 serving recipe.[web:186][web:190][web:192]",
+        "If you do cook extra intentionally for lunches, portion and refrigerate it right away instead of leaving it in the pot.[web:186][web:190][web:192][web:195]",
+        "Use slightly smaller plates and bowls so reasonable portions still look satisfying.[web:186][web:192]"
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "label-and-store-smart",
+      text: "Label, Date, and Store Food Smart"
+    },
+    {
+      type: "p",
+      text:
+        "Professional kitchens rely on labeling and clear containers so nothing gets lost at the back of the fridge. Adopting a light version of this system at home prevents mystery tubs and surprise science experiments.[web:173][web:186][web:189][web:192][web:193][web:195]"
+    },
+    {
+      type: "ul",
+      items: [
+        "Use tape or simple stickers to note the contents and date on leftovers and homemade stocks or sauces.[web:186][web:193][web:195]",
+        "Store food in clear containers or jars instead of opaque takeout tubs so you can see what’s inside at a glance.[web:173][web:174][web:180][web:192]",
+        "Aim to keep your fridge about two‑thirds full so air can circulate and items don’t get buried.[web:186][web:192]"
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "compost-and-start-small",
+      text: "Compost What You Can & Start with a Few Habits"
+    },
+    {
+      type: "p",
+      text:
+        "Even with great habits, some food scraps are unavoidable. Composting turns those inedible bits into something useful instead of methane‑producing landfill waste.[web:183][web:186][web:192][web:196]"
+    },
+    {
+      type: "ul",
+      items: [
+        "Use a small countertop container or jar for fruit and vegetable scraps, coffee grounds, and eggshells.[web:183][web:186][web:192][web:196]",
+        "Look for local compost drop‑off sites, community gardens, or city programs that accept food scraps.[web:183][web:186][web:192]",
+        "If you’re new to low‑waste cooking, start with just two or three habits—such as an Eat Me First shelf, one flex‑recipe night, and a freezer scrap bag—and add more once those feel automatic.[web:186][web:187][web:190][web:196]"
+      ]
+    },
+    {
+      type: "p",
+      text:
+        "You don’t have to be perfect to make a big difference. Small, repeatable habits—planning around what you have, using up scraps, freezing early, and composting what’s left—can transform any kitchen into a low waste kitchen over time.[web:186][web:187][web:190][web:196]"
+    }
+  ]
+}{
   slug: "zero-waste-kitchen-budget-9-swaps",
   title: "Zero Waste Kitchen on a Budget: 9 Simple Swaps That Actually Save Money",
   excerpt:

@@ -1,6 +1,8 @@
 import postKitchen from "@/assets/post-kitchen.jpg";
 import postDecor from "@/assets/post-decor.jpg";
 import postChecklist from "@/assets/post-checklist.jpg";
+import zeroWastePin1 from "@/assets/ZeroWastePin1.png";
+
 
 export type CategorySlug = "zero-waste-kitchen" | "small-apartment-decor" | "eco-habits-budget";
 
@@ -51,6 +53,125 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+  slug: "zero-waste-kitchen-budget-9-swaps",
+  title: "Zero Waste Kitchen on a Budget: 9 Simple Swaps That Actually Save Money",
+  excerpt:
+    "You don’t need a Pinterest‑perfect kitchen or expensive gadgets to go zero waste. These 9 budget‑friendly swaps cut plastic, reduce food waste, and stretch your grocery bill.",
+  category: "zero-waste-kitchen",
+  date: "2025-06-22",
+  readingTime: "9 min read",
+  image: zeroWastePin1,
+  imageAlt: "Zero waste kitchen before and after collage showing clutter replaced with glass jars, compost bin, beeswax wraps, and sustainable storage",
+  tags: ["zero waste", "kitchen", "budget", "renters", "swaps"],
+  toc: [
+    { id: "bottled-drinks", label: "Bottled drinks → tap, filter, and a reusable bottle" },
+    { id: "paper-towels", label: "Paper towels → cloth rags & reusable towels" },
+    { id: "plastic-wrap", label: "Plastic wrap & zip bags → beeswax wraps and containers" },
+    { id: "bulk-bins", label: "Pre‑portioned snacks → bulk bins + jar storage" },
+    { id: "leftovers", label: "Random leftovers → meal planning & an “Eat Me First” box" },
+    { id: "compost", label: "One big trash can → trash + countertop compost" },
+    { id: "pantry-zones", label: "Cardboard chaos → clear jars & simple pantry zones" },
+    { id: "reusable-workhorses", label: "Single‑use everything → reusable kitchen workhorses" },
+    { id: "energy-tweaks", label: "Energy hogs → small efficiency tweaks" },
+    { id: "tight-budget", label: "How to start if you’re on a tight budget" },
+  ],
+  body: [
+    { type: "p", text: "You don’t need a Pinterest‑perfect kitchen, expensive “eco” gadgets, or a full remodel to go zero waste. Most impact comes from a handful of habits and small swaps that cut plastic, reduce food waste, and stretch your grocery budget." },
+    { type: "p", text: "Below are 9 budget‑friendly zero‑waste swaps designed for small apartments and renters. Pick 1–2 to start this week and layer from there." },
+    { type: "h2", id: "bottled-drinks", text: "1. Bottled Drinks → Tap, Filter, and a Reusable Bottle" },
+    { type: "p", text: "Single‑use plastic bottles are one of the biggest sources of kitchen waste and recurring cost." },
+    { type: "p", text: "Do instead:" },
+    { type: "ul", items: [
+      "Use tap water plus a simple pitcher filter or faucet filter if needed.",
+      "Keep one reusable bottle and one to‑go mug near the sink so they’re easy to grab.",
+      "Make iced tea, cold brew, or infused water in a glass jar instead of buying canned or bottled drinks.",
+    ]},
+    { type: "p", text: "This swap cuts plastic dramatically and pays for itself quickly if you currently buy packaged drinks every week." },
+    { type: "h2", id: "paper-towels", text: "2. Paper Towels → Cloth Rags & Reusable Towels" },
+    { type: "p", text: "Most “messy kitchen” tasks don’t need paper at all—just something absorbent you can wash and reuse." },
+    { type: "p", text: "Try this:" },
+    { type: "ul", items: [
+      "Cut old T‑shirts into squares for cleaning rags.",
+      "Keep a small basket or jar of cloth napkins or microfiber cloths on the counter so they’re as easy to grab as a paper towel roll.",
+      "Reserve paper towels (if you still buy them) for truly gross messes only.",
+    ]},
+    { type: "p", text: "You’ll take out the trash less often, and a single pack of cloths can last for years." },
+    { type: "h2", id: "plastic-wrap", text: "3. Plastic Wrap & Zip Bags → Beeswax Wraps, Containers, and Silicone Bags" },
+    { type: "p", text: "Cling film and disposable bags are convenient, but they generate a lot of plastic waste for very short use." },
+    { type: "p", text: "Swap options:" },
+    { type: "ul", items: [
+      "Cover bowls with plates, beeswax wraps, or reusable bowl covers instead of plastic wrap.",
+      "Store leftovers in glass jars or containers you already own (pasta sauce jars, takeout glass containers, etc.).",
+      "Use a small set of silicone freezer bags for things like frozen fruit, chopped veggies, or bread.",
+    ]},
+    { type: "p", text: "Start with what you have (jars, old containers) and upgrade slowly so you stay under budget." },
+    { type: "h2", id: "bulk-bins", text: "4. Pre‑Portioned Snacks → Bulk Bins + Jar Storage" },
+    { type: "p", text: "Individually wrapped snacks create mountains of plastic and cardboard, and you pay extra for the packaging." },
+    { type: "p", text: "Budget zero‑waste approach:" },
+    { type: "ul", items: [
+      "Buy snacks like nuts, dried fruit, granola, or crackers in larger bags or bulk bins when possible.",
+      "Decant into glass jars or small containers at home for a pantry that looks organized and makes portioning easy.",
+      "Pack your own “snack boxes” in reusable containers for work or outings instead of single‑serve packets.",
+    ]},
+    { type: "p", text: "This reduces waste and lets you see exactly what you have so snacks don’t go stale in the back of a cabinet." },
+    { type: "h2", id: "leftovers", text: "5. “Random Leftovers” → Meal Planning & an “Eat Me First” Box" },
+    { type: "p", text: "Food waste is one of the most expensive kinds of waste—especially in small fridges where items get hidden fast." },
+    { type: "p", text: "Shift the system:" },
+    { type: "ul", items: [
+      "Add a simple meal plan for 3–5 core meals per week, reusing ingredients across dishes (for example, rice + beans show up twice).",
+      "Designate one shelf or bin in your fridge as “Eat Me First” for leftovers and foods that are close to expiring.",
+      "Plan one “leftover night” or “soup/stir‑fry night” each week to use up odds and ends.",
+    ]},
+    { type: "p", text: "These small habits are proven to cut household food waste significantly, which directly lowers grocery costs." },
+    { type: "h2", id: "compost", text: "6. One Big Trash Can → Trash + Countertop Compost" },
+    { type: "p", text: "If everything goes into one trash bag, you’re throwing away a lot of potential compost and recyclable material." },
+    { type: "p", text: "Budget‑friendly upgrade:" },
+    { type: "ul", items: [
+      "Add a small countertop compost container (or even a repurposed lidded jar) for veggie scraps, coffee grounds, and eggshells.",
+      "Look up local options: community gardens, farmers’ markets, or municipal programs that accept food scraps.",
+      "Keep a separate bin or bag for recyclables to keep them out of your regular trash.",
+    ]},
+    { type: "p", text: "You’ll see your trash volume drop quickly, even in a tiny apartment kitchen." },
+    { type: "h2", id: "pantry-zones", text: "7. Cardboard Chaos → Clear Jars & Simple Pantry Zones" },
+    { type: "p", text: "Messy pantries cause waste because food gets lost, expires, and gets purchased twice." },
+    { type: "p", text: "Zero‑waste pantry basics for small spaces:" },
+    { type: "ul", items: [
+      "Declutter: pull everything out, toss expired items, and donate unopened foods you won’t eat.",
+      "Create a few simple zones—breakfast, grains, snacks, baking, dinner basics—rather than overly complicated systems.",
+      "Move dry goods (rice, pasta, lentils, oats, snacks) into clear jars or stackable containers so you can see what you have at a glance.",
+      "Label jars with the food name and cooking instructions if you need them.",
+    ]},
+    { type: "p", text: "This approach works even for a single cabinet pantry and is one of the most recommended small‑pantry strategies right now." },
+    { type: "h2", id: "reusable-workhorses", text: "8. “Single‑Use Everything” → Reusable Kitchen Workhorses" },
+    { type: "p", text: "Many zero‑waste creators emphasize choosing a few high‑impact reusables you’ll actually use daily instead of buying every new eco gadget." },
+    { type: "p", text: "Consider focusing your budget on:" },
+    { type: "ul", items: [
+      "A sturdy dish brush with replaceable heads and a compostable sponge.",
+      "A set of baking mats so you don’t need parchment paper for most oven use.",
+      "One good chef’s knife and cutting board, instead of lots of specialty tools you rarely touch.",
+    ]},
+    { type: "p", text: "Each of these replaces a long list of disposables over time, which is why experienced zero‑waste kitchen folks recommend them." },
+    { type: "h2", id: "energy-tweaks", text: "9. Energy Hogs → Small Efficiency Tweaks" },
+    { type: "p", text: "A zero‑waste kitchen is also about using less energy, which saves money and emissions." },
+    { type: "p", text: "Easy, renter‑friendly changes:" },
+    { type: "ul", items: [
+      "Swap your most‑used kitchen bulb for an LED bulb—they use less electricity and last much longer.",
+      "When boiling water or cooking, use a lid and match pot size to burner so heat doesn’t escape.",
+      "Let hot food cool slightly before putting it in the fridge so it doesn’t make the appliance work as hard.",
+    ]},
+    { type: "p", text: "Energy‑efficiency guides highlight these as quick wins that don’t require buying new appliances." },
+    { type: "h2", id: "tight-budget", text: "How to Start if You’re on a Tight Budget" },
+    { type: "p", text: "If money is really tight, start with the swaps that cost almost nothing:" },
+    { type: "ul", items: [
+      "Do a waste audit and set up an “Eat Me First” shelf.",
+      "Switch to rags and cloths made from old clothes.",
+      "Declutter and re‑zone your pantry using jars and containers you already own.",
+      "Keep a small compost jar and look for a free drop‑off option.",
+    ]},
+    { type: "p", text: "As you see savings on groceries and disposables, you can reinvest a bit into higher‑quality reusables like silicone bags, beeswax wraps, and a better dish brush." },
+  ],
+},
+{
     slug: "small-apartment-eco-upgrade-checklist",
     title: "30-Day Small Apartment Eco-Upgrade Checklist (Under 100 Dollars)",
     excerpt:

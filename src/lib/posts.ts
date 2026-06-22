@@ -3,6 +3,7 @@ import postDecor from "@/assets/post-decor.jpg";
 import postChecklist from "@/assets/post-checklist.jpg";
 import zeroWastePin1 from "@/assets/ZeroWastePin1.png";
 import zeroWastePin2 from "@/assets/ZeroWastePin2.png";
+import zeroWastePin3 from "@/assets/ZeroWastePin3.png";
 
 export type CategorySlug = "zero-waste-kitchen" | "small-apartment-decor" | "eco-habits-budget";
 
@@ -53,6 +54,195 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+  slug: "zero-waste-pantry-organization-small-apartments",
+  title: "Zero Waste Pantry Organization for Small Apartments (Before & After)",
+  excerpt:
+    "Learn a simple step-by-step system to turn a cluttered small pantry into a zero waste, easy-to-use food hub.",
+  category: "zero-waste-kitchen",
+  date: "2026-06-22",
+  readingTime: "7 min read",
+  image: zeroWastePin3, // import this in your file
+  imageAlt:
+    "Before-and-after view of a small pantry cabinet transformed from cluttered boxes into neatly labeled glass jars and bins.",
+  tags: [
+    "zero waste pantry",
+    "small pantry organization",
+    "zero waste kitchen",
+    "pantry organization",
+    "small apartment kitchen"
+  ],
+  toc: [
+    { id: "why-zero-waste-pantry", label: "Why a Zero Waste Pantry Matters" },
+    { id: "step-1-declutter-audit", label: "Step 1: Declutter and Audit Your Pantry" },
+    { id: "step-2-create-zones", label: "Step 2: Create Simple Pantry Zones" },
+    { id: "step-3-jar-system", label: "Step 3: Build a Clear Jar Storage System" },
+    { id: "step-4-use-vertical-space", label: "Step 4: Use Vertical Space and Door Storage" },
+    { id: "step-5-label-rotate", label: "Step 5: Label, Rotate, and Prevent Waste" },
+    { id: "step-6-maintain", label: "Step 6: Maintenance Ritual for Tiny Pantries" }
+  ],
+  body: [
+    {
+      type: "p",
+      text:
+        "If your small pantry explodes every time you open the door, you’re not alone. Tiny cabinets and deep shelves make it easy to lose bags, buy duplicates, and toss food you forgot you had."
+    },
+    {
+      type: "p",
+      text:
+        "A zero waste pantry isn’t about aesthetic perfection—it’s about seeing what you own, using it up on time, and cutting plastic packaging wherever you reasonably can. This guide walks you through a simple before-and-after process designed specifically for small apartments and narrow pantries."
+    },
+
+    {
+      type: "h2",
+      id: "why-zero-waste-pantry",
+      text: "Why a Zero Waste Pantry Matters"
+    },
+    {
+      type: "p",
+      text:
+        "Most pantry waste comes from three things: food hidden behind other items, packaging that doesn’t reseal well, and overbuying because you can’t see what you already have. In a small space, every inch needs to do real work."
+    },
+    {
+      type: "p",
+      text:
+        "By organizing your pantry around visibility and access—clear containers, simple zones, and good rotation—you reduce food waste, save money on groceries, and make cooking feel easier instead of overwhelming."
+    },
+
+    {
+      type: "h2",
+      id: "step-1-declutter-audit",
+      text: "Step 1: Declutter and Audit Your Pantry"
+    },
+    {
+      type: "p",
+      text:
+        "Before any organizing happens, you need a clean slate. This is the true “before” moment of your zero waste pantry makeover."
+    },
+    {
+      type: "ul",
+      items: [
+        "Empty everything out. Pull all food, bins, and random items out of the cabinet or closet and place them on a table or counter.",
+        "Sort and check dates. Toss expired items, compost what you can, and set aside unopened non-perishables you know you won’t use to donate.",
+        "Combine duplicates. If you have three half-used bags of rice or pasta, combine them into one container so you can see your real inventory.",
+        "Wipe down shelves. Clean surfaces with a simple, low-tox cleaner so your “after” feels fresh and inviting."
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "step-2-create-zones",
+      text: "Step 2: Create Simple Pantry Zones"
+    },
+    {
+      type: "p",
+      text:
+        "You don’t need 20 micro-categories. A handful of clear zones is enough to keep a small pantry organized and easy to navigate."
+    },
+    {
+      type: "ul",
+      items: [
+        "Define 5–7 zones, such as: breakfast, grains and pasta, baking, snacks, cans and jars, spices and oils, and “backstock” or bulk.",
+        "Assign each shelf or section to one or two zones based on how often you reach for those items.",
+        "Keep everyday items like breakfast and snacks between shoulder and eye height, and backstock higher or lower where you don’t grab it as often."
+      ]
+    },
+    {
+      type: "p",
+      text:
+        "Zones make it obvious where things belong, which means less decision fatigue and less chance of food disappearing behind something else."
+    },
+
+    {
+      type: "h2",
+      id: "step-3-jar-system",
+      text: "Step 3: Build a Clear Jar Storage System"
+    },
+    {
+      type: "p",
+      text:
+        "Packaging is the enemy of a zero waste pantry: it hides what you have, goes stale faster, and adds visual clutter. The fix is to decant your most-used staples into clear, airtight containers."
+    },
+    {
+      type: "ul",
+      items: [
+        "Shop your home first. Gather clean glass jars and sturdy containers from pasta sauce, nut butters, pickles, and other foods.",
+        "Choose your priority items. Start with what you use weekly: rice, oats, pasta, lentils, beans, flour, sugar, nuts, and common snacks.",
+        "Decant dry goods into jars. Remove as many cardboard boxes and flimsy plastic bags as you can. Clear containers make it easy to see when you’re running low.",
+        "Group containers by height and type. Put taller jars in the back, shorter ones in front, or use risers so you can see every label at a glance."
+      ]
+    },
+    {
+      type: "p",
+      text:
+        "You don’t need a Pinterest-perfect matchy set on day one. Start with what you have, then slowly upgrade to a consistent set of square or stackable containers as your budget allows."
+    },
+
+    {
+      type: "h2",
+      id: "step-4-use-vertical-space",
+      text: "Step 4: Use Vertical Space and Door Storage"
+    },
+    {
+      type: "p",
+      text:
+        "Small pantries usually have more height than depth. The key is to turn that height into usable storage so nothing gets buried."
+    },
+    {
+      type: "ul",
+      items: [
+        "Add shelf risers. Tiered risers are perfect for cans and jars; they turn one deep shelf into two visible levels instead of a dark tunnel.",
+        "Use bins as drawers. Place loose items in bins or baskets that you can pull out like drawers to reach the back without digging.",
+        "Hang an over-the-door organizer. If you have a door, use it for spices, packets, snacks, or baking supplies—this is prime real estate in a tiny pantry.",
+        "Reserve floor space for bulk items. If your pantry has a floor area, keep heavier backstock there in lidded bins or buckets."
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "step-5-label-rotate",
+      text: "Step 5: Label, Rotate, and Prevent Waste"
+    },
+    {
+      type: "p",
+      text:
+        "A zero waste pantry is as much about how you use food as how you store it. Labels and rotation keep everything moving before it expires."
+    },
+    {
+      type: "ul",
+      items: [
+        "Label every container. Even if contents are obvious to you, labels help everyone else put things back correctly and prevent duplicate purchases.",
+        "Add dates where it matters. For homemade mixes or bulk items you rarely buy, add a small date on the bottom or back of the jar.",
+        "Use a simple rotation rule: oldest in front, newest in back. When you restock, slide older jars or boxes forward and put new items behind.",
+        "Create an “almost expired” spot. Keep a small bin for foods that need to be used soon and check it when planning meals or snacks."
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "step-6-maintain",
+      text: "Step 6: Maintenance Ritual for Tiny Pantries"
+    },
+    {
+      type: "p",
+      text:
+        "Once your zero waste pantry is set up, you only need a few minutes each week to keep it that way. A tiny, consistent ritual beats a massive reorganization every few months."
+    },
+    {
+      type: "ul",
+      items: [
+        "Weekly: spend 5 minutes pushing newer items to the back, moving older items forward, and returning stray products to their zones.",
+        "Monthly: do a quick mini-audit of one shelf, tossing anything expired and noting what you’re repeatedly not using.",
+        "Seasonally: wipe down shelves, rinse sticky jars, and reconsider zones if your cooking style or household needs have changed."
+      ]
+    },
+    {
+      type: "p",
+      text:
+        "Over time, your pantry will stop being a chaotic black hole and start working like a tiny, efficient store: you can see what you have, you use it before it goes bad, and you buy less packaging because reusable containers do most of the work."
+    }
+  ]
+},
+{
   slug: "low-waste-kitchen-tips-chef-habits",
   title: "Low Waste Kitchen Tips: 11 Habits Chefs Use to Cut Food Waste",
   excerpt:

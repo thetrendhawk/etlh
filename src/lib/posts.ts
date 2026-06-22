@@ -324,7 +324,8 @@ export const posts: Post[] = [
         "You don’t have to be perfect to make a big difference. Small, repeatable habits—planning around what you have, using up scraps, freezing early, and composting what’s left—can transform any kitchen into a low waste kitchen over time.[web:186][web:187][web:190][web:196]"
     }
   ]
-}{
+},
+{
   slug: "zero-waste-kitchen-budget-9-swaps",
   title: "Zero Waste Kitchen on a Budget: 9 Simple Swaps That Actually Save Money",
   excerpt:

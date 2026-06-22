@@ -78,12 +78,12 @@ function PostPage() {
         <h1 className="font-serif text-4xl md:text-6xl leading-tight mt-4 text-balance">{post.title}</h1>
         <p className="text-lg md:text-xl text-earth-900/70 mt-6 leading-relaxed">{post.excerpt}</p>
 
-        <div className="aspect-[9/16] mt-10 rounded-2xl overflow-hidden outline-1 -outline-offset-1 outline-black/5">
+        <div className="aspect-[2/3] mt-10 rounded-2xl overflow-hidden outline-1 -outline-offset-1 outline-black/5">
           <img
             src={post.image}
             alt={post.imageAlt}
-            width={1200}
-            height={750}
+            width={1024}
+            height={1536}
             className="w-full h-full object-cover"
           />
         </div>

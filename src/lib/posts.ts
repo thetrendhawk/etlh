@@ -4,7 +4,8 @@ import postChecklist from "@/assets/post-checklist.jpg";
 import zeroWastePin1 from "@/assets/ZeroWastePin1.png";
 import zeroWastePin2 from "@/assets/ZeroWastePin2.png";
 import zeroWastePin3 from "@/assets/ZeroWastePin3.png";
-import sustainablePin1 from "@/assets/SustainablePin1.png
+import sustainablePin1 from "@/assets/SustainablePin1.png";
+
 export type CategorySlug = "zero-waste-kitchen" | "small-apartment-decor" | "eco-habits-budget";
 
 export interface Category {
@@ -54,6 +55,145 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+  slug: "sustainable-living-apartment-easy-habits",
+  title: "Sustainable Living in an Apartment: 10 Easy Habits That Don’t Feel Extreme",
+  excerpt:
+    "Renting or in a tiny space? Use these 10 easy apartment-friendly habits to live more sustainably and save money.",
+  category: "eco-habits-budget",
+  date: "2026-06-22",
+  readingTime: "6 min read",
+  image: sustainablePin1, // import this in your file
+  imageAlt:
+    "Cozy apartment living room with plants, natural light, and simple eco-friendly decor.",
+  tags: [
+    "sustainable living apartment",
+    "eco friendly apartment",
+    "budget green living",
+    "small space living",
+    "sustainable habits"
+  ],
+  toc: [
+    { id: "why-apartment-sustainability", label: "Why Sustainable Apartment Living Matters" },
+    { id: "energy-habits", label: "Easy Energy-Saving Habits" },
+    { id: "water-habits", label: "Simple Water-Saving Habits" },
+    { id: "reusables-and-waste", label: "Reusables and Everyday Waste" },
+    { id: "buying-better-on-a-budget", label: "Buying Better on a Budget" }
+  ],
+  body: [
+    {
+      type: "p",
+      text:
+        "You don’t need a backyard, solar panels, or a full renovation to live more sustainably. Most of the impact in an apartment comes from your daily habits: how you use energy, water, and stuff."
+    },
+    {
+      type: "p",
+      text:
+        "The 10 habits below are designed for renters and small apartments. They’re low-cost, realistic, and focused on saving money as well as reducing your environmental footprint."
+    },
+
+    {
+      type: "h2",
+      id: "why-apartment-sustainability",
+      text: "Why Sustainable Apartment Living Matters"
+    },
+    {
+      type: "p",
+      text:
+        "Apartments are often more efficient than single-family homes because they share walls, but there’s still a lot you control: electricity, heating and cooling, water use, and what you buy and throw away."
+    },
+    {
+      type: "p",
+      text:
+        "Shifting a few daily habits can trim your utility bills, reduce waste, and make your space feel calmer and healthier—all without needing permission from a landlord."
+    },
+
+    {
+      type: "h2",
+      id: "energy-habits",
+      text: "Easy Energy-Saving Habits"
+    },
+    {
+      type: "p",
+      text:
+        "Energy is usually the biggest footprint for apartment living, and small adjustments add up quickly."
+    },
+    {
+      type: "ul",
+      items: [
+        "Use natural light first. During the day, open curtains and blinds and turn off overhead lights whenever possible.",
+        "Swap your most-used bulbs for LEDs. They use far less energy and last years longer than older bulbs.",
+        "Set small thermostat shifts. In winter, wear layers and lower the thermostat a couple of degrees; in summer, use fans and close curtains during the hottest hours before blasting the AC.",
+        "Unplug “vampire” electronics. Chargers, consoles, and small appliances still draw power when plugged in. Use a power strip you can switch off when not in use."
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "water-habits",
+      text: "Simple Water-Saving Habits"
+    },
+    {
+      type: "p",
+      text:
+        "Water savings are one of the easiest ways to live more sustainably in an apartment and lower your monthly bills."
+    },
+    {
+      type: "ul",
+      items: [
+        "Shorten showers by a few minutes. Set a playlist or timer and aim to finish before the second song ends.",
+        "Turn off the tap while brushing teeth, shaving, or scrubbing dishes.",
+        "Only run full loads. Wait until the dishwasher or laundry bin is genuinely full before running a cycle.",
+        "Report leaks quickly. A dripping faucet or constantly running toilet wastes more water than most people realize."
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "reusables-and-waste",
+      text: "Reusables and Everyday Waste"
+    },
+    {
+      type: "p",
+      text:
+        "Waste reduction in an apartment often comes down to swapping single-use items for reusables you actually enjoy using."
+    },
+    {
+      type: "ul",
+      items: [
+        "Carry a reusable water bottle and coffee cup so you’re not buying bottled drinks or disposable cups.",
+        "Keep a set of reusable shopping bags and produce bags near your door or in your backpack.",
+        "Swap paper towels and napkins for washable cloths made from old T-shirts or dish towels.",
+        "Set up a small recycling station and, if available in your area, a countertop compost container for food scraps."
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "buying-better-on-a-budget",
+      text: "Buying Better on a Budget"
+    },
+    {
+      type: "p",
+      text:
+        "Sustainable living isn’t about buying a whole new set of “eco” products. It’s about using what you have longer and choosing better-quality replacements when you actually need them."
+    },
+    {
+      type: "ul",
+      items: [
+        "Use what you own first. Before buying organization bins or decor, ask if something you already have could do the job.",
+        "Shop secondhand for furniture and decor. Thrift stores, online marketplaces, and community groups often have great pieces at a fraction of the cost.",
+        "Choose natural materials when replacing items. Prioritize glass, wood, metal, and natural textiles over flimsy plastic that breaks quickly.",
+        "Adopt a 24-hour rule for non-essential buys. Wait a day before purchasing and see if you still want it. Often, the impulse fades and you save money and resources."
+      ]
+    },
+    {
+      type: "p",
+      text:
+        "You don’t have to change everything overnight. Pick two or three habits from this list, build them into your routine, and then layer on more as they become second nature."
+    }
+  ]
+},
+{
   slug: "zero-waste-pantry-organization-small-apartments",
   title: "Zero Waste Pantry Organization for Small Apartments (Before & After)",
   excerpt:

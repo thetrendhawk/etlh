@@ -4,7 +4,7 @@ import postChecklist from "@/assets/post-checklist.jpg";
 import zeroWastePin1 from "@/assets/ZeroWastePin1.png";
 import zeroWastePin2 from "@/assets/ZeroWastePin2.png";
 import zeroWastePin3 from "@/assets/ZeroWastePin3.png";
-
+import sustainablePin1 from "@/assets/SustainablePin1.png
 export type CategorySlug = "zero-waste-kitchen" | "small-apartment-decor" | "eco-habits-budget";
 
 export interface Category {

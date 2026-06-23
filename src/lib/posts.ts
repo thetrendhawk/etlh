@@ -5,6 +5,8 @@ import zeroWastePin1 from "@/assets/ZeroWastePin1.png";
 import zeroWastePin2 from "@/assets/ZeroWastePin2.png";
 import zeroWastePin3 from "@/assets/ZeroWastePin3.png";
 import sustainablePin1 from "@/assets/SustainablePin1.png";
+import sustainablePin2 from "@/assets/SustainablePin2.png";
+import sustainablePin3 from "@/assets/SustainablePin3.png";
 
 export type CategorySlug = "zero-waste-kitchen" | "small-apartment-decor" | "eco-habits-budget";
 
@@ -55,6 +57,242 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+  slug: "low-waste-lifestyle-tips-beginners",
+  title: "15 Low Waste Lifestyle Tips You Can Start This Week",
+  excerpt:
+    "Beginner-friendly, low-pressure tips to cut everyday trash, reduce plastic, and live a little lighter—without perfection.",
+  category: "eco-habits-budget",
+  date: "2026-06-22",
+  readingTime: "6 min read",
+  image: sustainablePin3, // import this in your file
+  imageAlt:
+    "Collection of reusable items including jars, cloths, a water bottle, and a canvas bag on a kitchen counter.",
+  tags: [
+    "low waste lifestyle",
+    "zero waste tips",
+    "eco habits",
+    "reduce waste",
+    "budget eco living"
+  ],
+  toc: [
+    { id: "mindset-first", label: "A Low Waste Mindset (Not Perfection)" },
+    { id: "home-swaps", label: "Home and Cleaning Swaps" },
+    { id: "on-the-go-habits", label: "On-the-Go and Shopping Habits" },
+    { id: "food-and-kitchen", label: "Food and Kitchen Tips" }
+  ],
+  body: [
+    {
+      type: "p",
+      text:
+        "A low waste lifestyle isn’t about fitting all your trash into a tiny jar. It’s about reducing unnecessary waste in ways that fit your real life, your budget, and your space."
+    },
+    {
+      type: "p",
+      text:
+        "These 15 tips are simple, beginner-friendly ideas you can start this week. Pick a few that feel doable, then add more as they become habits."
+    },
+
+    {
+      type: "h2",
+      id: "mindset-first",
+      text: "A Low Waste Mindset (Not Perfection)"
+    },
+    {
+      type: "p",
+      text:
+        "Before you change what you buy, it helps to change how you think about stuff. Low waste living is less about trendy products and more about using what you already have."
+    },
+    {
+      type: "ul",
+      items: [
+        "Use it up first. Finish the bottles, bags, and products you already own before switching to new “eco” versions.",
+        "Buy less. Ask yourself if you truly need something before you add it to your cart.",
+        "Choose durable over disposable. When you do buy, look for items that can be repaired, refilled, or reused many times."
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "home-swaps",
+      text: "Home and Cleaning Swaps"
+    },
+    {
+      type: "p",
+      text:
+        "Your home is where you have the most control, so it’s a great place to start reducing waste."
+    },
+    {
+      type: "ul",
+      items: [
+        "Trade paper towels for cloths. Cut old T-shirts or towels into rags for cleaning and use cloth napkins at meals.",
+        "Switch to concentrated or refillable cleaners. A single multipurpose cleaner or refill system can replace multiple plastic bottles.",
+        "Choose bar soap instead of bottled soap when possible. Bars often come in minimal or recyclable packaging.",
+        "Swap plastic scrubbers for compostable brushes or natural fiber cloths when you’re ready to replace them."
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "on-the-go-habits",
+      text: "On-the-Go and Shopping Habits"
+    },
+    {
+      type: "p",
+      text:
+        "Small changes to how you shop and move through your day can dramatically cut single-use packaging."
+    },
+    {
+      type: "ul",
+      items: [
+        "Carry a simple low waste kit: a reusable bottle, a tote bag, and a set of utensils wrapped in a napkin or cloth.",
+        "Keep reusable bags in your car or by the door so you don’t forget them on grocery runs.",
+        "Say no to freebies and samples you don’t actually want. Most end up as clutter and then trash.",
+        "Buy secondhand when you can—clothes, furniture, and household items often last just as long at a fraction of the price and packaging."
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "food-and-kitchen",
+      text: "Food and Kitchen Tips"
+    },
+    {
+      type: "p",
+      text:
+        "Food and packaging are big sources of household waste. A few simple habits help you waste less and save more."
+    },
+    {
+      type: "ul",
+      items: [
+        "Store leftovers in glass jars or reusable containers instead of single-use plastic bags.",
+        "Plan a few meals and shop with a list to avoid impulse buys and food you won’t use.",
+        "Set up a small “eat me first” area in your fridge or pantry for foods that need to be used soon.",
+        "Keep a small container for compostable scraps like vegetable peels and coffee grounds, and explore local composting options when you’re ready."
+      ]
+    },
+    {
+      type: "p",
+      text:
+        "You don’t have to do all 15 tips at once. Choose the two or three that feel easiest to start today—like carrying your own bottle, using cloths instead of paper towels, or saying no to freebies—and you’ll already be living a lower waste lifestyle than you were last week."
+    }
+  ]
+},
+{
+  slug: "easy-sustainable-habits-on-a-budget",
+  title: "21 Easy Sustainable Habits on a Budget (Perfect for Renters)",
+  excerpt:
+    "Use these 21 practical, low-cost habits to make your daily life more sustainable without wrecking your budget.",
+  category: "eco-habits-budget",
+  date: "2026-06-22",
+  readingTime: "7 min read",
+  image: sustainablePin2, // import this in your file
+  imageAlt:
+    "Flat lay of reusable bottle, cloth bag, LED bulb, and notebook on a wooden table.",
+  tags: [
+    "sustainable habits",
+    "budget sustainable living",
+    "eco friendly habits",
+    "apartment living",
+    "green on a budget"
+  ],
+  toc: [
+    { id: "start-small", label: "Start Small and Stack Habits" },
+    { id: "home-energy-habits", label: "Home Energy Habits" },
+    { id: "water-and-cleaning", label: "Water and Cleaning Swaps" },
+    { id: "shopping-and-reusables", label: "Shopping and Reusable Swaps" },
+    { id: "food-and-waste", label: "Food and Waste-Reducing Habits" }
+  ],
+  body: [
+    {
+      type: "p",
+      text:
+        "Living more sustainably doesn’t require a huge budget or a minimalist-perfect lifestyle. Most of the big wins come from simple, repeatable habits that cost little or nothing to start."
+    },
+    {
+      type: "p",
+      text:
+        "These 21 ideas are designed for renters, students, and small-apartment dwellers who want to reduce their impact while keeping things realistic and affordable."
+    },
+
+    {
+      type: "h2",
+      id: "start-small",
+      text: "Start Small and Stack Habits"
+    },
+    {
+      type: "p",
+      text:
+        "Trying to change everything at once usually leads to burnout. Instead, choose one or two habits from each section, get comfortable with them, and then add more."
+    },
+
+    {
+      type: "h2",
+      id: "home-energy-habits",
+      text: "Home Energy Habits"
+    },
+    {
+      type: "ul",
+      items: [
+        "Switch to LED bulbs in your most-used fixtures first. They use less energy and last longer than traditional bulbs.",
+        "Turn off lights and fans whenever you leave a room, and rely on natural light as much as possible during the day.",
+        "Use power strips for electronics and flip them off at night to stop phantom power drain from chargers, TVs, and game consoles.",
+        "In winter, put on socks and a sweater before turning up the heat; in summer, try fans and closing blinds during peak sun hours before lowering the thermostat."
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "water-and-cleaning",
+      text: "Water and Cleaning Swaps"
+    },
+    {
+      type: "ul",
+      items: [
+        "Shorten showers by two or three minutes and turn off the tap while brushing your teeth or shaving.",
+        "Only run the dishwasher and washing machine with full loads to make each cycle count.",
+        "Try line drying some loads of laundry instead of using the dryer every time.",
+        "Make a simple DIY all-purpose cleaner with vinegar, water, and a little dish soap or essential oil instead of buying multiple bottled cleaners."
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "shopping-and-reusables",
+      text: "Shopping and Reusable Swaps"
+    },
+    {
+      type: "ul",
+      items: [
+        "Carry a reusable water bottle and coffee cup so you’re not constantly buying bottled drinks or disposable cups.",
+        "Keep reusable shopping bags and produce bags by the door or in your backpack so you actually remember to bring them.",
+        "Choose products with less packaging when you can, and avoid single-use items like plastic cutlery when alternatives are easy.",
+        "Buy secondhand whenever possible—furniture, clothing, and household items are often cheaper and more sustainable used than buying new."
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "food-and-waste",
+      text: "Food and Waste-Reducing Habits"
+    },
+    {
+      type: "ul",
+      items: [
+        "Plan a few meals each week and shop with a list so you’re less likely to overbuy and waste food.",
+        "Store leftovers in clear containers so you can see what needs to be eaten first.",
+        "Dedicate one shelf in your fridge or pantry as the “eat me first” zone for foods close to their date.",
+        "Swap paper towels for cloth napkins and rags for most everyday spills and cleaning.",
+        "Start collecting compostable food scraps in a small container and look for local drop-off or composting options when you’re ready."
+      ]
+    },
+    {
+      type: "p",
+      text:
+        "Pick two or three habits from this list that feel easiest right now and build from there. Over time, these small choices stack into a lifestyle that’s better for your bank account and the planet."
+    }
+  ]
+},
+{
   slug: "sustainable-living-apartment-easy-habits",
   title: "Sustainable Living in an Apartment: 10 Easy Habits That Don’t Feel Extreme",
   excerpt:

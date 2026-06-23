@@ -7,6 +7,13 @@ import zeroWastePin3 from "@/assets/ZeroWastePin3.png";
 import sustainablePin1 from "@/assets/SustainablePin1.png";
 import sustainablePin2 from "@/assets/SustainablePin2.png";
 import sustainablePin3 from "@/assets/SustainablePin3.png";
+import decorPin1 from "@/assets/DecorPin1.png";
+import decorPin2 from "@/assets/DecorPin2.png";
+import decorPin3 from "@/assets/DecorPin3.png";
+
+
+
+
 
 export type CategorySlug = "zero-waste-kitchen" | "small-apartment-decor" | "eco-habits-budget";
 
@@ -57,6 +64,383 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+  slug: "sustainable-tiny-living-room-layout-ideas",
+  title: "Sustainable Tiny Living Room: Layout and Styling Ideas for Small Spaces",
+  excerpt:
+    "Make your tiny living room feel bigger, cozier, and more sustainable with smart layouts, compact furniture, and eco-friendly decor.",
+  category: "small-apartment-decor",
+  date: "2026-06-22",
+  readingTime: "7 min read",
+  image: decorPin3, // import this in your file
+  imageAlt:
+    "Tiny living room with a small sofa, natural rug, plants, and wall-mounted shelves.",
+  tags: [
+    "sustainable tiny living room",
+    "small living room ideas",
+    "small space eco decor",
+    "eco friendly living room"
+  ],
+  toc: [
+    { id: "tiny-room-principles", label: "Key Principles for Tiny Sustainable Living Rooms" },
+    { id: "layout-ideas", label: "Three Layout Ideas That Actually Work" },
+    { id: "eco-furniture-choices", label: "Eco-Friendly Furniture and Material Choices" },
+    { id: "styling-tips", label: "Styling Tips: Rugs, Plants, and Wall Space" }
+  ],
+  body: [
+    {
+      type: "p",
+      text:
+        "In a tiny living room, every piece you bring in has to earn its place. When you layer sustainability on top—natural materials, secondhand finds, low-waste choices—the options can feel overwhelming."
+    },
+    {
+      type: "p",
+      text:
+        "The ideas below keep things simple. You’ll see how to arrange furniture so the room feels open, where to invest in sustainable pieces, and how to style with plants and textiles so the space feels cozy instead of cluttered."
+    },
+
+    {
+      type: "h2",
+      id: "tiny-room-principles",
+      text: "Key Principles for Tiny Sustainable Living Rooms"
+    },
+    {
+      type: "ul",
+      items: [
+        "Prioritize function over filler. Start with what you truly need: seating, a surface, storage, and light.",
+        "Keep sightlines clear. Avoid tall, bulky pieces that block windows or pathways.",
+        "Choose fewer, better items. A small number of well-made, natural pieces beats a room full of cheap decor.",
+        "Let your materials work for you. Wood, natural textiles, and plants add warmth and texture without needing a lot of extra stuff."
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "layout-ideas",
+      text: "Three Layout Ideas That Actually Work"
+    },
+    {
+      type: "p",
+      text:
+        "Every room is different, but these three layouts work well in most small living rooms and studios."
+    },
+    {
+      type: "ul",
+      items: [
+        "Wall-Hugging Sofa + Floating Coffee Table: Place a compact sofa along the longest wall, with a small coffee table centered on a rug and a media console opposite. This creates a clear walkway along one side of the room.",
+        "Corner Conversation Layout: Position the sofa in a corner facing diagonally into the room, add a small chair or pouf at a 90-degree angle, and keep a lightweight table in the middle.",
+        "Studio Zone Layout: In a studio, use a rug and sofa to visually zone the living area near the window, and keep taller items like shelving against the wall to avoid blocking light."
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "eco-furniture-choices",
+      text: "Eco-Friendly Furniture and Material Choices"
+    },
+    {
+      type: "p",
+      text:
+        "Sustainable furniture in a tiny living room doesn’t have to be expensive. It just needs to be durable, right-sized, and made from materials that age well."
+    },
+    {
+      type: "ul",
+      items: [
+        "Look for compact sofas and chairs with visible legs and slim arms to keep the room feeling open.",
+        "Choose solid wood, bamboo, or metal frames when possible—they’re sturdy and can often be repaired instead of replaced.",
+        "Use a coffee table with built-in storage or a lower shelf so it doubles as a place for baskets and boxes.",
+        "Shop secondhand for side tables, shelves, and accent chairs; these pieces are often easy to refresh with a clean and a new finish."
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "styling-tips",
+      text: "Styling Tips: Rugs, Plants, and Wall Space"
+    },
+    {
+      type: "p",
+      text:
+        "Once your layout and furniture are set, styling pulls everything together. In a tiny room, a few thoughtful choices go a long way."
+    },
+    {
+      type: "ul",
+      items: [
+        "Anchor the seating area with a light-colored rug sized so the front legs of the sofa sit on it; this makes the space feel more intentional.",
+        "Bring in plants of varying heights—one floor plant, a tabletop plant, and a trailing plant on a shelf—for texture and a sense of life.",
+        "Use wall-mounted shelves instead of bulky bookcases to display books, baskets, and a few decor pieces.",
+        "Hang one or two larger art pieces instead of many small frames to avoid visual clutter on the walls.",
+        "Keep surfaces as clear as possible. Use trays or small bowls to corral remotes and small items so they don’t scatter."
+      ]
+    },
+    {
+      type: "p",
+      text:
+        "Your tiny living room doesn’t have to feel cramped or disposable. With a smart layout, a few sustainable furniture choices, and light, plant-filled styling, it can be the calm, cozy center of your small apartment."
+    }
+  ]
+},
+{
+  slug: "eco-friendly-small-apartment-weekend-checklist",
+  title: "Eco Friendly Small Apartment Checklist You Can Tackle in a Weekend",
+  excerpt:
+    "Use this weekend checklist to turn your small apartment into a more eco friendly space with realistic, low-cost changes.",
+  category: "small-apartment-decor",
+  date: "2026-06-22",
+  readingTime: "6 min read",
+  image: decorPin2, // import this in your file
+  imageAlt:
+    "Cozy small apartment with plants, natural textiles, and warm lighting.",
+  tags: [
+    "eco friendly small apartment",
+    "small space eco decor",
+    "green apartment living",
+    "budget eco habits"
+  ],
+  toc: [
+    { id: "how-to-use-checklist", label: "How to Use This Checklist" },
+    { id: "light-and-air", label: "Light, Air, and Energy" },
+    { id: "textiles-and-materials", label: "Textiles, Materials, and Decor" },
+    { id: "kitchen-and-bath", label: "Kitchen and Bathroom Habits" }
+  ],
+  body: [
+    {
+      type: "p",
+      text:
+        "You don’t have to change everything about your home to make it more eco friendly. A few intentional upgrades—especially in a small apartment—can dramatically shift how your space feels and how much energy and waste you produce."
+    },
+    {
+      type: "p",
+      text:
+        "This checklist is designed to be doable in a weekend. Work through each section at your own pace, and pick the items that fit your budget and lifestyle."
+    },
+
+    {
+      type: "h2",
+      id: "how-to-use-checklist",
+      text: "How to Use This Checklist"
+    },
+    {
+      type: "ul",
+      items: [
+        "Do a quick walk-through of your apartment and note what you already have: plants, natural fabrics, reusable items, and good light.",
+        "Choose 2–3 upgrades from each section to focus on this weekend instead of trying to do everything at once.",
+        "Plan a small budget for anything you truly need to buy, and look for secondhand or low-waste options first."
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "light-and-air",
+      text: "Light, Air, and Energy"
+    },
+    {
+      type: "ul",
+      items: [
+        "Swap your most-used bulbs for warm LED bulbs to cut energy use and create a softer, more inviting light.",
+        "Use natural light as much as possible by opening curtains and keeping window sills clear of heavy clutter.",
+        "Add one or two lamps with fabric or paper shades to reduce reliance on harsh overhead lighting.",
+        "On cooler days, open windows to air out the apartment instead of relying only on fans or AC.",
+        "Unplug chargers and electronics when not in use, or connect them to a single power strip you can switch off."
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "textiles-and-materials",
+      text: "Textiles, Materials, and Decor"
+    },
+    {
+      type: "ul",
+      items: [
+        "Swap at least one synthetic rug or throw blanket for a natural fiber option like cotton, jute, or wool when you’re ready to replace it.",
+        "Add plants—real or low-maintenance—to bring life and better air quality into your space.",
+        "Use covers or throws to refresh existing furniture instead of buying new pieces right away.",
+        "Choose decor and storage made of wood, glass, or metal over cheap plastics where possible.",
+        "Declutter surfaces so the pieces you keep can shine; fewer, better items are more sustainable than constant replacement."
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "kitchen-and-bath",
+      text: "Kitchen and Bathroom Habits"
+    },
+    {
+      type: "ul",
+      items: [
+        "Switch from paper towels to cloths for most everyday cleaning, keeping a small stack near the sink.",
+        "Use refillable or concentrated cleaning products to cut down on plastic bottles and packaging.",
+        "Store dry goods like rice, pasta, and snacks in glass jars or reusable containers instead of flimsy bags.",
+        "In the bathroom, consider bar soap or refillable bottles to reduce single-use plastic.",
+        "Keep a small bin or jar for compostable scraps like coffee grounds and vegetable peels if you have access to composting."
+      ]
+    },
+    {
+      type: "p",
+      text:
+        "You don’t have to complete every item to call your apartment eco friendly. Even a few of these changes can make your space cleaner, calmer, and lighter on the planet."
+    }
+  ]
+},
+{
+  slug: "sustainable-small-apartment-decor-before-after",
+  title: "Sustainable Small Apartment Decor: Before & After on a Budget",
+  excerpt:
+    "Walk through a real before-and-after transformation that turns a cluttered small apartment into a calm, sustainable space for under $300.",
+  category: "small-apartment-decor",
+  date: "2026-06-22",
+  readingTime: "7 min read",
+  image: decorPin1, // import this in your file
+  imageAlt:
+    "Before-and-after photos of a small apartment living room styled with sustainable decor.",
+  tags: [
+    "sustainable small apartment decor",
+    "small space eco decor",
+    "tiny apartment makeover",
+    "budget eco home decor"
+  ],
+  toc: [
+    { id: "the-before", label: "The Before: What Wasn’t Working" },
+    { id: "goals-budget", label: "Goals and Budget for the Makeover" },
+    { id: "step-1-declutter-layout", label: "Step 1: Declutter and Rethink Layout" },
+    { id: "step-2-key-furniture", label: "Step 2: Choose Key Sustainable Furniture Pieces" },
+    { id: "step-3-textiles-lighting", label: "Step 3: Textiles and Lighting for a Cozy Feel" },
+    { id: "step-4-plants-storage", label: "Step 4: Plants, Storage, and Final Details" }
+  ],
+  body: [
+    {
+      type: "p",
+      text:
+        "This small apartment living room started out as a typical rental: harsh overhead lighting, random furniture, and visible plastic storage that made the space feel crowded and chaotic."
+    },
+    {
+      type: "p",
+      text:
+        "By focusing on a few sustainable choices—thrifted furniture, natural materials, better storage, and plants—we turned it into a calm, eco-conscious space on a budget under $300."
+    },
+
+    {
+      type: "h2",
+      id: "the-before",
+      text: "The Before: What Wasn’t Working"
+    },
+    {
+      type: "p",
+      text:
+        "The room had decent natural light and a good layout, but several issues made it feel smaller than it was: a bulky dark sofa, scattered plastic drawers, no clear focal point, and a tangle of cords around the TV."
+    },
+    {
+      type: "ul",
+      items: [
+        "Mismatched, low-quality furniture that took up valuable floor space.",
+        "No defined living zone, so the eye didn’t know where to rest.",
+        "Plastic storage bins stacked in corners, adding visual and physical clutter.",
+        "Only overhead lighting, which made the room feel flat and harsh at night."
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "goals-budget",
+      text: "Goals and Budget for the Makeover"
+    },
+    {
+      type: "p",
+      text:
+        "The goal was not perfection; it was a livable, sustainable reset. We set a hard budget of $300 and decided to prioritize comfort, function, and lower-waste choices."
+    },
+    {
+      type: "ul",
+      items: [
+        "Keep as much as possible out of the landfill by selling, donating, or repurposing old pieces.",
+        "Buy secondhand where we could, and choose natural or long-lasting materials.",
+        "Create a layout that made the room feel open, with clear walking paths and a cozy seating zone."
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "step-1-declutter-layout",
+      text: "Step 1: Declutter and Rethink Layout"
+    },
+    {
+      type: "p",
+      text:
+        "We removed everything that wasn’t essential, then brought items back with intention. This alone made the room feel 30% bigger."
+    },
+    {
+      type: "ul",
+      items: [
+        "Pulled all loose items and extra storage out of the living room and sorted into keep, donate, and sell piles.",
+        "Shifted the seating area so the sofa faced the window and a single focal wall, instead of the TV dominating the room.",
+        "Left open space near the entry to avoid the “wall of furniture” effect when walking in."
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "step-2-key-furniture",
+      text: "Step 2: Choose Key Sustainable Furniture Pieces"
+    },
+    {
+      type: "p",
+      text:
+        "Instead of buying a full set of new furniture, we identified the two pieces that would make the biggest difference: a smaller sofa and a coffee table with storage."
+    },
+    {
+      type: "ul",
+      items: [
+        "Replaced the bulky dark sofa with a compact, secondhand loveseat in a light neutral fabric.",
+        "Found a thrifted wooden coffee table with a lower shelf for books and baskets, doubling as hidden storage.",
+        "Moved an existing shelving unit to a single wall and used it as a minimal media and decor center instead of scattered surfaces."
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "step-3-textiles-lighting",
+      text: "Step 3: Textiles and Lighting for a Cozy Feel"
+    },
+    {
+      type: "p",
+      text:
+        "Textiles and lighting do most of the visual work in a small living room. We swapped a few key pieces to make the room feel warm and calm instead of busy."
+    },
+    {
+      type: "ul",
+      items: [
+        "Added a light, natural fiber rug to anchor the seating area and reflect light.",
+        "Swapped an old plastic floor lamp for a warm-toned lamp with a linen shade, and used a soft, energy-efficient bulb.",
+        "Layered in a couple of neutral cushion covers and a cotton throw blanket instead of buying new pillows."
+      ]
+    },
+
+    {
+      type: "h2",
+      id: "step-4-plants-storage",
+      text: "Step 4: Plants, Storage, and Final Details"
+    },
+    {
+      type: "p",
+      text:
+        "Finally, we brought in green life and smarter storage so daily clutter had a home and surfaces didn’t fill up again right away."
+    },
+    {
+      type: "ul",
+      items: [
+        "Placed two medium plants near the window and a small one on the coffee table to bring in color and texture.",
+        "Used lidded baskets on the bottom shelf of the coffee table and shelving unit to hide remotes, cables, and misc items.",
+        "Hung one simple piece of art above the sofa instead of multiple small frames to keep the wall clean and calm."
+      ]
+    },
+    {
+      type: "p",
+      text:
+        "The final result is a living room that feels larger, brighter, and more intentional—built from a mix of secondhand finds, natural materials, and smarter storage instead of a cart full of brand-new decor."
+    }
+  ]
+},
+{
   slug: "low-waste-lifestyle-tips-beginners",
   title: "15 Low Waste Lifestyle Tips You Can Start This Week",
   excerpt:

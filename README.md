@@ -1,67 +1,51 @@
 # Eco Tiny Living Hub
 
-A sustainable living blog for renters in small apartments.
+Eco Tiny Living Hub (ETLH) is the organizational home for the publication and its website. The repository stores the live website code, editorial documentation, production templates, topic content packages, and reusable publication assets.
 
-## Editing content (no code required for most updates)
+## Repository Structure
 
-All blog posts and categories live in **`src/lib/posts.ts`**.
+- `src/` - Website application code, routes, components, styles, and current post data.
+- `public/` - Public website files served by the application.
+- `docs/` - Operating, editorial, research, design, publishing, decision, and glossary documentation.
+- `content/` - Publication content packages. Each topic gets its own folder with research, briefs, channel drafts, revisions, and downloads.
+- `templates/` - Reusable production templates for articles, research dossiers, briefs, social posts, newsletters, video, and revision logs.
+- `assets/` - Production assets, brand assets, generated images, mockups, icons, logos, and future reusable visuals.
 
-### Add a new blog post
+## Production Workflow
 
-1. Open `src/lib/posts.ts`.
-2. Drop a new image into `src/assets/` and import it at the top of the file:
-   ```ts
-   import myImage from "@/assets/my-image.jpg";
-   ```
-3. Add a new entry to the `posts` array. Copy an existing post as a template and fill in:
-   - `slug` — URL slug (lowercase, hyphens), e.g. `"my-new-post"` → `/blog/my-new-post`
-   - `title`, `excerpt`, `category` (must match a category slug below)
-   - `date` (ISO format: `"2025-06-20"`)
-   - `image`, `imageAlt`, `tags`
-   - `toc` — table of contents entries (`id` must match an `id` on a heading in `body`)
-   - `body` — array of content blocks: `p` (paragraph), `h2`, `h3`, `ul` (bullet list)
+1. Start a new topic folder in `content/` using the next ETLH identifier.
+2. Build research notes, the content brief, article draft, channel-specific drafts, and revision history inside that topic folder.
+3. Use `templates/` as the starting point for recurring production artifacts.
+4. Record durable operating decisions in `docs/06_Decision_Log.md`.
+5. Keep website implementation changes separate from publication planning and production files.
 
-That's it. The post automatically appears on the homepage, blog index, and its category page.
+## Documentation Philosophy
 
-### Edit a category
+Documentation should be practical, concise, and operational. Manuals in `docs/` should explain how ETLH works, how decisions are made, and how future contributors can produce consistent publication work without guessing.
 
-Edit the `categories` array in the same file. Slugs are part of the URL — change with care.
+## Versioning Philosophy
 
-## Edit page text
+Git is the source of truth for both website code and publication infrastructure. Meaningful changes should be committed with clear messages so editorial, research, design, and implementation decisions remain traceable over time.
 
-- Home: `src/routes/index.tsx`
-- Blog index: `src/routes/blog.index.tsx`
-- Blog post template: `src/routes/blog.$slug.tsx`
-- Category template: `src/routes/category.$slug.tsx`
-- About: `src/routes/about.tsx`
-- Resources: `src/routes/resources.tsx`
-- Contact: `src/routes/contact.tsx`
+## Git Workflow
 
-## Edit the navigation, header, footer
+- Work from the current main branch unless a separate branch is needed for a larger change.
+- Keep commits focused on one purpose.
+- Do not commit generated deployment output such as `.vercel/`.
+- Do not mix unrelated website, documentation, and content changes in the same commit when they can be separated.
 
-- `src/components/SiteHeader.tsx`
-- `src/components/SiteFooter.tsx`
+## Website Code
 
-## Connect the email opt-in to your email service
+Website code lives in `src/`, with static public files in `public/`. Existing routes, styling, and application behavior should be changed only when the website itself is intentionally being updated.
 
-The email opt-in form in `src/components/EmailOptIn.tsx` is already connected to **Mailchimp** via a client-side JSONP call. If you want to switch providers, replace the `subscribeViaJsonp` function with an API call to your new provider.
+## Publication Files
 
-The contact form in `src/routes/contact.tsx` still uses a placeholder — wire it to your backend or a form service like Formspree.
+Publication planning, research, topic packages, templates, and reusable production assets live in `docs/`, `content/`, `templates/`, and `assets/`.
 
-## Deploy to Vercel
+## Build
 
-See [`VERCEL_DEPLOY.md`](VERCEL_DEPLOY.md) for step-by-step instructions.
+Use the project scripts in `package.json` for local verification:
 
-
-## Design system
-
-Colors and fonts are defined in `src/styles.css`. The palette:
-- `earth-100` — background (warm off-white)
-- `earth-900` — text (deep charcoal)
-- `moss` — primary green accent
-- `sand`, `clay` — warm secondary accents
-
-## SEO
-
-Every page has its own `title`, `description`, and Open Graph tags via the `head()`
-function in its route file. The sitemap auto-includes all posts and categories.
+```sh
+npm run build
+```

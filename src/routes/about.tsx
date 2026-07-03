@@ -8,9 +8,17 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About — Eco Tiny Living Hub" },
-      { name: "description", content: "Meet the creator behind Eco Tiny Living Hub — helping renters live greener in small apartments without feeling overwhelmed or broke." },
+      {
+        name: "description",
+        content:
+          "Meet the creator behind Eco Tiny Living Hub — helping renters live greener in small apartments without feeling overwhelmed or broke.",
+      },
       { property: "og:title", content: "About — Eco Tiny Living Hub" },
-      { property: "og:description", content: "Helping renters live greener in small apartments without feeling overwhelmed or broke." },
+      {
+        property: "og:description",
+        content:
+          "Helping renters live greener in small apartments without feeling overwhelmed or broke.",
+      },
       { property: "og:url", content: "/about" },
     ],
     links: [{ rel: "canonical", href: "/about" }],
@@ -31,26 +39,45 @@ function About() {
             </h1>
             <div className="mt-8 space-y-5 text-lg leading-relaxed text-earth-900/80">
               <p>
-                Eco Tiny Living Hub exists because most sustainable living advice assumes you own a house, have a backyard, and can drop $200 on bamboo organizers. That's never been my reality — and probably not yours either.
+                Eco Tiny Living Hub exists because most sustainable living advice assumes you own a
+                house, have a backyard, and can drop $200 on bamboo organizers. That's never been my
+                reality — and probably not yours either.
               </p>
               <p>
-                I've lived in five small apartments over the last decade, in four cities, mostly under 600 square feet. Every guide here has been tested in spaces where the kitchen has two feet of counter and the landlord says no to paint colors.
+                I've lived in five small apartments over the last decade, in four cities, mostly
+                under 600 square feet. Every guide here has been tested in spaces where the kitchen
+                has two feet of counter and the landlord says no to paint colors.
               </p>
               <p>
-                My mission is simple: help people live greener in tiny spaces without feeling overwhelmed or broke. Progress over perfection, always.
+                My mission is simple: help renters and small-space dwellers reduce unnecessary
+                friction so thoughtful, sustainable living becomes easier. Progress over perfection,
+                always.
               </p>
             </div>
             <div className="mt-10 flex flex-wrap gap-4">
-              <Link to="/blog" className="bg-moss text-white px-7 py-3.5 rounded-full font-medium hover:bg-moss-dark transition-colors">
+              <Link
+                to="/blog"
+                className="bg-moss text-white px-7 py-3.5 rounded-full font-medium hover:bg-moss-dark transition-colors"
+              >
                 Read the blog
               </Link>
-              <Link to="/contact" className="border border-earth-900/20 px-7 py-3.5 rounded-full font-medium hover:bg-earth-900/5 transition-colors">
+              <Link
+                to="/contact"
+                className="border border-earth-900/20 px-7 py-3.5 rounded-full font-medium hover:bg-earth-900/5 transition-colors"
+              >
                 Say hello
               </Link>
             </div>
           </div>
           <div className="aspect-[4/5] rounded-3xl overflow-hidden outline-1 -outline-offset-1 outline-black/5">
-            <img src={heroImg} alt="Small apartment with plants" loading="lazy" width={640} height={800} className="w-full h-full object-cover" />
+            <img
+              src={heroImg}
+              alt="Small apartment with plants"
+              loading="lazy"
+              width={640}
+              height={800}
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </main>

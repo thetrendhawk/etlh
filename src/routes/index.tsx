@@ -15,13 +15,27 @@ const catImages = {
   "eco-habits-budget": catHabits,
 };
 
+const categoryLabels = {
+  "zero-waste-kitchen": "My kitchen feels wasteful",
+  "small-apartment-decor": "My small space feels cluttered",
+  "eco-habits-budget": "I want sustainable habits that actually stick",
+};
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Eco Tiny Living Hub — Sustainable Living for Small Apartments" },
-      { name: "description", content: "Cozy, sustainable small apartment living on a realistic budget. Zero-waste kitchen, eco decor, and budget habits for renters." },
+      {
+        name: "description",
+        content:
+          "Cozy, sustainable small apartment living on a realistic budget. Zero-waste kitchen, eco decor, and budget habits for renters.",
+      },
       { property: "og:title", content: "Eco Tiny Living Hub" },
-      { property: "og:description", content: "Sustainable living guides for renters in small apartments — zero waste kitchen, eco decor, budget-friendly habits." },
+      {
+        property: "og:description",
+        content:
+          "Sustainable living guides for renters in small apartments — zero waste kitchen, eco decor, budget-friendly habits.",
+      },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -38,16 +52,23 @@ function Home() {
       <header className="max-w-6xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
         <div className="space-y-8">
           <h1 className="font-serif text-5xl md:text-7xl leading-[1.05] tracking-tight text-balance">
-            Your small space, <span className="italic text-moss">sustainably</span> curated.
+            Sustainable living for small spaces—without overwhelm, waste, or unnecessary friction.
           </h1>
           <p className="text-lg md:text-xl text-earth-900/70 max-w-md leading-relaxed">
-            Practical guides for creating a cozy, zero-waste apartment on a budget. Renter-friendly, planet-approved.
+            Practical guides, renter-friendly systems, and simple Eco Steps to help you make your
+            home feel lighter, calmer, and more aligned with what matters.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link to="/blog" className="bg-moss text-white px-8 py-4 rounded-full font-medium hover:bg-moss-dark transition-colors">
+            <Link
+              to="/blog"
+              className="bg-moss text-white px-8 py-4 rounded-full font-medium hover:bg-moss-dark transition-colors"
+            >
               Start reading
             </Link>
-            <Link to="/resources" className="border border-earth-900/20 px-8 py-4 rounded-full font-medium hover:bg-earth-900/5 transition-colors">
+            <Link
+              to="/resources"
+              className="border border-earth-900/20 px-8 py-4 rounded-full font-medium hover:bg-earth-900/5 transition-colors"
+            >
               View resources
             </Link>
           </div>
@@ -66,8 +87,10 @@ function Home() {
       <section className="max-w-6xl mx-auto px-6 py-20 border-t border-earth-900/5">
         <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
           <div>
-            <span className="uppercase text-xs font-bold tracking-widest text-moss">Start here</span>
-            <h2 className="font-serif text-4xl md:text-5xl mt-3">Explore by interest</h2>
+            <span className="uppercase text-xs font-bold tracking-widest text-moss">
+              Start here
+            </span>
+            <h2 className="font-serif text-4xl md:text-5xl mt-3">Start where life feels heavy</h2>
           </div>
           <p className="text-earth-900/60 max-w-sm text-sm">
             Three core areas to help you build a sustainable apartment, one small win at a time.
@@ -91,7 +114,9 @@ function Home() {
                   className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
                 />
               </div>
-              <h3 className="text-xl font-serif group-hover:text-moss transition-colors">{c.name}</h3>
+              <h3 className="text-xl font-serif group-hover:text-moss transition-colors">
+                {categoryLabels[c.slug]}
+              </h3>
               <p className="text-sm text-earth-900/60 mt-2 leading-relaxed">{c.intro}</p>
             </Link>
           ))}
@@ -111,7 +136,9 @@ function Home() {
           </Link>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {latest.map((p) => <PostCard key={p.slug} post={p} />)}
+          {latest.map((p) => (
+            <PostCard key={p.slug} post={p} />
+          ))}
         </div>
       </section>
 

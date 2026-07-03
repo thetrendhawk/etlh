@@ -3,7 +3,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { EmailOptIn } from "@/components/EmailOptIn";
 import { PostCard } from "@/components/PostCard";
-import { categories, posts } from "@/lib/posts";
+import { categories, posts, type CategorySlug } from "@/lib/posts";
 import heroImg from "@/assets/hero-apartment.jpg";
 import catKitchen from "@/assets/cat-kitchen.jpg";
 import catDecor from "@/assets/cat-decor.jpg";
@@ -20,6 +20,12 @@ const categoryLabels = {
   "small-apartment-decor": "My small space feels cluttered",
   "eco-habits-budget": "I want sustainable habits that actually stick",
 };
+
+type HomepageCategorySlug = keyof typeof categoryLabels;
+
+function isHomepageCategory(slug: CategorySlug): slug is HomepageCategorySlug {
+  return slug in categoryLabels;
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -45,6 +51,9 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   const latest = posts.slice(0, 6);
+  const homepageCategories = categories.filter(
+    (c): c is typeof c & { slug: HomepageCategorySlug } => isHomepageCategory(c.slug),
+  );
   return (
     <div className="min-h-screen bg-earth-100 text-earth-900">
       <SiteHeader />
@@ -97,7 +106,7 @@ function Home() {
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
-          {categories.map((c) => (
+          {homepageCategories.map((c) => (
             <Link
               key={c.slug}
               to="/category/$slug"

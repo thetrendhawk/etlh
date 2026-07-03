@@ -15,7 +15,11 @@ import decorPin3 from "@/assets/DecorPin3.png";
 
 
 
-export type CategorySlug = "zero-waste-kitchen" | "small-apartment-decor" | "eco-habits-budget";
+export type CategorySlug =
+  | "zero-waste-kitchen"
+  | "small-apartment-decor"
+  | "eco-habits-budget"
+  | "intentional-living";
 
 export interface Category {
   slug: CategorySlug;
@@ -46,6 +50,13 @@ export const categories: Category[] = [
     intro:
       "Low waste lifestyle habits for small spaces. Simple, beginner-friendly routines and swaps that build a sustainable living apartment without overwhelm.",
   },
+  {
+    slug: "intentional-living",
+    name: "Intentional Living",
+    shortName: "Intentional Living",
+    intro:
+      "Gentle ways to reduce unnecessary friction, make everyday routines feel lighter, and build a home life that supports what matters.",
+  },
 ];
 
 export interface Post {
@@ -63,6 +74,157 @@ export interface Post {
 }
 
 export const posts: Post[] = [
+  {
+    slug: "why-life-feels-harder-than-it-needs-to-sometimes",
+    title: "Why Life Feels Harder Than It Needs To Sometimes",
+    excerpt:
+      "A gentle guide to reducing unnecessary friction so everyday life feels lighter, clearer, and easier to manage.",
+    category: "intentional-living",
+    date: "2026-07-03",
+    readingTime: "6 min read",
+    image: sustainablePin1,
+    imageAlt: "Calm sustainable home scene with plants and natural textures",
+    tags: ["intentional living", "eco steps", "simple routines"],
+    toc: [
+      { id: "weight-we-dont-notice", label: "The Weight We Don't Notice" },
+      { id: "why-it-matters", label: "Why It Matters" },
+      { id: "different-way", label: "A Different Way to See Your Day" },
+      { id: "one-small-change", label: "One Small Change Is Enough" },
+      { id: "your-eco-step", label: "Your Eco Step" },
+      { id: "reflection", label: "Reflection" },
+      { id: "why-confident", label: "Why We're Confident in This Advice" },
+    ],
+    body: [
+      {
+        type: "p",
+        text:
+          "Some days feel heavy before anything especially hard has happened. The sink has a few dishes in it. A bag needs to be returned. There is one more email to answer, one more errand to remember, one more small decision waiting in the background.",
+      },
+      {
+        type: "p",
+        text:
+          "None of these things are dramatic on their own. But together, they can make ordinary life feel crowded. You move through your home doing what needs to be done, yet part of your mind is always carrying the next step.",
+      },
+      {
+        type: "h2",
+        id: "weight-we-dont-notice",
+        text: "The Weight We Don't Notice",
+      },
+      {
+        type: "p",
+        text:
+          "A lot of daily stress comes from friction we have stopped noticing. It shows up as clutter that has no clear place to land, supplies stored too far from where we use them, habits that require too many steps, or choices we have to remake every day.",
+      },
+      {
+        type: "p",
+        text:
+          "This kind of friction is easy to dismiss because it looks small. But small things repeat. A drawer that sticks, a counter that collects mail, or a morning routine with too many decisions can quietly take more energy than it deserves.",
+      },
+      {
+        type: "h2",
+        id: "why-it-matters",
+        text: "Why It Matters",
+      },
+      {
+        type: "p",
+        text:
+          "When life already asks a lot from you, unnecessary friction makes sustainable living feel harder than it has to be. The problem is not that you are careless or unmotivated. Often, the system around the habit is asking for too much attention.",
+      },
+      {
+        type: "p",
+        text:
+          "A low-waste kitchen habit will be easier if the reusable containers are reachable. A calmer living room will be easier if every object has an obvious home. A more intentional day will be easier if fewer tiny choices are waiting for you.",
+      },
+      {
+        type: "h2",
+        id: "different-way",
+        text: "A Different Way to See Your Day",
+      },
+      {
+        type: "p",
+        text:
+          "Instead of asking, \"How do I become more disciplined?\" try asking, \"Where is my day creating extra steps?\" This shifts the focus away from blame and toward design. Your home does not need to be perfect. It just needs to support the life you are actually living.",
+      },
+      {
+        type: "p",
+        text:
+          "Look for the spots where you pause, sigh, avoid, forget, or work around something. Those moments are useful information. They point to the places where one small adjustment could make the whole day feel lighter.",
+      },
+      {
+        type: "h2",
+        id: "one-small-change",
+        text: "One Small Change Is Enough",
+      },
+      {
+        type: "p",
+        text:
+          "You do not need to reorganize your entire apartment or rebuild every routine. One small change can lower the effort enough to help a better habit stick.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Put the reusable bags by the door instead of in a closet.",
+          "Move the compost bowl closer to the prep area.",
+          "Place a donation bag where clutter naturally gathers.",
+          "Choose one landing spot for mail, keys, and receipts.",
+          "Keep the cleaning spray and cloth in the room where you use them most.",
+        ],
+      },
+      {
+        type: "p",
+        text:
+          "The best change is not the most impressive one. It is the one that removes a little resistance from something you already want to do.",
+      },
+      {
+        type: "h2",
+        id: "your-eco-step",
+        text: "Your Eco Step",
+      },
+      {
+        type: "p",
+        text:
+          "Choose one recurring moment in your home that feels heavier than it should. Do not solve the whole category. Just make the next version of that moment easier.",
+      },
+      {
+        type: "ul",
+        items: [
+          "If dishes pile up, clear one drying or loading zone.",
+          "If groceries create waste, make one visible spot for food that needs to be used first.",
+          "If clutter spreads, create one container for items that need to leave the room.",
+        ],
+      },
+      {
+        type: "p",
+        text:
+          "Give yourself a change you can do in ten minutes. Then notice whether tomorrow asks a little less from you.",
+      },
+      {
+        type: "h2",
+        id: "reflection",
+        text: "Reflection",
+      },
+      {
+        type: "p",
+        text:
+          "A lighter life is not built by forcing yourself to care harder. It is built by removing the extra effort that makes caring feel exhausting.",
+      },
+      {
+        type: "p",
+        text:
+          "Thoughtful, sustainable living becomes easier when your space is arranged with compassion for your real energy, real limits, and real routines. Start with the friction you can see. Let that be enough for today.",
+      },
+      {
+        type: "h2",
+        id: "why-confident",
+        text: "Why We're Confident in This Advice",
+      },
+      {
+        type: "p",
+        text:
+          "Behavior change is more likely to last when the desired action is visible, convenient, and easy to repeat. Reducing friction does not guarantee a perfect habit, but it lowers the effort required to begin. For renters and small-space dwellers, that matters because the best systems are usually simple, reversible, and close to where life already happens.",
+      },
+    ],
+  },
   {
   slug: "sustainable-tiny-living-room-layout-ideas",
   title: "Sustainable Tiny Living Room: Layout and Styling Ideas for Small Spaces",

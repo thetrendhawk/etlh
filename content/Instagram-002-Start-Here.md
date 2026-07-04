@@ -2,7 +2,7 @@
 
 ## Status
 
-Draft v1.0
+Published
 
 ## Purpose
 
@@ -51,3 +51,23 @@ Welcome to Eco Tiny Living Hub 🌿
 This space is about simple living for small spaces — without guilt, overwhelm, or perfectionism.
 
 Here, we focus on small Eco Steps that help everyday life feel lighter, calmer, and more aligned with what matters.
+
+## Visual Production Notes
+
+- Format: 5-slide Instagram carousel
+- Size: 1080 × 1350 px
+- Style: warm realistic lifestyle photography, cream tones, sage accents, natural wood, calm small-space living
+- Typography direction: Lora headline, Poppins body, sage divider, subtle ETLH footer mark
+- Status: Published
+
+## Final Asset Checklist
+
+- [x] Slide 1 exported
+- [x] Slide 2 exported
+- [x] Slide 3 exported
+- [x] Slide 4 exported
+- [x] Slide 5 exported
+- [x] Caption finalized
+- [x] Hashtags finalized
+- [x] Posted to Instagram
+- [ ] Archived in assets folder

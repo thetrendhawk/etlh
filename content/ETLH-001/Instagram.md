@@ -2,7 +2,7 @@
 
 ## Status
 
-Draft v1.0
+Visuals approved — pending export/posting
 
 ## Source
 
@@ -153,6 +153,32 @@ Save this for your next reset.
 #LowWasteLiving
 #TinyLiving
 #SlowLiving
+
+## Visual Production Notes
+
+- Format: 8-slide Instagram carousel
+- Size: 1080 × 1350 px
+- Style: warm realistic lifestyle photography, cream tones, sage accents, natural wood, calm small-space living
+- Typography direction: large serif headline, clean sans-serif body copy, small sage divider line
+- Branding rule: subtle “Eco Tiny Living Hub” footer mark on Slides 1–7; stronger brand close on Slide 8
+- Slide 8 tagline: Simple living. Less friction. More room for what matters.
+- Final export format: PNG
+- Status: Visuals approved pending final consistency/export pass
+
+## Final Asset Checklist
+
+- [ ] Slide 1 exported
+- [ ] Slide 2 exported
+- [ ] Slide 3 exported
+- [ ] Slide 4 exported
+- [ ] Slide 5 exported
+- [ ] Slide 6 exported
+- [ ] Slide 7 exported
+- [ ] Slide 8 exported
+- [ ] Caption finalized
+- [ ] Hashtags finalized
+- [ ] Posted to Instagram
+- [ ] Archived in assets folder
 
 ## Version History
 

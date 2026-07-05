@@ -2,7 +2,7 @@
 
 ## Status
 
-Draft v1.0
+Published
 
 ## Purpose
 
@@ -111,19 +111,40 @@ Let it count. 🌿
 - Style: warm realistic lifestyle photography, cream tones, sage accents, natural wood, calm small-space living
 - Typography direction: Lora headline, Poppins body, sage divider, subtle ETLH footer mark
 - Footer branding note: use the slightly darker / higher contrast footer mark established in Instagram 005
-- Status: Script approved pending visual production
+- Status: Published
 
 ## Final Asset Checklist
 
-- [ ] Slide 1 exported
-- [ ] Slide 2 exported
-- [ ] Slide 3 exported
-- [ ] Slide 4 exported
-- [ ] Slide 5 exported
-- [ ] Caption finalized
-- [ ] Hashtags finalized
-- [ ] Posted to Instagram
-- [ ] Archived in assets folder
+- [x] Slide 1 exported
+- [x] Slide 2 exported
+- [x] Slide 3 exported
+- [x] Slide 4 exported
+- [x] Slide 5 exported
+- [x] Caption finalized
+- [x] Hashtags finalized
+- [x] First comment finalized
+- [x] Alt text finalized
+- [x] Posted to Instagram
+- [x] Archived in assets folder
+
+## Publication Notes
+
+Published as Instagram carousel post 006.
+
+Cover slide:
+Progress over perfection.
+
+Engagement comment:
+What small step are you letting count today?
+
+Accessibility note:
+Alt text was prepared for the carousel and should remain part of the standard Instagram publishing workflow.
+
+Workflow note:
+Caption, hashtags, first comment, and alt text are now required components of each Instagram post package going forward.
+
+Production note:
+The revised slide set improved visual variety while preserving the ETLH brand system. Continue varying room angle, surface type, and scene composition across future carousels to avoid repeated base-shot appearance.
 
 ## Version History
 

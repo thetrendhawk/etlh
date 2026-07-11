@@ -2,7 +2,7 @@
 
 ## Status
 
-Draft v1.0
+Published
 
 ## Purpose
 
@@ -22,21 +22,13 @@ What is an Eco Step?
 Body:
 A small action that makes life a little lighter.
 
-Visual Direction:
-Calm small apartment scene with a simple home surface, plant, mug, notebook, and warm natural light.
-
 ### Slide 2
 
 Headline:
 It does not need to be big.
 
 Body:
-It just needs to reduce friction,
-support your values,
-or make one habit easier to repeat.
-
-Visual Direction:
-Small everyday reset scene with one item being placed where it belongs.
+It just needs to reduce friction, support your values, or make one habit easier to repeat.
 
 ### Slide 3
 
@@ -49,21 +41,13 @@ Giving your keys a home.
 Packing one reusable bag.
 Making tomorrow easier.
 
-Visual Direction:
-Simple collection of practical home objects: keys in bowl, reusable bag, notebook, water bottle, or clear surface.
-
 ### Slide 4
 
 Headline:
-Small steps matter
-because they repeat.
+Small steps matter because they repeat.
 
 Body:
-One thoughtful choice today
-can become a calmer routine tomorrow.
-
-Visual Direction:
-Peaceful routine scene with warm light, small table, mug, plant, and one practical item ready for use.
+One thoughtful choice today can become a calmer routine tomorrow.
 
 ### Slide 5
 
@@ -71,80 +55,90 @@ Headline:
 Your Eco Step
 
 Body:
-Choose one small thing
-that makes your day easier
-or your home calmer.
-
+Choose one small thing that makes your day easier or your home calmer.
 Let that be enough.
-
-Visual Direction:
-Calm finished-feeling small home scene with one completed action, such as a cleared surface, closed notebook, or keys in a bowl.
 
 ## Caption
 
-An Eco Step is not about doing everything.
+What is an Eco Step?
 
+It is not a dramatic life overhaul.
 It is one small action that makes life a little lighter.
 
-It might reduce friction.
-It might reduce waste.
-It might support a calmer routine.
-It might help your home work better for the life you are actually living.
+An Eco Step helps reduce friction, support your values, or make one habit easier to repeat.
 
-Clear one surface.
-Give your keys a home.
-Pack one reusable bag.
-Move one useful item where you naturally need it.
+That might look like:
+Clearing one surface.
+Giving your keys a home.
+Packing one reusable bag.
+Making tomorrow a little easier.
 
 Small steps matter because they repeat.
+And repeated small steps are often what make a home feel calmer over time.
 
 Your Eco Step:
-Choose one small thing today that makes your home calmer or your day easier.
+Choose one small thing today that makes your day easier or your space calmer.
 
 Let that be enough. 🌿
 
+Save this for your next reset.
+
 ## Hashtags
 
-#EcoTinyLivingHub #EcoStep #SimpleLiving #SmallSpaceLiving #IntentionalLiving #SlowLiving #CalmHome #MindfulHome #SustainableHabits #LessFriction #SmallSpaceOrganization #ApartmentLiving #ProgressOverPerfection #ThoughtfulLiving #DeclutterYourHome
+#EcoTinyLivingHub #EcoStep #SmallSpaceLiving #SimpleLiving #IntentionalLiving #CalmHome #MindfulHome #SustainableHabits #ApartmentLiving #ProgressOverPerfection #HomeHabits #LessFriction #SmallSpaceOrganization #EcoFriendlyLiving #SimpleRoutines
 
 ## First Comment
 
-What is one small Eco Step you could take today?
+What is one small action that makes your home feel a little lighter?
 
-## Accessibility / Alt Text
+## Alt Text
 
-Status:
-To be finalized after visuals are approved.
+Slide 1: A calm small-space living and dining corner with a wooden table, notebook, mug, and houseplants. Overlaid text reads: "What is an Eco Step? A small action that makes life a little lighter."
 
-Note:
-Alt text is required for the final publishing package.
+Slide 2: A tidy entryway with a wooden console table, a bowl for keys, hanging tote bag and jacket, and a hand placing keys in the bowl. Overlaid text explains that an Eco Step does not need to be big, only helpful and repeatable.
+
+Slide 3: Overhead view of a wooden table with a reusable water bottle, keys in a bowl, tote bag, notebook, and cloth. Overlaid text lists examples of Eco Steps such as clearing one surface, giving keys a home, packing one reusable bag, and making tomorrow easier.
+
+Slide 4: Warm kitchen and dining scene with reusable bottle, mug, and soft natural light. Overlaid text explains that small steps matter because they repeat and can become calmer routines.
+
+Slide 5: Calm bedroom scene with made bed, plants, and soft natural light. Overlaid text encourages choosing one small thing that makes the day easier or the home calmer, and letting that be enough.
 
 ## Visual Production Notes
 
 - Format: 5-slide Instagram carousel
-- Size: 1080 × 1350 px
+- Size: 1080 x 1350 px
 - Style: warm realistic lifestyle photography, cream tones, sage accents, natural wood, calm small-space living
 - Typography direction: Lora headline, Poppins body, sage divider, subtle ETLH footer mark
 - Footer branding note: use the slightly darker / higher contrast footer mark established in Instagram 005
-- Visual variety note: maintain ETLH consistency while varying room angle, surface type, and scene composition
-- Status: Script approved pending visual production
+- Status: Published
 
 ## Final Asset Checklist
 
-- [ ] Slide 1 exported
-- [ ] Slide 2 exported
-- [ ] Slide 3 exported
-- [ ] Slide 4 exported
-- [ ] Slide 5 exported
-- [ ] Caption finalized
-- [ ] Hashtags finalized
-- [ ] First comment finalized
-- [ ] Alt text finalized
-- [ ] Posted to Instagram
+- [x] Slide 1 exported
+- [x] Slide 2 exported
+- [x] Slide 3 exported
+- [x] Slide 4 exported
+- [x] Slide 5 exported
+- [x] Caption finalized
+- [x] Hashtags finalized
+- [x] First comment finalized
+- [x] Alt text finalized
+- [x] Posted to Instagram
 - [ ] Archived in assets folder
 
-## Version History
+## Publication Notes
 
-| Version | Date | Notes |
-|---|---|---|
-| v1.0 | 2026-07-05 | Initial draft for Instagram 007 carousel. |
+Published as Instagram carousel post 007.
+
+Cover slide:
+What is an Eco Step?
+
+Engagement comment:
+What is one small action that makes your home feel a little lighter?
+
+Accessibility note:
+Alt text was prepared for the carousel and used as part of the standard Instagram publishing workflow.
+
+Workflow note:
+Caption, hashtags, first comment, and alt text are required components of each Instagram post package going forward.
+

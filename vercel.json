@@ -1,0 +1,39 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "eco-tiny-living-site.vercel.app"
+        }
+      ],
+      "destination": "https://ecotinylivinghub.thrwds.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "eco-tiny-living-site-aaron-s-evans-projects.vercel.app"
+        }
+      ],
+      "destination": "https://ecotinylivinghub.thrwds.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "eco-tiny-living-site-git-main-aaron-s-evans-projects.vercel.app"
+        }
+      ],
+      "destination": "https://ecotinylivinghub.thrwds.com/:path*",
+      "permanent": true
+    }
+  ]
+}

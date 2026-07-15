@@ -4,7 +4,6 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
-  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -16,52 +15,58 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 const GA_MEASUREMENT_ID = "G-G81H19S4TG";
 const PRODUCTION_HOSTNAME = "ecotinylivinghub.thrwds.com";
 
+const GA_BOOTSTRAP_SCRIPT = `
+(function () {
+  if (window.location.hostname !== "${PRODUCTION_HOSTNAME}") return;
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+
+  var script = document.createElement("script");
+  script.async = true;
+  script.src = "https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}";
+  script.id = "etlh-google-analytics";
+  document.head.appendChild(script);
+
+  window.gtag("js", new Date());
+  window.gtag("config", "${GA_MEASUREMENT_ID}", { send_page_view: false });
+
+  var pagePath = window.location.pathname + window.location.search;
+  window.__etlhLastGaPagePath = pagePath;
+  window.gtag("event", "page_view", {
+    page_title: document.title,
+    page_location: window.location.href,
+    page_path: pagePath
+  });
+})();
+`;
+
 declare global {
   interface Window {
-    dataLayer?: unknown[][];
+    dataLayer?: unknown[];
     gtag?: (...args: unknown[]) => void;
-    __etlhGaInitialized?: boolean;
     __etlhLastGaPagePath?: string;
   }
 }
 
-function GoogleAnalytics() {
-  const routeHref = useRouterState({ select: (state) => state.location.href });
+function GoogleAnalyticsRouteTracking() {
+  const router = useRouter();
 
   useEffect(() => {
     if (window.location.hostname !== PRODUCTION_HOSTNAME) return;
 
-    window.dataLayer = window.dataLayer || [];
-    window.gtag =
-      window.gtag ||
-      function gtag(...args: unknown[]) {
-        window.dataLayer?.push(args);
-      };
+    return router.subscribe("onResolved", () => {
+      const pagePath = `${window.location.pathname}${window.location.search}`;
+      if (window.__etlhLastGaPagePath === pagePath) return;
 
-    if (!window.__etlhGaInitialized) {
-      window.gtag("js", new Date());
-      window.gtag("config", GA_MEASUREMENT_ID, { send_page_view: false });
-      window.__etlhGaInitialized = true;
-
-      if (!document.getElementById("etlh-google-analytics")) {
-        const script = document.createElement("script");
-        script.id = "etlh-google-analytics";
-        script.async = true;
-        script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-        document.head.appendChild(script);
-      }
-    }
-
-    const pagePath = `${window.location.pathname}${window.location.search}`;
-    if (window.__etlhLastGaPagePath === pagePath) return;
-
-    window.__etlhLastGaPagePath = pagePath;
-    window.gtag("event", "page_view", {
-      page_title: document.title,
-      page_location: window.location.href,
-      page_path: pagePath,
+      window.__etlhLastGaPagePath = pagePath;
+      window.gtag?.("event", "page_view", {
+        page_title: document.title,
+        page_location: window.location.href,
+        page_path: pagePath,
+      });
     });
-  }, [routeHref]);
+  }, [router]);
 
   return null;
 }
@@ -165,6 +170,7 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script dangerouslySetInnerHTML={{ __html: GA_BOOTSTRAP_SCRIPT }} />
       </head>
       <body>
         {children}
@@ -179,7 +185,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <GoogleAnalytics />
+      <GoogleAnalyticsRouteTracking />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>

@@ -3,25 +3,27 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { EmailOptIn } from "@/components/EmailOptIn";
 import heroImg from "@/assets/hero-apartment.jpg";
+import { absoluteUrl } from "@/lib/site";
+
+const title = "About — Eco Tiny Living Hub";
+const description = "Meet the creator behind Eco Tiny Living Hub — helping renters live greener in small apartments without feeling overwhelmed or broke.";
+const pageUrl = absoluteUrl("/about");
+const imageUrl = absoluteUrl(heroImg);
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Eco Tiny Living Hub" },
-      {
-        name: "description",
-        content:
-          "Meet the creator behind Eco Tiny Living Hub — helping renters live greener in small apartments without feeling overwhelmed or broke.",
-      },
-      { property: "og:title", content: "About — Eco Tiny Living Hub" },
-      {
-        property: "og:description",
-        content:
-          "Helping renters live greener in small apartments without feeling overwhelmed or broke.",
-      },
-      { property: "og:url", content: "/about" },
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:url", content: pageUrl },
+      { property: "og:image", content: imageUrl },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+      { name: "twitter:image", content: imageUrl },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: pageUrl }],
   }),
   component: About,
 });

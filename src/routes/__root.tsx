@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -11,6 +12,59 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+
+const GA_MEASUREMENT_ID = "G-G81H19S4TG";
+const PRODUCTION_HOSTNAME = "ecotinylivinghub.thrwds.com";
+
+declare global {
+  interface Window {
+    dataLayer?: unknown[][];
+    gtag?: (...args: unknown[]) => void;
+    __etlhGaInitialized?: boolean;
+    __etlhLastGaPagePath?: string;
+  }
+}
+
+function GoogleAnalytics() {
+  const routeHref = useRouterState({ select: (state) => state.location.href });
+
+  useEffect(() => {
+    if (window.location.hostname !== PRODUCTION_HOSTNAME) return;
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag =
+      window.gtag ||
+      function gtag(...args: unknown[]) {
+        window.dataLayer?.push(args);
+      };
+
+    if (!window.__etlhGaInitialized) {
+      window.gtag("js", new Date());
+      window.gtag("config", GA_MEASUREMENT_ID, { send_page_view: false });
+      window.__etlhGaInitialized = true;
+
+      if (!document.getElementById("etlh-google-analytics")) {
+        const script = document.createElement("script");
+        script.id = "etlh-google-analytics";
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+        document.head.appendChild(script);
+      }
+    }
+
+    const pagePath = `${window.location.pathname}${window.location.search}`;
+    if (window.__etlhLastGaPagePath === pagePath) return;
+
+    window.__etlhLastGaPagePath = pagePath;
+    window.gtag("event", "page_view", {
+      page_title: document.title,
+      page_location: window.location.href,
+      page_path: pagePath,
+    });
+  }, [routeHref]);
+
+  return null;
+}
 
 function NotFoundComponent() {
   return (
@@ -125,6 +179,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <GoogleAnalytics />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>

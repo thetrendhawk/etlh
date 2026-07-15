@@ -3,7 +3,8 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { EmailOptIn } from "@/components/EmailOptIn";
 import { PostCard } from "@/components/PostCard";
-import { getPost, getCategory, getRelatedPosts, formatDate, type Post } from "@/lib/posts";
+import { getPost, getCategory, getRelatedPosts, type Post } from "@/lib/posts";
+import { formatDate } from "@/lib/date";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {

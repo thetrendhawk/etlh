@@ -1,6 +1,7 @@
 name: Generate Bun Lockfile
 
 on:
+  pull_request:
   push:
     branches:
       - adopt-bun-lockfile

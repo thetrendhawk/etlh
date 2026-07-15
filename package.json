@@ -10,7 +10,9 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "check:sitemap": "bun scripts/check-sitemap.ts"
+    "check:sitemap": "bun scripts/check-sitemap.ts",
+    "check:content": "bun scripts/check-content.ts",
+    "check:ci": "bun run check:sitemap && bun run check:content && bun run build"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -84,6 +86,5 @@
     "prettier": "^3.7.3",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.56.1"
-    
   }
 }

@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { PostCard } from "@/components/PostCard";
 import { getCategory, getPostsByCategory, type CategorySlug } from "@/lib/posts";
+import { absoluteUrl } from "@/lib/site";
 
 export const Route = createFileRoute("/category/$slug")({
   loader: ({ params }) => {
@@ -13,15 +14,19 @@ export const Route = createFileRoute("/category/$slug")({
   head: ({ loaderData }) => {
     const c = loaderData?.cat;
     if (!c) return {};
+    const title = `${c.name} — Eco Tiny Living Hub`;
+    const pageUrl = absoluteUrl(`/category/${c.slug}`);
     return {
       meta: [
-        { title: `${c.name} — Eco Tiny Living Hub` },
+        { title },
         { name: "description", content: c.intro },
-        { property: "og:title", content: c.name },
+        { property: "og:title", content: title },
         { property: "og:description", content: c.intro },
-        { property: "og:url", content: `/category/${c.slug}` },
+        { property: "og:url", content: pageUrl },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: c.intro },
       ],
-      links: [{ rel: "canonical", href: `/category/${c.slug}` }],
+      links: [{ rel: "canonical", href: pageUrl }],
     };
   },
   notFoundComponent: () => (

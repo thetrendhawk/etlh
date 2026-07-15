@@ -24,19 +24,31 @@ export function SiteFooter() {
         <div>
           <h4 className="font-medium mb-6 uppercase text-xs tracking-widest text-moss font-sans">Follow Along</h4>
           <ul className="space-y-4 text-earth-100/60 text-sm">
-            <li><a href="#" className="hover:text-earth-100">Pinterest</a></li>
-            <li><a href="#" className="hover:text-earth-100">Instagram</a></li>
-            <li><a href="#" className="hover:text-earth-100">TikTok</a></li>
-            <li><a href="#" className="hover:text-earth-100">X (Twitter)</a></li>
+            <li>
+              <a
+                href="https://www.pinterest.com/ecotinylivinghub/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-earth-100"
+              >
+                Pinterest
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/ecotinylivinghub/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-earth-100"
+              >
+                Instagram
+              </a>
+            </li>
           </ul>
         </div>
       </div>
-      <div className="max-w-6xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 text-xs text-earth-100/40 flex flex-col md:flex-row justify-between gap-4">
+      <div className="max-w-6xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 text-xs text-earth-100/40">
         <p>© {new Date().getFullYear()} Eco Tiny Living Hub. Progress over perfection.</p>
-        <div className="flex gap-8">
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-        </div>
       </div>
     </footer>
   );

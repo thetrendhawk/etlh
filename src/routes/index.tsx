@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { EmailOptIn } from "@/components/EmailOptIn";
 import { PostCard } from "@/components/PostCard";
 import { categories, posts, type CategorySlug } from "@/lib/posts";
+import { absoluteUrl } from "@/lib/site";
 import heroImg from "@/assets/hero-apartment.jpg";
 import catKitchen from "@/assets/cat-kitchen.jpg";
 import catDecor from "@/assets/cat-decor.jpg";
@@ -21,6 +22,11 @@ const categoryLabels = {
   "eco-habits-budget": "I want sustainable habits that actually stick",
 };
 
+const title = "Eco Tiny Living Hub — Sustainable Living for Small Apartments";
+const description = "Cozy, sustainable small apartment living on a realistic budget. Zero-waste kitchen, eco decor, and budget habits for renters.";
+const pageUrl = absoluteUrl("/");
+const imageUrl = absoluteUrl(heroImg);
+
 type HomepageCategorySlug = keyof typeof categoryLabels;
 
 function isHomepageCategory(slug: CategorySlug): slug is HomepageCategorySlug {
@@ -30,21 +36,17 @@ function isHomepageCategory(slug: CategorySlug): slug is HomepageCategorySlug {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Eco Tiny Living Hub — Sustainable Living for Small Apartments" },
-      {
-        name: "description",
-        content:
-          "Cozy, sustainable small apartment living on a realistic budget. Zero-waste kitchen, eco decor, and budget habits for renters.",
-      },
-      { property: "og:title", content: "Eco Tiny Living Hub" },
-      {
-        property: "og:description",
-        content:
-          "Sustainable living guides for renters in small apartments — zero waste kitchen, eco decor, budget-friendly habits.",
-      },
-      { property: "og:url", content: "/" },
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:url", content: pageUrl },
+      { property: "og:image", content: imageUrl },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+      { name: "twitter:image", content: imageUrl },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: pageUrl }],
   }),
   component: Home,
 });

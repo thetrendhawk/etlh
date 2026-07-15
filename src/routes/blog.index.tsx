@@ -4,17 +4,24 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { PostCard } from "@/components/PostCard";
 import { categories, posts, type CategorySlug } from "@/lib/posts";
+import { absoluteUrl } from "@/lib/site";
+
+const title = "Blog — Eco Tiny Living Hub";
+const description = "Articles on zero-waste kitchen ideas, eco friendly small apartment decor, and budget sustainable living for renters.";
+const pageUrl = absoluteUrl("/blog");
 
 export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
-      { title: "Blog — Eco Tiny Living Hub" },
-      { name: "description", content: "Articles on zero-waste kitchen ideas, eco friendly small apartment decor, and budget sustainable living for renters." },
-      { property: "og:title", content: "Blog — Eco Tiny Living Hub" },
-      { property: "og:description", content: "Sustainable living articles for small apartments and renters." },
-      { property: "og:url", content: "/blog" },
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:url", content: pageUrl },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
     ],
-    links: [{ rel: "canonical", href: "/blog" }],
+    links: [{ rel: "canonical", href: pageUrl }],
   }),
   component: BlogIndex,
 });

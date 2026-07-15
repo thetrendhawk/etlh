@@ -1,23 +1,27 @@
 name: Generate Bun Lockfile
 
 on:
-  pull_request:
   push:
     branches:
       - adopt-bun-lockfile
+    paths:
+      - package.json
+      - .github/workflows/generate-lockfile.yml
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   generate:
-    name: Generate bun.lock artifact
+    name: Generate and commit bun.lock
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          ref: adopt-bun-lockfile
 
       - name: Set up Bun
         uses: oven-sh/setup-bun@v2
@@ -30,9 +34,11 @@ jobs:
       - name: Verify full CI command
         run: bun run check:ci
 
-      - name: Upload lockfile
-        uses: actions/upload-artifact@v4
-        with:
-          name: bun-lockfile
-          path: bun.lock
-          if-no-files-found: error
+      - name: Commit generated lockfile
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bun.lock
+          git diff --cached --quiet && exit 0
+          git commit -m "Add generated Bun lockfile"
+          git push origin HEAD:adopt-bun-lockfile

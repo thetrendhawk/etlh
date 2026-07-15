@@ -1,17 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { absoluteUrl } from "@/lib/site";
+
+const title = "Resources — Eco Tiny Living Hub";
+const description = "Tools, products, and recommendations for sustainable living in a small apartment — reusable kitchen swaps, storage solutions, and eco cleaning supplies.";
+const pageUrl = absoluteUrl("/resources");
 
 export const Route = createFileRoute("/resources")({
   head: () => ({
     meta: [
-      { title: "Resources — Eco Tiny Living Hub" },
-      { name: "description", content: "Tools, products, and recommendations for sustainable living in a small apartment — reusable kitchen swaps, storage solutions, and eco cleaning supplies." },
-      { property: "og:title", content: "Resources — Eco Tiny Living Hub" },
-      { property: "og:description", content: "Tools and product recommendations for eco friendly small apartment living." },
-      { property: "og:url", content: "/resources" },
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:url", content: pageUrl },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
     ],
-    links: [{ rel: "canonical", href: "/resources" }],
+    links: [{ rel: "canonical", href: pageUrl }],
   }),
   component: Resources,
 });

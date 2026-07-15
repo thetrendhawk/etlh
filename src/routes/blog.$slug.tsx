@@ -6,6 +6,7 @@ import { PostCard } from "@/components/PostCard";
 import { getPost, getCategory, getRelatedPosts, type Post } from "@/lib/posts";
 import { formatDate } from "@/lib/date";
 import { getPublicationDate } from "@/lib/publicationDates";
+import { absoluteUrl } from "@/lib/site";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
@@ -17,6 +18,8 @@ export const Route = createFileRoute("/blog/$slug")({
     const p = loaderData?.post;
     if (!p) return {};
     const publicationDate = getPublicationDate(p);
+    const pageUrl = absoluteUrl(`/blog/${p.slug}`);
+    const imageUrl = absoluteUrl(p.image);
     return {
       meta: [
         { title: `${p.title} — Eco Tiny Living Hub` },
@@ -24,11 +27,13 @@ export const Route = createFileRoute("/blog/$slug")({
         { property: "og:title", content: p.title },
         { property: "og:description", content: p.excerpt },
         { property: "og:type", content: "article" },
-        { property: "og:url", content: `/blog/${p.slug}` },
-        { property: "og:image", content: p.image },
-        { name: "twitter:image", content: p.image },
+        { property: "og:url", content: pageUrl },
+        { property: "og:image", content: imageUrl },
+        { name: "twitter:title", content: p.title },
+        { name: "twitter:description", content: p.excerpt },
+        { name: "twitter:image", content: imageUrl },
       ],
-      links: [{ rel: "canonical", href: `/blog/${p.slug}` }],
+      links: [{ rel: "canonical", href: pageUrl }],
       scripts: [
         {
           type: "application/ld+json",
@@ -38,7 +43,9 @@ export const Route = createFileRoute("/blog/$slug")({
             headline: p.title,
             description: p.excerpt,
             datePublished: publicationDate,
-            image: p.image,
+            image: imageUrl,
+            url: pageUrl,
+            mainEntityOfPage: pageUrl,
           }),
         },
       ],

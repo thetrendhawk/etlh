@@ -6,11 +6,11 @@ Document repeatable, verifiable publishing operations for Eco Tiny Living Hub.
 
 ## Scope
 
-This playbook currently documents website sitemap and robots operations only. Other publishing procedures (Instagram workflow, article publication, newsletter) are not yet documented here and remain TBD.
+This playbook currently documents website sitemap, robots, and analytics operations. Other publishing procedures (Instagram workflow, article publication, newsletter) are not yet documented here and remain TBD.
 
 ## Status
 
-Active — sitemap and robots operations only.
+Active — sitemap, robots, and analytics operations.
 
 ## Sitemap and Robots Operations
 
@@ -46,8 +46,40 @@ After a sitemap change reaches production, resubmit `https://ecotinylivinghub.th
 
 Revert the sitemap commit with `git revert <commit>` and push; Vercel redeploys the previous behavior automatically. Do not rewrite pushed history (Lovable constraint). The Vercel dashboard's instant rollback can also repoint production to the prior deployment while the revert lands.
 
+## Google Analytics 4 Operations
+
+### Source of truth
+
+- GA4 measurement ID: `G-G81H19S4TG`.
+- Global analytics behavior lives in `src/routes/__root.tsx`.
+- Automatic GA4 pageviews are disabled with `send_page_view: false`.
+- ETLH sends one manual `page_view` on the initial production load and one on each TanStack Router location change.
+- Duplicate pageviews for the same path and query string are suppressed in the browser.
+- Analytics loads only when the hostname is exactly `ecotinylivinghub.thrwds.com`; Vercel preview and alternate-host traffic is intentionally excluded.
+
+### Verification
+
+After production deployment:
+
+1. Open GA4 Realtime or DebugView.
+2. Visit the production homepage in a normal browser session.
+3. Navigate through at least two internal links without a full reload.
+4. Confirm one `page_view` for each unique route visited.
+5. Confirm `page_location`, `page_path`, `page_title`, and hostname are correct.
+6. Refresh one page and confirm exactly one new pageview is recorded.
+7. Open a Vercel preview and confirm it does not appear in GA4.
+
+### Privacy and future review
+
+GA4 is a third-party analytics service that may set cookies and process visitor data. Privacy-policy and consent requirements must be reviewed before traffic scales or geographic targeting expands. Do not add advertising features, Google Signals, user IDs, or personally identifiable information without a separate documented decision.
+
+### Rollback
+
+Revert the GA4 implementation commit and redeploy. Confirm in production HTML/network activity that `googletagmanager.com/gtag/js` no longer loads and that Realtime stops receiving new test pageviews.
+
 ## Revision History
 
 | Version | Date | Notes |
 |---|---|---|
 | v0.1 | 2026-07-15 | Added sitemap and robots operations (sitemap integrity slice). All other publishing procedures remain TBD. |
+| v0.2 | 2026-07-15 | Added GA4 implementation, verification, preview-exclusion, privacy-review, and rollback procedures. |

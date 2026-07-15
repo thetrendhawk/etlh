@@ -3,6 +3,7 @@ import { useState, type FormEvent } from "react";
 import { z } from "zod";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { absoluteUrl } from "@/lib/site";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Please tell me your name").max(100),
@@ -10,16 +11,22 @@ const schema = z.object({
   message: z.string().trim().min(10, "A few more words please").max(2000),
 });
 
+const title = "Contact — Eco Tiny Living Hub";
+const description = "Questions about sustainable apartment living? Send a note and I'll get back to you.";
+const pageUrl = absoluteUrl("/contact");
+
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Eco Tiny Living Hub" },
-      { name: "description", content: "Questions about sustainable apartment living? Send a note and I'll get back to you." },
-      { property: "og:title", content: "Contact — Eco Tiny Living Hub" },
-      { property: "og:description", content: "Get in touch about eco friendly small apartment living." },
-      { property: "og:url", content: "/contact" },
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:url", content: pageUrl },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: pageUrl }],
   }),
   component: Contact,
 });

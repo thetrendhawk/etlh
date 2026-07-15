@@ -27,6 +27,7 @@ Active.
 | 2026-07-15 | Adopt the reconciled stepping-stone framework: Notice → Choose → Reduce → Repeat → Align. | This sequence preserves the approved stepping-stone concept and connects the Friction Finder Question, Eco Steps, simple systems, focused consistency, and meaningful alignment. | `docs/01_Operating_Manual.md` |
 | 2026-07-15 | Defer Logo Concept A and the glossary term “Traveler” from active reconciliation. | Neither item is currently important enough to justify unsupported reconstruction. | No repo change required |
 | 2026-07-15 | Make the dynamic `/sitemap.xml` route the single authoritative sitemap: emit absolute production URLs from `src/lib/sitemap.ts`, delete `public/sitemap.xml` (must not be recreated), declare the sitemap in `robots.txt`, and guard integrity with `bun run check:sitemap`. | The static file shadowed the dynamic route on Vercel, went stale (the old static sitemap contained 12 URLs, while the authoritative content-derived inventory contains 23 URLs, omitting the cornerstone article and the intentional-living category), and both implementations emitted spec-violating relative `<loc>` values. | `src/routes/sitemap[.]xml.ts`; `src/lib/sitemap.ts`; `scripts/check-sitemap.ts`; `docs/05_Publishing_Playbook.md` |
+| 2026-07-15 | Implement GA4 measurement ID `G-G81H19S4TG` with manual SPA pageviews, duplicate suppression, and production-host-only loading. | Establish a trustworthy traffic baseline while preventing double-counted TanStack Router navigations and excluding Vercel preview traffic. | `src/routes/__root.tsx`; `docs/05_Publishing_Playbook.md` |
 
 ## Operating Notes
 
@@ -42,3 +43,4 @@ Active.
 |---|---|---|
 | v1.0 | 2026-07-15 | Replaced the empty scaffold with reconciled durable decisions and provenance notes. |
 | v1.1 | 2026-07-15 | Added the sitemap-integrity decision (dynamic sitemap made authoritative). |
+| v1.2 | 2026-07-15 | Added the GA4 analytics implementation decision. |

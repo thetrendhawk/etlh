@@ -5,6 +5,7 @@ import { EmailOptIn } from "@/components/EmailOptIn";
 import { PostCard } from "@/components/PostCard";
 import { getPost, getCategory, getRelatedPosts, type Post } from "@/lib/posts";
 import { formatDate } from "@/lib/date";
+import { getPublicationDate } from "@/lib/publicationDates";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
@@ -15,6 +16,7 @@ export const Route = createFileRoute("/blog/$slug")({
   head: ({ loaderData }) => {
     const p = loaderData?.post;
     if (!p) return {};
+    const publicationDate = getPublicationDate(p);
     return {
       meta: [
         { title: `${p.title} — Eco Tiny Living Hub` },
@@ -35,7 +37,7 @@ export const Route = createFileRoute("/blog/$slug")({
             "@type": "Article",
             headline: p.title,
             description: p.excerpt,
-            datePublished: p.date,
+            datePublished: publicationDate,
             image: p.image,
           }),
         },
@@ -59,6 +61,7 @@ function PostPage() {
   const { post } = Route.useLoaderData();
   const cat = getCategory(post.category);
   const related = getRelatedPosts(post);
+  const publicationDate = getPublicationDate(post);
 
   return (
     <div className="min-h-screen bg-earth-100 text-earth-900">
@@ -72,7 +75,7 @@ function PostPage() {
             {cat?.shortName}
           </Link>
           <span>·</span>
-          <time dateTime={post.date}>{formatDate(post.date)}</time>
+          <time dateTime={publicationDate}>{formatDate(publicationDate)}</time>
           <span>·</span>
           <span>{post.readingTime}</span>
         </div>

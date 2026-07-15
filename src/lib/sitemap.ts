@@ -1,4 +1,5 @@
 import { categories, posts } from "@/lib/posts";
+import { getPublicationDate } from "@/lib/publicationDates";
 
 export const SITE_ORIGIN = "https://ecotinylivinghub.thrwds.com";
 
@@ -25,7 +26,7 @@ export function getSitemapEntries(): SitemapEntry[] {
     })),
     ...posts.map((p) => ({
       loc: `${SITE_ORIGIN}/blog/${p.slug}`,
-      lastmod: p.date,
+      lastmod: getPublicationDate(p),
       changefreq: "monthly",
       priority: "0.7",
     })),

@@ -1,9 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { type Post, getCategory } from "@/lib/posts";
 import { formatDate } from "@/lib/date";
+import { getPublicationDate } from "@/lib/publicationDates";
 
 export function PostCard({ post }: { post: Post }) {
   const cat = getCategory(post.category);
+  const publicationDate = getPublicationDate(post);
   return (
     <article className="group">
       <Link to="/blog/$slug" params={{ slug: post.slug }} className="block">
@@ -20,7 +22,7 @@ export function PostCard({ post }: { post: Post }) {
         <div className="flex items-center gap-3 text-xs text-earth-900/40 uppercase tracking-widest">
           <span className="text-moss font-semibold">{cat?.shortName}</span>
           <span>·</span>
-          <time dateTime={post.date}>{formatDate(post.date)}</time>
+          <time dateTime={publicationDate}>{formatDate(publicationDate)}</time>
         </div>
         <h3 className="text-2xl font-serif mt-3 leading-snug group-hover:text-moss transition-colors">
           {post.title}

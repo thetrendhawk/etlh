@@ -5,7 +5,6 @@ import { EmailOptIn } from "@/components/EmailOptIn";
 import { PostCard } from "@/components/PostCard";
 import { getPost, getCategory, getRelatedPosts, type Post } from "@/lib/posts";
 import { formatDate } from "@/lib/date";
-import { getPublicationDate } from "@/lib/publicationDates";
 import { absoluteUrl } from "@/lib/site";
 
 export const Route = createFileRoute("/blog/$slug")({
@@ -17,7 +16,7 @@ export const Route = createFileRoute("/blog/$slug")({
   head: ({ loaderData }) => {
     const p = loaderData?.post;
     if (!p) return {};
-    const publicationDate = getPublicationDate(p);
+    const publicationDate = p.date;
     const pageUrl = absoluteUrl(`/blog/${p.slug}`);
     const imageUrl = absoluteUrl(p.image);
     return {
@@ -68,7 +67,7 @@ function PostPage() {
   const { post } = Route.useLoaderData();
   const cat = getCategory(post.category);
   const related = getRelatedPosts(post);
-  const publicationDate = getPublicationDate(post);
+  const publicationDate = post.date;
 
   return (
     <div className="min-h-screen bg-earth-100 text-earth-900">

@@ -1172,7 +1172,7 @@ export const posts: Post[] = [
   excerpt:
     "Steal 11 chef-inspired low waste kitchen habits that cut food waste, save money, and work in any small apartment.",
   category: "zero-waste-kitchen",
-  date: "2026-06-21",
+  date: "2026-06-22",
   readingTime: "7 min read",
   image: zeroWastePin2, // import this in your file
   imageAlt:
@@ -1445,7 +1445,7 @@ export const posts: Post[] = [
   excerpt:
     "You don’t need a Pinterest‑perfect kitchen or expensive gadgets to go zero waste. These 9 budget‑friendly swaps cut plastic, reduce food waste, and stretch your grocery bill.",
   category: "zero-waste-kitchen",
-  date: "2025-06-22",
+  date: "2026-06-22",
   readingTime: "9 min read",
   image: zeroWastePin1,
   imageAlt: "Zero waste kitchen before and after collage showing clutter replaced with glass jars, compost bin, beeswax wraps, and sustainable storage",
@@ -1564,7 +1564,7 @@ export const posts: Post[] = [
     excerpt:
       "A friendly, renter-safe 30-day plan to upgrade your small apartment with sustainable swaps — all for under $100 total.",
     category: "eco-habits-budget",
-    date: "2025-06-10",
+    date: "2026-06-22",
     readingTime: "8 min read",
     image: postChecklist,
     imageAlt: "Eco cleaning supplies arranged in a bamboo caddy",
@@ -1601,7 +1601,7 @@ export const posts: Post[] = [
     excerpt:
       "Realistic zero waste kitchen ideas for renters with two feet of counter space — storage, composting, and pantry swaps that actually fit.",
     category: "zero-waste-kitchen",
-    date: "2025-06-05",
+    date: "2026-06-22",
     readingTime: "6 min read",
     image: postKitchen,
     imageAlt: "Zero waste kitchen counter with glass jars and fresh herbs",
@@ -1631,7 +1631,7 @@ export const posts: Post[] = [
     excerpt:
       "Thrifted, renter-safe, and plant-forward ideas for budget eco home decor that makes a small apartment feel intentional and warm.",
     category: "small-apartment-decor",
-    date: "2025-05-28",
+    date: "2026-06-22",
     readingTime: "7 min read",
     image: postDecor,
     imageAlt: "Thrifted ceramic vase with dried pampas grass on wooden side table",
@@ -1661,7 +1661,7 @@ export const posts: Post[] = [
     excerpt:
       "A no-guilt sustainable living checklist designed for renters and small-apartment dwellers. Start with five swaps, not fifty.",
     category: "eco-habits-budget",
-    date: "2025-05-20",
+    date: "2026-06-22",
     readingTime: "5 min read",
     image: postChecklist,
     imageAlt: "Hand checking off a paper checklist next to a coffee mug",

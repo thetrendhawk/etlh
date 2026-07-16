@@ -1,6 +1,7 @@
 name: Lint Audit
 
 on:
+  pull_request:
   push:
     branches:
       - isolate-lint-debt

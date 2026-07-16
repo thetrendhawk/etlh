@@ -151,6 +151,8 @@ const publicRoutes = new Set<string>([
   "/resources",
   "/blog",
   "/sitemap.xml",
+  "/blog/$slug",
+  "/category/$slug",
   ...posts.map((post) => `/blog/${post.slug}`),
   ...categories.map((category) => `/category/${category.slug}`),
 ]);

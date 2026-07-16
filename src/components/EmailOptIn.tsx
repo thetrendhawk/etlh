@@ -6,12 +6,19 @@ interface Props {
 
 type Status = "idle" | "loading" | "success" | "error";
 
+interface MailchimpResponse {
+  result?: string;
+  msg?: unknown;
+}
+
+type JsonpWindow = Window & Record<string, unknown>;
+
 const MAILCHIMP_BASE = "https://gmail.us22.list-manage.com/subscribe/post-json";
 const U = "2b6b599ff49439c3c3a6a5927";
 const ID = "b33e3d79ce";
 const F_ID = "0074c2e1f0";
 
-function subscribeViaJsonp(email: string, firstName: string): Promise<any> {
+function subscribeViaJsonp(email: string, firstName: string): Promise<MailchimpResponse> {
   return new Promise((resolve, reject) => {
     const cb = "mc_cb_" + Date.now();
     const params = new URLSearchParams({
@@ -25,8 +32,9 @@ function subscribeViaJsonp(email: string, firstName: string): Promise<any> {
     });
     const script = document.createElement("script");
     const url = `${MAILCHIMP_BASE}?${params.toString()}&c=${cb}`;
+    const jsonpWindow = window as JsonpWindow;
 
-    (window as any)[cb] = (data: any) => {
+    jsonpWindow[cb] = (data: MailchimpResponse) => {
       resolve(data);
       cleanup();
     };
@@ -39,7 +47,7 @@ function subscribeViaJsonp(email: string, firstName: string): Promise<any> {
 
     const cleanup = () => {
       if (script.parentNode) document.head.removeChild(script);
-      delete (window as any)[cb];
+      delete jsonpWindow[cb];
     };
 
     document.head.appendChild(script);

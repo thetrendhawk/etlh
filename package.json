@@ -12,7 +12,7 @@
     "format": "prettier --write .",
     "check:sitemap": "bun scripts/check-sitemap.ts",
     "check:content": "bun scripts/check-content.ts",
-    "check:ci": "bun run check:sitemap && bun run check:content && bun run build"
+    "check:ci": "bun run lint && bun run check:sitemap && bun run check:content && bun run build"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

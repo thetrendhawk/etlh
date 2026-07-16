@@ -1,5 +1,5 @@
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
+import { join, relative } from "node:path";
 
 import { categories, posts } from "../src/lib/posts";
 
@@ -15,6 +15,24 @@ function findDuplicates(values: string[]): string[] {
     seen.add(value);
   }
   return [...duplicates];
+}
+
+function collectSourceFiles(directory: string): string[] {
+  const files: string[] = [];
+  for (const entry of readdirSync(directory)) {
+    const absolutePath = join(directory, entry);
+    if (statSync(absolutePath).isDirectory()) {
+      files.push(...collectSourceFiles(absolutePath));
+      continue;
+    }
+    if (/\.(ts|tsx)$/.test(entry) && entry !== "routeTree.gen.ts") files.push(absolutePath);
+  }
+  return files;
+}
+
+function normalizeInternalPath(path: string): string {
+  if (path === "/") return path;
+  return path.replace(/\/$/, "");
 }
 
 for (const slug of findDuplicates(posts.map((post) => post.slug))) {
@@ -109,13 +127,57 @@ for (const marker of [
   if (!articleRoute.includes(marker)) fail(`Article route is missing ${marker}.`);
 }
 
-const sourceFilesToCheckForDeadLinks = [
-  "src/components/SiteFooter.tsx",
-  ...routeFiles,
+const routeTreeSource = readFileSync(join(process.cwd(), "src/routeTree.gen.ts"), "utf8");
+const expectedRouteTreePaths = [
+  "/",
+  "/about",
+  "/contact",
+  "/resources",
+  "/sitemap.xml",
+  "/blog/",
+  "/blog/$slug",
+  "/category/$slug",
 ];
-for (const sourceFile of sourceFilesToCheckForDeadLinks) {
-  const source = readFileSync(join(process.cwd(), sourceFile), "utf8");
-  if (/href\s*=\s*["']#["']/.test(source)) fail(`${sourceFile} contains a direct href="#" placeholder.`);
+for (const routePath of expectedRouteTreePaths) {
+  if (!routeTreeSource.includes(`'${routePath}'`)) {
+    fail(`src/routeTree.gen.ts is missing expected route identity ${routePath}.`);
+  }
+}
+
+const publicRoutes = new Set<string>([
+  "/",
+  "/about",
+  "/contact",
+  "/resources",
+  "/blog",
+  "/sitemap.xml",
+  ...posts.map((post) => `/blog/${post.slug}`),
+  ...categories.map((category) => `/category/${category.slug}`),
+]);
+
+const sourceRoot = join(process.cwd(), "src");
+const sourceFiles = collectSourceFiles(sourceRoot);
+const internalLinkPattern = /(?:to|href)\s*(?:=|:)\s*["'](\/[^"'?#]*)/g;
+let internalLinkCount = 0;
+
+for (const absolutePath of sourceFiles) {
+  const source = readFileSync(absolutePath, "utf8");
+  const sourceFile = relative(process.cwd(), absolutePath);
+
+  if (/href\s*=\s*["']#["']/.test(source)) {
+    fail(`${sourceFile} contains a direct href="#" placeholder.`);
+  }
+
+  for (const match of source.matchAll(internalLinkPattern)) {
+    const rawPath = match[1];
+    const normalizedPath = normalizeInternalPath(rawPath);
+    internalLinkCount += 1;
+
+    if (publicRoutes.has(normalizedPath)) continue;
+    if (existsSync(join(process.cwd(), "public", normalizedPath.slice(1)))) continue;
+
+    fail(`${sourceFile} links to unknown internal path ${rawPath}.`);
+  }
 }
 
 if (failures.length > 0) {
@@ -126,5 +188,6 @@ if (failures.length > 0) {
 
 console.log(
   `check:content PASSED — ${posts.length} posts and ${categories.length} categories validated; ` +
-    `${routeFiles.length} public route types include required metadata; no direct placeholder links found.`,
+    `${routeFiles.length} public route types include required metadata; ` +
+    `${expectedRouteTreePaths.length} generated route identities and ${internalLinkCount} literal internal links validated.`,
 );

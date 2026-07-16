@@ -13,10 +13,10 @@ interface MailchimpResponse {
 
 type JsonpWindow = Window & Record<string, unknown>;
 
-const MAILCHIMP_BASE = "https://gmail.us22.list-manage.com/subscribe/post-json";
+const MAILCHIMP_BASE = "https://choosebettertech.us22.list-manage.com/subscribe/post-json";
 const U = "2b6b599ff49439c3c3a6a5927";
 const ID = "b33e3d79ce";
-const F_ID = "0074c2e1f0";
+const F_ID = "007bc2e1f0";
 
 function subscribeViaJsonp(email: string, firstName: string): Promise<MailchimpResponse> {
   return new Promise((resolve, reject) => {
@@ -26,7 +26,7 @@ function subscribeViaJsonp(email: string, firstName: string): Promise<MailchimpR
       id: ID,
       f_id: F_ID,
       EMAIL: email,
-      FNAME: firstName ?? "",
+      FNAME: firstName,
       // Honeypot field — must remain empty
       [`b_${U}_${ID}`]: "",
     });
@@ -73,7 +73,7 @@ export function EmailOptIn({ variant = "full" }: Props) {
       const payload = await subscribeViaJsonp(email, name);
       if (payload.result === "success") {
         setStatus("success");
-        setMessage("You're in — check your inbox to confirm.");
+        setMessage("Thanks — check your inbox for the next step.");
         setEmail("");
         setName("");
       } else {
@@ -144,14 +144,13 @@ export function EmailOptIn({ variant = "full" }: Props) {
           <p role="status" className="text-moss font-medium text-lg">{message}</p>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto" noValidate>
-            <label htmlFor="optin-name" className="sr-only">First name</label>
+            <label htmlFor="optin-name" className="sr-only">First name (optional)</label>
             <input
               id="optin-name"
               type="text"
-              required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="First name"
+              placeholder="First name (optional)"
               disabled={loading}
               className="flex-1 bg-white border border-earth-900/10 px-6 py-4 rounded-full focus:outline-none focus:ring-2 focus:ring-moss/30 disabled:opacity-60"
             />
@@ -181,7 +180,7 @@ export function EmailOptIn({ variant = "full" }: Props) {
         <ul className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-earth-900/50">
           <li>✓ 100% Renter Friendly</li>
           <li>✓ Under $100 Budget</li>
-          <li>✓ Instant Download</li>
+          <li>✓ Delivered by Email</li>
         </ul>
       </div>
     </section>

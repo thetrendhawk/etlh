@@ -12,7 +12,7 @@
     "format": "prettier --write .",
     "check:sitemap": "bun scripts/check-sitemap.ts",
     "check:content": "bun scripts/check-content.ts",
-    "check:ci": "bun run check:sitemap && bun run check:content && bun run build"
+    "check:ci": "bun run lint && bun run check:sitemap && bun run check:content && bun run build"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -64,7 +64,7 @@
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.1",
     "tw-animate-css": "^1.3.4",
-    "vaul": "^1.1.2",
+    "vaul": "^1.2.2",
     "vite-tsconfig-paths": "^6.0.2",
     "vite": "^8.0.16",
     "zod": "^3.24.2"

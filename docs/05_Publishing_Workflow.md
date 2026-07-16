@@ -14,7 +14,6 @@ The current website article source is:
 
 - `src/lib/posts.ts` for categories, article metadata, table-of-contents entries, and article body blocks
 - `src/assets/` for article and social images imported by `src/lib/posts.ts`
-- `src/lib/publicationDates.ts` for six temporary verified-date overrides
 - `src/routes/blog.$slug.tsx` for article rendering, metadata, and Article structured data
 - `src/lib/sitemap.ts` and `src/routes/sitemap[.]xml.ts` for sitemap output
 
@@ -111,13 +110,7 @@ Use a verified date in `YYYY-MM-DD` format.
 
 Do not infer a publication date from file timestamps, draft creation, image generation, or conversation dates unless that evidence has been explicitly accepted as the publication date.
 
-Six legacy posts currently use temporary verified-date overrides in `src/lib/publicationDates.ts`. Until that cleanup is completed:
-
-- preserve the override behavior
-- do not add new overrides casually
-- do not treat the raw `date` value in `src/lib/posts.ts` as authoritative for those six posts
-
-New articles should store the correct verified date directly in `src/lib/posts.ts`.
+The verified source date must be stored directly in `src/lib/posts.ts`. Do not add a second override layer for publication dates. If a legacy date is unsupported, correct the source record only after the replacement date has been explicitly verified.
 
 ## Image Workflow
 
@@ -304,7 +297,6 @@ After rollback:
 - The content validator checks structure and required markers, not editorial quality or factual truth.
 - Internal-link validation is not yet automated.
 - Route-level HTTP behavior is not yet tested in CI.
-- Six legacy source dates still rely on temporary overrides.
 - Vercel previews and production builds can be delayed by account build-rate limits.
 - Search Console indexing confirmation remains an owner-side external step.
 

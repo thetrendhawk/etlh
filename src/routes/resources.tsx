@@ -4,7 +4,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { absoluteUrl } from "@/lib/site";
 
 const title = "Resources — Eco Tiny Living Hub";
-const description = "Tools, products, and recommendations for sustainable living in a small apartment — reusable kitchen swaps, storage solutions, and eco cleaning supplies.";
+const description = "A transparent preview of resource categories being reviewed for sustainable small-space living.";
 const pageUrl = absoluteUrl("/resources");
 
 export const Route = createFileRoute("/resources")({
@@ -26,35 +26,34 @@ export const Route = createFileRoute("/resources")({
 interface Item {
   title: string;
   description: string;
-  link?: string;
 }
 
 const sections: { title: string; intro: string; items: Item[] }[] = [
   {
     title: "Zero-waste kitchen swaps",
-    intro: "Refillable, reusable, and renter-friendly.",
+    intro: "Refillable, reusable, and renter-friendly categories under review.",
     items: [
-      { title: "Reusable beeswax wraps", description: "A sturdy 3-pack that replaces plastic wrap for most kitchen needs." },
-      { title: "Glass jar storage set", description: "Stackable, dishwasher-safe jars for bulk pantry items." },
-      { title: "Compostable dish sponges", description: "Plant-based and they actually scrub well." },
+      { title: "Reusable beeswax wraps", description: "A possible alternative to disposable plastic wrap for selected kitchen uses." },
+      { title: "Glass jar storage", description: "Reusable containers that can make pantry contents easier to see and use." },
+      { title: "Plant-based dish sponges", description: "Lower-plastic cleaning options that still need durability and performance review." },
     ],
   },
   {
     title: "Small-space storage",
-    intro: "Solutions that don't require drilling, painting, or losing your deposit.",
+    intro: "Renter-friendly categories that do not require permanent installation.",
     items: [
-      { title: "Tension shelf system", description: "Adds vertical storage without a single screw." },
-      { title: "Woven storage baskets", description: "Hide clutter and add texture in one move." },
-      { title: "Over-the-door organizers", description: "Free real estate inside any closet." },
+      { title: "Tension shelf systems", description: "Vertical storage options designed to avoid drilling into walls." },
+      { title: "Woven storage baskets", description: "Flexible containers that can reduce visible clutter while fitting into open shelving." },
+      { title: "Over-the-door organizers", description: "Storage that uses otherwise empty door space in closets and small rooms." },
     ],
   },
   {
     title: "Eco cleaning supplies",
-    intro: "A simple kit that handles 90% of apartment cleaning.",
+    intro: "Simple reusable categories being evaluated for everyday apartment cleaning.",
     items: [
-      { title: "Refillable cleaning concentrate", description: "One bottle, dozens of refills, zero plastic waste." },
-      { title: "Wool dryer balls", description: "Cut drying time and replace dryer sheets for years." },
-      { title: "Bamboo dish brushes", description: "Replace plastic brushes with a compostable handle." },
+      { title: "Refillable cleaning concentrates", description: "Concentrated products that may reduce repeat packaging when used correctly." },
+      { title: "Wool dryer balls", description: "A reusable alternative to disposable dryer sheets for compatible laundry routines." },
+      { title: "Replaceable-head dish brushes", description: "Brush systems intended to replace only the worn cleaning head instead of the full handle." },
     ],
   },
 ];
@@ -66,36 +65,33 @@ function Resources() {
       <main className="max-w-6xl mx-auto px-6 py-16 md:py-20">
         <header className="max-w-2xl mb-12">
           <span className="uppercase text-xs font-bold tracking-widest text-moss">Resources</span>
-          <h1 className="font-serif text-5xl md:text-6xl mt-3 leading-tight">Tools & recommendations</h1>
+          <h1 className="font-serif text-5xl md:text-6xl mt-3 leading-tight">Resource library in progress</h1>
           <p className="text-earth-900/70 mt-4 text-lg">
-            A growing collection of things that genuinely make small-apartment sustainable living easier. Updated as I test new picks.
+            These are product categories we may evaluate for small-space sustainable living. No product links are published until a recommendation has been reviewed and can be presented honestly.
           </p>
-          <p className="text-earth-900/50 text-sm mt-3 italic">
-            Note: this page may contain affiliate links in the future. I'll only recommend things I'd buy myself.
+          <p className="text-earth-900/50 text-sm mt-3">
+            Future affiliate links will be clearly disclosed. Inclusion will not be based only on commission availability.
           </p>
         </header>
 
         <div className="space-y-16">
-          {sections.map((s) => (
-            <section key={s.title}>
+          {sections.map((section) => (
+            <section key={section.title}>
               <div className="mb-6">
-                <h2 className="font-serif text-3xl md:text-4xl">{s.title}</h2>
-                <p className="text-earth-900/60 mt-2">{s.intro}</p>
+                <h2 className="font-serif text-3xl md:text-4xl">{section.title}</h2>
+                <p className="text-earth-900/60 mt-2">{section.intro}</p>
               </div>
               <div className="grid md:grid-cols-3 gap-6">
-                {s.items.map((item) => (
+                {section.items.map((item) => (
                   <article key={item.title} className="bg-white rounded-2xl p-6 border border-earth-900/5 flex flex-col">
                     <div className="aspect-video bg-earth-100 rounded-xl mb-5 grid place-items-center text-earth-900/30 text-xs uppercase tracking-widest">
-                      Product image
+                      Review pending
                     </div>
                     <h3 className="font-serif text-xl">{item.title}</h3>
                     <p className="text-sm text-earth-900/60 mt-2 flex-1">{item.description}</p>
-                    <a
-                      href={item.link ?? "#"}
-                      className="mt-5 inline-block text-center bg-earth-900 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-earth-900/90 transition-colors"
-                    >
-                      Coming soon
-                    </a>
+                    <span className="mt-5 inline-block text-center border border-earth-900/10 text-earth-900/55 px-5 py-2.5 rounded-full text-sm font-medium" aria-label={`${item.title} recommendation is not yet published`}>
+                      Not yet recommended
+                    </span>
                   </article>
                 ))}
               </div>

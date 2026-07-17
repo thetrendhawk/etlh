@@ -30,5 +30,13 @@ jobs:
           find src/assets -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.webp' -o -iname '*.avif' \) -printf '%s %p\n' \
             | sort -nr \
             | tee asset-sizes.txt
-          printf '\nTotals:\n'
-          awk '{ total += $1; count += 1 } END { printf "files=%d bytes=%d mebibytes=%.2f\n", count, total, total / 1048576 }' asset-sizes.txt
+          printf '\nTotals:\n' | tee -a asset-sizes.txt
+          awk '{ total += $1; count += 1 } END { printf "files=%d bytes=%d mebibytes=%.2f\n", count, total, total / 1048576 }' asset-sizes.txt \
+            | tee -a asset-sizes.txt
+
+      - name: Upload asset inventory
+        uses: actions/upload-artifact@v4
+        with:
+          name: asset-inventory
+          path: asset-sizes.txt
+          retention-days: 7

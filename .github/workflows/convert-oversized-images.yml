@@ -1,0 +1,46 @@
+name: Convert oversized images
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - ".github/workflows/convert-oversized-images.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  convert:
+    name: Convert PNG assets to WebP
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install WebP tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y webp
+
+      - name: Convert oversized PNG assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p converted-images
+          for source in src/assets/ZeroWastePin{1,2,3}.png src/assets/SustainablePin{1,2,3}.png src/assets/DecorPin{1,2,3}.png; do
+            filename=$(basename "$source" .png)
+            cwebp -quiet -q 82 -metadata none "$source" -o "converted-images/$filename.webp"
+          done
+          find converted-images -type f -printf '%s %p\n' | sort -nr | tee converted-image-sizes.txt
+          awk '{ total += $1; count += 1 } END { printf "files=%d bytes=%d mebibytes=%.2f\n", count, total, total / 1048576 }' converted-image-sizes.txt | tee -a converted-image-sizes.txt
+
+      - name: Upload converted assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: converted-webp-assets
+          path: |
+            converted-images
+            converted-image-sizes.txt
+          retention-days: 7

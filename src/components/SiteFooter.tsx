@@ -47,8 +47,13 @@ export function SiteFooter() {
           </ul>
         </div>
       </div>
-      <div className="max-w-6xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 text-xs text-earth-100/40">
+      <div className="max-w-6xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 text-xs text-earth-100/40 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
         <p>© {new Date().getFullYear()} Eco Tiny Living Hub. Progress over perfection.</p>
+        <nav aria-label="Legal" className="flex flex-wrap gap-x-5 gap-y-2">
+          <Link to="/privacy" className="hover:text-earth-100">Privacy</Link>
+          <Link to="/terms" className="hover:text-earth-100">Terms</Link>
+          <Link to="/affiliate-disclosure" className="hover:text-earth-100">Affiliate Disclosure</Link>
+        </nav>
       </div>
     </footer>
   );

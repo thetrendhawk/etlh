@@ -9,15 +9,23 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AffiliateDisclosureRouteImport } from './routes/affiliate-disclosure'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as CategorySlugRouteImport } from './routes/category.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -28,9 +36,19 @@ const ResourcesRoute = ResourcesRouteImport.update({
   path: '/resources',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AffiliateDisclosureRoute = AffiliateDisclosureRouteImport.update({
+  id: '/affiliate-disclosure',
+  path: '/affiliate-disclosure',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -62,9 +80,12 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/affiliate-disclosure': typeof AffiliateDisclosureRoute
   '/contact': typeof ContactRoute
+  '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/category/$slug': typeof CategorySlugRoute
   '/blog/': typeof BlogIndexRoute
@@ -72,9 +93,12 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/affiliate-disclosure': typeof AffiliateDisclosureRoute
   '/contact': typeof ContactRoute
+  '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/category/$slug': typeof CategorySlugRoute
   '/blog': typeof BlogIndexRoute
@@ -83,9 +107,12 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/affiliate-disclosure': typeof AffiliateDisclosureRoute
   '/contact': typeof ContactRoute
+  '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/category/$slug': typeof CategorySlugRoute
   '/blog/': typeof BlogIndexRoute
@@ -95,9 +122,12 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/affiliate-disclosure'
     | '/contact'
+    | '/privacy'
     | '/resources'
     | '/sitemap.xml'
+    | '/terms'
     | '/blog/$slug'
     | '/category/$slug'
     | '/blog/'
@@ -105,9 +135,12 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/affiliate-disclosure'
     | '/contact'
+    | '/privacy'
     | '/resources'
     | '/sitemap.xml'
+    | '/terms'
     | '/blog/$slug'
     | '/category/$slug'
     | '/blog'
@@ -115,9 +148,12 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/affiliate-disclosure'
     | '/contact'
+    | '/privacy'
     | '/resources'
     | '/sitemap.xml'
+    | '/terms'
     | '/blog/$slug'
     | '/category/$slug'
     | '/blog/'
@@ -126,9 +162,12 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AffiliateDisclosureRoute: typeof AffiliateDisclosureRoute
   ContactRoute: typeof ContactRoute
+  PrivacyRoute: typeof PrivacyRoute
   ResourcesRoute: typeof ResourcesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TermsRoute: typeof TermsRoute
   BlogSlugRoute: typeof BlogSlugRoute
   CategorySlugRoute: typeof CategorySlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
@@ -136,6 +175,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -150,11 +196,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResourcesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/affiliate-disclosure': {
+      id: '/affiliate-disclosure'
+      path: '/affiliate-disclosure'
+      fullPath: '/affiliate-disclosure'
+      preLoaderRoute: typeof AffiliateDisclosureRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -198,9 +258,12 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AffiliateDisclosureRoute: AffiliateDisclosureRoute,
   ContactRoute: ContactRoute,
+  PrivacyRoute: PrivacyRoute,
   ResourcesRoute: ResourcesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TermsRoute: TermsRoute,
   BlogSlugRoute: BlogSlugRoute,
   CategorySlugRoute: CategorySlugRoute,
   BlogIndexRoute: BlogIndexRoute,

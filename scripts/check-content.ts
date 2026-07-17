@@ -101,6 +101,9 @@ const routeFiles = [
   "src/routes/about.tsx",
   "src/routes/contact.tsx",
   "src/routes/resources.tsx",
+  "src/routes/privacy.tsx",
+  "src/routes/terms.tsx",
+  "src/routes/affiliate-disclosure.tsx",
 ];
 
 for (const routeFile of routeFiles) {
@@ -131,9 +134,12 @@ const routeTreeSource = readFileSync(join(process.cwd(), "src/routeTree.gen.ts")
 const expectedRouteTreePaths = [
   "/",
   "/about",
+  "/affiliate-disclosure",
   "/contact",
+  "/privacy",
   "/resources",
   "/sitemap.xml",
+  "/terms",
   "/blog/",
   "/blog/$slug",
   "/category/$slug",
@@ -147,8 +153,11 @@ for (const routePath of expectedRouteTreePaths) {
 const publicRoutes = new Set<string>([
   "/",
   "/about",
+  "/affiliate-disclosure",
   "/contact",
+  "/privacy",
   "/resources",
+  "/terms",
   "/blog",
   "/sitemap.xml",
   "/blog/$slug",

@@ -1,15 +1,15 @@
 import postKitchen from "@/assets/post-kitchen.jpg";
 import postDecor from "@/assets/post-decor.jpg";
 import postChecklist from "@/assets/post-checklist.jpg";
-import zeroWastePin1 from "@/assets/ZeroWastePin1.png";
-import zeroWastePin2 from "@/assets/ZeroWastePin2.png";
-import zeroWastePin3 from "@/assets/ZeroWastePin3.png";
-import sustainablePin1 from "@/assets/SustainablePin1.png";
-import sustainablePin2 from "@/assets/SustainablePin2.png";
-import sustainablePin3 from "@/assets/SustainablePin3.png";
-import decorPin1 from "@/assets/DecorPin1.png";
-import decorPin2 from "@/assets/DecorPin2.png";
-import decorPin3 from "@/assets/DecorPin3.png";
+import zeroWastePin1 from "@/assets/ZeroWastePin1.webp";
+import zeroWastePin2 from "@/assets/ZeroWastePin2.webp";
+import zeroWastePin3 from "@/assets/ZeroWastePin3.webp";
+import sustainablePin1 from "@/assets/SustainablePin1.webp";
+import sustainablePin2 from "@/assets/SustainablePin2.webp";
+import sustainablePin3 from "@/assets/SustainablePin3.webp";
+import decorPin1 from "@/assets/DecorPin1.webp";
+import decorPin2 from "@/assets/DecorPin2.webp";
+import decorPin3 from "@/assets/DecorPin3.webp";
 
 
 

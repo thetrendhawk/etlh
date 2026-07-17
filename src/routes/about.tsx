@@ -6,7 +6,8 @@ import heroImg from "@/assets/hero-apartment.jpg";
 import { absoluteUrl } from "@/lib/site";
 
 const title = "About — Eco Tiny Living Hub";
-const description = "Meet the creator behind Eco Tiny Living Hub — helping renters live greener in small apartments without feeling overwhelmed or broke.";
+const description =
+  "Why Eco Tiny Living Hub exists and how it helps renters make practical, lower-friction changes in small spaces.";
 const pageUrl = absoluteUrl("/about");
 const imageUrl = absoluteUrl(heroImg);
 
@@ -37,23 +38,17 @@ function About() {
           <div>
             <span className="uppercase text-xs font-bold tracking-widest text-moss">About</span>
             <h1 className="font-serif text-5xl md:text-6xl mt-3 leading-tight text-balance">
-              Hi, I'm building this corner of the internet for renters like us.
+              Sustainable small-space living should feel practical, not overwhelming.
             </h1>
             <div className="mt-8 space-y-5 text-lg leading-relaxed text-earth-900/80">
               <p>
-                Eco Tiny Living Hub exists because most sustainable living advice assumes you own a
-                house, have a backyard, and can drop $200 on bamboo organizers. That's never been my
-                reality — and probably not yours either.
+                Eco Tiny Living Hub is a reader-centered content project for renters and small-space dwellers who want a calmer home, less waste, and habits that are easier to maintain.
               </p>
               <p>
-                I've lived in five small apartments over the last decade, in four cities, mostly
-                under 600 square feet. Every guide here has been tested in spaces where the kitchen
-                has two feet of counter and the landlord says no to paint colors.
+                The focus is not perfection or expensive makeovers. It is small, concrete, repeatable steps that reduce unnecessary friction and make thoughtful choices more realistic in everyday life.
               </p>
               <p>
-                My mission is simple: help renters and small-space dwellers reduce unnecessary
-                friction so thoughtful, sustainable living becomes easier. Progress over perfection,
-                always.
+                Trust matters more than volume. We aim to explain tradeoffs, avoid inflated promises, disclose commercial relationships, and correct material errors when they are found.
               </p>
             </div>
             <div className="mt-10 flex flex-wrap gap-4">
@@ -64,10 +59,10 @@ function About() {
                 Read the blog
               </Link>
               <Link
-                to="/contact"
+                to="/editorial-policy"
                 className="border border-earth-900/20 px-7 py-3.5 rounded-full font-medium hover:bg-earth-900/5 transition-colors"
               >
-                Say hello
+                Editorial standards
               </Link>
             </div>
           </div>

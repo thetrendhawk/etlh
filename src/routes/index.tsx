@@ -88,6 +88,9 @@ function Home() {
           <img
             src={heroImg}
             alt="Sunlit small apartment with houseplants and wooden furniture"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             width={1200}
             height={1200}
             className="w-full h-full object-cover"
@@ -120,6 +123,7 @@ function Home() {
                   src={catImages[c.slug]}
                   alt={c.name}
                   loading="lazy"
+                  decoding="async"
                   width={800}
                   height={600}
                   className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"

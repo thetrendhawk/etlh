@@ -116,6 +116,9 @@ function PostPage() {
           <img
             src={post.image}
             alt={post.imageAlt}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             width={1024}
             height={1536}
             className="w-full h-full object-cover"

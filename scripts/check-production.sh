@@ -2,18 +2,23 @@
 set -euo pipefail
 
 production_origin="https://ecotinylivinghub.thrwds.com"
-transport_origin="https://eco-tiny-living-site.vercel.app"
 production_host="ecotinylivinghub.thrwds.com"
+vercel_host="eco-tiny-living-site.vercel.app"
+vercel_alias="https://$vercel_host"
 user_agent="ETLH-production-smoke-check/1.0"
 
 pass() { printf '✓ %s\n' "$1"; }
 fail() { printf 'x %s\n' "$1" >&2; exit 1; }
 
+edge_ip=$(getent ahostsv4 "$vercel_host" | awk 'NR==1 { print $1 }')
+[[ -n "$edge_ip" ]] || fail "Could not resolve the Vercel production alias."
+resolve_args=(--resolve "$production_host:443:$edge_ip")
+
 fetch_body() {
   local path="$1"
   local output="$2"
   local status
-  status=$(curl --silent --show-error --max-time 20 --user-agent "$user_agent" --header "Host: $production_host" --output "$output" --write-out '%{http_code}' "$transport_origin$path")
+  status=$(curl --silent --show-error --location --max-time 20 --user-agent "$user_agent" "${resolve_args[@]}" --output "$output" --write-out '%{http_code}' "$production_origin$path")
   [[ "$status" == "200" ]] || fail "$path returned $status; expected 200."
 }
 
@@ -32,7 +37,7 @@ check_status() {
   local path="$1"
   local expected="$2"
   local status
-  status=$(curl --silent --show-error --max-time 20 --user-agent "$user_agent" --header "Host: $production_host" --output /dev/null --write-out '%{http_code}' "$transport_origin$path")
+  status=$(curl --silent --show-error --max-time 20 --user-agent "$user_agent" "${resolve_args[@]}" --output /dev/null --write-out '%{http_code}' "$production_origin$path")
   [[ "$status" == "$expected" ]] || fail "$path returned $status; expected $expected."
   pass "$path returned $expected"
 }
@@ -41,8 +46,8 @@ check_alias_redirect() {
   local path="$1"
   local expected="$production_origin$path"
   local result
-  result=$(curl --silent --show-error --max-time 20 --user-agent "$user_agent" --output /dev/null --write-out '%{http_code} %{redirect_url}' "$transport_origin$path")
-  [[ "$result" == "308 $expected" || "$result" == "307 $expected" || "$result" == "301 $expected" || "$result" == "302 $expected" ]] || fail "$transport_origin$path returned $result; expected a redirect to $expected."
+  result=$(curl --silent --show-error --max-time 20 --user-agent "$user_agent" --output /dev/null --write-out '%{http_code} %{redirect_url}' "$vercel_alias$path")
+  [[ "$result" == "308 $expected" || "$result" == "307 $expected" || "$result" == "301 $expected" || "$result" == "302 $expected" ]] || fail "$vercel_alias$path returned $result; expected a redirect to $expected."
   pass "Vercel alias redirects $path to the preferred host"
 }
 

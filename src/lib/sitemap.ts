@@ -18,6 +18,7 @@ export function getSitemapEntries(): SitemapEntry[] {
     { loc: `${SITE_ORIGIN}/about`, changefreq: "monthly", priority: "0.6" },
     { loc: `${SITE_ORIGIN}/resources`, changefreq: "monthly", priority: "0.7" },
     { loc: `${SITE_ORIGIN}/contact`, changefreq: "monthly", priority: "0.5" },
+    { loc: `${SITE_ORIGIN}/editorial-policy`, changefreq: "yearly", priority: "0.4" },
     { loc: `${SITE_ORIGIN}/privacy`, changefreq: "yearly", priority: "0.3" },
     { loc: `${SITE_ORIGIN}/terms`, changefreq: "yearly", priority: "0.3" },
     { loc: `${SITE_ORIGIN}/affiliate-disclosure`, changefreq: "yearly", priority: "0.3" },

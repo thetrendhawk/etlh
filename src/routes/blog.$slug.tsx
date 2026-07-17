@@ -19,6 +19,7 @@ export const Route = createFileRoute("/blog/$slug")({
     const publicationDate = p.date;
     const pageUrl = absoluteUrl(`/blog/${p.slug}`);
     const imageUrl = absoluteUrl(p.image);
+    const organizationUrl = absoluteUrl("/");
     return {
       meta: [
         { title: `${p.title} — Eco Tiny Living Hub` },
@@ -45,6 +46,16 @@ export const Route = createFileRoute("/blog/$slug")({
             image: imageUrl,
             url: pageUrl,
             mainEntityOfPage: pageUrl,
+            author: {
+              "@type": "Organization",
+              name: "Eco Tiny Living Hub",
+              url: organizationUrl,
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Eco Tiny Living Hub",
+              url: organizationUrl,
+            },
           }),
         },
       ],
@@ -87,6 +98,19 @@ function PostPage() {
         </div>
         <h1 className="font-serif text-4xl md:text-6xl leading-tight mt-4 text-balance">{post.title}</h1>
         <p className="text-lg md:text-xl text-earth-900/70 mt-6 leading-relaxed">{post.excerpt}</p>
+
+        <div className="mt-7 flex flex-col gap-1 border-l-2 border-moss/40 pl-4 text-sm text-earth-900/60">
+          <p>
+            Published by <span className="font-medium text-earth-900">Eco Tiny Living Hub</span>
+          </p>
+          <p>
+            Reviewed under our{" "}
+            <Link to="/editorial-policy" className="underline underline-offset-4 hover:text-moss">
+              editorial and corrections policy
+            </Link>
+            .
+          </p>
+        </div>
 
         <div className="aspect-[2/3] mt-10 rounded-2xl overflow-hidden outline-1 -outline-offset-1 outline-black/5">
           <img
@@ -137,6 +161,15 @@ function PostPage() {
             return <p key={i}>{block.text}</p>;
           })}
         </div>
+
+        <section className="mt-12 rounded-2xl border border-earth-900/10 bg-white p-6 text-sm leading-relaxed text-earth-900/65">
+          <h2 className="font-serif text-2xl text-earth-900">Found something we should correct?</h2>
+          <p className="mt-2">
+            Send the article title, the passage in question, and any supporting source through our{" "}
+            <Link to="/contact" className="underline underline-offset-4 hover:text-moss">contact page</Link>.
+            Material corrections will be made transparently.
+          </p>
+        </section>
 
         <EmailOptIn variant="inline" />
 

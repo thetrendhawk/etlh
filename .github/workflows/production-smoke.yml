@@ -4,10 +4,13 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "17 14 * * *"
-  pull_request:
+  push:
+    branches:
+      - main
     paths:
       - ".github/workflows/production-smoke.yml"
       - "scripts/check-production.sh"
+      - "src/**"
       - "package.json"
 
 permissions:
@@ -31,6 +34,10 @@ jobs:
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
+
+      - name: Allow production deployment to become ready
+        if: github.event_name == 'push'
+        run: sleep 30
 
       - name: Run production smoke checks
         shell: bash

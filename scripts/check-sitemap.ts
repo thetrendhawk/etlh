@@ -21,7 +21,6 @@ import { categories, posts } from "../src/lib/posts";
 const failures: string[] = [];
 const fail = (msg: string) => failures.push(msg);
 
-// 1. Single authoritative source: no static sitemap may exist in public/.
 const publicDir = join(process.cwd(), "public");
 const staticSitemaps = existsSync(publicDir)
   ? readdirSync(publicDir).filter((f) => /^sitemap.*\.xml$/i.test(f))
@@ -34,12 +33,10 @@ if (staticSitemaps.length > 0) {
   );
 }
 
-// 2. Determinism: two runs must produce identical output.
 const xml = buildSitemapXml();
 const xml2 = buildSitemapXml();
 if (xml !== xml2) fail("Sitemap output differs across identical runs (non-deterministic).");
 
-// 3. XML wrapper sanity.
 if (!xml.startsWith(`<?xml version="1.0" encoding="UTF-8"?>`)) fail("Missing XML declaration.");
 if (!xml.includes(`<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`)) {
   fail("Missing urlset element or sitemap namespace.");
@@ -51,31 +48,28 @@ if (openUrlCount !== closeUrlCount) {
   fail(`Unbalanced <url> elements: ${openUrlCount} open vs ${closeUrlCount} close.`);
 }
 
-// 4. Extract <loc> values.
 const locs = [...xml.matchAll(/<loc>([^<]*)<\/loc>/g)].map((m) => m[1]);
 if (locs.length !== openUrlCount) {
   fail(`Expected one <loc> per <url>: found ${locs.length} locs for ${openUrlCount} urls.`);
 }
 
-// 5. Every <loc> must be absolute on the production HTTPS origin.
 for (const loc of locs) {
   if (!loc.startsWith(`${SITE_ORIGIN}/`)) fail(`Relative or non-production <loc>: ${loc}`);
 }
 
-// 6. No duplicates.
 const seen = new Set<string>();
 for (const loc of locs) {
   if (seen.has(loc)) fail(`Duplicate <loc>: ${loc}`);
   seen.add(loc);
 }
 
-// 7. Exact inventory parity with the content source (both directions).
 const expected = new Set<string>([
   `${SITE_ORIGIN}/`,
   `${SITE_ORIGIN}/blog`,
   `${SITE_ORIGIN}/about`,
   `${SITE_ORIGIN}/resources`,
   `${SITE_ORIGIN}/contact`,
+  `${SITE_ORIGIN}/editorial-policy`,
   `${SITE_ORIGIN}/privacy`,
   `${SITE_ORIGIN}/terms`,
   `${SITE_ORIGIN}/affiliate-disclosure`,
@@ -89,19 +83,16 @@ for (const loc of locs) {
   if (!expected.has(loc)) fail(`Unexpected URL in sitemap: ${loc}`);
 }
 
-// 8. Guard against placeholder, preview, test, or utility URLs.
 const denylist = /(localhost|127\.0\.0\.1|\.vercel\.app|placeholder|preview|staging|\btest\b)/i;
 for (const loc of locs) {
   if (denylist.test(loc)) fail(`Placeholder/preview/test URL in sitemap: ${loc}`);
 }
 
-// 9. URLs explicitly required by the Slice 1 authorization.
 const cornerstone = `${SITE_ORIGIN}/blog/why-life-feels-harder-than-it-needs-to-sometimes`;
 if (!seen.has(cornerstone)) fail(`Cornerstone article missing: ${cornerstone}`);
 const intentionalLiving = `${SITE_ORIGIN}/category/intentional-living`;
 if (!seen.has(intentionalLiving)) fail(`Category missing: ${intentionalLiving}`);
 
-// 10. robots.txt must declare the production sitemap.
 const robotsPath = join(publicDir, "robots.txt");
 if (!existsSync(robotsPath)) {
   fail("public/robots.txt not found.");

@@ -57,6 +57,7 @@ check_sitemap() {
   fetch_body "/sitemap.xml" "$body"
 
   grep -Fq "<loc>$production_origin/</loc>" "$body" || fail "Sitemap is missing the homepage."
+  grep -Fq "<loc>$production_origin/editorial-policy</loc>" "$body" || fail "Sitemap is missing /editorial-policy."
   grep -Fq "<loc>$production_origin/privacy</loc>" "$body" || fail "Sitemap is missing /privacy."
   grep -Fq "<loc>$production_origin/terms</loc>" "$body" || fail "Sitemap is missing /terms."
   grep -Fq "<loc>$production_origin/affiliate-disclosure</loc>" "$body" || fail "Sitemap is missing /affiliate-disclosure."
@@ -75,11 +76,12 @@ check_sitemap() {
 }
 
 check_html "/" "Eco Tiny Living Hub"
+check_html "/editorial-policy" "Editorial Policy"
 check_html "/privacy" "Privacy Policy"
 check_html "/terms" "Terms of Use"
 check_html "/affiliate-disclosure" "Affiliate Disclosure"
 check_status "/this-route-must-not-exist-etlh-smoke" "404"
-check_alias_redirect "/terms?source=smoke"
+check_alias_redirect "/editorial-policy?source=smoke"
 check_sitemap
 
 printf '\nProduction smoke checks PASSED.\n'

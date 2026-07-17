@@ -101,6 +101,7 @@ const routeFiles = [
   "src/routes/about.tsx",
   "src/routes/contact.tsx",
   "src/routes/resources.tsx",
+  "src/routes/editorial-policy.tsx",
   "src/routes/privacy.tsx",
   "src/routes/terms.tsx",
   "src/routes/affiliate-disclosure.tsx",
@@ -126,6 +127,8 @@ for (const marker of [
   'name: "twitter:image"',
   "mainEntityOfPage",
   "datePublished",
+  "author",
+  "publisher",
 ]) {
   if (!articleRoute.includes(marker)) fail(`Article route is missing ${marker}.`);
 }
@@ -136,6 +139,7 @@ const expectedRouteTreePaths = [
   "/about",
   "/affiliate-disclosure",
   "/contact",
+  "/editorial-policy",
   "/privacy",
   "/resources",
   "/sitemap.xml",
@@ -155,6 +159,7 @@ const publicRoutes = new Set<string>([
   "/about",
   "/affiliate-disclosure",
   "/contact",
+  "/editorial-policy",
   "/privacy",
   "/resources",
   "/terms",

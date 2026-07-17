@@ -13,6 +13,7 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as EditorialPolicyRouteImport } from './routes/editorial-policy'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AffiliateDisclosureRouteImport } from './routes/affiliate-disclosure'
 import { Route as AboutRouteImport } from './routes/about'
@@ -39,6 +40,11 @@ const ResourcesRoute = ResourcesRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EditorialPolicyRoute = EditorialPolicyRouteImport.update({
+  id: '/editorial-policy',
+  path: '/editorial-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/affiliate-disclosure': typeof AffiliateDisclosureRoute
   '/contact': typeof ContactRoute
+  '/editorial-policy': typeof EditorialPolicyRoute
   '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -95,6 +102,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/affiliate-disclosure': typeof AffiliateDisclosureRoute
   '/contact': typeof ContactRoute
+  '/editorial-policy': typeof EditorialPolicyRoute
   '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -109,6 +117,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/affiliate-disclosure': typeof AffiliateDisclosureRoute
   '/contact': typeof ContactRoute
+  '/editorial-policy': typeof EditorialPolicyRoute
   '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -124,6 +133,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/affiliate-disclosure'
     | '/contact'
+    | '/editorial-policy'
     | '/privacy'
     | '/resources'
     | '/sitemap.xml'
@@ -137,6 +147,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/affiliate-disclosure'
     | '/contact'
+    | '/editorial-policy'
     | '/privacy'
     | '/resources'
     | '/sitemap.xml'
@@ -150,6 +161,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/affiliate-disclosure'
     | '/contact'
+    | '/editorial-policy'
     | '/privacy'
     | '/resources'
     | '/sitemap.xml'
@@ -164,6 +176,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AffiliateDisclosureRoute: typeof AffiliateDisclosureRoute
   ContactRoute: typeof ContactRoute
+  EditorialPolicyRoute: typeof EditorialPolicyRoute
   PrivacyRoute: typeof PrivacyRoute
   ResourcesRoute: typeof ResourcesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -201,6 +214,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/editorial-policy': {
+      id: '/editorial-policy'
+      path: '/editorial-policy'
+      fullPath: '/editorial-policy'
+      preLoaderRoute: typeof EditorialPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -260,6 +280,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AffiliateDisclosureRoute: AffiliateDisclosureRoute,
   ContactRoute: ContactRoute,
+  EditorialPolicyRoute: EditorialPolicyRoute,
   PrivacyRoute: PrivacyRoute,
   ResourcesRoute: ResourcesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,

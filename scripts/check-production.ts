@@ -71,21 +71,20 @@ async function expectHtml(path: string, marker: string) {
 }
 
 async function expectRedirect(url: string, expectedLocation: string) {
-  const response = await request(url);
+  const response = await request(url, { redirect: "follow" });
   if (!response) return;
 
-  if (![301, 302, 307, 308].includes(response.status)) {
-    fail(`${url} returned ${response.status}; expected a permanent or temporary redirect.`);
+  if (response.status !== 200) {
+    fail(`${url} resolved with ${response.status}; expected 200 after redirect.`);
     return;
   }
 
-  const location = response.headers.get("location");
-  if (location !== expectedLocation) {
-    fail(`${url} redirected to ${location ?? "nowhere"}; expected ${expectedLocation}.`);
+  if (response.url !== expectedLocation) {
+    fail(`${url} resolved to ${response.url}; expected ${expectedLocation}.`);
     return;
   }
 
-  pass(`${url} redirects to the preferred host`);
+  pass(`${url} resolves to the preferred host`);
 }
 
 async function checkSitemap() {
@@ -113,6 +112,8 @@ async function checkSitemap() {
     `${PRODUCTION_ORIGIN}/affiliate-disclosure`,
   ];
 
+  const initialFailureCount = failures.length;
+
   for (const requiredUrl of required) {
     if (!locations.includes(requiredUrl)) fail(`Sitemap is missing ${requiredUrl}.`);
   }
@@ -122,7 +123,7 @@ async function checkSitemap() {
     fail("Sitemap contains a URL outside the preferred production origin.");
   }
 
-  if (!failures.some((failure) => failure.startsWith("Sitemap"))) {
+  if (failures.length === initialFailureCount) {
     pass(`sitemap.xml contains ${locations.length} unique preferred-host URLs`);
   }
 }

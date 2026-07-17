@@ -28,6 +28,10 @@ These budgets are intentionally above the current baseline so normal publishing 
 - Category images and article-card images remain lazy-loaded and asynchronously decoded.
 - Width and height attributes remain present to preserve layout space and reduce layout shift.
 
+## Deployment note
+
+The duplicate legacy Vercel project was removed on 2026-07-17. Future ETLH Git deployments should run only through the authoritative `eco-tiny-living-site` project.
+
 ## Remaining measurement work
 
 Repository asset weight is now measured and protected. Real-user Core Web Vitals still require sufficient traffic and a stable observation window. Future performance work should record mobile LCP, CLS, and INP from PageSpeed Insights, Search Console, or another verified field-data source when enough data exists.

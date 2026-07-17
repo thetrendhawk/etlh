@@ -4,12 +4,17 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "17 14 * * *"
+  pull_request:
+    paths:
+      - ".github/workflows/production-smoke.yml"
+      - "scripts/check-production.ts"
+      - "package.json"
 
 permissions:
   contents: read
 
 concurrency:
-  group: production-smoke
+  group: production-smoke-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:

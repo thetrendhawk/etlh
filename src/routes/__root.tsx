@@ -9,67 +9,9 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
+import { AnalyticsConsent } from "@/components/AnalyticsConsent";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-
-const GA_MEASUREMENT_ID = "G-G81H19S4TG";
-const PRODUCTION_HOSTNAME = "ecotinylivinghub.thrwds.com";
-
-const GA_BOOTSTRAP_SCRIPT = `
-(function () {
-  if (window.location.hostname !== "${PRODUCTION_HOSTNAME}") return;
-
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-
-  var script = document.createElement("script");
-  script.async = true;
-  script.src = "https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}";
-  script.id = "etlh-google-analytics";
-  document.head.appendChild(script);
-
-  window.gtag("js", new Date());
-  window.gtag("config", "${GA_MEASUREMENT_ID}", { send_page_view: false });
-
-  var pagePath = window.location.pathname + window.location.search;
-  window.__etlhLastGaPagePath = pagePath;
-  window.gtag("event", "page_view", {
-    page_title: document.title,
-    page_location: window.location.href,
-    page_path: pagePath
-  });
-})();
-`;
-
-declare global {
-  interface Window {
-    dataLayer?: unknown[];
-    gtag?: (...args: unknown[]) => void;
-    __etlhLastGaPagePath?: string;
-  }
-}
-
-function GoogleAnalyticsRouteTracking() {
-  const router = useRouter();
-
-  useEffect(() => {
-    if (window.location.hostname !== PRODUCTION_HOSTNAME) return;
-
-    return router.subscribe("onResolved", () => {
-      const pagePath = `${window.location.pathname}${window.location.search}`;
-      if (window.__etlhLastGaPagePath === pagePath) return;
-
-      window.__etlhLastGaPagePath = pagePath;
-      window.gtag?.("event", "page_view", {
-        page_title: document.title,
-        page_location: window.location.href,
-        page_path: pagePath,
-      });
-    });
-  }, [router]);
-
-  return null;
-}
 
 function NotFoundComponent() {
   return (
@@ -170,7 +112,6 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
-        <script dangerouslySetInnerHTML={{ __html: GA_BOOTSTRAP_SCRIPT }} />
       </head>
       <body>
         {children}
@@ -185,7 +126,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <GoogleAnalyticsRouteTracking />
+      <AnalyticsConsent />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>

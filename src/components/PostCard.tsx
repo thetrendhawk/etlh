@@ -12,6 +12,7 @@ export function PostCard({ post }: { post: Post }) {
             src={post.image}
             alt={post.imageAlt}
             loading="lazy"
+            decoding="async"
             width={800}
             height={500}
             className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"

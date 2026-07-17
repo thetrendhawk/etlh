@@ -7,7 +7,7 @@ on:
   pull_request:
     paths:
       - ".github/workflows/production-smoke.yml"
-      - "scripts/check-production.ts"
+      - "scripts/check-production.sh"
       - "package.json"
 
 permissions:

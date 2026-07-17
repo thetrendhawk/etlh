@@ -12,6 +12,7 @@
     "format": "prettier --write .",
     "check:sitemap": "bun scripts/check-sitemap.ts",
     "check:content": "bun scripts/check-content.ts",
+    "check:production": "bash scripts/check-production.sh",
     "check:ci": "bun run lint && bun run check:sitemap && bun run check:content && bun run build"
   },
   "dependencies": {

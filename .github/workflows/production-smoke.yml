@@ -1,0 +1,47 @@
+name: Production smoke checks
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 14 * * *"
+  pull_request:
+    paths:
+      - ".github/workflows/production-smoke.yml"
+      - "scripts/check-production.sh"
+      - "package.json"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-smoke-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    name: Verify live ETLH production
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Run production smoke checks
+        shell: bash
+        run: |
+          set -o pipefail
+          bun run check:production 2>&1 | tee production-smoke.log
+
+      - name: Upload smoke diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-smoke-diagnostics
+          path: production-smoke.log
+          retention-days: 7

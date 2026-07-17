@@ -12,6 +12,7 @@
     "format": "prettier --write .",
     "check:sitemap": "bun scripts/check-sitemap.ts",
     "check:content": "bun scripts/check-content.ts",
+    "check:production": "bun scripts/check-production.ts",
     "check:ci": "bun run lint && bun run check:sitemap && bun run check:content && bun run build"
   },
   "dependencies": {
@@ -79,7 +80,7 @@
     "eslint": "^9.32.0",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.2.6",
-    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-hooks": "^6.0.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^15.15.0",
     "nitro": "3.0.260603-beta",

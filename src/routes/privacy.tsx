@@ -53,7 +53,10 @@ function PrivacyPolicy() {
           <section>
             <h2 className="font-serif text-3xl text-earth-900">Analytics and device information</h2>
             <p className="mt-3">
-              On the production website, we use Google Analytics 4 to understand general site usage. Its default implementation may collect session statistics, approximate location, browser and device information, and a first-party identifier used to distinguish visits. We use this information to evaluate site performance and improve content; we do not ask Google Analytics to identify you by name.
+              On the production website, Google Analytics 4 is available to help us understand general site usage. The Google Analytics tag does not load and no analytics data is sent unless you choose “Accept analytics.” If you accept, Google Analytics may collect session statistics, approximate location, browser and device information, and a first-party identifier used to distinguish visits. We use this information to evaluate site performance and improve content; we do not ask Google Analytics to identify you by name.
+            </p>
+            <p className="mt-3">
+              Advertising storage, advertising user data, and personalized advertising signals remain disabled in our implementation.
             </p>
           </section>
 
@@ -62,7 +65,7 @@ function PrivacyPolicy() {
             <ul className="mt-3 list-disc pl-6 space-y-2">
               <li>Deliver email content or resources you requested.</li>
               <li>Operate, secure, troubleshoot, and improve the website.</li>
-              <li>Understand aggregate traffic and content performance.</li>
+              <li>Understand aggregate traffic and content performance when analytics consent is granted.</li>
               <li>Comply with legal obligations and protect legitimate rights.</li>
             </ul>
           </section>
@@ -70,7 +73,7 @@ function PrivacyPolicy() {
           <section>
             <h2 className="font-serif text-3xl text-earth-900">Service providers and external links</h2>
             <p className="mt-3">
-              ETLH currently relies on Vercel for website hosting, Google Analytics for traffic measurement, and Mailchimp for email-list management. These providers process information under their own terms and privacy policies. The site may also link to third-party websites that ETLH does not control.
+              ETLH currently relies on Vercel for website hosting, Google Analytics for consent-based traffic measurement, and Mailchimp for email-list management. These providers process information under their own terms and privacy policies. The site may also link to third-party websites that ETLH does not control.
             </p>
           </section>
 
@@ -87,7 +90,7 @@ function PrivacyPolicy() {
               You may unsubscribe from marketing emails at any time. Depending on where you live, you may also have rights to request access, correction, deletion, or other limits on certain personal information. Use the <Link to="/contact" className="underline underline-offset-4 hover:text-moss">contact page</Link> to make a privacy request. We may need enough information to verify and respond to the request.
             </p>
             <p className="mt-3">
-              You can also manage cookies through your browser settings. Blocking analytics-related storage may affect the accuracy of our traffic measurement but should not prevent you from reading the site.
+              You can accept or decline analytics when the consent notice appears. You can change that choice later through “Analytics preferences” in the footer. Declining analytics does not prevent you from using the site.
             </p>
           </section>
 

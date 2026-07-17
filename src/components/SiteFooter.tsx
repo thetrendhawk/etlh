@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { openAnalyticsPreferences } from "@/components/AnalyticsConsent";
 
 export function SiteFooter() {
   return (
@@ -25,22 +26,12 @@ export function SiteFooter() {
           <h4 className="font-medium mb-6 uppercase text-xs tracking-widest text-moss font-sans">Follow Along</h4>
           <ul className="space-y-4 text-earth-100/60 text-sm">
             <li>
-              <a
-                href="https://www.pinterest.com/ecotinylivinghub/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-earth-100"
-              >
+              <a href="https://www.pinterest.com/ecotinylivinghub/" target="_blank" rel="noopener noreferrer" className="hover:text-earth-100">
                 Pinterest
               </a>
             </li>
             <li>
-              <a
-                href="https://www.instagram.com/ecotinylivinghub/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-earth-100"
-              >
+              <a href="https://www.instagram.com/ecotinylivinghub/" target="_blank" rel="noopener noreferrer" className="hover:text-earth-100">
                 Instagram
               </a>
             </li>
@@ -53,6 +44,9 @@ export function SiteFooter() {
           <Link to="/privacy" className="hover:text-earth-100">Privacy</Link>
           <Link to="/terms" className="hover:text-earth-100">Terms</Link>
           <Link to="/affiliate-disclosure" className="hover:text-earth-100">Affiliate Disclosure</Link>
+          <button type="button" onClick={openAnalyticsPreferences} className="hover:text-earth-100">
+            Analytics preferences
+          </button>
         </nav>
       </div>
     </footer>

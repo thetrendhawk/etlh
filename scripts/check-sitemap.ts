@@ -76,6 +76,9 @@ const expected = new Set<string>([
   `${SITE_ORIGIN}/about`,
   `${SITE_ORIGIN}/resources`,
   `${SITE_ORIGIN}/contact`,
+  `${SITE_ORIGIN}/privacy`,
+  `${SITE_ORIGIN}/terms`,
+  `${SITE_ORIGIN}/affiliate-disclosure`,
   ...categories.map((c) => `${SITE_ORIGIN}/category/${c.slug}`),
   ...posts.map((p) => `${SITE_ORIGIN}/blog/${p.slug}`),
 ]);

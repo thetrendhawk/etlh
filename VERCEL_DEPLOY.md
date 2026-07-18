@@ -8,67 +8,45 @@
 - Framework setting: Other
 - Node.js runtime: 24.x
 - Build command: `bun run build`
-- Output directory: leave unset
+- Output directory: unset
 - Production branch: `main`
 
-Do not use the unrelated legacy Vercel project named `eco-tiny-living` as an ETLH acceptance signal.
+Only this project is connected to `thetrendhawk/etlh`. The former duplicate project has been removed.
 
 ## Application output
 
-The application uses TanStack Start with the Nitro `vercel` preset configured in `vite.config.ts`.
+TanStack Start uses the Nitro `vercel` preset configured in `vite.config.ts`. A production build writes Vercel Build Output API files under `.vercel/output/`.
 
-A production build writes Vercel Build Output API files under:
+Generated deployment output is not committed.
 
-```text
-.vercel/output/
-```
-
-Generated deployment output is not committed to Git.
-
-## Dependency installation
-
-The repository uses Bun and includes a committed `bun.lock`.
-
-For local verification and GitHub Actions, install with:
+## Dependency installation and validation
 
 ```bash
 bun install --frozen-lockfile
+bun run check:ci
+```
+
+The required gate runs:
+
+```bash
+bun run lint && bun run check:sitemap && bun run check:content && bun run check:assets && bun run build
 ```
 
 A dependency change is incomplete unless `package.json` and `bun.lock` remain synchronized.
 
-Vercel may perform its own detected install step, but the repository acceptance gate is the frozen Bun installation used by GitHub Actions.
-
-## Required pre-merge validation
-
-Run:
-
-```bash
-bun run check:ci
-```
-
-This executes:
-
-```bash
-bun run lint && bun run check:sitemap && bun run check:content && bun run build
-```
-
-The pull request must pass the GitHub Actions workflow before merge.
-
 ## Git-connected deployment workflow
 
-1. Create a dedicated branch from current `main`.
-2. Make the narrowly scoped change.
-3. Run the frozen installation and `bun run check:ci`.
-4. Open a focused pull request.
-5. Confirm GitHub Actions passes.
-6. Verify the `eco-tiny-living-site` Vercel preview when Vercel permits the build.
-7. Merge after the scoped acceptance gates pass.
-8. Wait for the production deployment from `main`.
-9. Record the merge commit and production deployment ID.
-10. Verify the public site and relevant routes.
+1. Start from current `main` and create a focused branch.
+2. Run the frozen install and required CI gate.
+3. Open a focused pull request.
+4. Confirm GitHub Actions passes.
+5. Inspect the `eco-tiny-living-site` preview when the change affects application output.
+6. Merge after acceptance gates pass.
+7. Wait for the production deployment from `main`.
+8. Record the merge commit and production deployment ID.
+9. Run or confirm production smoke checks.
 
-A Vercel build-rate-limit status is an external account constraint, not proof of a code failure. When this occurs, document the block and complete Vercel verification after builds resume.
+One Git push should create only one ETLH Vercel deployment. If duplicate project deployments reappear, stop and inspect Git integrations before continuing.
 
 ## Canonical host and redirect policy
 
@@ -76,53 +54,44 @@ A Vercel build-rate-limit status is an external account constraint, not proof of
 
 - no trailing slash except for `/`
 - permanent redirects from stable Vercel production aliases
-- preservation of the requested path and query string
+- requested path and query-string preservation
 - `https://ecotinylivinghub.thrwds.com` as the preferred host
 
-Preview branch aliases are not redirected to production.
+Preview branch aliases remain separate from production.
 
-## Sitemap ownership
+## Preview acceptance
 
-The sitemap is dynamic. The authoritative implementation is:
-
-- `src/lib/sitemap.ts` — XML generation and production origin
-- `src/routes/sitemap[.]xml.ts` — public `/sitemap.xml` route
-- `public/robots.txt` — sitemap declaration
-- `scripts/check-sitemap.ts` — deterministic validation
-
-There must not be a static `public/sitemap.xml`. A static file can shadow the dynamic route on Vercel and create duplicate sitemap ownership.
-
-## Preview verification
-
-For a change affecting application output, inspect the ETLH preview for:
+Inspect relevant changes for:
 
 - expected route status and rendered content
 - canonical and Open Graph URLs
-- article metadata and structured data when relevant
-- sitemap and robots behavior when relevant
-- no regression to genuine HTTP 404 responses
-- navigation, footer, and forms when relevant
+- metadata and structured data
+- image rendering and loading behavior
+- sitemap and robots behavior
+- navigation, footer, and forms
+- genuine 404 responses for unknown routes
 
-Some team-scoped previews may be protected by Vercel Authentication. Use authorized Vercel access rather than disabling protection solely for testing.
+Team-scoped previews may use Vercel Authentication. Use authorized access rather than disabling protection solely for testing.
 
-## Production verification
+## Production acceptance
 
-After a successful production deployment, confirm as relevant:
+After deployment, confirm as relevant:
 
 - canonical domain responds successfully
-- stable aliases redirect permanently to the canonical host
+- stable aliases redirect to the canonical host
 - trailing-slash requests normalize correctly
-- affected routes return their expected status codes
-- `/sitemap.xml` returns XML and contains the expected inventory
-- `/robots.txt` advertises the production sitemap
-- unknown routes remain genuine HTTP 404 responses
-- GA4 loads only on `ecotinylivinghub.thrwds.com`
+- affected routes return expected status codes
+- `/sitemap.xml` contains the expected inventory
+- `/robots.txt` advertises the sitemap
+- unknown routes return genuine 404 responses
+- GA4 remains consent-gated and restricted to the production hostname
+- production smoke checks pass
 
-## Manual deployment
+## Manual deployment boundary
 
-Git-connected deployment is the standard workflow. A manual Vercel CLI deployment should be reserved for an explicitly approved recovery or diagnostic case.
+Git-connected deployment is the standard workflow. Manual Vercel deployment is reserved for an explicitly approved recovery or diagnostic case.
 
-When necessary:
+When necessary, build first and deploy the prebuilt output only from a workspace linked to `eco-tiny-living-site`:
 
 ```bash
 bun install --frozen-lockfile
@@ -130,23 +99,16 @@ bun run check:ci
 vercel --prebuilt
 ```
 
-Run `vercel --prebuilt` only after `bun run build` has produced `.vercel/output/` and the CLI is linked to the correct `eco-tiny-living-site` project.
-
 ## Rollback
 
-The normal rollback is to revert the merge commit and allow Vercel to deploy the restored `main` state.
+The normal rollback is to revert the merge commit and let Vercel deploy the restored `main` state.
 
-When an immediate platform rollback is required, use a previously verified production deployment in the `eco-tiny-living-site` project, then document:
+For an urgent platform rollback, restore a previously verified production deployment and document the restored deployment, defective change, user impact, and corrective follow-up.
 
-- the deployment restored
-- the defective merge or deployment
-- the user-visible impact
-- the corrective follow-up required
-
-## Current integration notes
+## Integration notes
 
 - `vite.config.ts` selects the Vercel Nitro preset.
-- `EmailOptIn.tsx` uses browser-side Mailchimp JSONP and does not require an ETLH server endpoint.
 - `vercel.json` controls preferred-host and trailing-slash redirects.
+- `EmailOptIn.tsx` uses browser-side Mailchimp JSONP.
 - GitHub Actions is the required code-level acceptance gate.
-- Vercel preview and production verification remain required when builds are available.
+- Vercel preview and production verification remain required for application-output changes.

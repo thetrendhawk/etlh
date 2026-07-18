@@ -106,7 +106,7 @@ function Home() {
             </span>
             <h2 className="font-serif text-4xl md:text-5xl mt-3">Start where life feels heavy</h2>
           </div>
-          <p className="text-earth-900/60 max-w-sm text-sm">
+          <p className="text-earth-900/70 max-w-sm text-sm">
             Three core areas to help you build a sustainable apartment, one small win at a time.
           </p>
         </div>
@@ -132,7 +132,7 @@ function Home() {
               <h3 className="text-xl font-serif group-hover:text-moss transition-colors">
                 {categoryLabels[c.slug]}
               </h3>
-              <p className="text-sm text-earth-900/60 mt-2 leading-relaxed">{c.intro}</p>
+              <p className="text-sm text-earth-900/70 mt-2 leading-relaxed">{c.intro}</p>
             </Link>
           ))}
         </div>
@@ -144,7 +144,7 @@ function Home() {
         <div className="flex justify-between items-end mb-12 flex-wrap gap-4">
           <div>
             <h2 className="font-serif text-4xl md:text-5xl">Latest from the blog</h2>
-            <p className="text-earth-900/60 mt-2">Fresh ideas for your sustainable journey.</p>
+            <p className="text-earth-900/70 mt-2">Fresh ideas for your sustainable journey.</p>
           </div>
           <Link to="/blog" className="text-moss font-semibold underline underline-offset-4">
             View all posts

@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react";
+import { useId, useState, type FormEvent } from "react";
 
 interface Props {
   variant?: "full" | "inline";
@@ -64,11 +64,15 @@ export function EmailOptIn({ variant = "full" }: Props) {
   const [name, setName] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
+  const idPrefix = useId();
+  const emailId = `${idPrefix}-email`;
+  const nameId = `${idPrefix}-name`;
+  const statusId = `${idPrefix}-status`;
 
-  async function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("loading");
-    setMessage("");
+    setMessage("Sending your request…");
     try {
       const payload = await subscribeViaJsonp(email, name);
       if (payload.result === "success") {
@@ -90,6 +94,7 @@ export function EmailOptIn({ variant = "full" }: Props) {
   }
 
   const loading = status === "loading";
+  const hasError = status === "error";
 
   if (variant === "inline") {
     return (
@@ -100,18 +105,26 @@ export function EmailOptIn({ variant = "full" }: Props) {
           30 renter-friendly swaps for under $100, delivered to your inbox.
         </p>
         {status === "success" ? (
-          <p role="status" className="text-moss font-medium">{message}</p>
+          <p id={statusId} role="status" aria-live="polite" className="text-moss font-medium">
+            {message}
+          </p>
         ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3" noValidate>
-            <label htmlFor="inline-email" className="sr-only">Email</label>
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col sm:flex-row gap-3"
+            aria-busy={loading}
+          >
+            <label htmlFor={emailId} className="sr-only">Email</label>
             <input
-              id="inline-email"
+              id={emailId}
               type="email"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email address"
               disabled={loading}
+              aria-invalid={hasError}
+              aria-describedby={message ? statusId : undefined}
               className="flex-1 bg-white border border-earth-900/10 px-5 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-moss/30 text-sm disabled:opacity-60"
             />
             <button
@@ -123,8 +136,15 @@ export function EmailOptIn({ variant = "full" }: Props) {
             </button>
           </form>
         )}
-        {status === "error" && (
-          <p role="alert" className="mt-3 text-sm text-clay">{message}</p>
+        {status !== "success" && (
+          <p
+            id={statusId}
+            role={hasError ? "alert" : "status"}
+            aria-live={hasError ? "assertive" : "polite"}
+            className={hasError ? "mt-3 text-sm text-clay" : "sr-only"}
+          >
+            {message}
+          </p>
         )}
       </aside>
     );
@@ -141,12 +161,18 @@ export function EmailOptIn({ variant = "full" }: Props) {
           Download our checklist of 30 renter-friendly, sustainable swaps that cost less than $100 total. Build your dream eco apartment without the waste — or the guilt.
         </p>
         {status === "success" ? (
-          <p role="status" className="text-moss font-medium text-lg">{message}</p>
+          <p id={statusId} role="status" aria-live="polite" className="text-moss font-medium text-lg">
+            {message}
+          </p>
         ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto" noValidate>
-            <label htmlFor="optin-name" className="sr-only">First name (optional)</label>
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto"
+            aria-busy={loading}
+          >
+            <label htmlFor={nameId} className="sr-only">First name (optional)</label>
             <input
-              id="optin-name"
+              id={nameId}
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -154,15 +180,17 @@ export function EmailOptIn({ variant = "full" }: Props) {
               disabled={loading}
               className="flex-1 bg-white border border-earth-900/10 px-6 py-4 rounded-full focus:outline-none focus:ring-2 focus:ring-moss/30 disabled:opacity-60"
             />
-            <label htmlFor="optin-email" className="sr-only">Email</label>
+            <label htmlFor={emailId} className="sr-only">Email</label>
             <input
-              id="optin-email"
+              id={emailId}
               type="email"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email address"
               disabled={loading}
+              aria-invalid={hasError}
+              aria-describedby={message ? statusId : undefined}
               className="flex-1 bg-white border border-earth-900/10 px-6 py-4 rounded-full focus:outline-none focus:ring-2 focus:ring-moss/30 disabled:opacity-60"
             />
             <button
@@ -174,8 +202,15 @@ export function EmailOptIn({ variant = "full" }: Props) {
             </button>
           </form>
         )}
-        {status === "error" && (
-          <p role="alert" className="mt-6 text-clay">{message}</p>
+        {status !== "success" && (
+          <p
+            id={statusId}
+            role={hasError ? "alert" : "status"}
+            aria-live={hasError ? "assertive" : "polite"}
+            className={hasError ? "mt-6 text-clay" : "sr-only"}
+          >
+            {message}
+          </p>
         )}
         <ul className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-earth-900/50">
           <li>✓ 100% Renter Friendly</li>

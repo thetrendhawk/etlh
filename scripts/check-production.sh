@@ -5,7 +5,7 @@ production_origin="https://ecotinylivinghub.thrwds.com"
 production_host="ecotinylivinghub.thrwds.com"
 vercel_host="eco-tiny-living-site.vercel.app"
 vercel_alias="https://$vercel_host"
-user_agent="ETLH-production-smoke-check/1.2"
+user_agent="ETLH-production-smoke-check/1.3"
 
 pass() { printf '✓ %s\n' "$1"; }
 fail() { printf 'x %s\n' "$1" >&2; exit 1; }
@@ -83,6 +83,20 @@ check_http_to_https() {
   pass "HTTP $path redirects to HTTPS"
 }
 
+check_security_headers() {
+  local headers
+  headers=$(mktemp)
+  curl --silent --show-error --max-time 20 --user-agent "$user_agent" "${https_resolve_args[@]}" --dump-header "$headers" --output /dev/null "$production_origin/"
+
+  grep -Eiq '^x-content-type-options:[[:space:]]*nosniff[[:space:]]*$' "$headers" || fail "Homepage is missing X-Content-Type-Options: nosniff."
+  grep -Eiq '^referrer-policy:[[:space:]]*strict-origin-when-cross-origin[[:space:]]*$' "$headers" || fail "Homepage is missing Referrer-Policy: strict-origin-when-cross-origin."
+  grep -Eiq '^permissions-policy:[[:space:]]*camera=\(\), microphone=\(\), geolocation=\(\)[[:space:]]*$' "$headers" || fail "Homepage is missing the expected Permissions-Policy."
+  grep -Eiq '^x-frame-options:[[:space:]]*DENY[[:space:]]*$' "$headers" || fail "Homepage is missing X-Frame-Options: DENY."
+
+  rm -f "$headers"
+  pass "homepage exposes the baseline response security headers"
+}
+
 check_sitemap() {
   local body
   body=$(mktemp)
@@ -125,6 +139,7 @@ check_redirect "/About" "$production_origin/about"
 check_redirect "/privacy/" "$production_origin/privacy"
 check_alias_redirect "/editorial-policy?source=smoke"
 check_http_to_https "/privacy?source=http-smoke"
+check_security_headers
 check_sitemap
 
 printf '\nProduction smoke checks PASSED.\n'

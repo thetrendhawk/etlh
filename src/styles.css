@@ -49,7 +49,6 @@
 
 :root {
   --radius: 0.75rem;
-
   --earth-900: #2D302D;
   --earth-700: #4a4d49;
   --earth-500: #75786f;
@@ -60,7 +59,6 @@
   --moss-light: #A8C66C;
   --sand: #D4A373;
   --clay: #A67C52;
-
   --background: #FDFBF7;
   --foreground: #2D302D;
   --card: #ffffff;
@@ -83,9 +81,7 @@
 }
 
 @layer base {
-  * {
-    border-color: var(--color-border);
-  }
+  * { border-color: var(--color-border); }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -96,24 +92,30 @@
     font-family: var(--font-serif);
     letter-spacing: -0.01em;
   }
-
   :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
     outline: 3px solid var(--ring);
     outline-offset: 3px;
   }
-
-  :where(input, select, textarea):focus-visible {
-    border-color: var(--ring);
-  }
-
+  :where(input, select, textarea):focus-visible { border-color: var(--ring); }
   @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       scroll-behavior: auto !important;
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
+  }
+}
+
+@layer utilities {
+  .text-earth-900\/40,
+  .text-earth-900\/50,
+  .text-earth-900\/60 {
+    color: color-mix(in srgb, var(--earth-900) 70%, transparent);
+  }
+
+  .text-earth-100\/40,
+  .text-earth-100\/60 {
+    color: color-mix(in srgb, var(--earth-100) 60%, transparent);
   }
 }

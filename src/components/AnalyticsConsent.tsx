@@ -2,7 +2,7 @@ import { Link, useRouter } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 const GA_MEASUREMENT_ID = "G-G81H19S4TG";
-const PRODUCTION_HOSTNAME = "ecotinylivinghub.thrwds.com";
+const PRODUCTION_HOSTNAME = "ecotinylivinghub.com";
 const CONSENT_KEY = "etlh-analytics-consent";
 const OPEN_EVENT = "etlh-open-analytics-preferences";
 
@@ -35,9 +35,11 @@ function loadGoogleAnalytics() {
   }
 
   window.dataLayer = window.dataLayer || [];
-  window.gtag = window.gtag || function (...args: unknown[]) {
-    window.dataLayer?.push(args);
-  };
+  window.gtag =
+    window.gtag ||
+    function (...args: unknown[]) {
+      window.dataLayer?.push(args);
+    };
 
   const script = document.createElement("script");
   script.async = true;
@@ -88,8 +90,8 @@ export function AnalyticsConsent() {
   return (
     <section
       role="dialog"
-      aria-modal="true"
       aria-labelledby="analytics-consent-title"
+      aria-describedby="analytics-consent-description"
       className="fixed inset-x-4 bottom-4 z-50 mx-auto max-w-3xl rounded-2xl border border-earth-900/10 bg-white p-5 shadow-2xl md:p-6"
     >
       <div className="md:flex md:items-center md:justify-between md:gap-8">
@@ -97,8 +99,12 @@ export function AnalyticsConsent() {
           <h2 id="analytics-consent-title" className="font-serif text-2xl text-earth-900">
             Help us understand what is useful
           </h2>
-          <p className="mt-2 text-sm leading-relaxed text-earth-900/70">
-            ETLH uses Google Analytics only after you agree. It helps us understand general site usage. You can decline and still use the full site. Read the{" "}
+          <p
+            id="analytics-consent-description"
+            className="mt-2 text-sm leading-relaxed text-earth-900/70"
+          >
+            ETLH uses Google Analytics only after you agree. It helps us understand general site
+            usage. You can decline and still use the full site. Read the{" "}
             <Link to="/privacy" className="underline underline-offset-4 hover:text-moss">
               Privacy Policy
             </Link>

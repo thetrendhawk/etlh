@@ -56,6 +56,27 @@ requireMarkers("src/components/EmailOptIn.tsx", [
   'setMessage("Sending your request…")',
 ]);
 
+requireMarkers("src/components/AnalyticsConsent.tsx", [
+  'const PRODUCTION_HOSTNAME = "ecotinylivinghub.com"',
+  'role="dialog"',
+  'aria-labelledby="analytics-consent-title"',
+  'aria-describedby="analytics-consent-description"',
+  'id="analytics-consent-description"',
+]);
+
+const consentSource = readFileSync(
+  join(process.cwd(), "src/components/AnalyticsConsent.tsx"),
+  "utf8",
+);
+if (consentSource.includes('aria-modal="true"')) {
+  fail(
+    "src/components/AnalyticsConsent.tsx marks the non-blocking consent banner as modal without trapping focus.",
+  );
+}
+if (consentSource.includes("ecotinylivinghub.thrwds.com")) {
+  fail("src/components/AnalyticsConsent.tsx still restricts analytics to the legacy hostname.");
+}
+
 requireMarkers("src/styles.css", [
   ":where(a, button, input, select, textarea, summary, [tabindex]):focus-visible",
   "outline: 3px solid var(--ring)",
@@ -90,5 +111,5 @@ if (failures.length > 0) {
 }
 
 console.log(
-  `check:accessibility PASSED — skip navigation, mobile-menu semantics and keyboard focus management, language, focus target, visible focus, reduced motion, email-form status, and keyboard-order safeguards validated across ${sourceFiles.length} source files.`,
+  `check:accessibility PASSED — skip navigation, mobile-menu semantics and keyboard focus management, language, focus target, visible focus, reduced motion, email-form status, consent semantics, production analytics hostname, and keyboard-order safeguards validated across ${sourceFiles.length} source files.`,
 );

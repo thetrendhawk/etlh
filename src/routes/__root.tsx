@@ -53,6 +53,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
+            type="button"
             onClick={() => {
               router.invalidate();
               reset();
@@ -79,17 +80,43 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Eco Tiny Living Hub — Sustainable Living for Small Apartments" },
-      { name: "description", content: "Practical, beginner-friendly guides for renters who want a zero-waste kitchen, eco-friendly small apartment decor, and sustainable habits on a budget." },
+      {
+        name: "description",
+        content:
+          "Practical, beginner-friendly guides for renters who want a zero-waste kitchen, eco-friendly small apartment decor, and sustainable habits on a budget.",
+      },
       { name: "author", content: "Eco Tiny Living Hub" },
       { property: "og:site_name", content: "Eco Tiny Living Hub" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:title", content: "Eco Tiny Living Hub — Sustainable Living for Small Apartments" },
-      { name: "twitter:title", content: "Eco Tiny Living Hub — Sustainable Living for Small Apartments" },
-      { property: "og:description", content: "Practical, beginner-friendly guides for renters who want a zero-waste kitchen, eco-friendly small apartment decor, and sustainable habits on a budget." },
-      { name: "twitter:description", content: "Practical, beginner-friendly guides for renters who want a zero-waste kitchen, eco-friendly small apartment decor, and sustainable habits on a budget." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/618f9034-5cbc-4cac-aef8-143b55209d60" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/618f9034-5cbc-4cac-aef8-143b55209d60" },
+      {
+        property: "og:title",
+        content: "Eco Tiny Living Hub — Sustainable Living for Small Apartments",
+      },
+      {
+        name: "twitter:title",
+        content: "Eco Tiny Living Hub — Sustainable Living for Small Apartments",
+      },
+      {
+        property: "og:description",
+        content:
+          "Practical, beginner-friendly guides for renters who want a zero-waste kitchen, eco-friendly small apartment decor, and sustainable habits on a budget.",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Practical, beginner-friendly guides for renters who want a zero-waste kitchen, eco-friendly small apartment decor, and sustainable habits on a budget.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/618f9034-5cbc-4cac-aef8-143b55209d60",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/618f9034-5cbc-4cac-aef8-143b55209d60",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -126,9 +153,17 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <a
+        href="#site-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-earth-900 focus:px-4 focus:py-3 focus:text-white focus:shadow-lg"
+      >
+        Skip to main content
+      </a>
       <AnalyticsConsent />
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <div id="site-content" tabIndex={-1}>
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </div>
     </QueryClientProvider>
   );
 }

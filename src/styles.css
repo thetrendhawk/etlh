@@ -39,6 +39,7 @@
   --color-earth-100: var(--earth-100);
   --color-moss: var(--moss);
   --color-moss-dark: var(--moss-dark);
+  --color-moss-light: var(--moss-light);
   --color-sand: var(--sand);
   --color-clay: var(--clay);
 
@@ -54,8 +55,9 @@
   --earth-500: #75786f;
   --earth-300: #c8c5bb;
   --earth-100: #FDFBF7;
-  --moss: #6B8E23;
-  --moss-dark: #5a7a1c;
+  --moss: #5A7A1C;
+  --moss-dark: #476117;
+  --moss-light: #A8C66C;
   --sand: #D4A373;
   --clay: #A67C52;
 
@@ -65,19 +67,19 @@
   --card-foreground: #2D302D;
   --popover: #ffffff;
   --popover-foreground: #2D302D;
-  --primary: #6B8E23;
-  --primary-foreground: #FDFBF7;
+  --primary: #5A7A1C;
+  --primary-foreground: #ffffff;
   --secondary: #f1ede4;
   --secondary-foreground: #2D302D;
   --muted: #f1ede4;
-  --muted-foreground: #75786f;
-  --accent: #6B8E23;
-  --accent-foreground: #FDFBF7;
+  --muted-foreground: #62655e;
+  --accent: #5A7A1C;
+  --accent-foreground: #ffffff;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: #FDFBF7;
   --border: rgba(45, 48, 45, 0.08);
   --input: rgba(45, 48, 45, 0.12);
-  --ring: #6B8E23;
+  --ring: #5A7A1C;
 }
 
 @layer base {

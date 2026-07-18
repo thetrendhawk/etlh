@@ -1,5 +1,5 @@
 import { readFileSync, readdirSync } from "node:fs";
-import { basename, join } from "node:path";
+import { join } from "node:path";
 
 import { categories, posts } from "../src/lib/posts";
 import { getSitemapEntries, SITE_ORIGIN } from "../src/lib/sitemap";
@@ -7,7 +7,10 @@ import { getSitemapEntries, SITE_ORIGIN } from "../src/lib/sitemap";
 const failures: string[] = [];
 const fail = (message: string) => failures.push(message);
 const routesDirectory = join(process.cwd(), "src", "routes");
-const routeTreeSource = readFileSync(join(process.cwd(), "src", "routeTree.gen.ts"), "utf8");
+const routeTreeSource = readFileSync(
+  join(process.cwd(), "src", "routeTree.gen.ts"),
+  "utf8",
+);
 
 function routePathFromFilename(filename: string): string | null {
   if (!filename.endsWith(".tsx") && !filename.endsWith(".ts")) return null;
@@ -21,7 +24,9 @@ function routePathFromFilename(filename: string): string | null {
   return `/${stem.replaceAll(".", "/")}`;
 }
 
-const routeFiles = readdirSync(routesDirectory).filter((filename) => /\.(ts|tsx)$/.test(filename));
+const routeFiles = readdirSync(routesDirectory).filter((filename) =>
+  /\.(ts|tsx)$/.test(filename),
+);
 const fileRoutePaths = routeFiles
   .map(routePathFromFilename)
   .filter((path): path is string => path !== null)
@@ -34,11 +39,17 @@ for (const routePath of fileRoutePaths) {
   }
 }
 
-const routeTreePathMatches = [...routeTreeSource.matchAll(/path:\s*'([^']+)'/g)].map((match) => match[1]);
-const expectedRouteTreePaths = new Set(fileRoutePaths.map((path) => (path === "/blog" ? "/blog/" : path)));
+const routeTreePathMatches = [
+  ...routeTreeSource.matchAll(/path:\s*'([^']+)'/g),
+].map((match) => match[1]);
+const expectedRouteTreePaths = new Set(
+  fileRoutePaths.map((path) => (path === "/blog" ? "/blog/" : path)),
+);
 for (const generatedPath of routeTreePathMatches) {
   if (!expectedRouteTreePaths.has(generatedPath)) {
-    fail(`src/routeTree.gen.ts contains generated path ${generatedPath} without a matching route file.`);
+    fail(
+      `src/routeTree.gen.ts contains generated path ${generatedPath} without a matching route file.`,
+    );
   }
 }
 
@@ -61,22 +72,34 @@ const actualSitemapPaths = new Set(
 );
 
 for (const expectedPath of expectedSitemapPaths) {
-  if (!actualSitemapPaths.has(expectedPath)) fail(`Sitemap is missing public route ${expectedPath}.`);
+  if (!actualSitemapPaths.has(expectedPath)) {
+    fail(`Sitemap is missing public route ${expectedPath}.`);
+  }
 }
 for (const actualPath of actualSitemapPaths) {
-  if (!expectedSitemapPaths.has(actualPath)) fail(`Sitemap contains route without public content parity: ${actualPath}.`);
+  if (!expectedSitemapPaths.has(actualPath)) {
+    fail(`Sitemap contains route without public content parity: ${actualPath}.`);
+  }
 }
 
 const duplicateRouteFiles = routeFiles
   .map((filename) => ({ filename, routePath: routePathFromFilename(filename) }))
-  .filter((record): record is { filename: string; routePath: string } => record.routePath !== null)
-  .filter((record, index, records) => records.findIndex((item) => item.routePath === record.routePath) !== index);
+  .filter(
+    (record): record is { filename: string; routePath: string } =>
+      record.routePath !== null,
+  )
+  .filter(
+    (record, index, records) =>
+      records.findIndex((item) => item.routePath === record.routePath) !== index,
+  );
 for (const duplicate of duplicateRouteFiles) {
-  fail(`Route file ${basename(duplicate.filename)} duplicates public path ${duplicate.routePath}.`);
+  fail(`Route file ${duplicate.filename} duplicates public path ${duplicate.routePath}.`);
 }
 
 if (failures.length > 0) {
-  console.error(`check:routes FAILED (${failures.length} problem${failures.length === 1 ? "" : "s"}):`);
+  console.error(
+    `check:routes FAILED (${failures.length} problem${failures.length === 1 ? "" : "s"}):`,
+  );
   for (const failure of failures) console.error(`  x ${failure}`);
   process.exit(1);
 }

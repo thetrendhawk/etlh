@@ -31,8 +31,35 @@ jobs:
       - name: Install dependencies from lockfile
         run: bun install --frozen-lockfile
 
-      - name: Validate sitemap, content, metadata, and build
-        run: bun run check:ci
+      - name: Lint source
+        run: bun run lint
+
+      - name: Validate sitemap
+        run: bun run check:sitemap
+
+      - name: Validate content
+        run: bun run check:content
+
+      - name: Validate routes
+        run: bun run check:routes
+
+      - name: Validate accessibility source rules
+        run: bun run check:accessibility
+
+      - name: Validate assets
+        run: bun run check:assets
+
+      - name: Validate security policy
+        run: bun run check:security-policy
+
+      - name: Audit production dependencies
+        run: bun run check:dependencies
+
+      - name: Build production application
+        run: bun run build
+
+      - name: Audit emitted images and JavaScript
+        run: bun run check:build-assets
 
       - name: Install Chromium for rendered accessibility tests
         run: bunx playwright install --with-deps chromium
@@ -50,3 +77,14 @@ jobs:
             test-results
           if-no-files-found: ignore
           retention-days: 7
+
+      - name: Upload build asset audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-asset-audit
+          path: |
+            build-asset-audit.md
+            build-asset-audit.json
+          if-no-files-found: ignore
+          retention-days: 30

@@ -17,13 +17,12 @@
     "check:accessibility:browser": "playwright test",
     "check:assets": "bun scripts/check-assets.ts",
     "check:security-policy": "bun scripts/check-security-policy.ts",
+    "check:build-assets": "bun scripts/audit-build-assets.ts",
     "check:dependencies": "bun audit --prod --audit-level=high",
     "check:production": "bash scripts/check-production.sh",
-    "check:ci": "bun run lint && bun run check:sitemap && bun run check:content && bun run check:routes && bun run check:accessibility && bun run check:assets && bun run check:security-policy && bun run check:dependencies && bun run build"
+    "check:ci": "bun run lint && bun run check:sitemap && bun run check:content && bun run check:routes && bun run check:accessibility && bun run check:assets && bun run check:security-policy && bun run check:dependencies && bun run build && bun run check:build-assets"
   },
-  "overrides": {
-    "undici": "^7.28.0"
-  },
+  "overrides": { "undici": "^7.28.0" },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-accordion": "^1.2.12",
@@ -74,7 +73,7 @@
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.1",
     "tw-animate-css": "^1.3.4",
-    "vaul": "^1.1.2",
+    "vaul": "^1.2.2",
     "vite-tsconfig-paths": "^6.0.2",
     "vite": "^8.0.16",
     "zod": "^3.24.2"

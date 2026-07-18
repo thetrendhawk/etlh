@@ -15,8 +15,12 @@
     "check:routes": "bun scripts/check-routes.ts",
     "check:accessibility": "bun scripts/check-accessibility.ts",
     "check:assets": "bun scripts/check-assets.ts",
+    "check:dependencies": "bun audit --prod --audit-level=high",
     "check:production": "bash scripts/check-production.sh",
-    "check:ci": "bun run lint && bun run check:sitemap && bun run check:content && bun run check:routes && bun run check:accessibility && bun run check:assets && bun run build"
+    "check:ci": "bun run lint && bun run check:sitemap && bun run check:content && bun run check:routes && bun run check:accessibility && bun run check:assets && bun run check:dependencies && bun run build"
+  },
+  "overrides": {
+    "undici": "^7.28.0"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

@@ -18,7 +18,7 @@ function routePathFromFilename(filename: string): string | null {
   if (stem === "blog.index") return "/blog";
   if (stem === "sitemap[.]xml") return "/sitemap.xml";
 
-  return `/${stem.replaceAll(".", "/").replaceAll("$", "$")}`;
+  return `/${stem.replaceAll(".", "/")}`;
 }
 
 const routeFiles = readdirSync(routesDirectory).filter((filename) => /\.(ts|tsx)$/.test(filename));

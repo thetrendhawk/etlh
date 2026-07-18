@@ -39,6 +39,11 @@ requireMarkers("src/components/SiteHeader.tsx", [
   "id={mobileMenuId}",
   '"aria-current": "page"',
   'type="button"',
+  "menuButtonRef",
+  "mobileMenuRef",
+  'event.key !== "Escape"',
+  'querySelector<HTMLElement>("a")?.focus()',
+  "menuButtonRef.current?.focus()",
 ]);
 
 requireMarkers("src/components/EmailOptIn.tsx", [
@@ -80,5 +85,5 @@ if (failures.length > 0) {
 }
 
 console.log(
-  `check:accessibility PASSED — skip navigation, mobile-menu semantics, language, focus target, visible focus, email-form status, and keyboard-order safeguards validated across ${sourceFiles.length} source files.`,
+  `check:accessibility PASSED — skip navigation, mobile-menu semantics and keyboard focus management, language, focus target, visible focus, email-form status, and keyboard-order safeguards validated across ${sourceFiles.length} source files.`,
 );

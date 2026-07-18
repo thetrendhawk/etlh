@@ -17,7 +17,7 @@ jobs:
   validate:
     name: Build and publishing checks
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
 
     steps:
       - name: Check out repository
@@ -33,3 +33,9 @@ jobs:
 
       - name: Validate sitemap, content, metadata, and build
         run: bun run check:ci
+
+      - name: Install Chromium for rendered accessibility tests
+        run: bunx playwright install --with-deps chromium
+
+      - name: Run rendered accessibility tests
+        run: bun run check:accessibility:browser

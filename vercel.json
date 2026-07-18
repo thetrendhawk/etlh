@@ -1,6 +1,16 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "trailingSlash": false,
+  "images": {
+    "sizes": [320, 480, 640, 800, 960, 1200],
+    "localPatterns": [{ "pathname": "^/assets/.*$", "search": "" }],
+    "qualities": [75],
+    "formats": ["image/webp"],
+    "minimumCacheTTL": 86400,
+    "dangerouslyAllowSVG": false,
+    "contentSecurityPolicy": "script-src 'none'; frame-src 'none'; sandbox;",
+    "contentDispositionType": "inline"
+  },
   "headers": [
     {
       "source": "/(.*)",

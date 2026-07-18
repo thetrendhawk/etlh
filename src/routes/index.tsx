@@ -1,14 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { SiteHeader } from "@/components/SiteHeader";
-import { SiteFooter } from "@/components/SiteFooter";
 import { EmailOptIn } from "@/components/EmailOptIn";
 import { PostCard } from "@/components/PostCard";
-import { categories, posts, type CategorySlug } from "@/lib/posts";
-import { absoluteUrl } from "@/lib/site";
-import heroImg from "@/assets/hero-apartment.jpg";
-import catKitchen from "@/assets/cat-kitchen.jpg";
+import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
 import catDecor from "@/assets/cat-decor.jpg";
 import catHabits from "@/assets/cat-habits.jpg";
+import catKitchen from "@/assets/cat-kitchen.jpg";
+import heroImg from "@/assets/hero-apartment.jpg";
+import { vercelImageSrcSet } from "@/lib/image";
+import { categories, posts, type CategorySlug } from "@/lib/posts";
+import { absoluteUrl } from "@/lib/site";
 
 const catImages = {
   "zero-waste-kitchen": catKitchen,
@@ -23,9 +24,12 @@ const categoryLabels = {
 };
 
 const title = "Eco Tiny Living Hub — Sustainable Living for Small Apartments";
-const description = "Cozy, sustainable small apartment living on a realistic budget. Zero-waste kitchen, eco decor, and budget habits for renters.";
+const description =
+  "Cozy, sustainable small apartment living on a realistic budget. Zero-waste kitchen, eco decor, and budget habits for renters.";
 const pageUrl = absoluteUrl("/");
 const imageUrl = absoluteUrl(heroImg);
+const heroWidths = [480, 640, 960, 1200];
+const categoryWidths = [320, 480, 640, 800];
 
 type HomepageCategorySlug = keyof typeof categoryLabels;
 
@@ -54,8 +58,10 @@ export const Route = createFileRoute("/")({
 function Home() {
   const latest = posts.slice(0, 6);
   const homepageCategories = categories.filter(
-    (c): c is typeof c & { slug: HomepageCategorySlug } => isHomepageCategory(c.slug),
+    (category): category is typeof category & { slug: HomepageCategorySlug } =>
+      isHomepageCategory(category.slug),
   );
+
   return (
     <div className="min-h-screen bg-earth-100 text-earth-900">
       <SiteHeader />
@@ -87,6 +93,8 @@ function Home() {
         <div className="aspect-square rounded-3xl overflow-hidden outline-1 -outline-offset-1 outline-black/5">
           <img
             src={heroImg}
+            srcSet={vercelImageSrcSet(heroImg, heroWidths, 75)}
+            sizes="(min-width: 768px) 50vw, calc(100vw - 3rem)"
             alt="Sunlit small apartment with houseplants and wooden furniture"
             loading="eager"
             fetchPriority="high"
@@ -101,9 +109,7 @@ function Home() {
       <section className="max-w-6xl mx-auto px-6 py-20 border-t border-earth-900/5">
         <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
           <div>
-            <span className="uppercase text-xs font-bold tracking-widest text-moss">
-              Start here
-            </span>
+            <span className="uppercase text-xs font-bold tracking-widest text-moss">Start here</span>
             <h2 className="font-serif text-4xl md:text-5xl mt-3">Start where life feels heavy</h2>
           </div>
           <p className="text-earth-900/70 max-w-sm text-sm">
@@ -111,30 +117,36 @@ function Home() {
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
-          {homepageCategories.map((c) => (
-            <Link
-              key={c.slug}
-              to="/category/$slug"
-              params={{ slug: c.slug }}
-              className="group block"
-            >
-              <div className="aspect-[4/3] bg-white rounded-2xl mb-4 overflow-hidden outline-1 -outline-offset-1 outline-black/5">
-                <img
-                  src={catImages[c.slug]}
-                  alt={c.name}
-                  loading="lazy"
-                  decoding="async"
-                  width={800}
-                  height={600}
-                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                />
-              </div>
-              <h3 className="text-xl font-serif group-hover:text-moss transition-colors">
-                {categoryLabels[c.slug]}
-              </h3>
-              <p className="text-sm text-earth-900/70 mt-2 leading-relaxed">{c.intro}</p>
-            </Link>
-          ))}
+          {homepageCategories.map((category) => {
+            const categoryImage = catImages[category.slug];
+
+            return (
+              <Link
+                key={category.slug}
+                to="/category/$slug"
+                params={{ slug: category.slug }}
+                className="group block"
+              >
+                <div className="aspect-[4/3] bg-white rounded-2xl mb-4 overflow-hidden outline-1 -outline-offset-1 outline-black/5">
+                  <img
+                    src={categoryImage}
+                    srcSet={vercelImageSrcSet(categoryImage, categoryWidths, 75)}
+                    sizes="(min-width: 768px) 33vw, calc(100vw - 3rem)"
+                    alt={category.name}
+                    loading="lazy"
+                    decoding="async"
+                    width={800}
+                    height={600}
+                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                  />
+                </div>
+                <h3 className="text-xl font-serif group-hover:text-moss transition-colors">
+                  {categoryLabels[category.slug]}
+                </h3>
+                <p className="text-sm text-earth-900/70 mt-2 leading-relaxed">{category.intro}</p>
+              </Link>
+            );
+          })}
         </div>
       </section>
 
@@ -151,8 +163,8 @@ function Home() {
           </Link>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {latest.map((p) => (
-            <PostCard key={p.slug} post={p} />
+          {latest.map((post) => (
+            <PostCard key={post.slug} post={post} />
           ))}
         </div>
       </section>

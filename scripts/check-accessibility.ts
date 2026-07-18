@@ -41,6 +41,12 @@ requireMarkers("src/components/SiteHeader.tsx", [
   'type="button"',
 ]);
 
+requireMarkers("src/styles.css", [
+  ":where(a, button, input, select, textarea, summary, [tabindex]):focus-visible",
+  "outline: 3px solid var(--ring)",
+  "outline-offset: 3px",
+]);
+
 const sourceFiles = collectSourceFiles(join(process.cwd(), "src"));
 for (const absolutePath of sourceFiles) {
   const source = readFileSync(absolutePath, "utf8");
@@ -64,5 +70,5 @@ if (failures.length > 0) {
 }
 
 console.log(
-  `check:accessibility PASSED — skip navigation, mobile-menu semantics, language, focus target, and keyboard-order safeguards validated across ${sourceFiles.length} source files.`,
+  `check:accessibility PASSED — skip navigation, mobile-menu semantics, language, focus target, visible focus, and keyboard-order safeguards validated across ${sourceFiles.length} source files.`,
 );

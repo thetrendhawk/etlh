@@ -5,7 +5,7 @@ production_origin="https://ecotinylivinghub.thrwds.com"
 production_host="ecotinylivinghub.thrwds.com"
 vercel_host="eco-tiny-living-site.vercel.app"
 vercel_alias="https://$vercel_host"
-user_agent="ETLH-production-smoke-check/1.1"
+user_agent="ETLH-production-smoke-check/1.2"
 
 pass() { printf '✓ %s\n' "$1"; }
 fail() { printf 'x %s\n' "$1" >&2; exit 1; }
@@ -116,11 +116,12 @@ check_canonical "/"
 check_canonical "/privacy"
 
 check_status "/this-route-must-not-exist-etlh-smoke" "404"
-check_status "/Privacy" "404"
 check_status "/this-route-must-not-exist.json" "404"
 check_status "/encoded-%6dissing-route" "404"
 check_status "/this-route-must-not-exist-etlh-smoke?source=query" "404"
 
+check_redirect "/Privacy" "$production_origin/privacy"
+check_redirect "/About" "$production_origin/about"
 check_redirect "/privacy/" "$production_origin/privacy"
 check_alias_redirect "/editorial-policy?source=smoke"
 check_http_to_https "/privacy?source=http-smoke"

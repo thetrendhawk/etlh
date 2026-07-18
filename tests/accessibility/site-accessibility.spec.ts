@@ -56,11 +56,12 @@ test("mobile menu exposes state and restores focus", async ({ page }, testInfo) 
   await page.addInitScript(() => window.localStorage.setItem("etlh-analytics-consent", "declined"));
   await gotoHydrated(page, "/");
   const menuButton = page.locator('button[aria-controls="site-mobile-navigation"]');
+  const mobileNavigation = page.locator("#site-mobile-navigation");
   await expect(menuButton).toHaveAccessibleName("Open navigation menu");
   await menuButton.click();
   await expect(menuButton).toHaveAttribute("aria-expanded", "true");
   await expect(menuButton).toHaveAccessibleName("Close navigation menu");
-  await expect(page.getByRole("link", { name: "Home" }).last()).toBeFocused();
+  await expect(mobileNavigation.getByRole("link", { name: "Home", exact: true })).toBeFocused();
   await page.keyboard.press("Escape");
   await expect(menuButton).toHaveAttribute("aria-expanded", "false");
   await expect(menuButton).toHaveAccessibleName("Open navigation menu");

@@ -94,4 +94,13 @@
     font-family: var(--font-serif);
     letter-spacing: -0.01em;
   }
+
+  :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 3px;
+  }
+
+  :where(input, select, textarea):focus-visible {
+    border-color: var(--ring);
+  }
 }

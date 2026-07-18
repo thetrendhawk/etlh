@@ -5,97 +5,44 @@
     {
       "source": "/(.*)",
       "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "strict-origin-when-cross-origin"
-        },
-        {
-          "key": "Permissions-Policy",
-          "value": "camera=(), microphone=(), geolocation=()"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        }
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
+        { "key": "X-Frame-Options", "value": "DENY" }
       ]
     }
   ],
   "redirects": [
+    { "source": "/About", "destination": "/about", "permanent": true },
+    { "source": "/Affiliate-Disclosure", "destination": "/affiliate-disclosure", "permanent": true },
+    { "source": "/Blog", "destination": "/blog", "permanent": true },
+    { "source": "/Contact", "destination": "/contact", "permanent": true },
+    { "source": "/Editorial-Policy", "destination": "/editorial-policy", "permanent": true },
+    { "source": "/Privacy", "destination": "/privacy", "permanent": true },
+    { "source": "/Resources", "destination": "/resources", "permanent": true },
+    { "source": "/Terms", "destination": "/terms", "permanent": true },
     {
-      "source": "/About",
-      "destination": "/about",
-      "permanent": true
-    },
-    {
-      "source": "/Affiliate-Disclosure",
-      "destination": "/affiliate-disclosure",
-      "permanent": true
-    },
-    {
-      "source": "/Blog",
-      "destination": "/blog",
-      "permanent": true
-    },
-    {
-      "source": "/Contact",
-      "destination": "/contact",
-      "permanent": true
-    },
-    {
-      "source": "/Editorial-Policy",
-      "destination": "/editorial-policy",
-      "permanent": true
-    },
-    {
-      "source": "/Privacy",
-      "destination": "/privacy",
-      "permanent": true
-    },
-    {
-      "source": "/Resources",
-      "destination": "/resources",
-      "permanent": true
-    },
-    {
-      "source": "/Terms",
-      "destination": "/terms",
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "ecotinylivinghub.thrwds.com" }],
+      "destination": "https://ecotinylivinghub.com/:path*",
       "permanent": true
     },
     {
       "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "eco-tiny-living-site.vercel.app"
-        }
-      ],
-      "destination": "https://ecotinylivinghub.thrwds.com/:path*",
+      "has": [{ "type": "host", "value": "eco-tiny-living-site.vercel.app" }],
+      "destination": "https://ecotinylivinghub.com/:path*",
       "permanent": true
     },
     {
       "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "eco-tiny-living-site-aaron-s-evans-projects.vercel.app"
-        }
-      ],
-      "destination": "https://ecotinylivinghub.thrwds.com/:path*",
+      "has": [{ "type": "host", "value": "eco-tiny-living-site-aaron-s-evans-projects.vercel.app" }],
+      "destination": "https://ecotinylivinghub.com/:path*",
       "permanent": true
     },
     {
       "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "eco-tiny-living-site-git-main-aaron-s-evans-projects.vercel.app"
-        }
-      ],
-      "destination": "https://ecotinylivinghub.thrwds.com/:path*",
+      "has": [{ "type": "host", "value": "eco-tiny-living-site-git-main-aaron-s-evans-projects.vercel.app" }],
+      "destination": "https://ecotinylivinghub.com/:path*",
       "permanent": true
     }
   ]

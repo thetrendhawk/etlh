@@ -44,22 +44,25 @@ test("skip link moves focus to main content", async ({ page }) => {
 test("analytics banner exposes a clear non-modal choice", async ({ page }) => {
   await page.addInitScript(() => window.localStorage.removeItem("etlh-analytics-consent"));
   await gotoHydrated(page, "/");
-  const region = page.getByRole("region", { name: "Help us understand what is useful" });
-  await expect(region).toBeVisible({ timeout: 15_000 });
-  await expect(region).not.toHaveAttribute("aria-modal");
+  const dialog = page.getByRole("dialog", { name: "Help us understand what is useful" });
+  await expect(dialog).toBeVisible({ timeout: 15_000 });
+  await expect(dialog).not.toHaveAttribute("aria-modal");
   await page.getByRole("button", { name: "Decline analytics" }).click();
-  await expect(region).toBeHidden();
+  await expect(dialog).toBeHidden();
 });
 
 test("mobile menu exposes state and restores focus", async ({ page }, testInfo) => {
   test.skip(!testInfo.project.name.includes("mobile"), "Mobile interaction coverage");
   await page.addInitScript(() => window.localStorage.setItem("etlh-analytics-consent", "declined"));
   await gotoHydrated(page, "/");
-  const menuButton = page.getByRole("button", { name: "Open navigation menu" });
+  const menuButton = page.locator('button[aria-controls="site-mobile-navigation"]');
+  await expect(menuButton).toHaveAccessibleName("Open navigation menu");
   await menuButton.click();
   await expect(menuButton).toHaveAttribute("aria-expanded", "true");
+  await expect(menuButton).toHaveAccessibleName("Close navigation menu");
   await expect(page.getByRole("link", { name: "Home" }).last()).toBeFocused();
   await page.keyboard.press("Escape");
   await expect(menuButton).toHaveAttribute("aria-expanded", "false");
+  await expect(menuButton).toHaveAccessibleName("Open navigation menu");
   await expect(menuButton).toBeFocused();
 });

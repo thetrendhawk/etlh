@@ -2,9 +2,14 @@ name: Lighthouse baseline
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - lighthouse-baseline
+  pull_request:
+    paths:
+      - ".github/workflows/lighthouse-baseline.yml"
+      - "src/**"
+      - "public/**"
+      - "styles.css"
+      - "package.json"
+      - "bun.lock"
   schedule:
     - cron: "17 15 * * 1"
 
@@ -12,7 +17,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: lighthouse-production
+  group: lighthouse-production-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:

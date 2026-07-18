@@ -1,0 +1,82 @@
+name: Lighthouse baseline
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - lighthouse-baseline
+  schedule:
+    - cron: "17 15 * * 1"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lighthouse-production
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    name: Production desktop and mobile baseline
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Prepare report directory
+        run: mkdir -p lighthouse-results
+
+      - name: Run mobile Lighthouse
+        run: |
+          npx --yes lighthouse@12.8.2 https://ecotinylivinghub.com/ \
+            --output=json --output=html \
+            --output-path=./lighthouse-results/mobile \
+            --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage"
+
+      - name: Run desktop Lighthouse
+        run: |
+          npx --yes lighthouse@12.8.2 https://ecotinylivinghub.com/ \
+            --preset=desktop \
+            --output=json --output=html \
+            --output-path=./lighthouse-results/desktop \
+            --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage"
+
+      - name: Write baseline summary
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const modes = ['mobile', 'desktop'];
+          const rows = [];
+          for (const mode of modes) {
+            const report = JSON.parse(fs.readFileSync(`lighthouse-results/${mode}.report.json`, 'utf8'));
+            const score = key => Math.round((report.categories[key]?.score ?? 0) * 100);
+            const audit = key => report.audits[key]?.displayValue ?? 'n/a';
+            rows.push({
+              mode,
+              performance: score('performance'),
+              accessibility: score('accessibility'),
+              bestPractices: score('best-practices'),
+              seo: score('seo'),
+              fcp: audit('first-contentful-paint'),
+              lcp: audit('largest-contentful-paint'),
+              tbt: audit('total-blocking-time'),
+              cls: audit('cumulative-layout-shift'),
+              speedIndex: audit('speed-index'),
+            });
+          }
+          const header = '| Mode | Performance | Accessibility | Best Practices | SEO | FCP | LCP | TBT | CLS | Speed Index |';
+          const divider = '|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|';
+          const lines = rows.map(r => `| ${r.mode} | ${r.performance} | ${r.accessibility} | ${r.bestPractices} | ${r.seo} | ${r.fcp} | ${r.lcp} | ${r.tbt} | ${r.cls} | ${r.speedIndex} |`);
+          const markdown = ['# ETLH Lighthouse production baseline', '', `Measured: ${new Date().toISOString()}`, '', header, divider, ...lines, '', 'Lab measurements vary between runs. Use these as directional baselines, not field Core Web Vitals.'].join('\n');
+          fs.writeFileSync('lighthouse-results/summary.md', markdown);
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, markdown);
+          NODE
+
+      - name: Upload Lighthouse reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-production-baseline
+          path: lighthouse-results
+          retention-days: 30

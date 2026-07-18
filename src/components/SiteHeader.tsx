@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -13,6 +13,24 @@ const mobileMenuId = "site-mobile-navigation";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    mobileMenuRef.current?.querySelector<HTMLElement>("a")?.focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setOpen(false);
+      requestAnimationFrame(() => menuButtonRef.current?.focus());
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [open]);
+
   return (
     <nav
       aria-label="Primary navigation"
@@ -36,6 +54,7 @@ export function SiteHeader() {
           ))}
         </div>
         <button
+          ref={menuButtonRef}
           type="button"
           className="md:hidden text-sm font-medium uppercase tracking-wider"
           onClick={() => setOpen((o) => !o)}
@@ -47,6 +66,7 @@ export function SiteHeader() {
         </button>
       </div>
       <div
+        ref={mobileMenuRef}
         id={mobileMenuId}
         hidden={!open}
         className="md:hidden border-t border-earth-900/5 bg-earth-100"

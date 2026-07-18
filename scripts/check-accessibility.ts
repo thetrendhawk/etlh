@@ -41,6 +41,16 @@ requireMarkers("src/components/SiteHeader.tsx", [
   'type="button"',
 ]);
 
+requireMarkers("src/components/EmailOptIn.tsx", [
+  "useId()",
+  "aria-busy={loading}",
+  "aria-invalid={hasError}",
+  "aria-describedby={message ? statusId : undefined}",
+  'role={hasError ? "alert" : "status"}',
+  'aria-live={hasError ? "assertive" : "polite"}',
+  'setMessage("Sending your request…")',
+]);
+
 requireMarkers("src/styles.css", [
   ":where(a, button, input, select, textarea, summary, [tabindex]):focus-visible",
   "outline: 3px solid var(--ring)",
@@ -70,5 +80,5 @@ if (failures.length > 0) {
 }
 
 console.log(
-  `check:accessibility PASSED — skip navigation, mobile-menu semantics, language, focus target, visible focus, and keyboard-order safeguards validated across ${sourceFiles.length} source files.`,
+  `check:accessibility PASSED — skip navigation, mobile-menu semantics, language, focus target, visible focus, email-form status, and keyboard-order safeguards validated across ${sourceFiles.length} source files.`,
 );

@@ -60,6 +60,11 @@ requireMarkers("src/styles.css", [
   ":where(a, button, input, select, textarea, summary, [tabindex]):focus-visible",
   "outline: 3px solid var(--ring)",
   "outline-offset: 3px",
+  "@media (prefers-reduced-motion: reduce)",
+  "animation-duration: 0.01ms !important",
+  "animation-iteration-count: 1 !important",
+  "transition-duration: 0.01ms !important",
+  "scroll-behavior: auto !important",
 ]);
 
 const sourceFiles = collectSourceFiles(join(process.cwd(), "src"));
@@ -85,5 +90,5 @@ if (failures.length > 0) {
 }
 
 console.log(
-  `check:accessibility PASSED — skip navigation, mobile-menu semantics and keyboard focus management, language, focus target, visible focus, email-form status, and keyboard-order safeguards validated across ${sourceFiles.length} source files.`,
+  `check:accessibility PASSED — skip navigation, mobile-menu semantics and keyboard focus management, language, focus target, visible focus, reduced motion, email-form status, and keyboard-order safeguards validated across ${sourceFiles.length} source files.`,
 );

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Eco Tiny Living Hub</title>
+  <rect width="64" height="64" rx="14" fill="#FDFBF7"/>
+  <path d="M10 34.5C10 20.97 20.97 10 34.5 10c7.28 0 13.82 3.17 18.31 8.2" fill="none" stroke="#6B8E23" stroke-width="5" stroke-linecap="round"/>
+  <path d="M19 31.5 32 19l13 12.5v18H19z" fill="#F6EEDC" stroke="#6B8E23" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M28 49.5V38h8v11.5" fill="#6B8E23"/>
+  <path d="M30 27h4v4h-4zM36 27h4v4h-4z" fill="#6B8E23"/>
+  <path d="M34 54c5.2-13.2 12-19.6 20-22-1.4 10.7-7.8 18.7-20 22Z" fill="#6B8E23"/>
+  <path d="M35.5 52.5c5.1-5.1 9.4-9.1 15.3-14.4" fill="none" stroke="#FDFBF7" stroke-width="2.6" stroke-linecap="round"/>
+</svg>

@@ -12,6 +12,10 @@ const routeTreeSource = readFileSync(
   "utf8",
 );
 
+function normalizeRoutePath(path: string): string {
+  return path === "/" ? path : path.replace(/\/$/, "");
+}
+
 function routePathFromFilename(filename: string): string | null {
   if (!filename.endsWith(".tsx") && !filename.endsWith(".ts")) return null;
   if (filename === "__root.tsx") return null;
@@ -30,21 +34,24 @@ const routeFiles = readdirSync(routesDirectory).filter((filename) =>
 const fileRoutePaths = routeFiles
   .map(routePathFromFilename)
   .filter((path): path is string => path !== null)
+  .map(normalizeRoutePath)
   .sort();
 
 for (const routePath of fileRoutePaths) {
-  const routeTreeIdentity = routePath === "/blog" ? "/blog/" : routePath;
-  if (!routeTreeSource.includes(`'${routeTreeIdentity}'`)) {
-    fail(`src/routeTree.gen.ts is missing route-file identity ${routeTreeIdentity}.`);
+  const quotedIdentity = `'${routePath}'`;
+  const quotedSlashIdentity = `'${routePath}/'`;
+  if (
+    !routeTreeSource.includes(quotedIdentity) &&
+    !routeTreeSource.includes(quotedSlashIdentity)
+  ) {
+    fail(`src/routeTree.gen.ts is missing route-file identity ${routePath}.`);
   }
 }
 
 const routeTreePathMatches = [
   ...routeTreeSource.matchAll(/path:\s*'([^']+)'/g),
-].map((match) => match[1]);
-const expectedRouteTreePaths = new Set(
-  fileRoutePaths.map((path) => (path === "/blog" ? "/blog/" : path)),
-);
+].map((match) => normalizeRoutePath(match[1]));
+const expectedRouteTreePaths = new Set(fileRoutePaths);
 for (const generatedPath of routeTreePathMatches) {
   if (!expectedRouteTreePaths.has(generatedPath)) {
     fail(
@@ -67,7 +74,7 @@ const actualSitemapPaths = new Set(
       fail(`Sitemap entry uses an unexpected origin: ${entry.loc}`);
       return entry.loc;
     }
-    return entry.loc.slice(SITE_ORIGIN.length) || "/";
+    return normalizeRoutePath(entry.loc.slice(SITE_ORIGIN.length) || "/");
   }),
 );
 
@@ -88,6 +95,10 @@ const duplicateRouteFiles = routeFiles
     (record): record is { filename: string; routePath: string } =>
       record.routePath !== null,
   )
+  .map((record) => ({
+    ...record,
+    routePath: normalizeRoutePath(record.routePath),
+  }))
   .filter(
     (record, index, records) =>
       records.findIndex((item) => item.routePath === record.routePath) !== index,

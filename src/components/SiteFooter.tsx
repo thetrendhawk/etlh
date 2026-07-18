@@ -9,13 +9,13 @@ export function SiteFooter() {
           <Link to="/" className="font-serif text-3xl block">
             Eco Tiny Living Hub
           </Link>
-          <p className="text-earth-100/60 max-w-sm leading-relaxed">
+          <p className="text-earth-100/70 max-w-sm leading-relaxed">
             Empowering small apartment dwellers to live more sustainably without spending a fortune. Progress over perfection, always.
           </p>
         </div>
         <div>
-          <h4 className="font-medium mb-6 uppercase text-xs tracking-widest text-moss font-sans">Quick Links</h4>
-          <ul className="space-y-4 text-earth-100/60 text-sm">
+          <h4 className="font-medium mb-6 uppercase text-xs tracking-widest text-moss-light font-sans">Quick Links</h4>
+          <ul className="space-y-4 text-earth-100/70 text-sm">
             <li><Link to="/blog" className="hover:text-earth-100">Blog</Link></li>
             <li><Link to="/resources" className="hover:text-earth-100">Resources</Link></li>
             <li><Link to="/about" className="hover:text-earth-100">About</Link></li>
@@ -23,8 +23,8 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <h4 className="font-medium mb-6 uppercase text-xs tracking-widest text-moss font-sans">Follow Along</h4>
-          <ul className="space-y-4 text-earth-100/60 text-sm">
+          <h4 className="font-medium mb-6 uppercase text-xs tracking-widest text-moss-light font-sans">Follow Along</h4>
+          <ul className="space-y-4 text-earth-100/70 text-sm">
             <li>
               <a href="https://www.pinterest.com/ecotinylivinghub/" target="_blank" rel="noopener noreferrer" className="hover:text-earth-100">
                 Pinterest
@@ -38,7 +38,7 @@ export function SiteFooter() {
           </ul>
         </div>
       </div>
-      <div className="max-w-6xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 text-xs text-earth-100/40 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+      <div className="max-w-6xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 text-xs text-earth-100/60 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
         <p>© {new Date().getFullYear()} Eco Tiny Living Hub. Progress over perfection.</p>
         <nav aria-label="Policies and preferences" className="flex flex-wrap gap-x-5 gap-y-2">
           <Link to="/editorial-policy" className="hover:text-earth-100">Editorial Policy</Link>

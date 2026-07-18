@@ -18,7 +18,7 @@ export function PostCard({ post }: { post: Post }) {
             className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
           />
         </div>
-        <div className="flex items-center gap-3 text-xs text-earth-900/40 uppercase tracking-widest">
+        <div className="flex items-center gap-3 text-xs text-earth-900/70 uppercase tracking-widest">
           <span className="text-moss font-semibold">{cat?.shortName}</span>
           <span>·</span>
           <time dateTime={post.date}>{formatDate(post.date)}</time>
@@ -26,7 +26,7 @@ export function PostCard({ post }: { post: Post }) {
         <h3 className="text-2xl font-serif mt-3 leading-snug group-hover:text-moss transition-colors">
           {post.title}
         </h3>
-        <p className="text-earth-900/60 mt-3 line-clamp-2 text-sm leading-relaxed">{post.excerpt}</p>
+        <p className="text-earth-900/70 mt-3 line-clamp-2 text-sm leading-relaxed">{post.excerpt}</p>
       </Link>
     </article>
   );

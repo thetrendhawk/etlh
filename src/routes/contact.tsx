@@ -4,8 +4,9 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { absoluteUrl } from "@/lib/site";
 
 const title = "Contact — Eco Tiny Living Hub";
-const description = "Questions or topic suggestions for Eco Tiny Living Hub? Reach out through Instagram while the direct contact form is being prepared.";
+const description = "Questions or topic suggestions for Eco Tiny Living Hub? Email hello@ecotinylivinghub.com or connect through Instagram.";
 const pageUrl = absoluteUrl("/contact");
+const contactEmail = "hello@ecotinylivinghub.com";
 const instagramUrl = "https://www.instagram.com/ecotinylivinghub/";
 
 export const Route = createFileRoute("/contact")({
@@ -32,19 +33,36 @@ function Contact() {
         <span className="uppercase text-xs font-bold tracking-widest text-moss">Contact</span>
         <h1 className="font-serif text-5xl md:text-6xl mt-3 leading-tight">Say hello.</h1>
         <p className="text-earth-900/70 mt-4 text-lg leading-relaxed">
-          Have a question about sustainable small-space living, or a topic you would like to see covered? Direct messages are currently the most reliable way to reach Eco Tiny Living Hub.
+          Have a question about sustainable small-space living, a correction, or a topic you would like to see covered? Email is the most reliable way to reach Eco Tiny Living Hub.
         </p>
 
         <section className="mt-12 bg-white border border-earth-900/5 rounded-2xl p-8">
-          <h2 className="font-serif text-2xl">Message us on Instagram</h2>
+          <h2 className="font-serif text-2xl">Email Eco Tiny Living Hub</h2>
           <p className="text-earth-900/70 mt-3 leading-relaxed">
-            The website contact form is not active yet. Until it is connected to a verified delivery service, no form will be shown or claim that a message was sent.
+            Write to us at{" "}
+            <a className="font-semibold text-moss underline underline-offset-4" href={`mailto:${contactEmail}`}>
+              {contactEmail}
+            </a>
+            . We read every message, though response times may vary.
+          </p>
+          <a
+            href={`mailto:${contactEmail}`}
+            className="mt-6 inline-block bg-earth-900 text-white px-7 py-3.5 rounded-full font-medium hover:bg-earth-900/90 transition-colors"
+          >
+            Send an email
+          </a>
+        </section>
+
+        <section className="mt-6 border border-earth-900/10 rounded-2xl p-8">
+          <h2 className="font-serif text-2xl">Connect on Instagram</h2>
+          <p className="text-earth-900/70 mt-3 leading-relaxed">
+            You can also follow along or send a direct message through Instagram.
           </p>
           <a
             href={instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-block bg-earth-900 text-white px-7 py-3.5 rounded-full font-medium hover:bg-earth-900/90 transition-colors"
+            className="mt-6 inline-block border border-earth-900/20 px-7 py-3.5 rounded-full font-medium hover:bg-earth-900/5 transition-colors"
           >
             Open Instagram
           </a>

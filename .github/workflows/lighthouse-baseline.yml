@@ -17,12 +17,12 @@ permissions:
   contents: read
 
 concurrency:
-  group: lighthouse-production-${{ github.ref }}
+  group: lighthouse-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   audit:
-    name: Production desktop and mobile baseline
+    name: Desktop and mobile Lighthouse audit
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
@@ -30,19 +30,52 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Set up Bun for pull-request audit
+        if: github.event_name == 'pull_request'
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install branch dependencies
+        if: github.event_name == 'pull_request'
+        run: bun install --frozen-lockfile
+
+      - name: Start branch server
+        if: github.event_name == 'pull_request'
+        run: |
+          nohup bun run dev --host 127.0.0.1 --port 4173 > /tmp/etlh-lighthouse-server.log 2>&1 &
+          for attempt in {1..60}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then
+              exit 0
+            fi
+            sleep 2
+          done
+          cat /tmp/etlh-lighthouse-server.log
+          exit 1
+
+      - name: Select audit target
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "TARGET_URL=http://127.0.0.1:4173/" >> "$GITHUB_ENV"
+            echo "TARGET_LABEL=pull-request branch server" >> "$GITHUB_ENV"
+          else
+            echo "TARGET_URL=https://ecotinylivinghub.com/" >> "$GITHUB_ENV"
+            echo "TARGET_LABEL=production" >> "$GITHUB_ENV"
+          fi
+
       - name: Prepare report directory
         run: mkdir -p lighthouse-results
 
       - name: Run mobile Lighthouse
         run: |
-          npx --yes lighthouse@12.8.2 https://ecotinylivinghub.com/ \
+          npx --yes lighthouse@12.8.2 "$TARGET_URL" \
             --output=json --output=html \
             --output-path=./lighthouse-results/mobile \
             --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage"
 
       - name: Run desktop Lighthouse
         run: |
-          npx --yes lighthouse@12.8.2 https://ecotinylivinghub.com/ \
+          npx --yes lighthouse@12.8.2 "$TARGET_URL" \
             --preset=desktop \
             --output=json --output=html \
             --output-path=./lighthouse-results/desktop \
@@ -74,7 +107,8 @@ jobs:
           const header = '| Mode | Performance | Accessibility | Best Practices | SEO | FCP | LCP | TBT | CLS | Speed Index |';
           const divider = '|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|';
           const lines = rows.map(r => `| ${r.mode} | ${r.performance} | ${r.accessibility} | ${r.bestPractices} | ${r.seo} | ${r.fcp} | ${r.lcp} | ${r.tbt} | ${r.cls} | ${r.speedIndex} |`);
-          const markdown = ['# ETLH Lighthouse production baseline', '', `Measured: ${new Date().toISOString()}`, '', header, divider, ...lines, '', 'Lab measurements vary between runs. Use these as directional baselines, not field Core Web Vitals.'].join('\n');
+          const label = process.env.TARGET_LABEL || 'unknown target';
+          const markdown = ['# ETLH Lighthouse audit', '', `Target: ${label}`, `Measured: ${new Date().toISOString()}`, '', header, divider, ...lines, '', 'Pull-request audits run against the checked-out branch server. Scheduled and manual audits run against production. Lab measurements are directional, not field Core Web Vitals.'].join('\n');
           fs.writeFileSync('lighthouse-results/summary.md', markdown);
           fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, markdown);
           NODE
@@ -82,6 +116,6 @@ jobs:
       - name: Upload Lighthouse reports
         uses: actions/upload-artifact@v4
         with:
-          name: lighthouse-production-baseline
+          name: lighthouse-audit
           path: lighthouse-results
           retention-days: 30

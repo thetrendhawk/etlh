@@ -7,13 +7,22 @@ interface AssetRecord {
   ext: string;
 }
 
-const roots = [".output/public", "dist/client", "dist"].filter((root) => existsSync(root));
+const outputCandidates = [
+  ".output/public",
+  ".vercel/output/static",
+  "dist/client",
+  "build/client",
+  "dist",
+  ".output",
+];
+const outputRoot = outputCandidates.find((root) => existsSync(root));
 
-if (roots.length === 0) {
-  throw new Error("No built client output found. Run bun run build first.");
+if (!outputRoot) {
+  throw new Error(
+    `No built output found. Checked: ${outputCandidates.join(", ")}. Run bun run build first.`,
+  );
 }
 
-const outputRoot = roots[0];
 const files: AssetRecord[] = [];
 
 function walk(dir: string) {
@@ -37,7 +46,7 @@ function walk(dir: string) {
 walk(outputRoot);
 
 const javascript = files
-  .filter((file) => file.ext === ".js")
+  .filter((file) => file.ext === ".js" || file.ext === ".mjs")
   .sort((a, b) => b.bytes - a.bytes);
 const images = files
   .filter((file) => [".jpg", ".jpeg", ".png", ".webp", ".avif"].includes(file.ext))

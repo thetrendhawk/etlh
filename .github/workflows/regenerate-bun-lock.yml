@@ -1,0 +1,36 @@
+name: Regenerate Bun lockfile
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  regenerate-lockfile:
+    if: github.head_ref == 'security-dependency-audit'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out pull request branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Regenerate lockfile
+        run: bun install
+
+      - name: Verify patched dependency and audit
+        run: |
+          bun pm ls undici
+          bun audit --prod --audit-level=high
+
+      - name: Upload generated lockfile
+        uses: actions/upload-artifact@v4
+        with:
+          name: regenerated-bun-lock
+          path: bun.lock
+          if-no-files-found: error

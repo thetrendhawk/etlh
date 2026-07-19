@@ -8,7 +8,7 @@ import catHabits from "@/assets/cat-habits.jpg";
 import catKitchen from "@/assets/cat-kitchen.jpg";
 import heroImg from "@/assets/hero-apartment.jpg";
 import { vercelImageSrcSet } from "@/lib/image";
-import { categories, posts, type CategorySlug } from "@/lib/posts";
+import { posts, promotedCategories, type CategorySlug } from "@/lib/posts";
 import { absoluteUrl } from "@/lib/site";
 
 const catImages = {
@@ -57,7 +57,7 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   const latest = posts.slice(0, 6);
-  const homepageCategories = categories.filter(
+  const homepageCategories = promotedCategories.filter(
     (category): category is typeof category & { slug: HomepageCategorySlug } =>
       isHomepageCategory(category.slug),
   );
@@ -106,11 +106,19 @@ function Home() {
         </div>
       </header>
 
-      <section className="max-w-6xl mx-auto px-6 py-20 border-t border-earth-900/5">
+      <section
+        id="categories"
+        aria-labelledby="categories-heading"
+        className="max-w-6xl mx-auto px-6 py-20 border-t border-earth-900/5 scroll-mt-24"
+      >
         <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
           <div>
-            <span className="uppercase text-xs font-bold tracking-widest text-moss">Start here</span>
-            <h2 className="font-serif text-4xl md:text-5xl mt-3">Start where life feels heavy</h2>
+            <span className="uppercase text-xs font-bold tracking-widest text-moss">
+              Start here
+            </span>
+            <h2 id="categories-heading" className="font-serif text-4xl md:text-5xl mt-3">
+              Start where life feels heavy
+            </h2>
           </div>
           <p className="text-earth-900/70 max-w-sm text-sm">
             Three core areas to help you build a sustainable apartment, one small win at a time.
@@ -140,8 +148,11 @@ function Home() {
                     className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
                   />
                 </div>
-                <h3 className="text-xl font-serif group-hover:text-moss transition-colors">
+                <p className="text-xs font-semibold uppercase tracking-widest text-moss">
                   {categoryLabels[category.slug]}
+                </p>
+                <h3 className="text-xl font-serif mt-2 group-hover:text-moss transition-colors">
+                  {category.name}
                 </h3>
                 <p className="text-sm text-earth-900/70 mt-2 leading-relaxed">{category.intro}</p>
               </Link>

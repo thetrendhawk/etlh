@@ -3,6 +3,8 @@ import { expect, test, type Page } from "@playwright/test";
 
 const pages = [
   { path: "/", heading: /Sustainable living for small spaces/i },
+  { path: "/blog", heading: /Sustainable living, one small upgrade at a time/i },
+  { path: "/category/eco-habits-budget", heading: /Budget-Friendly Sustainable Habits/i },
   { path: "/contact", heading: /Say hello/i },
 ];
 

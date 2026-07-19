@@ -1,1 +1,0 @@
-The revised generator and HTML companion are committed. The PDF binary must be regenerated from `generate_eco_step_sheet.py` before this pull request is merged. Do not publish or merge while this marker exists.

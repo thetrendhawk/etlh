@@ -124,15 +124,15 @@ function PostPage() {
           </p>
         </div>
 
-        <div className="aspect-[2/3] mt-10 rounded-2xl overflow-hidden outline-1 -outline-offset-1 outline-black/5">
+        <div className="aspect-[16/10] mt-10 rounded-2xl overflow-hidden outline-1 -outline-offset-1 outline-black/5">
           <img
             src={post.image}
             alt={post.imageAlt}
             loading="eager"
             fetchPriority="high"
             decoding="async"
-            width={1024}
-            height={1536}
+            width={1200}
+            height={750}
             className="w-full h-full object-cover"
           />
         </div>
@@ -147,9 +147,7 @@ function PostPage() {
               {(post.toc as Post["toc"]).map((t, i: number) => (
                 <li key={t.id}>
                   <a href={`#${t.id}`} className="hover:text-moss">
-                    <span className="text-earth-900/40 mr-2">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
+                    <span className="text-earth-900/40 mr-2">{String(i + 1).padStart(2, "0")}</span>
                     {t.label}
                   </a>
                 </li>
@@ -188,7 +186,7 @@ function PostPage() {
           })}
         </div>
 
-        <section className="mt-12 rounded-2xl border border-earth-900/10 bg-white p-6 text-sm leading-relaxed text-earth-900/65">
+        <section className="mt-12 rounded-2xl border border-earth-900/10 bg-white p-6 text-sm leading-relaxed text-earth-900/70">
           <h2 className="font-serif text-2xl text-earth-900">Found something we should correct?</h2>
           <p className="mt-2">
             Send the article title, the passage in question, and any supporting source through our{" "}

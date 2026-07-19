@@ -2,6 +2,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
 
 import { categories, posts } from "../src/lib/posts";
+import { getPresentedPost } from "../src/lib/postPresentation";
 
 const failures: string[] = [];
 const fail = (message: string) => failures.push(message);
@@ -60,7 +61,8 @@ for (const post of posts) {
   if (!slugPattern.test(post.slug)) fail(`${label} has an invalid slug.`);
   if (!nonEmpty(post.title)) fail(`${label} has no title.`);
   if (!nonEmpty(post.excerpt)) fail(`${label} has no excerpt.`);
-  if (!categorySlugs.has(post.category)) fail(`${label} references unknown category ${post.category}.`);
+  if (!categorySlugs.has(post.category))
+    fail(`${label} references unknown category ${post.category}.`);
   if (!datePattern.test(post.date)) fail(`${label} has an invalid source date: ${post.date}`);
   if (!nonEmpty(post.readingTime)) fail(`${label} has no reading time.`);
   if (!nonEmpty(post.image)) fail(`${label} has no image.`);
@@ -89,7 +91,26 @@ for (const post of posts) {
       if (!block.items || block.items.length === 0) fail(`${label} contains an empty list block.`);
       continue;
     }
-    if (!block.text || !nonEmpty(block.text)) fail(`${label} contains an empty ${block.type} block.`);
+    if (!block.text || !nonEmpty(block.text))
+      fail(`${label} contains an empty ${block.type} block.`);
+  }
+}
+
+const promotionalSurfacePattern =
+  /before\s*(?:&|and)\s*after|actually save money|chefs use|perfect for renters|under\s*(?:\$|100 dollars)|thrifted/i;
+const retiredImagePattern = /(?:Decor|Sustainable|ZeroWaste)Pin\d|post-decor/i;
+
+for (const sourcePost of posts) {
+  const post = getPresentedPost(sourcePost);
+  const label = `Presented post ${post.slug}`;
+  const promotionalCopy = `${post.title} ${post.excerpt} ${post.imageAlt}`;
+
+  if (promotionalSurfacePattern.test(promotionalCopy)) {
+    fail(`${label} exposes an unsupported promotional title, excerpt, or image description.`);
+  }
+
+  if (retiredImagePattern.test(post.image)) {
+    fail(`${label} exposes a retired promotional or watermarked image.`);
   }
 }
 
@@ -197,7 +218,9 @@ for (const absolutePath of sourceFiles) {
 }
 
 if (failures.length > 0) {
-  console.error(`check:content FAILED (${failures.length} problem${failures.length === 1 ? "" : "s"}):`);
+  console.error(
+    `check:content FAILED (${failures.length} problem${failures.length === 1 ? "" : "s"}):`,
+  );
   for (const failure of failures) console.error(`  x ${failure}`);
   process.exit(1);
 }

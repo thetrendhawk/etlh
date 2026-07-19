@@ -1,22 +1,24 @@
 import { Link } from "@tanstack/react-router";
 import { formatDate } from "@/lib/date";
 import { vercelImageSrcSet } from "@/lib/image";
+import { getPresentedPost } from "@/lib/postPresentation";
 import { type Post, getCategory } from "@/lib/posts";
 
 const postCardWidths = [320, 480, 640, 800];
 
 export function PostCard({ post }: { post: Post }) {
-  const category = getCategory(post.category);
+  const presentedPost = getPresentedPost(post);
+  const category = getCategory(presentedPost.category);
 
   return (
     <article className="group">
-      <Link to="/blog/$slug" params={{ slug: post.slug }} className="block">
+      <Link to="/blog/$slug" params={{ slug: presentedPost.slug }} className="block">
         <div className="aspect-[16/10] bg-white rounded-xl mb-6 outline-1 -outline-offset-1 outline-black/5 overflow-hidden">
           <img
-            src={post.image}
-            srcSet={vercelImageSrcSet(post.image, postCardWidths, 75)}
+            src={presentedPost.image}
+            srcSet={vercelImageSrcSet(presentedPost.image, postCardWidths, 75)}
             sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, calc(100vw - 3rem)"
-            alt={post.imageAlt}
+            alt={presentedPost.imageAlt}
             loading="lazy"
             decoding="async"
             width={800}
@@ -27,13 +29,13 @@ export function PostCard({ post }: { post: Post }) {
         <div className="flex items-center gap-3 text-xs text-earth-900/70 uppercase tracking-widest">
           <span className="text-moss font-semibold">{category?.shortName}</span>
           <span>·</span>
-          <time dateTime={post.date}>{formatDate(post.date)}</time>
+          <time dateTime={presentedPost.date}>{formatDate(presentedPost.date)}</time>
         </div>
         <h3 className="text-2xl font-serif mt-3 leading-snug group-hover:text-moss transition-colors">
-          {post.title}
+          {presentedPost.title}
         </h3>
         <p className="text-earth-900/70 mt-3 line-clamp-2 text-sm leading-relaxed">
-          {post.excerpt}
+          {presentedPost.excerpt}
         </p>
       </Link>
     </article>

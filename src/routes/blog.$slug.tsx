@@ -3,15 +3,16 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { EmailOptIn } from "@/components/EmailOptIn";
 import { PostCard } from "@/components/PostCard";
-import { getPost, getCategory, getRelatedPosts, type Post } from "@/lib/posts";
 import { formatDate } from "@/lib/date";
+import { getPresentedPost } from "@/lib/postPresentation";
+import { getPost, getCategory, getRelatedPosts, type Post } from "@/lib/posts";
 import { absoluteUrl } from "@/lib/site";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
-    const post = getPost(params.slug);
-    if (!post) throw notFound();
-    return { post };
+    const sourcePost = getPost(params.slug);
+    if (!sourcePost) throw notFound();
+    return { post: getPresentedPost(sourcePost) };
   },
   head: ({ loaderData }) => {
     const p = loaderData?.post;
@@ -66,7 +67,9 @@ export const Route = createFileRoute("/blog/$slug")({
       <SiteHeader />
       <div className="max-w-3xl mx-auto px-6 py-32 text-center">
         <h1 className="font-serif text-5xl mb-4">Post not found</h1>
-        <Link to="/blog" className="text-moss underline">Back to all posts</Link>
+        <Link to="/blog" className="text-moss underline">
+          Back to all posts
+        </Link>
       </div>
       <SiteFooter />
     </div>
@@ -84,11 +87,18 @@ function PostPage() {
     <div className="min-h-screen bg-earth-100 text-earth-900">
       <SiteHeader />
       <article className="max-w-3xl mx-auto px-6 py-12 md:py-16">
-        <Link to="/blog" className="text-xs uppercase tracking-widest text-earth-900/50 hover:text-moss">
+        <Link
+          to="/blog"
+          className="text-xs uppercase tracking-widest text-earth-900/50 hover:text-moss"
+        >
           ← All posts
         </Link>
         <div className="mt-6 flex items-center gap-3 text-xs uppercase tracking-widest text-earth-900/40">
-          <Link to="/category/$slug" params={{ slug: post.category }} className="text-moss font-semibold">
+          <Link
+            to="/category/$slug"
+            params={{ slug: post.category }}
+            className="text-moss font-semibold"
+          >
             {cat?.shortName}
           </Link>
           <span>·</span>
@@ -96,7 +106,9 @@ function PostPage() {
           <span>·</span>
           <span>{post.readingTime}</span>
         </div>
-        <h1 className="font-serif text-4xl md:text-6xl leading-tight mt-4 text-balance">{post.title}</h1>
+        <h1 className="font-serif text-4xl md:text-6xl leading-tight mt-4 text-balance">
+          {post.title}
+        </h1>
         <p className="text-lg md:text-xl text-earth-900/70 mt-6 leading-relaxed">{post.excerpt}</p>
 
         <div className="mt-7 flex flex-col gap-1 border-l-2 border-moss/40 pl-4 text-sm text-earth-900/60">
@@ -126,13 +138,18 @@ function PostPage() {
         </div>
 
         {post.toc.length > 0 && (
-          <nav aria-label="Table of contents" className="mt-10 p-6 bg-white rounded-2xl border border-earth-900/5">
+          <nav
+            aria-label="Table of contents"
+            className="mt-10 p-6 bg-white rounded-2xl border border-earth-900/5"
+          >
             <p className="text-xs uppercase tracking-widest text-earth-900/50 mb-3">In this post</p>
             <ol className="space-y-2 text-sm">
               {(post.toc as Post["toc"]).map((t, i: number) => (
                 <li key={t.id}>
                   <a href={`#${t.id}`} className="hover:text-moss">
-                    <span className="text-earth-900/40 mr-2">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="text-earth-900/40 mr-2">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
                     {t.label}
                   </a>
                 </li>
@@ -145,7 +162,11 @@ function PostPage() {
           {(post.body as Post["body"]).map((block, i: number) => {
             if (block.type === "h2")
               return (
-                <h2 key={i} id={block.id} className="font-serif text-3xl md:text-4xl mt-12 mb-2 scroll-mt-24">
+                <h2
+                  key={i}
+                  id={block.id}
+                  className="font-serif text-3xl md:text-4xl mt-12 mb-2 scroll-mt-24"
+                >
                   {block.text}
                 </h2>
               );
@@ -158,7 +179,9 @@ function PostPage() {
             if (block.type === "ul")
               return (
                 <ul key={i} className="list-disc pl-6 space-y-2">
-                  {block.items?.map((it: string, j: number) => <li key={j}>{it}</li>)}
+                  {block.items?.map((it: string, j: number) => (
+                    <li key={j}>{it}</li>
+                  ))}
                 </ul>
               );
             return <p key={i}>{block.text}</p>;
@@ -169,8 +192,10 @@ function PostPage() {
           <h2 className="font-serif text-2xl text-earth-900">Found something we should correct?</h2>
           <p className="mt-2">
             Send the article title, the passage in question, and any supporting source through our{" "}
-            <Link to="/contact" className="underline underline-offset-4 hover:text-moss">contact page</Link>.
-            Material corrections will be made transparently.
+            <Link to="/contact" className="underline underline-offset-4 hover:text-moss">
+              contact page
+            </Link>
+            . Material corrections will be made transparently.
           </p>
         </section>
 
@@ -178,7 +203,10 @@ function PostPage() {
 
         <div className="mt-12 flex flex-wrap gap-2">
           {(post.tags as string[]).map((t: string) => (
-            <span key={t} className="text-xs uppercase tracking-widest px-3 py-1.5 rounded-full bg-earth-900/5 text-earth-900/60">
+            <span
+              key={t}
+              className="text-xs uppercase tracking-widest px-3 py-1.5 rounded-full bg-earth-900/5 text-earth-900/60"
+            >
               #{t}
             </span>
           ))}
@@ -189,7 +217,9 @@ function PostPage() {
         <section className="max-w-6xl mx-auto px-6 py-16 border-t border-earth-900/5">
           <h2 className="font-serif text-3xl mb-8">Keep reading</h2>
           <div className="grid md:grid-cols-2 gap-10">
-            {related.map((p) => <PostCard key={p.slug} post={p} />)}
+            {related.map((p) => (
+              <PostCard key={p.slug} post={p} />
+            ))}
           </div>
         </section>
       )}

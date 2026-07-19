@@ -5,6 +5,10 @@ const pages = [
   { path: "/", heading: /Sustainable living for small spaces/i },
   { path: "/blog", heading: /Sustainable living, one small upgrade at a time/i },
   { path: "/category/eco-habits-budget", heading: /Budget-Friendly Sustainable Habits/i },
+  {
+    path: "/blog/zero-waste-kitchen-budget-9-swaps",
+    heading: /Zero-Waste Kitchen on a Budget: 9 Swaps to Evaluate/i,
+  },
   { path: "/contact", heading: /Say hello/i },
 ];
 

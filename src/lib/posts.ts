@@ -1045,7 +1045,7 @@ export const posts: Post[] = [
     {
       type: "p",
       text:
-        "By organizing your pantry around visibility and access—clear containers, simple zones, and good rotation—you reduce food waste, save money on groceries, and make cooking feel easier instead of overwhelming."
+        "Organizing around visibility and access—clear containers, simple zones, and regular rotation—can make it easier to notice what you already have before it is forgotten or bought again."
     },
 
     {
@@ -1234,7 +1234,7 @@ export const posts: Post[] = [
     {
       type: "p",
       text:
-        "Globally, households waste a huge portion of the food they buy, mostly through overbuying, poor storage, and forgotten leftovers. Food waste doesn’t just cost money; it also wastes all the water, energy, and transport that went into growing and shipping that food."
+        "At home, overbuying, poor storage, and forgotten leftovers can leave usable food uneaten. The practical goal of this guide is narrower: make ingredients easier to see and use before they spoil."
     },
     {
       type: "p",
@@ -1426,7 +1426,7 @@ export const posts: Post[] = [
       items: [
         "Use tape or simple stickers to note the contents and date on leftovers and homemade stocks or sauces.",
         "Store food in clear containers or jars instead of opaque takeout tubs so you can see what’s inside at a glance.",
-        "Aim to keep your fridge about two‑thirds full so air can circulate and items don’t get buried."
+        "Leave enough open space for air to circulate, avoid blocking vents, and follow the capacity and loading guidance in your refrigerator’s manual."
       ]
     },
 
@@ -1438,7 +1438,7 @@ export const posts: Post[] = [
     {
       type: "p",
       text:
-        "Even with great habits, some food scraps are unavoidable. Composting turns those inedible bits into something useful instead of methane‑producing landfill waste."
+        "Even with careful planning, some inedible food scraps remain. If a local organics program accepts them, keep its collection rules handy so scraps go in the correct container."
     },
     {
       type: "ul",
@@ -1525,7 +1525,7 @@ export const posts: Post[] = [
       "Designate one shelf or bin in your fridge as “Eat Me First” for leftovers and foods that are close to expiring.",
       "Plan one “leftover night” or “soup/stir‑fry night” each week to use up odds and ends.",
     ]},
-    { type: "p", text: "These small habits are proven to cut household food waste significantly, which directly lowers grocery costs." },
+    { type: "p", text: "These routines keep soon-to-expire food visible and give leftovers a planned use. Track what your household actually uses before assuming they will lower waste or grocery costs." },
     { type: "h2", id: "compost", text: "6. One Big Trash Can → Trash + Countertop Compost" },
     { type: "p", text: "If everything goes into one trash bag, you’re throwing away a lot of potential compost and recyclable material." },
     { type: "p", text: "Budget‑friendly upgrade:" },
@@ -1534,7 +1534,7 @@ export const posts: Post[] = [
       "Look up local options: community gardens, farmers’ markets, or municipal programs that accept food scraps.",
       "Keep a separate bin or bag for recyclables to keep them out of your regular trash.",
     ]},
-    { type: "p", text: "You’ll see your trash volume drop quickly, even in a tiny apartment kitchen." },
+    { type: "p", text: "If your local program accepts the scraps and recyclables you separate, less of that material may remain in your regular trash." },
     { type: "h2", id: "pantry-zones", text: "7. Cardboard Chaos → Clear Jars & Simple Pantry Zones" },
     { type: "p", text: "Messy pantries cause waste because food gets lost, expires, and gets purchased twice." },
     { type: "p", text: "Zero‑waste pantry basics for small spaces:" },
@@ -1544,7 +1544,7 @@ export const posts: Post[] = [
       "Move dry goods (rice, pasta, lentils, oats, snacks) into clear jars or stackable containers so you can see what you have at a glance.",
       "Label jars with the food name and cooking instructions if you need them.",
     ]},
-    { type: "p", text: "This approach works even for a single cabinet pantry and is one of the most recommended small‑pantry strategies right now." },
+    { type: "p", text: "This approach can be adapted to a single cabinet: use only as many zones and containers as the space and the food you actually keep require." },
     { type: "h2", id: "reusable-workhorses", text: "8. “Single‑Use Everything” → Reusable Kitchen Workhorses" },
     { type: "p", text: "Many zero‑waste creators emphasize choosing a few high‑impact reusables you’ll actually use daily instead of buying every new eco gadget." },
     { type: "p", text: "Consider focusing your budget on:" },
@@ -1628,17 +1628,17 @@ export const posts: Post[] = [
       { id: "swaps", label: "Pantry swaps that pay off" },
     ],
     body: [
-      { type: "p", text: "Most zero waste kitchen content assumes you have a walk-in pantry. Here are the ideas that actually work in a galley kitchen or a studio." },
+      { type: "p", text: "These ideas focus on galley kitchens and studios, where counter, cabinet, and freezer space are limited." },
       { type: "h2", id: "storage", text: "Storage when there's no pantry" },
-      { type: "p", text: "Clear glass jars are your best friend. Save pasta sauce and salsa jars, run them through the dishwasher, and you have a free pantry system. Stack them on a cheap shelf above the fridge or inside a cabinet for instant vertical storage." },
+      { type: "p", text: "Reuse an intact food jar only when it is clean, dry, suitable for the food, and paired with a lid that still seals. Wash it by hand or in a dishwasher according to the jar and lid instructions, keep any cooking directions you still need, and place heavier jars on a stable cabinet shelf rather than an uncertain surface above the fridge." },
       { type: "h2", id: "compost", text: "Composting in a small apartment" },
       { type: "ul", items: [
-        "Keep a small lidded container in the freezer — zero smell",
-        "Drop scraps at a farmers' market or community garden weekly",
-        "Try a countertop bokashi bin for true apartment composting",
+        "Use a small, tightly sealed, freezer-safe container if you have room; freezing can slow decomposition and help contain odors, but the container still needs leak checks and regular cleaning",
+        "Confirm a farmers' market, community garden, or municipal program accepts your specific scraps before storing them for drop-off",
+        "Consider a sealed bokashi system only after checking its space, upkeep, and required finishing or drop-off steps",
       ]},
       { type: "h2", id: "swaps", text: "Pantry swaps that pay off" },
-      { type: "p", text: "Bar dish soap, refillable cleaning concentrate, and reusable produce bags are the three swaps with the best return on effort. Start with one." },
+      { type: "p", text: "Possible swaps include bar dish soap, refillable cleaning concentrate, or reusable produce bags. Start with what solves a real need, use up suitable products you already own, and add one option at a time." },
     ],
   },
   {

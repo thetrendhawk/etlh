@@ -1,11 +1,13 @@
+import decorCategoryImage from "@/assets/cat-decor.jpg";
 import type { Post } from "@/lib/posts";
 
 const roomResetPost: Partial<Post> = {
   title: "Sustainable Small Apartment Decor: A Practical Room Reset Plan",
   excerpt:
     "Use this illustrative room-reset plan to make a cluttered small apartment feel calmer with layout changes, secondhand options, and smarter storage.",
+  image: decorCategoryImage,
   imageAlt:
-    "Illustrative small apartment living room with natural textures, plants, and compact furniture.",
+    "Illustrative small bedroom with natural wood furniture, plants, warm lighting, and layered textiles.",
   tags: [
     "sustainable small apartment decor",
     "small space eco decor",

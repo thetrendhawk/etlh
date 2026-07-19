@@ -59,6 +59,22 @@ export const categories: Category[] = [
   },
 ];
 
+const promotedCategorySlugs: CategorySlug[] = [
+  "zero-waste-kitchen",
+  "small-apartment-decor",
+  "eco-habits-budget",
+];
+
+export const promotedCategories = promotedCategorySlugs.map((slug) => {
+  const category = categories.find((candidate) => candidate.slug === slug);
+
+  if (!category) {
+    throw new Error(`Missing promoted category: ${slug}`);
+  }
+
+  return category;
+});
+
 export interface Post {
   slug: string;
   title: string;

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Small-Apartment Eco Step Starter Sheet | Eco Tiny Living Hub</title>
+  <style>
+    :root { --cream:#f7f3ea; --sage:#566451; --pale:#eef1eb; --earth:#2f332d; --muted:#666b62; --line:#c9cec4; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--cream); color:var(--earth); font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    main { max-width:760px; margin:auto; padding:32px 20px 56px; }
+    h1 { font-size:clamp(2rem,6vw,3rem); line-height:1.08; margin:0 0 12px; }
+    .intro { color:var(--muted); font-size:1.08rem; }
+    .notice { background:var(--pale); padding:16px; border-radius:10px; margin:24px 0; }
+    fieldset { border:1px solid var(--line); border-radius:12px; margin:24px 0; padding:20px; }
+    legend { font-weight:750; font-size:1.25rem; padding:0 8px; }
+    label { display:block; font-weight:650; margin:16px 0 6px; }
+    input[type="text"], textarea { width:100%; border:1px solid #8d9788; border-radius:6px; padding:10px; background:#fff; color:var(--earth); font:inherit; }
+    textarea { min-height:92px; resize:vertical; }
+    .choice { display:flex; align-items:flex-start; gap:10px; margin:10px 0; font-weight:400; }
+    .choice input { margin-top:5px; }
+    .row { display:flex; flex-wrap:wrap; gap:18px; }
+    .row .choice { min-width:120px; }
+    .example { color:var(--muted); font-style:italic; }
+    footer { border-top:1px solid var(--line); margin-top:32px; padding-top:16px; color:var(--muted); font-size:.9rem; }
+    :focus-visible { outline:3px solid #7d946f; outline-offset:2px; }
+    @media print { body{background:#fff;} main{max-width:none;padding:.5in;} fieldset{break-inside:avoid;} }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Small-Apartment Eco Step Starter Sheet</h1>
+  <p class="intro">Choose one small, reversible action that fits your real space, control, energy, and routine. Progress here means a clear next experiment - not perfection, a purchase, or a guaranteed result.</p>
+  <div class="notice"><strong>Use this sheet as a planning aid.</strong><br />Check local rules, product instructions, household needs, accessibility, and safety before acting.</div>
+  <form>
+    <fieldset><legend>1. Notice one recurring friction point</legend>
+      <label for="room">Room or routine</label><input id="room" type="text" />
+      <label for="happening">What keeps happening?</label><textarea id="happening"></textarea>
+      <label for="whenwhere">When and where does it happen?</label><input id="whenwhere" type="text" />
+      <label for="extra">What feels like the extra step?</label><textarea id="extra"></textarea>
+      <p class="example">Example: Reusable bags are stored far from the door, so they are easy to forget.</p>
+    </fieldset>
+    <fieldset><legend>2. Check fit and control</legend>
+      <label class="choice"><input type="checkbox" /> <span>I control this change.</span></label>
+      <label class="choice"><input type="checkbox" /> <span>I may need household agreement.</span></label>
+      <label class="choice"><input type="checkbox" /> <span>I may need landlord or property approval.</span></label>
+      <label class="choice"><input type="checkbox" /> <span>It depends on a local service, building rule, or program.</span></label>
+      <label class="choice"><input type="checkbox" /> <span>It may affect accessibility, safety, pets, children, food, utilities, or shared space.</span></label>
+      <label class="choice"><input type="checkbox" /> <span>Not sure - research before acting.</span></label>
+      <label for="research">What permission, guidance, or research is needed?</label><textarea id="research"></textarea>
+    </fieldset>
+    <fieldset><legend>3. Use what already exists</legend>
+      <label for="available">What item, location, or routine is already available?</label><input id="available" type="text" />
+      <label class="choice"><input type="checkbox" /> <span>Move it closer or make it more visible.</span></label>
+      <label class="choice"><input type="checkbox" /> <span>Repair or simplify it.</span></label>
+      <label class="choice"><input type="checkbox" /> <span>Give it one clear home.</span></label>
+      <label class="choice"><input type="checkbox" /> <span>Use it differently before buying something new.</span></label>
+      <p><strong>Is a purchase necessary now?</strong></p><div class="row">
+        <label class="choice"><input name="purchase" type="radio" /> <span>Yes</span></label>
+        <label class="choice"><input name="purchase" type="radio" /> <span>No</span></label>
+        <label class="choice"><input name="purchase" type="radio" /> <span>Not sure</span></label>
+      </div>
+    </fieldset>
+    <fieldset><legend>4. Define one Eco Step</legend>
+      <label for="step">I will make this moment easier by...</label><textarea id="step"></textarea>
+      <label for="setup">Where will the setup live?</label><input id="setup" type="text" />
+      <label for="try">When will I try it?</label><input id="try" type="text" />
+      <label for="effort">Maximum time or effort I want to spend</label><input id="effort" type="text" />
+      <label for="needed">Permission or research needed first</label><input id="needed" type="text" />
+    </fieldset>
+    <fieldset><legend>5. Observe without scoring yourself</legend>
+      <label class="choice"><input type="checkbox" /> <span>The action was easier to notice.</span></label>
+      <label class="choice"><input type="checkbox" /> <span>Something became harder, unsafe, inaccessible, or inconvenient.</span></label>
+      <label class="choice"><input type="checkbox" /> <span>I need more information before continuing.</span></label>
+      <p><strong>Decision</strong></p><div class="row">
+        <label class="choice"><input name="decision" type="radio" /> <span>Keep</span></label>
+        <label class="choice"><input name="decision" type="radio" /> <span>Adjust</span></label>
+        <label class="choice"><input name="decision" type="radio" /> <span>Stop</span></label>
+        <label class="choice"><input name="decision" type="radio" /> <span>Research</span></label>
+      </div>
+      <label for="note">One note for the next attempt</label><textarea id="note"></textarea>
+    </fieldset>
+    <fieldset><legend>6. Optional next step</legend>
+      <label class="choice"><input type="checkbox" /> <span>Repeat the same setup.</span></label>
+      <label class="choice"><input type="checkbox" /> <span>Adjust one part.</span></label>
+      <label class="choice"><input type="checkbox" /> <span>Choose a different problem.</span></label>
+      <label class="choice"><input type="checkbox" /> <span>Stop here - no next action is required.</span></label>
+    </fieldset>
+  </form>
+  <div class="notice"><strong>Eco Step note</strong><br />An Eco Step is an ETLH planning concept, not a scientific score or certification. Choose what fits your home and stop when it does not.</div>
+  <footer>Eco Tiny Living Hub | Version 1.0 | July 2026</footer>
+</main>
+</body>
+</html>

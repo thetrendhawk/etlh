@@ -23,6 +23,10 @@ const pages = [
     path: "/blog/low-waste-kitchen-tips-chef-habits",
     heading: /11 Low-Waste Kitchen Habits for Using Food More Fully/i,
   },
+  {
+    path: "/blog/small-apartment-eco-upgrade-checklist",
+    heading: /A 30-Day Small-Apartment Eco Step Checklist/i,
+  },
   { path: "/contact", heading: /Say hello/i },
 ];
 

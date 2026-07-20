@@ -157,6 +157,8 @@ The merged existing-content intent map covers 10 articles. This claims review al
 | `src/lib/posts.ts:1591`      | Vinegar and water handles most surfaces.                  | Remove or reframe           | Overbroad cleaning guidance can damage some materials and is unsuitable for some soil/pathogen needs. Use product/material instructions and safety limits. |
 | `src/lib/posts.ts:1591`      | Wool dryer balls last for years.                          | Source required             | Product lifespan varies; cite manufacturer/test evidence or use conditional language.                                                                      |
 
+**Repair record (2026-07-19):** the route and optional four-week pacing structure are preserved, while the source metadata and body no longer promise a sub-$100 total, universal renter permission, habit formation, cleaning performance, product lifespan, savings, waste reduction, or environmental results. CDC/EPA cleaning boundaries, product and surface labels, appliance instructions, lease/building rules, accessibility, household agreement, food safety, local services, and actual prices now control. See `docs/research/ETLH_ECO_STEP_CHECKLIST_CLAIMS_AUDIT.md`.
+
 ### Zero Waste Kitchen Ideas for Tiny Apartments
 
 | Location                | Claim                                                       | Classification    | Required evidence or action                                                                                                                                |

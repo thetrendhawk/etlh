@@ -171,11 +171,11 @@ const promotionalSurfaceOverrides: Record<string, Partial<Post>> = {
     imageAlt: illustrativeAlt.apartment,
   },
   "eco-friendly-small-apartment-weekend-checklist": {
-    title: "A Small-Apartment Reset Checklist for a Weekend",
+    title: "A Small-Apartment Reset Checklist: Choose One Useful Change",
     excerpt:
-      "Review a bounded set of layout, lighting, textile, and household changes, then choose only what fits your space.",
+      "Inspect one room, choose one reversible reset, and stop when the change fits your space, lease, energy, and household.",
     image: decorCategoryImage,
-    imageAlt: illustrativeAlt.decor,
+    imageAlt: "Illustrative small apartment corner with a clear surface, warm lamp, and layered textiles.",
   },
   "low-waste-lifestyle-tips-beginners": {
     title: "15 Low-Waste Lifestyle Practices to Consider",

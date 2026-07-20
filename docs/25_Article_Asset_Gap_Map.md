@@ -73,7 +73,7 @@ External Perplexity research must be reviewed before cluster-led production orde
 ### 3. Eco Friendly Small Apartment Checklist You Can Tackle in a Weekend
 
 - **Slug/category:** `eco-friendly-small-apartment-weekend-checklist` — Small Apartment Decor.
-- **Current hero quality:** **P0.** `DecorPin2.webp` embeds unsupported energy, money, air-purification, and waste outcomes and duplicates checklist information inside an inaccessible portrait graphic.
+- **Current hero quality:** **Repaired.** The obsolete `DecorPin2.webp` promotional graphic is preserved as a source artifact but is no longer imported or emitted. The route now uses the illustrative `cat-decor.jpg` with matching source and presentation alt text.
 - **Missing explanatory visuals:** A bounded weekend sequence: notice, choose, prepare, complete one zone, and stop.
 - **Missing diagrams:** Optional one-page flow showing parallel no-purchase, maintenance, and replacement-when-needed paths.
 - **Missing tables:** An HTML task sorter by time, existing-supplies requirement, renter control, and evidence/safety check.

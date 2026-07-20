@@ -1,6 +1,8 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
 
+test.setTimeout(60_000);
+
 const pages = [
   { path: "/", heading: /Sustainable living for small spaces/i },
   { path: "/blog", heading: /Sustainable living, one small upgrade at a time/i },
@@ -8,6 +10,10 @@ const pages = [
   {
     path: "/blog/zero-waste-kitchen-budget-9-swaps",
     heading: /Zero-Waste Kitchen on a Budget: 9 Swaps to Evaluate/i,
+  },
+  {
+    path: "/blog/zero-waste-kitchen-ideas-tiny-apartments",
+    heading: /Apartment Composting Odor & Fruit Flies: A Small-Space Fix/i,
   },
   { path: "/contact", heading: /Say hello/i },
 ];

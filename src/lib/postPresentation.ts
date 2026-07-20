@@ -227,7 +227,7 @@ const promotionalSurfaceOverrides: Record<string, Partial<Post>> = {
   },
   "zero-waste-kitchen-ideas-tiny-apartments": {
     excerpt:
-      "Explore storage, food-use, composting, and replacement options for a very small kitchen, with local and household limits in mind.",
+      "Reset a smelly food-scrap bin, address fruit flies, and choose a counter, fridge, freezer, worm-bin, or bokashi routine that fits your apartment.",
     image: kitchenPrepImage,
     imageAlt: illustrativeAlt.kitchenPrep,
   },

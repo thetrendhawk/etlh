@@ -3,7 +3,6 @@ import postDecor from "@/assets/post-decor.jpg";
 import postChecklist from "@/assets/post-checklist.jpg";
 import zeroWastePin1 from "@/assets/ZeroWastePin1.webp";
 import zeroWastePin2 from "@/assets/ZeroWastePin2.webp";
-import zeroWastePin3 from "@/assets/ZeroWastePin3.webp";
 import sustainablePin1 from "@/assets/SustainablePin1.webp";
 import sustainablePin2 from "@/assets/SustainablePin2.webp";
 import sustainablePin3 from "@/assets/SustainablePin3.webp";
@@ -1012,15 +1011,14 @@ export const posts: Post[] = [
 },
 {
   slug: "zero-waste-pantry-organization-small-apartments",
-  title: "Zero Waste Pantry Organization for Small Apartments (Before & After)",
+  title: "Pantry Organization for Small Apartments: A Practical Plan",
   excerpt:
-    "Learn a simple step-by-step system to turn a cluttered small pantry into a zero waste, easy-to-use food hub.",
+    "Use visibility, simple zones, and a review routine to plan a small pantry around the food and storage you have.",
   category: "zero-waste-kitchen",
   date: "2026-06-22",
   readingTime: "7 min read",
-  image: zeroWastePin3, // import this in your file
-  imageAlt:
-    "Before-and-after view of a small pantry cabinet transformed from cluttered boxes into neatly labeled glass jars and bins.",
+  image: postKitchen,
+  imageAlt: "Illustrative small kitchen counter with fresh herbs beside a cutting board",
   tags: [
     "zero waste pantry",
     "small pantry organization",
@@ -1029,35 +1027,35 @@ export const posts: Post[] = [
     "small apartment kitchen"
   ],
   toc: [
-    { id: "why-zero-waste-pantry", label: "Why a Zero Waste Pantry Matters" },
-    { id: "step-1-declutter-audit", label: "Step 1: Declutter and Audit Your Pantry" },
+    { id: "why-zero-waste-pantry", label: "Start with visibility" },
+    { id: "step-1-declutter-audit", label: "Step 1: Review what is there" },
     { id: "step-2-create-zones", label: "Step 2: Create Simple Pantry Zones" },
-    { id: "step-3-jar-system", label: "Step 3: Build a Clear Jar Storage System" },
+    { id: "step-3-jar-system", label: "Step 3: Decide what should stay packaged" },
     { id: "step-4-use-vertical-space", label: "Step 4: Use Vertical Space and Door Storage" },
-    { id: "step-5-label-rotate", label: "Step 5: Label, Rotate, and Prevent Waste" },
-    { id: "step-6-maintain", label: "Step 6: Maintenance Ritual for Tiny Pantries" }
+    { id: "step-5-label-rotate", label: "Step 5: Label and rotate carefully" },
+    { id: "step-6-maintain", label: "Step 6: Use a review rhythm" }
   ],
   body: [
     {
       type: "p",
       text:
-        "If your small pantry explodes every time you open the door, you’re not alone. Tiny cabinets and deep shelves make it easy to lose bags, buy duplicates, and toss food you forgot you had."
+        "In a small pantry, bags and boxes can block one another and make an accurate inventory harder. The useful first goal is not a matching-container display; it is being able to see what is present and reach what you use."
     },
     {
       type: "p",
       text:
-        "A zero waste pantry isn’t about aesthetic perfection—it’s about seeing what you own, using it up on time, and cutting plastic packaging wherever you reasonably can. This guide walks you through a simple before-and-after process designed specifically for small apartments and narrow pantries."
+        "This walkthrough uses visibility, a few flexible zones, and a repeatable review. It does not document a before-and-after project or promise that organization alone will prevent waste or reduce spending."
     },
 
     {
       type: "h2",
       id: "why-zero-waste-pantry",
-      text: "Why a Zero Waste Pantry Matters"
+      text: "Start with visibility, not a makeover"
     },
     {
       type: "p",
       text:
-        "Most pantry waste comes from three things: food hidden behind other items, packaging that doesn’t reseal well, and overbuying because you can’t see what you already have. In a small space, every inch needs to do real work."
+        "Hidden food, damaged packaging, and an unclear inventory are useful things to check when a pantry is difficult to use. They are practical checkpoints, not a measured explanation of most household food waste."
     },
     {
       type: "p",
@@ -1068,20 +1066,20 @@ export const posts: Post[] = [
     {
       type: "h2",
       id: "step-1-declutter-audit",
-      text: "Step 1: Declutter and Audit Your Pantry"
+      text: "Step 1: Review what is there"
     },
     {
       type: "p",
       text:
-        "Before any organizing happens, you need a clean slate. This is the true “before” moment of your zero waste pantry makeover."
+        "Work one shelf at a time if emptying the entire pantry would block the kitchen or create an overwhelming project. Keep package information with the food while you review it."
     },
     {
       type: "ul",
       items: [
-        "Empty everything out. Pull all food, bins, and random items out of the cabinet or closet and place them on a table or counter.",
-        "Sort and check dates. Toss expired items, compost what you can, and set aside unopened non-perishables you know you won’t use to donate.",
-        "Combine duplicates. If you have three half-used bags of rice or pasta, combine them into one container so you can see your real inventory.",
-        "Wipe down shelves. Clean surfaces with a simple, low-tox cleaner so your “after” feels fresh and inviting."
+        "Move one shelf's contents to a stable work surface and group identical or related items without discarding their packages yet.",
+        "Check the product's date wording, condition, storage directions, and official food-safety guidance before deciding whether to keep or discard it. A printed date does not have one universal meaning.",
+        "Do not combine open packages automatically. Keep allergen details, cooking directions, lot codes, and storage instructions; avoid mixing products or lots when identity or condition is uncertain.",
+        "Clean the empty shelf with a method suitable for its material, let it dry, and return food only after checking for spills or damaged packaging."
       ]
     },
 
@@ -1106,32 +1104,32 @@ export const posts: Post[] = [
     {
       type: "p",
       text:
-        "Zones make it obvious where things belong, which means less decision fatigue and less chance of food disappearing behind something else."
+        "Zones provide a consistent place to look. If a category is too large for its assigned area, split it by use frequency instead of adding more containers by default."
     },
 
     {
       type: "h2",
       id: "step-3-jar-system",
-      text: "Step 3: Build a Clear Jar Storage System"
+      text: "Step 3: Decide what should stay packaged"
     },
     {
       type: "p",
       text:
-        "Packaging is the enemy of a zero waste pantry: it hides what you have, goes stale faster, and adds visual clutter. The fix is to decant your most-used staples into clear, airtight containers."
+        "Original packaging can carry preparation directions, allergen information, lot codes, and storage guidance. Decant only when a different container solves a real access or closure problem and you can preserve the information you need."
     },
     {
       type: "ul",
       items: [
-        "Shop your home first. Gather clean glass jars and sturdy containers from pasta sauce, nut butters, pickles, and other foods.",
-        "Choose your priority items. Start with what you use weekly: rice, oats, pasta, lentils, beans, flour, sugar, nuts, and common snacks.",
-        "Decant dry goods into jars. Remove as many cardboard boxes and flimsy plastic bags as you can. Clear containers make it easy to see when you’re running low.",
-        "Group containers by height and type. Put taller jars in the back, shorter ones in front, or use risers so you can see every label at a glance."
+        "Use the original package when it closes adequately, fits the shelf, and carries information you still need.",
+        "If you reuse a container, confirm that it is intact, clean, dry, food-suitable, and paired with a lid that still closes as intended.",
+        "Label transferred food clearly and retain relevant preparation, allergen, storage, date, and lot information.",
+        "Arrange packages and containers so labels remain visible; use a stable riser only when its load and shelf placement are suitable."
       ]
     },
     {
       type: "p",
       text:
-        "You don’t need a Pinterest-perfect matchy set on day one. Start with what you have, then slowly upgrade to a consistent set of square or stackable containers as your budget allows."
+        "A matching set is optional. Before buying storage, test whether rearranging original packages or reusing a suitable container fixes the actual visibility problem."
     },
 
     {
@@ -1142,7 +1140,7 @@ export const posts: Post[] = [
     {
       type: "p",
       text:
-        "Small pantries usually have more height than depth. The key is to turn that height into usable storage so nothing gets buried."
+        "Measure the usable width, depth, and height of your actual shelves before adding organizers. Leave clearance for hinges, shelf supports, and safe removal."
     },
     {
       type: "ul",
@@ -1167,35 +1165,35 @@ export const posts: Post[] = [
     {
       type: "ul",
       items: [
-        "Label every container. Even if contents are obvious to you, labels help everyone else put things back correctly and prevent duplicate purchases.",
+        "Label transferred food with enough information for everyone in the household to identify and use it safely.",
         "Add dates where it matters. For homemade mixes or bulk items you rarely buy, add a small date on the bottom or back of the jar.",
         "Use a simple rotation rule: oldest in front, newest in back. When you restock, slide older jars or boxes forward and put new items behind.",
-        "Create an “almost expired” spot. Keep a small bin for foods that need to be used soon and check it when planning meals or snacks."
+        "Create a use-first area for food you have chosen to prioritize after checking its condition, date wording, and storage guidance."
       ]
     },
 
     {
       type: "h2",
       id: "step-6-maintain",
-      text: "Step 6: Maintenance Ritual for Tiny Pantries"
+      text: "Step 6: Use a review rhythm that fits"
     },
     {
       type: "p",
       text:
-        "Once your zero waste pantry is set up, you only need a few minutes each week to keep it that way. A tiny, consistent ritual beats a massive reorganization every few months."
+        "There is no universal maintenance interval. Choose a review cue that matches how often the pantry changes, and shorten or lengthen it based on what you actually find."
     },
     {
       type: "ul",
       items: [
-        "Weekly: spend 5 minutes pushing newer items to the back, moving older items forward, and returning stray products to their zones.",
-        "Monthly: do a quick mini-audit of one shelf, tossing anything expired and noting what you’re repeatedly not using.",
-        "Seasonally: wipe down shelves, rinse sticky jars, and reconsider zones if your cooking style or household needs have changed."
+        "At restocking: place newer matching items behind older suitable items when package guidance supports that rotation.",
+        "At a regular meal-planning or shopping cue: review the use-first area and note food that repeatedly goes unused.",
+        "When a spill occurs or a zone stops working: clean the affected shelf and adjust the layout rather than waiting for a fixed reset date."
       ]
     },
     {
       type: "p",
       text:
-        "Over time, your pantry will stop being a chaotic black hole and start working like a tiny, efficient store: you can see what you have, you use it before it goes bad, and you buy less packaging because reusable containers do most of the work."
+        "The test is practical: can you identify what is there, reach it safely, and preserve the information needed to store and prepare it? Keep the parts that help and revise the parts that add work."
     },
     {
       type: "linkP",

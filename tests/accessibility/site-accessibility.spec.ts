@@ -15,6 +15,10 @@ const pages = [
     path: "/blog/zero-waste-kitchen-ideas-tiny-apartments",
     heading: /Apartment Composting Odor & Fruit Flies: A Small-Space Fix/i,
   },
+  {
+    path: "/blog/zero-waste-pantry-organization-small-apartments",
+    heading: /Pantry Organization for Small Apartments: A Practical Plan/i,
+  },
   { path: "/contact", heading: /Say hello/i },
 ];
 

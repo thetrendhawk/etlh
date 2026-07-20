@@ -56,6 +56,8 @@ The merged existing-content intent map covers 10 articles. This claims review al
 
 **Disposition:** retain the practical organization guidance only after proof framing and food-storage safety are corrected.
 
+**Repair record (2026-07-19):** the source title, excerpt, image reference, alt text, and body now use a practical walkthrough rather than undocumented before-and-after proof. Majority, guaranteed outcome, blanket decanting/combining, universal date-disposal, fixed-frequency, and purchase-upgrade language was removed or bounded. The body now preserves package directions, allergen information, lot codes, storage guidance, container suitability, and household variability.
+
 ### Low Waste Kitchen Tips: 11 Habits Chefs Use to Cut Food Waste
 
 | Location                                        | Claim                                                                                                        | Classification    | Required evidence or action                                                                                                                    |

@@ -259,7 +259,7 @@ External Perplexity research must be reviewed before cluster-led production orde
 ### 14. Beginner Sustainable Living Checklist for Renters
 
 - **Slug/category:** `beginner-sustainable-living-checklist-renters` — Eco Habits on a Budget.
-- **Current hero quality:** **P0.** Reuses `post-checklist.jpg`, but the alt falsely describes a hand checking paper beside a coffee mug. The image shows cleaning bottles and tools and does not communicate a beginner renter checklist.
+- **Current hero quality:** **Repaired for false-alt and promise risk.** Reuses `post-checklist.jpg`; the article now uses literal illustrative alt text describing the cleaning brushes, cloths, and refillable bottles actually visible. The image remains a generic shared still life and is not evidence that the products are environmentally preferable or that a checklist was completed.
 - **Missing explanatory visuals:** A deliberately small “first five” path with permission and access checks.
 - **Missing diagrams:** Start-here decision tree: recurring problem → renter control → use what exists → one reversible action.
 - **Missing tables:** Action, why it may help, what it requires, renter permission, local dependency, and “not applicable.”

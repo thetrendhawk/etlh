@@ -239,8 +239,9 @@ const promotionalSurfaceOverrides: Record<string, Partial<Post>> = {
     imageAlt: illustrativeAlt.decor,
   },
   "beginner-sustainable-living-checklist-renters": {
+    title: "Beginner Sustainable Living Checklist for Renters: Five Options to Consider",
     excerpt:
-      "A no-guilt starting checklist for renters and small-apartment dwellers, focused on five manageable actions.",
+      "A low-pressure starting checklist for renters and small-apartment dwellers: choose one manageable action, use what you have, and check the constraints first.",
     image: habitsCategoryImage,
     imageAlt: illustrativeAlt.checklist,
   },

@@ -1,7 +1,9 @@
 # Budget-swaps article claims audit
 
-Audited: 2026-07-19  
-Route: `/blog/zero-waste-kitchen-budget-9-swaps`  
+Audited: 2026-07-19
+
+Route: `/blog/zero-waste-kitchen-budget-9-swaps`
+
 Decision: repair this article next and preserve its URL.
 
 ## Selection rationale

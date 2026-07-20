@@ -414,6 +414,41 @@ if (!easyHabits) {
   if (readFileSync(join(process.cwd(), "src/lib/posts.ts"), "utf8").includes("sustainablePin2")) fail("Retired SustainablePin2 import/reference remains in posts.ts");
 }
 
+const apartmentSystems = posts.find((post) => post.slug === "sustainable-living-apartment-easy-habits");
+if (!apartmentSystems) {
+  fail("Missing repaired sustainable-living-apartment-easy-habits article");
+} else {
+  const apartmentCopy = `${apartmentSystems.title} ${apartmentSystems.excerpt} ${JSON.stringify(apartmentSystems.body)}`;
+  const unsupportedApartmentClaims = [
+    /save money/i, /utility bills/i, /low-cost/i, /affordable/i, /simple/i,
+    /reduce waste/i, /reduce.*water/i, /reduce.*energy/i, /environmental footprint/i,
+    /emissions/i, /calmer/i, /healthier/i, /stress/i, /productive/i, /second nature/i,
+    /add up quickly/i, /overnight/i, /biggest footprint/i, /lasts? years longer/i,
+  ];
+  for (const pattern of unsupportedApartmentClaims) {
+    if (pattern.test(apartmentCopy)) fail(`Unsupported apartment-systems claim remains: ${pattern}`);
+  }
+  const presentedApartment = getPresentedPost(apartmentSystems);
+  if (presentedApartment.image !== apartmentSystems.image || presentedApartment.imageAlt !== apartmentSystems.imageAlt) {
+    fail("Apartment-systems source and presentation image metadata diverge");
+  }
+  for (const required of [
+    "Map the Decision First", "Renter-Controlled Routines", "Shared-Household Decisions",
+    "Building and Utility Dependencies", "Local Services and Purchases", "landlord",
+    "utility", "municipal", "manufacturer", "/blog/beginner-sustainable-living-checklist-renters",
+    "/blog/easy-sustainable-habits-on-a-budget", "/blog/low-waste-lifestyle-tips-beginners",
+  ]) {
+    if (!apartmentCopy.toLowerCase().includes(required.toLowerCase())) {
+      fail(`Apartment-systems article is missing required boundary or link: ${required}`);
+    }
+  }
+  if (apartmentSystems.title.includes("10") || apartmentSystems.title.toLowerCase().includes("habit")) {
+    fail("Apartment-systems article still uses the former habit-list framing");
+  }
+  const apartmentSource = readFileSync(join(process.cwd(), "src/lib/posts.ts"), "utf8");
+  if (!apartmentSource.includes("image: apartmentImage")) fail("Apartment-systems source image was not aligned to apartmentImage");
+}
+
 const routeFiles = [
   "src/routes/index.tsx",
   "src/routes/blog.index.tsx",

@@ -1,5 +1,9 @@
 # ETLH Article Claims Review Inventory
 
+## 2026-07-20 apartment-systems claims-repair record
+
+`sustainable-living-apartment-easy-habits` overlapped the renter checklist, the 20-option renter-aware habits article, and the low-waste practices article when framed as another general list. It was retained and differentiated as a control map for apartment systems: renter-controlled routines, shared-household decisions, building/landlord/utility dependencies, and local-service or purchase-dependent options. Unsupported savings, bill, waste, water, energy, emissions, health, comfort, ease, affordability, timeline, and habit-success outcomes were removed or bounded. See `docs/research/ETLH_APARTMENT_SYSTEMS_CLAIMS_OVERLAP_AUDIT.md`.
+
 ## 2026-07-20 claims-repair record
 
 `easy-sustainable-habits-on-a-budget` was repaired on branch `agent/easy-sustainable-habits-claims-repair`. The former “21 Easy Sustainable Habits on a Budget (Perfect for Renters)” framing was corrected to 20 renter-aware options, with unsupported savings, environmental, health, ease, durability, and timeline outcomes removed or bounded. The article now leads with use-what-you-own and renter-control constraints, keeps local-service caveats, and links only to the renter checklist, apartment composting guide, and resources page. Its source and presentation image metadata are regression-checked for consistency.

@@ -191,9 +191,9 @@ const promotionalSurfaceOverrides: Record<string, Partial<Post>> = {
     imageAlt: illustrativeAlt.checklist,
   },
   "sustainable-living-apartment-easy-habits": {
-    title: "Sustainable Living in an Apartment: 10 Habits to Consider",
+    title: "Sustainable Apartment Systems: What Renters Can Control",
     excerpt:
-      "Consider ten apartment-oriented habits while accounting for lease rules, utilities, access, and what you already use.",
+      "Map apartment routines by what you control, what needs household agreement, and what depends on building, utility, or local services.",
     image: apartmentImage,
     imageAlt: illustrativeAlt.apartment,
   },

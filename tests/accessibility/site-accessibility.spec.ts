@@ -28,6 +28,10 @@ const pages = [
     heading: /20 Renter-Aware Sustainable Habits to Consider/i,
   },
   {
+    path: "/blog/sustainable-living-apartment-easy-habits",
+    heading: /Sustainable Apartment Systems: What Renters Can Control/i,
+  },
+  {
     path: "/blog/small-apartment-eco-upgrade-checklist",
     heading: /A 30-Day Small-Apartment Eco Step Checklist/i,
   },

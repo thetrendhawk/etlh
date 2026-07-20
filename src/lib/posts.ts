@@ -1,6 +1,7 @@
 import postKitchen from "@/assets/post-kitchen.jpg";
 import decorCategoryImage from "@/assets/cat-decor.jpg";
 import habitsCategoryImage from "@/assets/cat-habits.jpg";
+import apartmentImage from "@/assets/hero-apartment.jpg";
 import postChecklist from "@/assets/post-checklist.jpg";
 import sustainablePin1 from "@/assets/SustainablePin1.webp";
 import decorPin1 from "@/assets/DecorPin1.webp";
@@ -914,140 +915,161 @@ export const posts: Post[] = [
 },
 {
   slug: "sustainable-living-apartment-easy-habits",
-  title: "Sustainable Living in an Apartment: 10 Easy Habits That Don’t Feel Extreme",
+  title: "Sustainable Apartment Systems: What Renters Can Control",
   excerpt:
-    "Renting or in a tiny space? Use these 10 easy apartment-friendly habits to live more sustainably and save money.",
+    "Map apartment routines by what you control, what needs household agreement, and what depends on building, utility, or local services.",
   category: "eco-habits-budget",
   date: "2026-06-22",
   readingTime: "6 min read",
-  image: sustainablePin1, // import this in your file
+  image: apartmentImage,
   imageAlt:
-    "Cozy apartment living room with plants, natural light, and simple eco-friendly decor.",
+    "Illustrative sunlit apartment with wood furniture, woven decor, and several houseplants.",
   tags: [
-    "sustainable living apartment",
-    "eco friendly apartment",
-    "budget green living",
-    "small space living",
-    "sustainable habits"
+    "apartment systems",
+    "renter control",
+    "building services",
+    "small-space living",
+    "sustainable routines"
   ],
   toc: [
-    { id: "why-apartment-sustainability", label: "Why Sustainable Apartment Living Matters" },
-    { id: "energy-habits", label: "Easy Energy-Saving Habits" },
-    { id: "water-habits", label: "Simple Water-Saving Habits" },
-    { id: "reusables-and-waste", label: "Reusables and Everyday Waste" },
-    { id: "buying-better-on-a-budget", label: "Buying Better on a Budget" }
+    { id: "map-the-decision", label: "Map the Decision First" },
+    { id: "renter-controlled", label: "Renter-Controlled Routines" },
+    { id: "shared-household", label: "Shared-Household Decisions" },
+    { id: "building-utility", label: "Building and Utility Dependencies" },
+    { id: "local-and-purchase", label: "Local Services and Purchases" }
   ],
   body: [
     {
       type: "p",
       text:
-        "You don’t need a backyard, solar panels, or a full renovation to live more sustainably. Most of the impact in an apartment comes from your daily habits: how you use energy, water, and stuff."
+        "Apartment routines are shaped by more than personal preference. Before changing a light, appliance routine, cleaning practice, or waste path, identify who controls it and what instructions apply."
     },
     {
       type: "p",
       text:
-        "The 10 habits below are designed for renters and small apartments. They’re low-cost, realistic, and focused on saving money as well as reducing your environmental footprint."
+        "This guide is a control map, not another habit quota. It separates renter-controlled actions from shared-household decisions, building or landlord responsibilities, and utility, municipal, or purchase-dependent options."
     },
 
     {
       type: "h2",
-      id: "why-apartment-sustainability",
-      text: "Why Sustainable Apartment Living Matters"
+      id: "map-the-decision",
+      text: "Map the Decision First"
     },
     {
       type: "p",
       text:
-        "Apartments are often more efficient than single-family homes because they share walls, but there’s still a lot you control: electricity, heating and cooling, water use, and what you buy and throw away."
+        "For any proposed change, ask four questions: Do I control it? Does another household member need to agree? Does the lease, building, landlord, utility, or manufacturer control it? Does a local service or new purchase have to exist first?"
     },
     {
       type: "p",
       text:
-        "Shifting a few daily habits can trim your utility bills, reduce waste, and make your space feel calmer and healthier—all without needing permission from a landlord."
+        "If the answer is unclear, keep the existing routine, check the relevant instruction, or choose a reversible no-purchase option. A routine that needs permission, a special trip, extra storage, or a change to shared equipment may not be yours to change alone."
     },
 
     {
       type: "h2",
-      id: "energy-habits",
-      text: "Easy Energy-Saving Habits"
+      id: "renter-controlled",
+      text: "Renter-Controlled Routines"
     },
     {
       type: "p",
       text:
-        "Energy is usually the biggest footprint for apartment living, and small adjustments add up quickly."
+        "These are examples of decisions a renter may be able to make without changing a fixture, shared appliance, lease term, or building service. Check access, safety, cleaning, and household fit first."
     },
     {
       type: "ul",
       items: [
-        "Use natural light first. During the day, open curtains and blinds and turn off overhead lights whenever possible.",
-        "Swap your most-used bulbs for LEDs. They use far less energy and last years longer than older bulbs.",
-        "Set small thermostat shifts. In winter, wear layers and lower the thermostat a couple of degrees; in summer, use fans and close curtains during the hottest hours before blasting the AC.",
-        "Unplug “vampire” electronics. Chargers, consoles, and small appliances still draw power when plugged in. Use a power strip you can switch off when not in use."
+        "Keep using a working bulb, lamp, fan, or curtain unless a change is needed; if you replace something, check compatibility, manufacturer instructions, disposal, lease rules, and accessibility.",
+        "Use an existing light, fan, power strip, or curtain only when the control, outlet, cord path, safety, and comfort fit your space.",
+        "Use a bottle, mug, bag, cloth, or container you already own when carrying, washing, storing, and sharing it fit the task; buying a replacement is not required.",
+        "Repair, borrow, share, or keep using an item when its condition, cleaning, transport, accessibility, and return or disposal path make that workable."
       ]
     },
 
     {
       type: "h2",
-      id: "water-habits",
-      text: "Simple Water-Saving Habits"
+      id: "shared-household",
+      text: "Shared-Household Decisions"
     },
     {
       type: "p",
       text:
-        "Water savings are one of the easiest ways to live more sustainably in an apartment and lower your monthly bills."
+        "Shared appliances, storage, cleaning supplies, schedules, and comfort settings are not individual projects. Agree on the routine or choose a version that does not change another person’s access or safety."
     },
     {
       type: "ul",
       items: [
-        "Shorten showers by a few minutes. Set a playlist or timer and aim to finish before the second song ends.",
-        "Turn off the tap while brushing teeth, shaving, or scrubbing dishes.",
-        "Only run full loads. Wait until the dishwasher or laundry bin is genuinely full before running a cycle.",
-        "Report leaks quickly. A dripping faucet or constantly running toilet wastes more water than most people realize."
+        "Set a dishwasher or washing-machine routine only with the people who use it and according to the appliance instructions; no full-load rule or shared control is assumed.",
+        "Discuss shower, tap, laundry, and cleaning routines when timing, mobility, privacy, water access, or comfort differs across the household.",
+        "Keep shared food, cleaning, and reusable-item storage where people can reach and identify what is available; matching containers are not required.",
+        "If a change affects sanitation, allergies, contamination, or accessibility, keep the safer available option and agree before changing supplies."
       ]
     },
 
     {
       type: "h2",
-      id: "reusables-and-waste",
-      text: "Reusables and Everyday Waste"
+      id: "building-utility",
+      text: "Building and Utility Dependencies"
     },
     {
       type: "p",
       text:
-        "Waste reduction in an apartment often comes down to swapping single-use items for reusables you actually enjoy using."
+        "Some routines belong with a landlord, building manager, utility, or service provider. Treat the following as check, report, or permission paths rather than personal optimization tasks."
     },
     {
       type: "ul",
       items: [
-        "Carry a reusable water bottle and coffee cup so you’re not buying bottled drinks or disposable cups.",
-        "Keep a set of reusable shopping bags and produce bags near your door or in your backpack.",
-        "Swap paper towels and napkins for washable cloths made from old T-shirts or dish towels.",
-        "Set up a small recycling station and, if available in your area, a countertop compost container for food scraps."
+        "For leaks, fixtures, heating, cooling, ventilation, or appliances you do not own, check the lease or building process and report the issue through the responsible channel.",
+        "Before changing a thermostat, blind, outlet, fixture, or appliance setting, check building controls, utility guidance, equipment instructions, climate, health, and comfort needs.",
+        "Do not assume your building offers separate recycling, organics, bulk pickup, metering, or tenant-controlled waste service; verify the current local instructions.",
+        "Do not treat a bill, meter, or utility charge as a personal experiment. Confirm who receives the data, who can change the setting, and what the service actually measures."
       ]
     },
 
     {
       type: "h2",
-      id: "buying-better-on-a-budget",
-      text: "Buying Better on a Budget"
+      id: "local-and-purchase",
+      text: "Local Services and Purchases"
     },
     {
       type: "p",
       text:
-        "Sustainable living isn’t about buying a whole new set of “eco” products. It’s about using what you have longer and choosing better-quality replacements when you actually need them."
+        "A local program or a new item may be useful, but neither is universal. Check access, price, storage, transport, cleaning, return terms, safety, and end-of-life instructions before committing."
     },
     {
       type: "ul",
       items: [
-        "Use what you own first. Before buying organization bins or decor, ask if something you already have could do the job.",
-        "Shop secondhand for furniture and decor. Thrift stores, online marketplaces, and community groups often have great pieces at a fraction of the cost.",
-        "Choose natural materials when replacing items. Prioritize glass, wood, metal, and natural textiles over flimsy plastic that breaks quickly.",
-        "Adopt a 24-hour rule for non-essential buys. Wait a day before purchasing and see if you still want it. Often, the impulse fades and you save money and resources."
+        "For compost, organics, recycling, refill, repair, or drop-off options, check the current municipal or provider instructions before buying a container or changing your disposal route.",
+        "When replacement is necessary, compare repairability, care, storage, accessibility, expected use, transport, and end-of-life handling; no material or package format is universally better.",
+        "Consider borrowing, sharing, library services, or secondhand options only when the condition, cleaning, transport, access, price, and return path fit the need.",
+        "If a proposed change requires a special purchase, extra storage, a car, outdoor space, or a service you cannot access, skip it or choose a smaller existing-item option."
       ]
     },
     {
       type: "p",
       text:
-        "You don’t have to change everything overnight. Pick two or three habits from this list, build them into your routine, and then layer on more as they become second nature."
+        "Use this map to decide who needs to be involved, which instructions apply, and whether the smallest reversible option is worth trying. The renter checklist is a short starting path; the 20 renter-aware options cover broader examples; the low-waste practices page goes deeper on waste-specific choices."
+    },
+    {
+      type: "linkP",
+      textBefore: "Start with the ",
+      linkText: "beginner sustainable living checklist for renters",
+      href: "/blog/beginner-sustainable-living-checklist-renters",
+      textAfter: " if you need one low-pressure option."
+    },
+    {
+      type: "linkP",
+      textBefore: "For a wider option set, see ",
+      linkText: "20 renter-aware sustainable habits",
+      href: "/blog/easy-sustainable-habits-on-a-budget",
+      textAfter: "."
+    },
+    {
+      type: "linkP",
+      textBefore: "For waste-specific decisions, use ",
+      linkText: "15 low-waste practices to consider",
+      href: "/blog/low-waste-lifestyle-tips-beginners",
+      textAfter: "."
     }
   ]
 },

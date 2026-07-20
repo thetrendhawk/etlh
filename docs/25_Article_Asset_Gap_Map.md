@@ -143,6 +143,7 @@ External Perplexity research must be reviewed before cluster-led production orde
 ### 7. Sustainable Living in an Apartment: 10 Easy Habits That Don’t Feel Extreme
 
 - **Slug/category:** `sustainable-living-apartment-easy-habits` — Eco Habits on a Budget.
+- **Claims-repair disposition (2026-07-20):** Differentiated as an apartment-systems control map rather than another habit list. Source and presentation metadata now use `hero-apartment.jpg` with aligned illustrative alt text; `SustainablePin1.webp` remains in use by another article.
 - **Current hero quality:** **P0.** Reuses `SustainablePin1.webp`, a generic “10 Easy Habits” promotion also used by the Intentional Living article. Embedded claims and identical packaging obscure this article's distinct value.
 - **Missing explanatory visuals:** Apartment constraint map focused on renter-controlled energy, water, shared systems, and building limitations if that scope is retained.
 - **Missing diagrams:** “Inside renter control / ask the property owner / local service” decision diagram.

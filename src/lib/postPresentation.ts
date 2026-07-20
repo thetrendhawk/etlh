@@ -243,7 +243,7 @@ const promotionalSurfaceOverrides: Record<string, Partial<Post>> = {
     excerpt:
       "A low-pressure starting checklist for renters and small-apartment dwellers: choose one manageable action, use what you have, and check the constraints first.",
     image: habitsCategoryImage,
-    imageAlt: illustrativeAlt.checklist,
+    imageAlt: illustrativeAlt.supplies,
   },
 };
 

@@ -503,6 +503,61 @@ if (!weekendReset) {
   }
 }
 
+const livingRoomLayout = posts.find(
+  (post) => post.slug === "sustainable-tiny-living-room-layout-ideas",
+);
+if (!livingRoomLayout) {
+  fail("Missing repaired small living-room layout article.");
+} else {
+  const layoutCopy = `${livingRoomLayout.title} ${livingRoomLayout.excerpt} ${JSON.stringify(livingRoomLayout.body)}`;
+  const unsupportedLayoutClaims = [
+    /feel bigger|feels bigger|visually larger|make the space feel larger/i,
+    /actually work|work well in most|most small living rooms/i,
+    /(?:will|can|does|makes|helps)\s+(?:the\s+)?(?:room|space)\s+(?:feel|be)\s+(?:larger|calmer|more open|more productive)/i,
+    /plants?\s+(?:improve|create|provide)\s+(?:better\s+)?air quality/i,
+    /sustainable furniture.*expensive|sturdy|age well|often be repaired/i,
+    /low-cost|save money|afford/i,
+  ];
+  for (const pattern of unsupportedLayoutClaims) {
+    if (pattern.test(layoutCopy)) fail(`Unsupported living-room layout claim remains: ${pattern}`);
+  }
+  for (const required of [
+    "measure",
+    "fixed",
+    "reversible",
+    "paper",
+    "tape",
+    "path",
+    "heater",
+    "outlet",
+    "manufacturer",
+    "landlord",
+    "child",
+    "pet",
+    "accessibility",
+    "/blog/eco-friendly-small-apartment-weekend-checklist",
+    "/blog/eco-friendly-small-apartment-decor-budget",
+  ]) {
+    if (!layoutCopy.toLowerCase().includes(required.toLowerCase())) {
+      fail(`Living-room layout is missing required boundary or link: ${required}`);
+    }
+  }
+  const presentedLayout = getPresentedPost(livingRoomLayout);
+  if (presentedLayout.title !== livingRoomLayout.title || presentedLayout.excerpt !== livingRoomLayout.excerpt) {
+    fail("Living-room layout source and presentation metadata diverge.");
+  }
+  if (presentedLayout.image !== livingRoomLayout.image || presentedLayout.imageAlt !== livingRoomLayout.imageAlt) {
+    fail("Living-room layout source and presentation image metadata diverge.");
+  }
+  if (presentedLayout.image.includes("DecorPin3")) {
+    fail("Retired DecorPin3 promotional asset is still presented for the living-room layout.");
+  }
+  const postsSource = readFileSync(join(process.cwd(), "src/lib/posts.ts"), "utf8");
+  if (postsSource.includes("decorPin3")) {
+    fail("Retired DecorPin3 asset is still imported by the application.");
+  }
+}
+
 const frictionArticle = posts.find((post) => post.slug === "why-life-feels-harder-than-it-needs-to-sometimes");
 if (!frictionArticle) {
   fail("Missing repaired friction article");

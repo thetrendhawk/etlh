@@ -56,7 +56,7 @@ External Perplexity research must be reviewed before cluster-led production orde
 ### 2. Sustainable Tiny Living Room: Layout and Styling Ideas for Small Spaces
 
 - **Slug/category:** `sustainable-tiny-living-room-layout-ideas` — Small Apartment Decor.
-- **Current hero quality:** **P0.** `DecorPin3.webp` is a text-heavy comparison graphic with unqualified air-quality, mood, health, waste, and budget claims. Its Pinterest layout is heavily cropped on cards.
+- **Current hero quality:** **Repaired.** The text-heavy `DecorPin3.webp` promotional comparison graphic is preserved as a source artifact but is no longer imported or emitted. The route now uses the existing illustrative `hero-apartment.jpg` with aligned source and presentation alt text.
 - **Missing explanatory visuals:** Three distinct small-room layout examples that match the article's wall-hugging, corner-conversation, and studio-zone concepts.
 - **Missing diagrams:** Measured plan-view diagrams with example dimensions, circulation arrows, door/window constraints, and a “measure your room” disclaimer.
 - **Missing tables:** Furniture evaluation table: function, footprint, clearances, repairability, existing/secondhand/new, and household constraints.

@@ -164,11 +164,11 @@ const promotionalSurfaceOverrides: Record<string, Partial<Post>> = {
     imageAlt: illustrativeAlt.checklist,
   },
   "sustainable-tiny-living-room-layout-ideas": {
-    title: "Small Living Room Layout and Styling Ideas",
+    title: "Small Living Room Layout Planning: Measure, Test, and Adjust",
     excerpt:
-      "Plan a small living room around walking paths, useful furniture, lighting, and the items you already own.",
+      "Plan a small living room around fixed constraints, walking paths, furniture footprints, and reversible layout tests before buying or installing anything.",
     image: apartmentImage,
-    imageAlt: illustrativeAlt.apartment,
+    imageAlt: "Illustrative sunlit apartment living area with a sofa, low table, and clear walking path.",
   },
   "eco-friendly-small-apartment-weekend-checklist": {
     title: "A Small-Apartment Reset Checklist: Choose One Useful Change",

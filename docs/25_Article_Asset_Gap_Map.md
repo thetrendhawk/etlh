@@ -38,6 +38,7 @@ External Perplexity research must be reviewed before cluster-led production orde
 ### 1. Why Life Feels Harder Than It Needs To Sometimes
 
 - **Slug/category:** `why-life-feels-harder-than-it-needs-to-sometimes` — Intentional Living.
+- **Claims-repair disposition (2026-07-20):** Reframed as a friction-observation exercise with reversible arrangement tests; source and presentation metadata now use `cat-habits.jpg` with aligned illustrative alt text. `SustainablePin1.webp` remains preserved as a source artifact but is no longer emitted.
 - **Current hero quality:** **P0.** `SustainablePin1.webp` is a generic “10 Easy Habits” promotional infographic reused by another article. It does not represent the friction-reduction article and embeds money, wellbeing, and planetary outcome claims.
 - **Missing explanatory visuals:** A simple “notice friction → reduce one step → observe” model tied to examples already in the article.
 - **Missing diagrams:** A household-friction map showing cue, extra step, placement change, and next attempt. Clearly label it as a framework, not a guaranteed behavior-change result.

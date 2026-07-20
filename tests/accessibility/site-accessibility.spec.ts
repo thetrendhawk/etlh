@@ -32,6 +32,10 @@ const pages = [
     heading: /Sustainable Apartment Systems: What Renters Can Control/i,
   },
   {
+    path: "/blog/why-life-feels-harder-than-it-needs-to-sometimes",
+    heading: /Notice Friction at Home: Test One Small Change/i,
+  },
+  {
     path: "/blog/small-apartment-eco-upgrade-checklist",
     heading: /A 30-Day Small-Apartment Eco Step Checklist/i,
   },

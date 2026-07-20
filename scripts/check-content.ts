@@ -449,6 +449,37 @@ if (!apartmentSystems) {
   if (!apartmentSource.includes("image: apartmentImage")) fail("Apartment-systems source image was not aligned to apartmentImage");
 }
 
+const frictionArticle = posts.find((post) => post.slug === "why-life-feels-harder-than-it-needs-to-sometimes");
+if (!frictionArticle) {
+  fail("Missing repaired friction article");
+} else {
+  const frictionCopy = `${frictionArticle.title} ${frictionArticle.excerpt} ${JSON.stringify(frictionArticle.body)}`;
+  const unsupportedFrictionClaims = [
+    /daily stress/i, /calmer/i, /healthier/i, /lighter life/i, /make.*feel lighter/i,
+    /help a better habit stick/i, /habit change.*last/i, /behavior change/i,
+    /why we.?re confident/i, /easy to repeat/i, /tomorrow asks/i, /ten minutes/i,
+  ];
+  for (const pattern of unsupportedFrictionClaims) {
+    if (pattern.test(frictionCopy)) fail(`Unsupported friction claim remains: ${pattern}`);
+  }
+  const presentedFriction = getPresentedPost(frictionArticle);
+  if (presentedFriction.image !== frictionArticle.image || presentedFriction.imageAlt !== frictionArticle.imageAlt) {
+    fail("Friction article source and presentation image metadata diverge");
+  }
+  for (const required of [
+    "Notice Recurring Friction", "Describe the Extra Step", "Use Observation, Not Blame",
+    "Test One Small Change", "keep, change, or stop", "access", "lease",
+    "/blog/sustainable-living-apartment-easy-habits", "/blog/beginner-sustainable-living-checklist-renters",
+  ]) {
+    if (!frictionCopy.toLowerCase().includes(required.toLowerCase())) {
+      fail(`Friction article is missing required bounded guidance or link: ${required}`);
+    }
+  }
+  if (readFileSync(join(process.cwd(), "src/lib/posts.ts"), "utf8").includes("sustainablePin1")) {
+    fail("Retired SustainablePin1 import/reference remains in posts.ts");
+  }
+}
+
 const routeFiles = [
   "src/routes/index.tsx",
   "src/routes/blog.index.tsx",

@@ -3,7 +3,6 @@ import decorCategoryImage from "@/assets/cat-decor.jpg";
 import habitsCategoryImage from "@/assets/cat-habits.jpg";
 import apartmentImage from "@/assets/hero-apartment.jpg";
 import postChecklist from "@/assets/post-checklist.jpg";
-import sustainablePin1 from "@/assets/SustainablePin1.webp";
 import decorPin1 from "@/assets/DecorPin1.webp";
 import decorPin2 from "@/assets/DecorPin2.webp";
 import decorPin3 from "@/assets/DecorPin3.webp";
@@ -106,89 +105,88 @@ export type PostBodyBlock =
 export const posts: Post[] = [
   {
     slug: "why-life-feels-harder-than-it-needs-to-sometimes",
-    title: "Why Life Feels Harder Than It Needs To Sometimes",
+    title: "Notice Friction at Home: Test One Small Change",
     excerpt:
-      "A gentle guide to reducing unnecessary friction so everyday life feels lighter, clearer, and easier to manage.",
+      "Notice recurring extra steps in an everyday routine, then test one small arrangement change without assuming a result.",
     category: "intentional-living",
     date: "2026-07-03",
     readingTime: "6 min read",
-    image: sustainablePin1,
-    imageAlt: "Calm sustainable home scene with plants and natural textures",
-    tags: ["intentional living", "eco steps", "simple routines"],
+    image: habitsCategoryImage,
+    imageAlt: "Illustrative hand marking a paper checklist beside a mug in a small apartment.",
+    tags: ["intentional living", "friction audit", "small routines", "use what you have"],
     toc: [
-      { id: "weight-we-dont-notice", label: "The Weight We Don't Notice" },
-      { id: "why-it-matters", label: "Why It Matters" },
-      { id: "different-way", label: "A Different Way to See Your Day" },
-      { id: "one-small-change", label: "One Small Change Is Enough" },
+      { id: "weight-we-dont-notice", label: "Notice Recurring Friction" },
+      { id: "why-it-matters", label: "Describe the Extra Step" },
+      { id: "different-way", label: "Use Observation, Not Blame" },
+      { id: "one-small-change", label: "Test One Small Change" },
       { id: "your-eco-step", label: "Your Eco Step" },
       { id: "reflection", label: "Reflection" },
-      { id: "why-confident", label: "Why We're Confident in This Advice" },
     ],
     body: [
       {
         type: "p",
         text:
-          "Some days feel heavy before anything especially hard has happened. The sink has a few dishes in it. A bag needs to be returned. There is one more email to answer, one more errand to remember, one more small decision waiting in the background.",
+          "A routine can contain extra steps even when no single step is dramatic. The sink has a few dishes, a bag needs to be returned, or one more small decision is waiting in the background.",
       },
       {
         type: "p",
         text:
-          "None of these things are dramatic on their own. But together, they can make ordinary life feel crowded. You move through your home doing what needs to be done, yet part of your mind is always carrying the next step.",
+          "Notice the sequence without judging it: what you reach for, where you pause, what you move twice, and what you leave for later. This page treats those observations as clues, not diagnoses.",
       },
       {
         type: "h2",
         id: "weight-we-dont-notice",
-        text: "The Weight We Don't Notice",
+        text: "Notice Recurring Friction",
       },
       {
         type: "p",
         text:
-          "A lot of daily stress comes from friction we have stopped noticing. It shows up as clutter that has no clear place to land, supplies stored too far from where we use them, habits that require too many steps, or choices we have to remake every day.",
+          "Friction can show up as clutter with no clear place to land, supplies stored far from where they are used, a routine with too many steps, or a choice that must be remade each time.",
       },
       {
         type: "p",
         text:
-          "This kind of friction is easy to dismiss because it looks small. But small things repeat. A drawer that sticks, a counter that collects mail, or a morning routine with too many decisions can quietly take more energy than it deserves.",
+          "Small details can repeat. A sticking drawer, a counter that collects mail, or a routine with several handoffs gives you something specific to inspect before changing anything.",
       },
       {
         type: "h2",
         id: "why-it-matters",
-        text: "Why It Matters",
+        text: "Describe the Extra Step",
       },
       {
         type: "p",
         text:
-          "When life already asks a lot from you, unnecessary friction makes sustainable living feel harder than it has to be. The problem is not that you are careless or unmotivated. Often, the system around the habit is asking for too much attention.",
+          "If a routine is not working, describe the arrangement before judging your motivation. The system around the action may be asking for extra reaching, remembering, cleaning, walking, or coordination.",
       },
       {
         type: "p",
         text:
-          "A low-waste kitchen habit will be easier if the reusable containers are reachable. A calmer living room will be easier if every object has an obvious home. A more intentional day will be easier if fewer tiny choices are waiting for you.",
+          "A reusable container may be easier to choose when it is reachable; a mail routine may be clearer when one landing spot exists. These are options to test, not promises about mood or performance.",
       },
       {
         type: "h2",
         id: "different-way",
-        text: "A Different Way to See Your Day",
+        text: "Use Observation, Not Blame",
       },
       {
         type: "p",
         text:
-          "Instead of asking, \"How do I become more disciplined?\" try asking, \"Where is my day creating extra steps?\" This shifts the focus away from blame and toward design. Your home does not need to be perfect. It just needs to support the life you are actually living.",
+          "Instead of asking, \"How do I become more disciplined?\" try asking, \"Where is this routine creating extra steps?\" That keeps the review focused on the arrangement. Your home does not need to be perfect for you to test one change.",
       },
       {
         type: "p",
         text:
-          "Look for the spots where you pause, sigh, avoid, forget, or work around something. Those moments are useful information. They point to the places where one small adjustment could make the whole day feel lighter.",
+          "Look for the spots where you pause, avoid, forget, or work around something. Write down the step, the item involved, and who or what controls it before choosing a change.",
       },
       {
         type: "h2",
         id: "one-small-change",
-        text: "One Small Change Is Enough",
+        text: "Test One Small Change",
       },
       {
         type: "p",
         text:
-          "You do not need to reorganize your entire apartment or rebuild every routine. One small change can lower the effort enough to help a better habit stick.",
+          "You do not need to reorganize your entire apartment or rebuild every routine. Choose one reversible arrangement change and decide in advance what you will observe.",
       },
       {
         type: "ul",
@@ -203,7 +201,7 @@ export const posts: Post[] = [
       {
         type: "p",
         text:
-          "The best change is not the most impressive one. It is the one that removes a little resistance from something you already want to do.",
+          "The best test is not the most impressive one. It is the smallest change that fits your access, storage, cleaning, safety, lease, and household limits.",
       },
       {
         type: "h2",
@@ -213,7 +211,7 @@ export const posts: Post[] = [
       {
         type: "p",
         text:
-          "Choose one recurring moment in your home that feels heavier than it should. Do not solve the whole category. Just make the next version of that moment easier.",
+          "Choose one recurring moment that contains an extra step. Do not solve the whole category. Test one arrangement that you can keep, change, or stop.",
       },
       {
         type: "ul",
@@ -226,7 +224,7 @@ export const posts: Post[] = [
       {
         type: "p",
         text:
-          "Give yourself a change you can do in ten minutes. Then notice whether tomorrow asks a little less from you.",
+          "Give yourself a change you can make with what you have, or record why it needs permission, another person, a product instruction, or a local service. Then review what actually changed.",
       },
       {
         type: "h2",
@@ -236,22 +234,26 @@ export const posts: Post[] = [
       {
         type: "p",
         text:
-          "A lighter life is not built by forcing yourself to care harder. It is built by removing the extra effort that makes caring feel exhausting.",
+          "A useful routine review does not require forcing yourself to care harder. It starts by naming the extra step and checking whether the arrangement can change.",
       },
       {
         type: "p",
         text:
-          "Thoughtful, sustainable living becomes easier when your space is arranged with compassion for your real energy, real limits, and real routines. Start with the friction you can see. Let that be enough for today.",
+          "Thoughtful living can include an arrangement that fits your actual limits and routines. Start with the friction you can see, and let stopping be a valid result.",
       },
       {
-        type: "h2",
-        id: "why-confident",
-        text: "Why We're Confident in This Advice",
+        type: "linkP",
+        textBefore: "If the friction involves lease, building, household, or local-service control, use the ",
+        linkText: "apartment systems control map",
+        href: "/blog/sustainable-living-apartment-easy-habits",
+        textAfter: ".",
       },
       {
-        type: "p",
-        text:
-          "Behavior change is more likely to last when the desired action is visible, convenient, and easy to repeat. Reducing friction does not guarantee a perfect habit, but it lowers the effort required to begin. For renters and small-space dwellers, that matters because the best systems are usually simple, reversible, and close to where life already happens.",
+        type: "linkP",
+        textBefore: "For a short renter starting path, see the ",
+        linkText: "beginner sustainable living checklist",
+        href: "/blog/beginner-sustainable-living-checklist-renters",
+        textAfter: ".",
       },
     ],
   },

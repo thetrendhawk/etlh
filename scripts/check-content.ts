@@ -134,6 +134,48 @@ for (const sourcePost of posts) {
   }
 }
 
+const apartmentCompostingDecision = posts.find(
+  (post) => post.slug === "choose-apartment-food-scrap-method",
+);
+if (!apartmentCompostingDecision) {
+  fail("The apartment food-scrap method decision article is missing.");
+} else {
+  const decisionCopy = `${apartmentCompostingDecision.title} ${apartmentCompostingDecision.excerpt} ${JSON.stringify(apartmentCompostingDecision.body)}`;
+  const prohibitedDecisionClaims = [
+    /odor[- ]free|zero smell|no smell/i,
+    /pest[- ]free|prevents? (?:fruit flies|pests?)/i,
+    /(?:saves?|lower) (?:money|water|energy|bills?)/i,
+    /environmentally preferable|better for the environment/i,
+    /finished compost from (?:an )?(?:electric|countertop|food-scrap) appliance/i,
+  ];
+  for (const pattern of prohibitedDecisionClaims) {
+    if (pattern.test(decisionCopy)) {
+      fail(`Apartment food-scrap decision article has a prohibited claim: ${pattern}`);
+    }
+  }
+  for (const required of [
+    "temporary storage", "collection", "transportation or handoff", "active processing",
+    "finished-compost handling", "appliance treatment", "no food-scrap system for now",
+    "https://www.epa.gov/sustainable-management-food/approaches-composting",
+    "https://www.epa.gov/recycle/composting-home",
+    "https://extension.wsu.edu/kitsap/bokashi-composting/",
+    "/blog/zero-waste-kitchen-ideas-tiny-apartments",
+  ]) {
+    if (!decisionCopy.toLowerCase().includes(required.toLowerCase())) {
+      fail(`Apartment food-scrap decision article is missing required boundary or source: ${required}`);
+    }
+  }
+  const presentedDecision = getPresentedPost(apartmentCompostingDecision);
+  if (
+    presentedDecision.title !== apartmentCompostingDecision.title ||
+    presentedDecision.excerpt !== apartmentCompostingDecision.excerpt ||
+    presentedDecision.image !== apartmentCompostingDecision.image ||
+    presentedDecision.imageAlt !== apartmentCompostingDecision.imageAlt
+  ) {
+    fail("Apartment food-scrap decision metadata must match the presented article and card.");
+  }
+}
+
 const budgetSwaps = posts.find((post) => post.slug === "zero-waste-kitchen-budget-9-swaps");
 if (!budgetSwaps) {
   fail("The budget-swaps article is missing.");

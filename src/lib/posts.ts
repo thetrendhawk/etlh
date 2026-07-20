@@ -1,4 +1,5 @@
 import postKitchen from "@/assets/post-kitchen.jpg";
+import kitchenCategoryImage from "@/assets/cat-kitchen.jpg";
 import decorCategoryImage from "@/assets/cat-decor.jpg";
 import habitsCategoryImage from "@/assets/cat-habits.jpg";
 import apartmentImage from "@/assets/hero-apartment.jpg";
@@ -100,6 +101,144 @@ export type PostBodyBlock =
     };
 
 export const posts: Post[] = [
+  {
+    slug: "choose-apartment-food-scrap-method",
+    title: "How to Choose an Apartment Food-Scrap Method",
+    excerpt:
+      "Compare collection, temporary storage, handoff, active processing, and appliance treatment so you can decide whether a food-scrap system fits your apartment now.",
+    category: "zero-waste-kitchen",
+    date: "2026-07-20",
+    readingTime: "9 min read",
+    image: kitchenCategoryImage,
+    imageAlt: "Illustrative small kitchen shelves with dry ingredients stored in assorted clear jars.",
+    tags: ["apartment composting", "food scraps", "renters", "decision guide"],
+    toc: [
+      { id: "start-with-destination", label: "Start with the destination" },
+      { id: "separate-the-steps", label: "Separate the steps in the system" },
+      { id: "compare-routes", label: "Compare practical routes" },
+      { id: "decide-fit", label: "Decide whether a route fits" },
+      { id: "when-not-to-start", label: "When no route fits yet" },
+      { id: "sources-and-limits", label: "Sources and limits" },
+    ],
+    body: [
+      {
+        type: "p",
+        text: "A food-scrap system is not one object on a counter. It is a chain: temporary storage, collection or processing, and a real handoff or finishing route. Start by checking the end of that chain. If you cannot name where the scraps can go next, a new bin is unlikely to solve the problem.",
+      },
+      {
+        type: "p",
+        text: "This guide is a decision process, not a universal recommendation. A building collection cart, a verified drop-off, a private collection service, a worm bin, bokashi with a finishing route, or no system for now can all be valid outcomes depending on your lease, building rules, local access, household agreement, storage, lifting, and maintenance capacity.",
+      },
+      { type: "h2", id: "start-with-destination", text: "Start with the destination, not the container" },
+      {
+        type: "p",
+        text: "Check your building manager, local government or waste authority, and any service you are considering for the current accepted-materials list, container rules, access hours, fees, and transfer instructions. EPA notes that collection can include curbside programs, private haulers, and drop-off sites; it does not mean each option exists where you live or accepts the same material.",
+      },
+      {
+        type: "linkP",
+        textBefore: "EPA's overview of ",
+        linkText: "collection programs and composting approaches",
+        href: "https://www.epa.gov/sustainable-management-food/approaches-composting",
+        textAfter: " distinguishes collection from processing and describes curbside, private-hauler, and drop-off models. Use it as a map of possible models, not a directory of local services.",
+      },
+      {
+        type: "ul",
+        items: [
+          "If your building has collection, ask who controls access, what the cart accepts, where it is located, and when it is collected.",
+          "If you are considering a community or municipal drop-off, verify that the site is open to you, what it accepts, and how you can carry scraps there. A farmers market, garden, or school is not automatically a drop-off.",
+          "If you are considering a subscription service, verify its service area, pickup process, current terms, accepted materials, container requirements, and whether your building permits the handoff.",
+          "If the destination requires outdoor space, soil burial, or a vehicle you do not have, record that as a constraint rather than assuming a workaround will fit.",
+        ],
+      },
+      { type: "h2", id: "separate-the-steps", text: "Separate the steps in the system" },
+      {
+        type: "table",
+        caption: "What each food-scrap step does—and does not do",
+        headers: ["Step", "What it can do", "What it does not establish"],
+        rows: [
+          ["Temporary storage", "Holds scraps in a closed counter, refrigerator, or freezer container until the next step.", "It does not turn scraps into compost."],
+          ["Collection", "Moves accepted scraps into a building cart, pickup service, or verified drop-off stream.", "It does not prove that every local program accepts the same scraps, liners, or bags."],
+          ["Transportation or handoff", "Gets the stored material from the apartment to the collection or finishing destination.", "It does not remove the need to plan carrying, timing, access, or household responsibility."],
+          ["Active processing", "Uses a managed system, such as a worm bin or another composting process, with its own operating conditions.", "It is not passive storage and may not fit the available space or maintenance capacity."],
+          ["Finished-compost handling", "Uses biologically stable compost according to the system and site that produced it.", "It cannot be assumed from collected scraps, fermented material, or appliance output."],
+          ["Appliance treatment", "May grind, heat, or dry food scraps and reduce their weight or volume.", "It does not by itself produce compost or remove the need for an output destination."],
+        ],
+      },
+      {
+        type: "linkP",
+        textBefore: "EPA defines compost as a biologically stable product of managed aerobic decomposition and explains that residential grinders and dehydrators produce a dried food-scrap mixture rather than compost. See ",
+        linkText: "EPA's composting definitions and home options",
+        href: "https://www.epa.gov/recycle/composting-home",
+        textAfter: ".",
+      },
+      { type: "h2", id: "compare-routes", text: "Compare practical routes before buying anything" },
+      {
+        type: "table",
+        caption: "Apartment food-scrap route comparison",
+        headers: ["Route", "What must already be true", "What you still need to manage"],
+        rows: [
+          ["Building collection", "Your building provides a usable, current collection route and its rules fit your scraps.", "Container location, access, household sorting, and the trip from your unit to the cart."],
+          ["Verified drop-off", "A site accepts your material and is reachable on a cadence you can maintain.", "Storage between trips, carrying or transportation, hours, and changes to the site rules."],
+          ["Private collection", "A service covers your address and your building permits the pickup or handoff.", "Current service terms, pickup timing, container care, building access, and any recurring commitment."],
+          ["Counter, refrigerator, or freezer staging", "You have a confirmed downstream destination and a compatible place to hold scraps temporarily.", "Cleaning, leaks, the space you give up, and a removal cue. Cold storage stages scraps; it is not composting."],
+          ["Worm bin", "You can provide the space, bedding, conditions, accepted inputs, and ongoing care required by the system.", "Feeding, moisture, ventilation, temperature, and how you will handle the resulting material."],
+          ["Bokashi", "You have a sealed system, inoculant, and a verified way to finish the fermented material in soil or another composting system.", "Drainage and care instructions, storage, and a finishing destination; fermented material is not finished compost."],
+          ["Electric food-scrap appliance", "You have a supported place for the appliance and an approved route for its output.", "Electricity, noise, capacity, cleaning, filters or consumables where applicable, manufacturer instructions, building rules, and output handling."],
+        ],
+      },
+      {
+        type: "linkP",
+        textBefore: "For bokashi specifically, Washington State University Extension describes a sealed anaerobic fermentation process and says the material needs a soil or compost-system finishing step. Read ",
+        linkText: "its bokashi guidance",
+        href: "https://extension.wsu.edu/kitsap/bokashi-composting/",
+        textAfter: " before treating it as an apartment-only solution.",
+      },
+      { type: "h2", id: "decide-fit", text: "Decide whether the route fits your apartment" },
+      {
+        type: "ul",
+        items: [
+          "Space: Where will the temporary container, appliance, bedding, or supplies sit without blocking food storage, a sink, a counter, a walking path, or needed access?",
+          "Control: Is the collection point, outdoor space, electricity, ventilation, or pickup location under your control, your building's control, or a service's control?",
+          "Handoff: Who empties the container, on what cue, and how will the scraps get from the unit to the next destination?",
+          "Household agreement: Does everyone who will use the system agree on accepted materials, cleaning, responsibility, and what happens when the route is unavailable?",
+          "Maintenance: Can you reasonably clean the container or appliance, manage liners or filters only when required, and respond to leaks or a missed handoff?",
+          "Access and safety: Can you lift, carry, reach, and clean the system safely? Check manufacturer instructions, building rules, and child, pet, allergy, and sensitivity considerations before adding equipment or chemicals.",
+        ],
+      },
+      {
+        type: "p",
+        text: "If a temporary container starts smelling or attracting fruit flies, that is a troubleshooting problem, not proof that you need a different product. First check the destination, time indoors, residue, leaks, and cleaning instructions. The next guide focuses on that diagnosis.",
+      },
+      {
+        type: "linkP",
+        textBefore: "Read ",
+        linkText: "Apartment Composting Odor & Fruit Flies: A Small-Space Fix",
+        href: "/blog/zero-waste-kitchen-ideas-tiny-apartments",
+        textAfter: " when an existing food-scrap setup needs a reset.",
+      },
+      { type: "h2", id: "when-not-to-start", text: "When no route fits yet" },
+      {
+        type: "p",
+        text: "Choose no food-scrap system for now if you cannot verify a destination, cannot safely store or hand off material, do not have household agreement, or the required maintenance does not fit your current capacity. That is a bounded decision, not a failure. Recheck only when a building rule, local service, transportation option, space, or household situation changes.",
+      },
+      {
+        type: "p",
+        text: "If your main concern is an electric appliance, pause the purchase decision until you can name what the appliance does, what output it creates, and where that output can go. A separate ETLH evaluation framework will address that category without ranking products or promising a result.",
+      },
+      { type: "h2", id: "sources-and-limits", text: "Sources and limits" },
+      {
+        type: "p",
+        text: "This article uses EPA and extension guidance for definitions and process boundaries. It does not claim that food-scrap diversion is available in every building, that a method prevents odor or pests, or that one appliance or route has a superior environmental, cost, time, water, energy, or effort outcome. Local program rules and manufacturer instructions remain controlling.",
+      },
+      {
+        type: "linkP",
+        textBefore: "For ETLH's sourcing and correction approach, read the ",
+        linkText: "editorial and corrections policy",
+        href: "/editorial-policy",
+        textAfter: ".",
+      },
+    ],
+  },
   {
     slug: "why-life-feels-harder-than-it-needs-to-sometimes",
     title: "Notice Friction at Home: Test One Small Change",

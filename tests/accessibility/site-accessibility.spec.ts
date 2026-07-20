@@ -24,6 +24,10 @@ const pages = [
     heading: /11 Low-Waste Kitchen Habits for Using Food More Fully/i,
   },
   {
+    path: "/blog/easy-sustainable-habits-on-a-budget",
+    heading: /20 Renter-Aware Sustainable Habits to Consider/i,
+  },
+  {
     path: "/blog/small-apartment-eco-upgrade-checklist",
     heading: /A 30-Day Small-Apartment Eco Step Checklist/i,
   },

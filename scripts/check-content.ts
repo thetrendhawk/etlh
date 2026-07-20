@@ -384,6 +384,36 @@ if (!lowWasteLifestyle) {
   }
 }
 
+const easyHabits = posts.find((post) => post.slug === "easy-sustainable-habits-on-a-budget");
+if (!easyHabits) {
+  fail("Missing repaired easy-sustainable-habits-on-a-budget article");
+} else {
+  const easyCopy = `${easyHabits.title} ${easyHabits.excerpt} ${JSON.stringify(easyHabits.body)}`;
+  const repairedEasyClaims = [
+    /21 easy/i, /perfect for renters/i, /low-cost/i, /without wrecking your budget/i,
+    /big wins/i, /cost little or nothing/i, /reduce your impact/i, /full loads/i,
+    /line drying.*every time/i, /vampire/i, /better for your bank account/i,
+    /better.*planet/i, /cheaper and more sustainable/i, /second nature/i,
+  ];
+  for (const pattern of repairedEasyClaims) {
+    if (pattern.test(easyCopy)) fail(`Unsupported easy-habits claim remains: ${pattern}`);
+  }
+  const presentedEasy = getPresentedPost(easyHabits);
+  if (presentedEasy.image !== easyHabits.image || presentedEasy.imageAlt !== easyHabits.imageAlt) {
+    fail("Easy-habits source and presentation image metadata diverge");
+  }
+  if (easyCopy.includes("SustainablePin2")) fail("Retired SustainablePin2 asset remains in easy-habits content");
+  const optionCount = easyHabits.body.filter((block) => block.type === "ul").flatMap((block) => block.items ?? []).length;
+  if (optionCount !== 20) fail(`Expected 20 easy-habits options, found ${optionCount}`);
+  for (const required of [
+    "/blog/beginner-sustainable-living-checklist-renters", "/blog/zero-waste-kitchen-ideas-tiny-apartments",
+    "/resources", "what you already own", "stop", "avoiding unnecessary spending",
+  ]) {
+    if (!easyCopy.includes(required)) fail(`Easy-habits repair is missing required guidance: ${required}`);
+  }
+  if (readFileSync(join(process.cwd(), "src/lib/posts.ts"), "utf8").includes("sustainablePin2")) fail("Retired SustainablePin2 import/reference remains in posts.ts");
+}
+
 const routeFiles = [
   "src/routes/index.tsx",
   "src/routes/blog.index.tsx",

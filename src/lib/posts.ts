@@ -4,7 +4,6 @@ import habitsCategoryImage from "@/assets/cat-habits.jpg";
 import apartmentImage from "@/assets/hero-apartment.jpg";
 import postChecklist from "@/assets/post-checklist.jpg";
 import decorPin1 from "@/assets/DecorPin1.webp";
-import decorPin3 from "@/assets/DecorPin3.webp";
 
 
 
@@ -258,117 +257,130 @@ export const posts: Post[] = [
   },
   {
   slug: "sustainable-tiny-living-room-layout-ideas",
-  title: "Sustainable Tiny Living Room: Layout and Styling Ideas for Small Spaces",
+  title: "Small Living Room Layout Planning: Measure, Test, and Adjust",
   excerpt:
-    "Make your tiny living room feel bigger, cozier, and more sustainable with smart layouts, compact furniture, and eco-friendly decor.",
+    "Plan a small living room around fixed constraints, walking paths, furniture footprints, and reversible layout tests before buying or installing anything.",
   category: "small-apartment-decor",
   date: "2026-06-22",
   readingTime: "7 min read",
-  image: decorPin3, // import this in your file
+  image: apartmentImage,
   imageAlt:
-    "Tiny living room with a small sofa, natural rug, plants, and wall-mounted shelves.",
+    "Illustrative sunlit apartment living area with a sofa, low table, and clear walking path.",
   tags: [
-    "sustainable tiny living room",
-    "small living room ideas",
-    "small space eco decor",
-    "eco friendly living room"
+    "small living room layout",
+    "furniture footprint planning",
+    "renter-aware room planning",
+    "small-space pathways"
   ],
   toc: [
-    { id: "tiny-room-principles", label: "Key Principles for Tiny Sustainable Living Rooms" },
-    { id: "layout-ideas", label: "Three Layout Ideas That Actually Work" },
-    { id: "eco-furniture-choices", label: "Eco-Friendly Furniture and Material Choices" },
-    { id: "styling-tips", label: "Styling Tips: Rugs, Plants, and Wall Space" }
+    { id: "measure-fixed-constraints", label: "Measure Fixed Constraints First" },
+    { id: "test-with-what-you-have", label: "Test With What You Have" },
+    { id: "check-paths-and-access", label: "Check Paths and Access" },
+    { id: "decide-before-buying", label: "Decide Before Buying or Mounting" }
   ],
   body: [
     {
       type: "p",
       text:
-        "In a tiny living room, every piece you bring in has to earn its place. When you layer sustainability on top—natural materials, secondhand finds, low-waste choices—the options can feel overwhelming."
+        "A small living room layout starts with the room you actually have: its dimensions, doors, windows, heaters, outlets, fixed furniture, and the activities it needs to support."
     },
     {
       type: "p",
       text:
-        "The ideas below keep things simple. You’ll see how to arrange furniture so the room feels open, where to invest in sustainable pieces, and how to style with plants and textiles so the space feels cozy instead of cluttered."
+        "Use this page to measure those constraints, sketch or tape-test an arrangement with what you already own, and review access before considering a purchase. There is no single ideal layout, and restoring the original arrangement is a valid result."
     },
 
     {
       type: "h2",
-      id: "tiny-room-principles",
-      text: "Key Principles for Tiny Sustainable Living Rooms"
+      id: "measure-fixed-constraints",
+      text: "Measure Fixed Constraints First"
     },
     {
       type: "ul",
       items: [
-        "Prioritize function over filler. Start with what you truly need: seating, a surface, storage, and light.",
-        "Keep sightlines clear. Avoid tall, bulky pieces that block windows or pathways.",
-        "Choose fewer, better items. A small number of well-made, natural pieces beats a room full of cheap decor.",
-        "Let your materials work for you. Wood, natural textiles, and plants add warmth and texture without needing a lot of extra stuff."
+        "Measure the room and the footprint of furniture already present. Note doors, windows, radiators, vents, outlets, switches, and any fixed or fragile feature.",
+        "Mark required access to doors, windows, heaters, controls, and storage. Do not treat a generic clearance number as universal; follow local rules, building guidance, and manufacturer instructions where they apply.",
+        "Write down what the room must support—seating, reading, work, play, mobility, pet access, accessibility needs, or shared use—before choosing an arrangement.",
+        "If measuring or moving furniture is unsafe or physically demanding, ask for help or use a paper sketch; do not lift beyond your ability."
       ]
     },
 
     {
       type: "h2",
-      id: "layout-ideas",
-      text: "Three Layout Ideas That Actually Work"
+      id: "test-with-what-you-have",
+      text: "Test With What You Have"
     },
     {
       type: "p",
       text:
-        "Every room is different, but these three layouts work well in most small living rooms and studios."
+        "A layout test is an experiment, not a promise that the room will feel larger, calmer, more open, or more productive."
     },
     {
       type: "ul",
       items: [
-        "Wall-Hugging Sofa + Floating Coffee Table: Place a compact sofa along the longest wall, with a small coffee table centered on a rug and a media console opposite. This creates a clear walkway along one side of the room.",
-        "Corner Conversation Layout: Position the sofa in a corner facing diagonally into the room, add a small chair or pouf at a 90-degree angle, and keep a lightweight table in the middle.",
-        "Studio Zone Layout: In a studio, use a rug and sofa to visually zone the living area near the window, and keep taller items like shelving against the wall to avoid blocking light."
+        "Sketch two or three options on paper, or use painter’s tape to mark furniture footprints before moving heavy pieces. Include doors, windows, heaters, outlets, and the path used most often.",
+        "Try one arrangement with the current sofa and table, then observe whether seating, walking, cleaning, charging, and opening the window still work for the people who use the room.",
+        "Keep the option that supports the room’s actual tasks with fewer awkward moves. If none works, restore the original arrangement and record the constraint instead of buying around it."
       ]
     },
 
     {
       type: "h2",
-      id: "eco-furniture-choices",
-      text: "Eco-Friendly Furniture and Material Choices"
+      id: "check-paths-and-access",
+      text: "Check Paths and Access"
     },
     {
       type: "p",
       text:
-        "Sustainable furniture in a tiny living room doesn’t have to be expensive. It just needs to be durable, right-sized, and made from materials that age well."
+        "Path and access checks matter more than a style label. Keep exits, required routes, heaters, vents, windows, controls, and electrical access usable, and follow fire, building, and manufacturer guidance."
     },
     {
       type: "ul",
       items: [
-        "Look for compact sofas and chairs with visible legs and slim arms to keep the room feeling open.",
-        "Choose solid wood, bamboo, or metal frames when possible—they’re sturdy and can often be repaired instead of replaced.",
-        "Use a coffee table with built-in storage or a lower shelf so it doubles as a place for baskets and boxes.",
-        "Shop secondhand for side tables, shelves, and accent chairs; these pieces are often easy to refresh with a clean and a new finish."
+        "Check that furniture does not create a trip hazard, block a mobility aid, pinch a route, or prevent a child or pet from using the room safely.",
+        "Do not drill, wall-mount, anchor, alter wiring, or move a heater or appliance unless the lease, building rules, and manufacturer instructions allow it and the installation is safe.",
+        "For shared rooms, agree on the test with the people who use the space. A layout that works for one person may not support another person’s access or routine.",
+        "Review lighting, glare, noise, reach, and visual load as observations for this room—not as guaranteed comfort, health, or wellbeing outcomes."
       ]
     },
 
     {
       type: "h2",
-      id: "styling-tips",
-      text: "Styling Tips: Rugs, Plants, and Wall Space"
+      id: "decide-before-buying",
+      text: "Decide Before Buying or Mounting"
     },
     {
       type: "p",
       text:
-        "Once your layout and furniture are set, styling pulls everything together. In a tiny room, a few thoughtful choices go a long way."
+        "Only consider a purchase after a layout test identifies a specific missing function or footprint. A functional item does not need replacing because another material, color, or trend is marketed as more sustainable."
     },
     {
       type: "ul",
       items: [
-        "Anchor the seating area with a light-colored rug sized so the front legs of the sofa sit on it; this makes the space feel more intentional.",
-        "Bring in plants of varying heights—one floor plant, a tabletop plant, and a trailing plant on a shelf—for texture and a sense of life.",
-        "Use wall-mounted shelves instead of bulky bookcases to display books, baskets, and a few decor pieces.",
-        "Hang one or two larger art pieces instead of many small frames to avoid visual clutter on the walls.",
-        "Keep surfaces as clear as possible. Use trays or small bowls to corral remotes and small items so they don’t scatter."
+        "Compare a possible item by footprint, access, cleaning, installation, return terms, household use, and what happens if it does not fit. Do not infer durability, repairability, or environmental benefit from material or secondhand status alone.",
+        "Treat rugs, mirrors, color, lighting, plants, and storage as optional visual choices. They do not establish that a room will look larger or that plants improve indoor air quality.",
+        "Use existing trays, boxes, textiles, or artwork for a trial before shopping. Keep a no-purchase result when it solves the actual problem.",
+        "If a change depends on landlord permission, transportation, another person, or a local service, pause until that dependency is confirmed."
       ]
     },
     {
       type: "p",
       text:
-        "Your tiny living room doesn’t have to feel cramped or disposable. With a smart layout, a few sustainable furniture choices, and light, plant-filled styling, it can be the calm, cozy center of your small apartment."
+        "A successful layout test is one that gives you clearer information about the room and its constraints. Keep it, revise it, or restore the original arrangement; all three are useful outcomes."
+    },
+    {
+      type: "linkP",
+      textBefore: "For a short no-purchase room reset, see the ",
+      linkText: "small-apartment reset checklist",
+      href: "/blog/eco-friendly-small-apartment-weekend-checklist",
+      textAfter: "."
+    },
+    {
+      type: "linkP",
+      textBefore: "For sourcing criteria after a verified need exists, see the ",
+      linkText: "small-apartment decor guide",
+      href: "/blog/eco-friendly-small-apartment-decor-budget",
+      textAfter: "."
     }
   ]
 },

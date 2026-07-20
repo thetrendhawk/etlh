@@ -35,6 +35,10 @@ const pages = [
     path: "/blog/beginner-sustainable-living-checklist-renters",
     heading: /Beginner Sustainable Living Checklist for Renters: Five Options to Consider/i,
   },
+  {
+    path: "/blog/low-waste-lifestyle-tips-beginners",
+    heading: /15 Low-Waste Lifestyle Practices to Consider/i,
+  },
   { path: "/contact", heading: /Say hello/i },
 ];
 

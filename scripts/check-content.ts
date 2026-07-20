@@ -334,6 +334,56 @@ if (!beginnerRenterChecklist) {
   }
 }
 
+const lowWasteLifestyle = posts.find(
+  (post) => post.slug === "low-waste-lifestyle-tips-beginners",
+);
+if (!lowWasteLifestyle) {
+  fail("The low-waste lifestyle practices article is missing.");
+} else {
+  const lowWasteCopy = `${lowWasteLifestyle.title} ${lowWasteLifestyle.excerpt} ${JSON.stringify(lowWasteLifestyle.body)}`;
+  const repairedLowWasteClaims = [
+    /start this week/i,
+    /dramatically cut/i,
+    /waste less and save more/i,
+    /fraction of the price/i,
+    /last just as long/i,
+    /you(?:'|’)ll already be living a lower waste lifestyle/i,
+    /big sources of household waste/i,
+    /as they become habits/i,
+  ];
+  for (const pattern of repairedLowWasteClaims) {
+    if (pattern.test(lowWasteCopy)) {
+      fail(`The low-waste lifestyle article reintroduces repaired claim ${pattern}.`);
+    }
+  }
+
+  const presentedLowWaste = getPresentedPost(lowWasteLifestyle);
+  if (presentedLowWaste.image !== lowWasteLifestyle.image || presentedLowWaste.imageAlt !== lowWasteLifestyle.imageAlt) {
+    fail("The low-waste lifestyle article presentation overrides its source image or alt pairing.");
+  }
+  if (presentedLowWaste.image.includes("SustainablePin3")) {
+    fail("The retired SustainablePin3 promotional asset is still presented.");
+  }
+
+  for (const requiredBoundary of [
+    "/blog/beginner-sustainable-living-checklist-renters",
+    "/blog/zero-waste-kitchen-ideas-tiny-apartments",
+    "/resources",
+    "what you already own",
+    "local",
+    "stop",
+  ]) {
+    if (!lowWasteCopy.toLowerCase().includes(requiredBoundary.toLowerCase())) {
+      fail(`The low-waste lifestyle article is missing required boundary or link ${requiredBoundary}.`);
+    }
+  }
+
+  const postsSource = readFileSync(join(process.cwd(), "src/lib/posts.ts"), "utf8");
+  if (postsSource.includes("sustainablePin3")) {
+    fail("The retired SustainablePin3 promotional asset is still imported by the application.");
+  }
+}
+
 const routeFiles = [
   "src/routes/index.tsx",
   "src/routes/blog.index.tsx",

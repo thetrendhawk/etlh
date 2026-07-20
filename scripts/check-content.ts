@@ -191,6 +191,20 @@ if (!electricApplianceGuide) {
   }
 }
 
+const noDishwasherGuide = posts.find((post) => post.slug === "dishwashing-without-dishwasher-small-kitchen");
+if (!noDishwasherGuide) {
+  fail("The no-dishwasher dish-flow guide is missing.");
+} else {
+  const dishCopy = `${noDishwasherGuide.title} ${noDishwasherGuide.excerpt} ${JSON.stringify(noDishwasherGuide.body)}`;
+  for (const pattern of [/save water|lower (?:utility )?bills|better hygiene|prevents? illness|save time|reduce stress|works for every|universal dishwashing/i]) {
+    if (pattern.test(dishCopy)) fail(`No-dishwasher guide has a prohibited claim: ${pattern}`);
+  }
+  for (const required of ["not a rule", "manufacturer care instructions", "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/cleanliness-helps-prevent", "https://www.cdc.gov/clean-hands/prevention/about-handwashing-a-healthy-habit-in-the-kitchen.html", "/blog/choose-apartment-food-scrap-method"]) {
+    if (!dishCopy.toLowerCase().includes(required.toLowerCase())) fail(`No-dishwasher guide is missing required boundary or source: ${required}`);
+  }
+  if (!noDishwasherGuide.image.includes("dishwashing-without-dishwasher-small-kitchen-hero-v1.webp")) fail("No-dishwasher guide must use its dedicated hero asset.");
+}
+
 const budgetSwaps = posts.find((post) => post.slug === "zero-waste-kitchen-budget-9-swaps");
 if (!budgetSwaps) {
   fail("The budget-swaps article is missing.");

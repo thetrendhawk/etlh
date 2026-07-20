@@ -9,7 +9,7 @@ const requiredSnippets = [
   [homepage, "srcSet={vercelImageSrcSet(heroImg, heroWidths, 75)}"],
   [homepage, 'sizes="(min-width: 768px) 50vw, calc(100vw - 3rem)"'],
   [homepage, "srcSet={vercelImageSrcSet(categoryImage, categoryWidths, 75)}"],
-  [postCard, "srcSet={vercelImageSrcSet(post.image, postCardWidths, 75)}"],
+  [postCard, "srcSet={vercelImageSrcSet(presentedPost.image, postCardWidths, 75)}"],
   [imageUtility, "/_vercel/image?url="],
   [vercelConfig, '"localPatterns": [{ "pathname": "^/assets/.*$", "search": "" }]'],
   [vercelConfig, '"formats": ["image/webp"]'],

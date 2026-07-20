@@ -1,4 +1,5 @@
 import postKitchen from "@/assets/post-kitchen.jpg";
+import dishwashingHero from "@/assets/articles/dishwashing-without-dishwasher-small-kitchen/dishwashing-without-dishwasher-small-kitchen-hero-v1.webp";
 import kitchenCategoryImage from "@/assets/cat-kitchen.jpg";
 import decorCategoryImage from "@/assets/cat-decor.jpg";
 import habitsCategoryImage from "@/assets/cat-habits.jpg";
@@ -101,6 +102,67 @@ export type PostBodyBlock =
     };
 
 export const posts: Post[] = [
+  {
+    slug: "dishwashing-without-dishwasher-small-kitchen",
+    title: "Dishwashing Without a Dishwasher in a Small Kitchen",
+    excerpt: "Design a bounded dish-handling sequence around your sink, drying space, household, and physical capacity—without treating one method as universal.",
+    category: "zero-waste-kitchen",
+    date: "2026-07-20",
+    readingTime: "8 min read",
+    image: dishwashingHero,
+    imageAlt: "Illustrative small apartment kitchen with a sink, dish rack, drying dishes, wood counter, and plants in warm daylight.",
+    tags: ["dishwashing", "small kitchen", "renters", "kitchen systems"],
+    toc: [
+      { id: "constraints", label: "Start with the actual constraints" },
+      { id: "flow", label: "Build a bounded dish flow" },
+      { id: "food-safety", label: "Keep food-safety steps distinct" },
+      { id: "space", label: "Choose a drying and return arrangement" },
+      { id: "shared", label: "Adapt for people and shared space" },
+      { id: "limits", label: "Sources and limits" },
+    ],
+    body: [
+      { type: "p", text: "Without a dishwasher, the useful question is not how to copy someone else's routine. It is which small sequence can move the dishes you use through a limited sink, counter, drying area, and storage space without creating a new burden for the people who live there." },
+      { type: "p", text: "This guide offers choices to test. It makes no outcome claim about resource use, costs, sanitation, wellbeing, speed, or fit across every kitchen or body." },
+      { type: "h2", id: "constraints", text: "Start with the actual constraints" },
+      { type: "ul", items: [
+        "Sink: Is there one basin, a divided basin, or a portable basin that can be safely placed and emptied?",
+        "Landing space: Where can a used dish wait without blocking food preparation, a mobility route, or the only counter?",
+        "Drying space: Is there room beside the sink, inside a cabinet after items are fully dry, or another clean location that fits the household?",
+        "Capacity: Consider reach, grip, standing tolerance, lifting, fatigue, pain, and whether a smaller batch, a seated task, help from another person, or a pause is needed.",
+        "Household and safety: Check shared responsibilities, children and pets, sharp or breakable items, cleaning-product sensitivities, and electrical appliances near water.",
+        "Materials: Follow the care instructions for cookware, knives, coated surfaces, wood, glass, and any item whose manufacturer limits soaking, abrasives, heat, or dishwasher use.",
+      ] },
+      { type: "h2", id: "flow", text: "Build a bounded dish flow" },
+      { type: "p", text: "Choose one version of the following flow and change it when it does not fit: collect used items, remove food residue, hold items temporarily if washing cannot happen yet, wash, rinse where the product or local circumstances call for it, dry, and return items to storage. The order is a planning tool, not a rule for every dish or household." },
+      { type: "table", caption: "Small-kitchen dish-flow choices", headers: ["Moment", "A bounded option", "Constraint to check"], rows: [
+        ["After eating", "Put used dishes in one designated sink or tray area when that area remains safe and available.", "Do not block the only food-prep space, a mobility path, or a shared sink needed by another person."],
+        ["Food residue", "Remove residue into the waste route you already use before washing.", "Follow local collection rules; handling scraps is separate from this dish-flow decision."],
+        ["Temporary hold", "If immediate washing is not practical, choose a contained holding spot and return when you can.", "Do not imply that soaking, storage time, or any container is suitable for every material or food residue."],
+        ["Washing", "Use detergent, water, and the tool or method compatible with the item and your capacity.", "Manufacturer care instructions and material limits control; more force or abrasives are not automatically appropriate."],
+        ["Drying", "Use a clean, stable drying location that does not create a fall, mold, electrical, or food-prep problem.", "A rack, towel, or no additional tool may fit depending on available space and care instructions."],
+        ["Return", "Put only fully dry items back where they can be reached and used again.", "If this step becomes the bottleneck, change the storage location or batch size before buying another organizer."],
+      ] },
+      { type: "h2", id: "food-safety", text: "Keep food-safety steps distinct from a routine preference" },
+      { type: "p", text: "A personal dish-flow does not replace food-safety guidance. USDA advises washing food-contact cutting boards in hot, soapy water after use, then rinsing and air- or towel-drying; it also advises using clean plates and utensils for cooked food rather than items that held raw products. Those are narrower food-contact recommendations, not a requirement that every household use one washing order or a particular rack." },
+      { type: "linkP", textBefore: "See USDA FSIS guidance on ", linkText: "cleanliness and foodborne illness prevention", href: "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/cleanliness-helps-prevent", textAfter: " for food-contact and raw-food boundaries." },
+      { type: "p", text: "Handwashing is a separate kitchen step. CDC recommends washing hands with soap and water at key points while preparing food, including after handling raw animal foods, trash, pets, or cleaning chemicals. This article does not treat a dishcloth, scrubber, or dish sequence as a substitute for that guidance." },
+      { type: "linkP", textBefore: "CDC's ", linkText: "kitchen handwashing guidance", href: "https://www.cdc.gov/clean-hands/prevention/about-handwashing-a-healthy-habit-in-the-kitchen.html", textAfter: " explains those food-preparation contexts." },
+      { type: "h2", id: "space", text: "Choose a drying and return arrangement before buying tools" },
+      { type: "ul", items: [
+        "Test a cleared section beside the sink, an existing rack, a clean towel where appropriate, or a smaller drying batch before replacing functional equipment.",
+        "Keep electrical cords and plug-in appliances away from water and follow their manufacturer instructions.",
+        "Keep knives and breakables stable, visible, and out of reach where children, pets, or a shared route make that necessary.",
+        "If the only usable counter is also the drying area, consider shorter batches, a household schedule, or returning items before starting another task rather than forcing all dishes through at once.",
+      ] },
+      { type: "h2", id: "shared", text: "Adapt for people and shared space" },
+      { type: "p", text: "A shared kitchen can benefit from an explicit agreement about what may wait, where it waits, who handles sharp or fragile items, and how a person signals that they need help. If standing, grip, reach, fatigue, pain, illness, or caregiving makes the current sequence unsafe or unrealistic, simplify the batch, change the location, use available support, or pause. No article can determine the right accommodation for every person." },
+      { type: "linkP", textBefore: "For one broader renter-control check before changing equipment or a shared system, read ", linkText: "Sustainable Apartment Systems: What Renters Can Control", href: "/blog/sustainable-living-apartment-easy-habits", textAfter: "." },
+      { type: "linkP", textBefore: "If dish cleanup exposes a food-scrap handoff problem, use ", linkText: "How to Choose an Apartment Food-Scrap Method", href: "/blog/choose-apartment-food-scrap-method", textAfter: " rather than assuming a countertop container is composting." },
+      { type: "h2", id: "limits", text: "Sources and limits" },
+      { type: "p", text: "This guide separates adaptable workflow suggestions from USDA and CDC food-contact and handwashing guidance. It does not make a resource, cost, sanitation, illness, time, wellbeing, habit, environmental, odor, pest, or across-all-households promise. Local rules, product labels, manufacturer instructions, lease terms, and the needs of the people using the kitchen remain controlling." },
+      { type: "linkP", textBefore: "Read ETLH's ", linkText: "editorial and corrections policy", href: "/editorial-policy", textAfter: " if a source or passage needs review." },
+    ],
+  },
   {
     slug: "electric-food-waste-appliances-apartments",
     title: "Electric Food-Waste Appliances for Apartments: What to Check",

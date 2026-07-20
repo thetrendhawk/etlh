@@ -20,6 +20,7 @@ const pages = [
     heading: /How to Choose an Apartment Food-Scrap Method/i,
   },
   { path: "/blog/electric-food-waste-appliances-apartments", heading: /Electric Food-Waste Appliances for Apartments: What to Check/i },
+  { path: "/blog/dishwashing-without-dishwasher-small-kitchen", heading: /Dishwashing Without a Dishwasher in a Small Kitchen/i },
   {
     path: "/blog/zero-waste-pantry-organization-small-apartments",
     heading: /Pantry Organization for Small Apartments: A Practical Plan/i,

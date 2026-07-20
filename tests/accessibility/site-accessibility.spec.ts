@@ -19,6 +19,7 @@ const pages = [
     path: "/blog/choose-apartment-food-scrap-method",
     heading: /How to Choose an Apartment Food-Scrap Method/i,
   },
+  { path: "/blog/electric-food-waste-appliances-apartments", heading: /Electric Food-Waste Appliances for Apartments: What to Check/i },
   {
     path: "/blog/zero-waste-pantry-organization-small-apartments",
     heading: /Pantry Organization for Small Apartments: A Practical Plan/i,

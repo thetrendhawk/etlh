@@ -187,6 +187,8 @@ The merged existing-content intent map covers 10 articles. This claims review al
 | `src/lib/posts.ts:1685`      | Choosing what enters the apartment is "the whole game" of low-waste living. | Soften wording                 | Useful emphasis, but it excludes utilities, food systems, local services, and building constraints. |
 | `src/lib/posts.ts:1676-1685` | Start with a small, practical set of renter-controlled actions.             | Safe/common editorial guidance | Keep as non-guilt guidance when product and lease limitations are respected.                        |
 
+**Repair record (2026-07-20):** the route and short five-option purpose are preserved, while unsupported influencer pricing, purchase-first swap framing, universal control, and “whole game” language were removed. The article now leads with use-what-you-own, renter/building/household/access/local-service checks, reversible action selection, and permission to stop or adjust. The shared checklist image remains illustrative; both checklist uses now have literal alt text. See `docs/research/ETLH_BEGINNER_RENTER_CHECKLIST_CLAIMS_AUDIT.md`.
+
 ## Cross-cutting repair rules
 
 ### Savings and budget

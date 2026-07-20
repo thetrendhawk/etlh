@@ -31,6 +31,10 @@ const pages = [
     path: "/blog/eco-friendly-small-apartment-decor-budget",
     heading: /Small-Apartment Decor on a Budget: Sourcing and Fit Considerations/i,
   },
+  {
+    path: "/blog/beginner-sustainable-living-checklist-renters",
+    heading: /Beginner Sustainable Living Checklist for Renters: Five Options to Consider/i,
+  },
   { path: "/contact", heading: /Say hello/i },
 ];
 

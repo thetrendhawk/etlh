@@ -293,6 +293,42 @@ if (!decorSourcing) {
     fail("The retired watermarked post-decor asset is imported by the application.");
 }
 
+const beginnerRenterChecklist = posts.find(
+  (post) => post.slug === "beginner-sustainable-living-checklist-renters",
+);
+if (!beginnerRenterChecklist) {
+  fail("The beginner renter checklist article is missing.");
+} else {
+  const beginnerCopy = `${beginnerRenterChecklist.title} ${beginnerRenterChecklist.excerpt} ${JSON.stringify(beginnerRenterChecklist.body)}`;
+  const repairedBeginnerClaims = [
+    /influencers with \$80 reusable everything/i,
+    /the whole game/i,
+    /start with five swaps/i,
+    /a tote bag stashed in every coat pocket/i,
+    /you can't install solar panels/i,
+  ];
+  for (const pattern of repairedBeginnerClaims) {
+    if (pattern.test(beginnerCopy)) {
+      fail(`The beginner renter checklist reintroduces repaired claim ${pattern}.`);
+    }
+  }
+
+  for (const requiredBoundary of [
+    "/resources",
+    "what you already own",
+    "lease",
+    "building rules",
+    "local program guidance",
+    "stop or adjust",
+  ]) {
+    if (!beginnerCopy.toLowerCase().includes(requiredBoundary.toLowerCase())) {
+      fail(
+        `The beginner renter checklist is missing required boundary or resource ${requiredBoundary}.`,
+      );
+    }
+  }
+}
+
 const routeFiles = [
   "src/routes/index.tsx",
   "src/routes/blog.index.tsx",

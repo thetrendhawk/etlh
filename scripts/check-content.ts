@@ -449,6 +449,60 @@ if (!apartmentSystems) {
   if (!apartmentSource.includes("image: apartmentImage")) fail("Apartment-systems source image was not aligned to apartmentImage");
 }
 
+const weekendReset = posts.find(
+  (post) => post.slug === "eco-friendly-small-apartment-weekend-checklist",
+);
+if (!weekendReset) {
+  fail("Missing repaired small-apartment reset checklist article.");
+} else {
+  const weekendCopy = `${weekendReset.title} ${weekendReset.excerpt} ${JSON.stringify(weekendReset.body)}`;
+  const unsupportedWeekendClaims = [
+    /eco friendly space/i,
+    /lighter on the planet/i,
+    /better air quality/i,
+    /make the space feel larger/i,
+    /save money|low-cost|affordable/i,
+    /designed to be doable in a weekend/i,
+    /complete every item/i,
+    /dramatically shift/i,
+  ];
+  for (const pattern of unsupportedWeekendClaims) {
+    if (pattern.test(weekendCopy)) fail(`Unsupported weekend-reset claim remains: ${pattern}`);
+  }
+  for (const required of [
+    "one room",
+    "reversible",
+    "what you already have",
+    "shared areas",
+    "manufacturer",
+    "landlord",
+    "child",
+    "pet",
+    "allerg",
+    "Completing the whole list is not the goal",
+    "/blog/sustainable-tiny-living-room-layout-ideas",
+    "/blog/sustainable-living-apartment-easy-habits",
+  ]) {
+    if (!weekendCopy.toLowerCase().includes(required.toLowerCase())) {
+      fail(`Weekend reset is missing required boundary or link: ${required}`);
+    }
+  }
+  const presentedWeekend = getPresentedPost(weekendReset);
+  if (presentedWeekend.title !== weekendReset.title || presentedWeekend.excerpt !== weekendReset.excerpt) {
+    fail("Weekend reset source and presentation metadata diverge.");
+  }
+  if (presentedWeekend.image !== weekendReset.image || presentedWeekend.imageAlt !== weekendReset.imageAlt) {
+    fail("Weekend reset source and presentation image metadata diverge.");
+  }
+  if (presentedWeekend.image.includes("DecorPin2")) {
+    fail("Retired DecorPin2 promotional asset is still presented for the weekend reset.");
+  }
+  const postsSource = readFileSync(join(process.cwd(), "src/lib/posts.ts"), "utf8");
+  if (postsSource.includes("decorPin2")) {
+    fail("Retired DecorPin2 asset is still imported by the application.");
+  }
+}
+
 const frictionArticle = posts.find((post) => post.slug === "why-life-feels-harder-than-it-needs-to-sometimes");
 if (!frictionArticle) {
   fail("Missing repaired friction article");

@@ -4,7 +4,6 @@ import habitsCategoryImage from "@/assets/cat-habits.jpg";
 import apartmentImage from "@/assets/hero-apartment.jpg";
 import postChecklist from "@/assets/post-checklist.jpg";
 import decorPin1 from "@/assets/DecorPin1.webp";
-import decorPin2 from "@/assets/DecorPin2.webp";
 import decorPin3 from "@/assets/DecorPin3.webp";
 
 
@@ -375,104 +374,116 @@ export const posts: Post[] = [
 },
 {
   slug: "eco-friendly-small-apartment-weekend-checklist",
-  title: "Eco Friendly Small Apartment Checklist You Can Tackle in a Weekend",
+  title: "A Small-Apartment Reset Checklist: Choose One Useful Change",
   excerpt:
-    "Use this weekend checklist to turn your small apartment into a more eco friendly space with realistic, low-cost changes.",
+    "Inspect one room, choose one reversible reset, and stop when the change fits your space, lease, energy, and household.",
   category: "small-apartment-decor",
   date: "2026-06-22",
   readingTime: "6 min read",
-  image: decorPin2, // import this in your file
+  image: decorCategoryImage,
   imageAlt:
-    "Cozy small apartment with plants, natural textiles, and warm lighting.",
+    "Illustrative small apartment corner with a clear surface, warm lamp, and layered textiles.",
   tags: [
-    "eco friendly small apartment",
-    "small space eco decor",
-    "green apartment living",
-    "budget eco habits"
+    "small apartment reset",
+    "renter-aware home systems",
+    "use what you have",
+    "small-space routines"
   ],
   toc: [
-    { id: "how-to-use-checklist", label: "How to Use This Checklist" },
-    { id: "light-and-air", label: "Light, Air, and Energy" },
-    { id: "textiles-and-materials", label: "Textiles, Materials, and Decor" },
-    { id: "kitchen-and-bath", label: "Kitchen and Bathroom Habits" }
+    { id: "notice-one-friction-point", label: "Notice One Friction Point" },
+    { id: "no-purchase-reset", label: "Start With a No-Purchase Reset" },
+    { id: "maintain-and-coordinate", label: "Maintain and Coordinate" },
+    { id: "pause-before-buying", label: "Pause Before Buying or Installing" }
   ],
   body: [
     {
       type: "p",
       text:
-        "You don’t have to change everything about your home to make it more eco friendly. A few intentional upgrades—especially in a small apartment—can dramatically shift how your space feels and how much energy and waste you produce."
+        "A small apartment reset does not need to become a whole-home project. Use this page to inspect one room, identify one repeated snag, and test one reversible change with what you already have."
     },
     {
       type: "p",
       text:
-        "This checklist is designed to be doable in a weekend. Work through each section at your own pace, and pick the items that fit your budget and lifestyle."
+        "A weekend can be a convenient planning window, but it is not a deadline. You can stop after one useful change, spread the steps across several days, or leave an item for later."
+    },
+    {
+      type: "linkP",
+      textBefore: "For a deeper room-planning reference, see ",
+      linkText: "small living room layout and styling ideas",
+      href: "/blog/sustainable-tiny-living-room-layout-ideas",
+      textAfter: "."
     },
 
     {
       type: "h2",
-      id: "how-to-use-checklist",
-      text: "How to Use This Checklist"
+      id: "notice-one-friction-point",
+      text: "Notice One Friction Point"
     },
     {
       type: "ul",
       items: [
-        "Do a quick walk-through of your apartment and note what you already have: plants, natural fabrics, reusable items, and good light.",
-        "Choose 2–3 upgrades from each section to focus on this weekend instead of trying to do everything at once.",
-        "Plan a small budget for anything you truly need to buy, and look for secondhand or low-waste options first."
+        "Walk through one room and note one repeated extra step: an item that moves twice, a surface that collects loose things, a cord that crosses a path, or a supply stored far from where it is used.",
+        "Write down what you already own and what the lease, building, household, mobility, sensory, child, pet, or allergy constraints make impractical.",
+        "Choose one change that is reversible and specific enough to review: move one item, clear one surface, group one routine, or adjust one lamp."
       ]
     },
 
     {
       type: "h2",
-      id: "light-and-air",
-      text: "Light, Air, and Energy"
+      id: "no-purchase-reset",
+      text: "Start With a No-Purchase Reset"
     },
     {
       type: "ul",
       items: [
-        "Swap your most-used bulbs for warm LED bulbs to cut energy use and create a softer, more inviting light.",
-        "Use natural light as much as possible by opening curtains and keeping window sills clear of heavy clutter.",
-        "Add one or two lamps with fabric or paper shades to reduce reliance on harsh overhead lighting.",
-        "On cooler days, open windows to air out the apartment instead of relying only on fans or AC.",
-        "Unplug chargers and electronics when not in use, or connect them to a single power strip you can switch off."
+        "Give frequently used items one reachable home, but keep walkways, exits, vents, heaters, and appliance clearances open.",
+        "Use a tray, box, or container you already own to gather one category of loose items; label it only if that reduces a repeated decision.",
+        "Try a different lamp position or clear a window area without claiming that the room will feel larger, calmer, or more productive.",
+        "Test a cloth, refill, or reusable item only when it fits the way your household already cleans and stores supplies; follow product directions.",
+        "Review the result after you have used the arrangement, and keep it only if it reduces a real extra step."
       ]
     },
 
     {
       type: "h2",
-      id: "textiles-and-materials",
-      text: "Textiles, Materials, and Decor"
+      id: "maintain-and-coordinate",
+      text: "Maintain and Coordinate"
     },
     {
       type: "ul",
       items: [
-        "Swap at least one synthetic rug or throw blanket for a natural fiber option like cotton, jute, or wool when you’re ready to replace it.",
-        "Add plants—real or low-maintenance—to bring life and better air quality into your space.",
-        "Use covers or throws to refresh existing furniture instead of buying new pieces right away.",
-        "Choose decor and storage made of wood, glass, or metal over cheap plastics where possible.",
-        "Declutter surfaces so the pieces you keep can shine; fewer, better items are more sustainable than constant replacement."
+        "For shared areas, agree on one small change with the people who use the space; do not move another person’s belongings or remove a safety item without agreement.",
+        "For cleaning, ventilation, textiles, mold, lighting, furniture anchoring, and appliances, use manufacturer guidance and building rules. Do not block vents or alter electrical fittings as a reset shortcut.",
+        "If a change depends on a utility, recycling, compost, landlord, or municipal service, verify the local option before building it into the routine.",
+        "Stop and review when the change adds work, creates an access problem, irritates allergies, affects a child or pet, or makes the room harder to use."
       ]
     },
 
     {
       type: "h2",
-      id: "kitchen-and-bath",
-      text: "Kitchen and Bathroom Habits"
+      id: "pause-before-buying",
+      text: "Pause Before Buying or Installing"
     },
     {
       type: "ul",
       items: [
-        "Switch from paper towels to cloths for most everyday cleaning, keeping a small stack near the sink.",
-        "Use refillable or concentrated cleaning products to cut down on plastic bottles and packaging.",
-        "Store dry goods like rice, pasta, and snacks in glass jars or reusable containers instead of flimsy bags.",
-        "In the bathroom, consider bar soap or refillable bottles to reduce single-use plastic.",
-        "Keep a small bin or jar for compostable scraps like coffee grounds and vegetable peels if you have access to composting."
+        "Do not replace a functional item just to match a material label such as natural, secondhand, reusable, compact, or multifunctional; those labels do not establish fit, safety, durability, or environmental benefit by themselves.",
+        "If the one change still fails after observation, measure the space and identify the actual constraint before considering a purchase.",
+        "Treat purchases as optional and compare size, cleaning, accessibility, return terms, installation, and household use against a no-buy alternative.",
+        "A useful reset can end with a note about what to revisit later. Completing the whole list is not the goal."
       ]
     },
     {
       type: "p",
       text:
-        "You don’t have to complete every item to call your apartment eco friendly. Even a few of these changes can make your space cleaner, calmer, and lighter on the planet."
+        "If one room now asks for less reaching, searching, moving, or coordinating, pause there. The next step can wait until you know the change is actually useful."
+    },
+    {
+      type: "linkP",
+      textBefore: "If the repeated snag is part of a larger routine, use the ",
+      linkText: "apartment systems control map",
+      href: "/blog/sustainable-living-apartment-easy-habits",
+      textAfter: " to separate renter, household, building, and service-dependent decisions."
     }
   ]
 },

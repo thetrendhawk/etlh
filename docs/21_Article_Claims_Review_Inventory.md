@@ -177,6 +177,8 @@ The merged existing-content intent map covers 10 articles. This claims review al
 | `src/lib/posts.ts:1649`      | One plant changes a room more than $200 of decor; pothos and snake plants survive almost anything. | Remove or reframe           | Unsupported price comparison and extreme durability claim. Include pet/toxicity, light, and care considerations if recommending plants.              |
 | `src/lib/posts.ts:1653-1657` | "Peel-and-stick everything" is renter-safe.                                                        | Remove or reframe           | Adhesives and lease rules vary and can damage finishes. Require product instructions, patch testing, surface suitability, and landlord/lease review. |
 
+**Repair record (2026-07-19):** the route is preserved, while unverified personal experience, universal sourcing rankings, the $200 plant comparison, extreme plant durability, and renter-safe adhesive/load claims were removed. The article now requires measurement, condition, recall, pest, cleaning, transport, total-cost, light, care, toxicity, lease/building, surface, load, manufacturer, accessibility, and household checks. The watermarked `post-decor.jpg` remains in repository source for traceability but is no longer imported or emitted. See `docs/research/ETLH_DECOR_BUDGET_CLAIMS_AUDIT.md`.
+
 ### Beginner Sustainable Living Checklist for Renters
 
 | Location                     | Claim                                                                       | Classification                 | Required evidence or action                                                                         |

@@ -242,7 +242,7 @@ External Perplexity research must be reviewed before cluster-led production orde
 ### 13. Eco Friendly Small Apartment Decor on a Budget
 
 - **Slug/category:** `eco-friendly-small-apartment-decor-budget` — Small Apartment Decor.
-- **Current hero quality:** **P0.** `post-decor.jpg` visibly carries `© Midjourney`; current alt claims the vase is thrifted without evidence. The generated still life is not documentary proof of sourcing or budget.
+- **Current hero quality:** **P0 trust risk repaired; P1 article-specific gap remains.** The source/public article now uses the existing illustrative decor-category image with literal alt text. Watermarked `post-decor.jpg` is preserved for traceability but no longer imported or emitted. A sourcing/measurement visual remains a future opportunity, not evidence of a real project or budget.
 - **Missing explanatory visuals:** A sourcing decision path: need, measure, use existing, repair, borrow, secondhand evaluation, then new purchase if justified.
 - **Missing diagrams:** Furniture/decor fit and measurement diagram; optional renter-safe wall/placement decision tree after evidence review.
 - **Missing tables:** Condition, dimensions, material, cleanability, repair needs, household/pet safety, transport, return, and total cost.

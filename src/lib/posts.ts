@@ -34,7 +34,7 @@ export const categories: Category[] = [
     name: "Zero-Waste Kitchen",
     shortName: "Zero-Waste Kitchen",
     intro:
-      "Practical zero waste kitchen ideas for renters: composting in tiny spaces, plastic-free pantry swaps, and reducing food waste without a backyard or a big budget.",
+      "Start with apartment food-scrap odor and fruit-fly troubleshooting, then explore food visibility, low-waste routines, and purchase decisions for a small kitchen.",
   },
   {
     slug: "small-apartment-decor",
@@ -86,8 +86,25 @@ export interface Post {
   imageAlt: string;
   tags: string[];
   toc: { id: string; label: string }[];
-  body: { type: "p" | "h2" | "h3" | "ul"; id?: string; text?: string; items?: string[] }[];
+  body: PostBodyBlock[];
 }
+
+export type PostBodyBlock =
+  | { type: "p" | "h2" | "h3"; id?: string; text: string }
+  | { type: "ul"; items: string[] }
+  | {
+      type: "linkP";
+      textBefore?: string;
+      linkText: string;
+      href: string;
+      textAfter?: string;
+    }
+  | {
+      type: "table";
+      caption: string;
+      headers: string[];
+      rows: string[][];
+    };
 
 export const posts: Post[] = [
   {
@@ -1179,6 +1196,13 @@ export const posts: Post[] = [
       type: "p",
       text:
         "Over time, your pantry will stop being a chaotic black hole and start working like a tiny, efficient store: you can see what you have, you use it before it goes bad, and you buy less packaging because reusable containers do most of the work."
+    },
+    {
+      type: "linkP",
+      textBefore: "If the scraps you cannot use are difficult to store, continue with the ",
+      linkText: "apartment food-scrap odor and fruit-fly guide",
+      href: "/blog/zero-waste-kitchen-ideas-tiny-apartments",
+      textAfter: " for a destination-first staging routine."
     }
   ]
 },
@@ -1452,6 +1476,13 @@ export const posts: Post[] = [
       type: "p",
       text:
         "You don’t have to be perfect to make a big difference. Small, repeatable habits—planning around what you have, using up scraps, freezing early, and composting what’s left—can transform any kitchen into a low waste kitchen over time."
+    },
+    {
+      type: "linkP",
+      textBefore: "For inedible scraps, use the ",
+      linkText: "apartment composting odor and fruit-fly troubleshooting guide",
+      href: "/blog/zero-waste-kitchen-ideas-tiny-apartments",
+      textAfter: " to separate collection, cold staging, worm bins, and bokashi before choosing a method."
     }
   ]
 },
@@ -1572,6 +1603,13 @@ export const posts: Post[] = [
       "Keep a small compost jar and look for a free drop‑off option.",
     ]},
     { type: "p", text: "As you see savings on groceries and disposables, you can reinvest a bit into higher‑quality reusables like silicone bags, beeswax wraps, and a better dish brush." },
+    {
+      type: "linkP",
+      textBefore: "Before buying a compost pail or system, diagnose the current setup with the ",
+      linkText: "small-space food-scrap odor and fruit-fly guide",
+      href: "/blog/zero-waste-kitchen-ideas-tiny-apartments",
+      textAfter: ". It includes no-purchase counter, refrigerator, and freezer staging options alongside processing methods."
+    },
   ],
 },
 {
@@ -1613,32 +1651,182 @@ export const posts: Post[] = [
   },
   {
     slug: "zero-waste-kitchen-ideas-tiny-apartments",
-    title: "Zero Waste Kitchen Ideas for Tiny Apartments",
+    title: "Apartment Composting Odor & Fruit Flies: A Small-Space Fix",
     excerpt:
-      "Realistic zero waste kitchen ideas for renters with two feet of counter space — storage, composting, and pantry swaps that actually fit.",
+      "Reset a smelly food-scrap bin, address fruit flies, and choose a counter, fridge, freezer, worm-bin, or bokashi routine that fits your apartment.",
     category: "zero-waste-kitchen",
-    date: "2026-06-22",
-    readingTime: "6 min read",
+    date: "2026-07-19",
+    readingTime: "10 min read",
     image: postKitchen,
-    imageAlt: "Zero waste kitchen counter with glass jars and fresh herbs",
-    tags: ["kitchen", "renters", "composting"],
+    imageAlt: "Illustrative small kitchen counter with fresh herbs beside a cutting board",
+    tags: ["apartment composting", "food scraps", "fruit flies", "renters"],
     toc: [
-      { id: "storage", label: "Storage when there's no pantry" },
-      { id: "compost", label: "Composting in a small apartment" },
-      { id: "swaps", label: "Pantry swaps that pay off" },
+      { id: "reset", label: "Reset a smelly or fly-prone bin" },
+      { id: "staging", label: "Staging is not composting" },
+      { id: "diagnose", label: "Match the symptom to the next check" },
+      { id: "method", label: "Choose a small-space method" },
+      { id: "routine", label: "Build the removal routine" },
+      { id: "clean", label: "Clean it without assuming a dishwasher" },
+      { id: "sources", label: "Sources and limits" },
     ],
     body: [
-      { type: "p", text: "These ideas focus on galley kitchens and studios, where counter, cabinet, and freezer space are limited." },
-      { type: "h2", id: "storage", text: "Storage when there's no pantry" },
-      { type: "p", text: "Reuse an intact food jar only when it is clean, dry, suitable for the food, and paired with a lid that still seals. Wash it by hand or in a dishwasher according to the jar and lid instructions, keep any cooking directions you still need, and place heavier jars on a stable cabinet shelf rather than an uncertain surface above the fridge." },
-      { type: "h2", id: "compost", text: "Composting in a small apartment" },
-      { type: "ul", items: [
-        "Use a small, tightly sealed, freezer-safe container if you have room; freezing can slow decomposition and help contain odors, but the container still needs leak checks and regular cleaning",
-        "Confirm a farmers' market, community garden, or municipal program accepts your specific scraps before storing them for drop-off",
-        "Consider a sealed bokashi system only after checking its space, upkeep, and required finishing or drop-off steps",
-      ]},
-      { type: "h2", id: "swaps", text: "Pantry swaps that pay off" },
-      { type: "p", text: "Possible swaps include bar dish soap, refillable cleaning concentrate, or reusable produce bags. Start with what solves a real need, use up suitable products you already own, and add one option at a time." },
+      {
+        type: "p",
+        text: "If the food-scrap bin already smells or a cloud of tiny flies appears when you open it, start with a reset—not a new gadget. Empty the scraps through a destination that currently accepts them, clean the container and the area around it, then change how long or where you hold the next batch.",
+      },
+      {
+        type: "p",
+        text: "No indoor setup is guaranteed odor-free or pest-free. The workable goal is a routine that keeps scraps contained, moves them out on a realistic cadence, and fits the counter, refrigerator, or freezer space you actually have.",
+      },
+      {
+        type: "p",
+        text: "Before choosing a method, identify the final destination: a building cart, municipal pickup, staffed drop-off, subscription service, maintained worm bin, or a verified place that can finish bokashi material. Accepted food, liners, and transfer rules vary by program.",
+      },
+      { type: "h2", id: "reset", text: "Reset a smelly or fly-prone bin" },
+      {
+        type: "ul",
+        items: [
+          "Move the current scraps to the destination that accepts them. If you do not have one, pause collection until you identify a workable route.",
+          "Wash the empty container with detergent and water, following its care instructions. Hand washing is a complete path; a dishwasher is only an option for dishwasher-safe parts.",
+          "Clean residue from the lid groove, handle, counter, cabinet floor, and nearby spills. Check other possible food sources, including overripe produce and residue around a drain or trash container.",
+          "Let the container dry, then inspect it and any reusable liner for cracks, failed seals, trapped liquid, or lingering residue.",
+          "For the next batch, shorten the time on the counter or move a compatible closed container to the refrigerator or freezer if space permits.",
+        ],
+      },
+      {
+        type: "linkP",
+        textBefore: "Public collection guidance from ",
+        linkText: "Portland",
+        href: "https://www.portland.gov/bps/garbage-recycling/home-recycling/compost-tips",
+        textAfter: " and Seattle supports regular emptying and detergent cleaning as practical controls, while local program rules still determine what belongs in the collection stream.",
+      },
+      { type: "h2", id: "staging", text: "First, separate staging from composting" },
+      {
+        type: "p",
+        text: "A countertop pail waiting for pickup is a collection container. It is not an active compost system, so advice about turning a pile or balancing greens and browns does not automatically apply. Its job is to contain scraps briefly and transfer them to the next step.",
+      },
+      {
+        type: "p",
+        text: "A worm bin is an active aerobic processing system with bedding, ventilation, moisture, and feeding limits. Bokashi is a sealed fermentation system. Those methods need their own maintenance and a plan for the material they produce.",
+      },
+      {
+        type: "linkP",
+        textBefore: "The ",
+        linkText: "U.S. EPA composting guide",
+        href: "https://www.epa.gov/recycle/composting-home",
+        textAfter: " defines composting as managed aerobic decomposition and distinguishes finished compost from food scraps that have only been collected or processed another way.",
+      },
+      { type: "h2", id: "diagnose", text: "Match the symptom to the next check" },
+      {
+        type: "table",
+        caption: "Apartment food-scrap bin troubleshooting",
+        headers: ["What you notice", "Check first", "Next bounded step"],
+        rows: [
+          ["Sour or rotten odor", "How long scraps have been warm; liquid or residue under the liner", "Empty through the verified route, wash and dry the pail, then shorten counter time or use cold staging."],
+          ["Tiny flies at the lid", "Loose lid, exposed scraps, residue in the rim, nearby produce or spills", "Remove and clean the food source, close the next batch, and transfer it sooner. A trap alone does not clean the source."],
+          ["Liquid on the shelf or floor", "Crack, tipped container, failed bag, wet scraps", "Contain the leak, clean the surface, and switch only to a container or liner permitted by the destination."],
+          ["Odor returns before collection day", "The pickup interval is longer than the container's comfortable staging interval", "Transfer to an outside cart more often if allowed, refrigerate or freeze a closed compatible container, or choose a more frequent destination."],
+          ["Active worm bin smells", "Excess food, blocked air holes, standing moisture, too little bedding", "Pause feeding and follow worm-bin guidance; add dry bedding or restore ventilation only for that system."],
+          ["Bokashi smells putrid rather than pickled", "Seal, compaction, liquid drainage, or inoculant instructions", "Follow the specific system instructions and verify a finishing route; do not treat the output as finished compost."],
+        ],
+      },
+      { type: "h2", id: "method", text: "Choose a small-space method by destination and upkeep" },
+      {
+        type: "table",
+        caption: "Small-space food-scrap method comparison",
+        headers: ["Method", "What it does", "Best fit", "Tradeoff to plan for"],
+        rows: [
+          ["Closed counter pail", "Stages scraps for transfer", "A short, reliable removal cadence", "Warm scraps and residue may require more frequent emptying and cleaning."],
+          ["Refrigerator container", "Cold-stages scraps", "Some shelf space and a route that accepts the stored material", "Uses food-storage space and still needs a closed, leak-resistant, washable container."],
+          ["Freezer-safe container", "Slows microbial activity while staging scraps", "Enough freezer room and less frequent transfer", "Does not sterilize scraps; the container must be freezer-safe and cleaned after emptying."],
+          ["Worm bin", "Processes selected scraps aerobically", "Room for bedding and ongoing bin care", "Feeding, moisture, airflow, temperature, and accepted inputs need active management."],
+          ["Bokashi system", "Ferments food in a sealed container", "A renter with a verified finishing route", "Requires inoculant, system upkeep, and a destination for acidic pre-compost."],
+        ],
+      },
+      {
+        type: "linkP",
+        textBefore: "USDA explains that ",
+        linkText: "freezing slows microbial activity rather than destroying every microbe",
+        href: "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/freezing-and-food-safety",
+        textAfter: ". Long Beach and Portland list freezer staging as an odor-control option in their own collection programs. That supports a cautious “may help,” not a no-smell promise.",
+      },
+      { type: "h3", id: "worm-bin", text: "If you want to process scraps in a worm bin" },
+      {
+        type: "p",
+        text: "Treat the worm bin as a living system, not a storage bucket. Bury accepted scraps in bedding, avoid overfeeding, and respond to standing moisture or blocked ventilation using worm-bin instructions. Do not copy a curbside program's accepted-material list into a worm bin.",
+      },
+      {
+        type: "linkP",
+        linkText: "Oregon Metro's worm-bin troubleshooting",
+        href: "https://www.oregonmetro.gov/waste-disposal-and-prevention/healthy-living-and-waste-reduction/healthy-gardening/composting",
+        textAfter: " separates odor, fruit-fly, moisture, and ventilation checks for that specific system.",
+      },
+      { type: "h3", id: "bokashi", text: "If you are considering bokashi" },
+      {
+        type: "linkP",
+        textBefore: "Washington State University Extension describes ",
+        linkText: "bokashi as anaerobic fermentation",
+        href: "https://extension.wsu.edu/kitsap/bokashi-composting/",
+        textAfter: ". The result is pre-compost, not finished compost. Confirm where you can bury or finish it before buying a system; an apartment lease or a collection service should not be assumed to provide that route.",
+      },
+      { type: "h2", id: "routine", text: "Build the removal routine around a real destination" },
+      {
+        type: "ul",
+        items: [
+          "Write down the destination, access hours or pickup day, and the current accepted-materials page.",
+          "Check whether the program permits paper, certified compostable bags, no liner, or another specific transfer method. “Compostable” on a package is not permission from the destination.",
+          "Choose a container location and size by the space you can spare and how often you can empty it—not by an unsupported household-size formula.",
+          "Set the transfer cue before the container is full: after dinner on a pickup eve, when leaving for a regular errand, or on another repeatable schedule.",
+          "Keep a fallback. If access changes, pause scraps collection or use an approved waste route rather than storing an indefinite backlog indoors.",
+        ],
+      },
+      {
+        type: "p",
+        text: "Roommates or housemates can agree on the destination, what goes in, who transfers it, and what happens when the container leaks or smells. That is a practical coordination suggestion, not evidence that one routine works for every shared home.",
+      },
+      { type: "h2", id: "clean", text: "Clean the container with or without a dishwasher" },
+      {
+        type: "p",
+        text: "Empty the container, remove any filter or detachable part according to its instructions, wash with mild detergent and water, rinse, and let it dry before adding new scraps. Hand washing is sufficient when done according to the container's care instructions. Use a dishwasher only when every part you put inside is labeled dishwasher-safe.",
+      },
+      {
+        type: "linkP",
+        textBefore: "Austin's public ",
+        linkText: "food-scrap collector instructions",
+        href: "https://www.austintexas.gov/sites/default/files/files/Trash_and_Recycling/organics_pilot/OrganicsPilot_UsingFoodScrapCollector.pdf",
+        textAfter: " explicitly include both hand washing with mild soap and water and a dishwasher path. This article keeps both so the setup does not depend on owning a dishwasher.",
+      },
+      { type: "h2", id: "sources", text: "Sources, context, and what this guide does not claim" },
+      {
+        type: "p",
+        text: "Technical guidance was checked against U.S. EPA and USDA material, university composting guidance, and official local collection programs. Local pages are examples of bounded practices, not nationwide rules. This guide does not promise zero odor, guarantee pest prevention, provide tenant-rights advice, or recommend a universal container capacity.",
+      },
+      {
+        type: "linkP",
+        textBefore: "The complete ",
+        linkText: "ETLH editorial and corrections policy",
+        href: "/editorial-policy",
+        textAfter: " explains how to flag a source or passage that should be reviewed.",
+      },
+      { type: "h2", id: "next-step", text: "Choose one next Eco Step" },
+      {
+        type: "p",
+        text: "Do one reset and one cadence change: wash and dry the current container, then decide exactly when the next batch leaves the apartment. If that still fails, change the staging location or destination before buying another bin.",
+      },
+      {
+        type: "linkP",
+        textBefore: "For the kitchen around the bin, use the ",
+        linkText: "small-apartment pantry visibility guide",
+        href: "/blog/zero-waste-pantry-organization-small-apartments",
+        textAfter: " to keep use-first food visible without treating containers as the whole solution.",
+      },
+      {
+        type: "linkP",
+        textBefore: "If most scraps begin as forgotten ingredients, continue with ",
+        linkText: "practical low-waste food-use habits",
+        href: "/blog/low-waste-kitchen-tips-chef-habits",
+        textAfter: " before evaluating a purchase.",
+      },
     ],
   },
   {
@@ -1707,7 +1895,16 @@ export function getPost(slug: string): Post | undefined {
 }
 
 export function getPostsByCategory(slug: CategorySlug): Post[] {
-  return posts.filter((p) => p.category === slug);
+  const categoryPosts = posts.filter((p) => p.category === slug);
+
+  if (slug !== "zero-waste-kitchen") return categoryPosts;
+
+  const startHereSlug = "zero-waste-kitchen-ideas-tiny-apartments";
+  return [...categoryPosts].sort((a, b) => {
+    if (a.slug === startHereSlug) return -1;
+    if (b.slug === startHereSlug) return 1;
+    return 0;
+  });
 }
 
 export function getCategory(slug: string): Category | undefined {

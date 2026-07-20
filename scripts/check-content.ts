@@ -91,6 +91,25 @@ for (const post of posts) {
       if (!block.items || block.items.length === 0) fail(`${label} contains an empty list block.`);
       continue;
     }
+    if (block.type === "linkP") {
+      if (!nonEmpty(block.linkText)) fail(`${label} contains a link paragraph with no anchor text.`);
+      if (!nonEmpty(block.href) || !/^(?:https:\/\/|\/)/.test(block.href))
+        fail(`${label} contains a link paragraph with an invalid URL.`);
+      continue;
+    }
+    if (block.type === "table") {
+      if (!nonEmpty(block.caption)) fail(`${label} contains a table with no accessible caption.`);
+      if (block.headers.length === 0 || block.headers.some((header) => !nonEmpty(header)))
+        fail(`${label} contains a table with missing headers.`);
+      if (
+        block.rows.length === 0 ||
+        block.rows.some(
+          (row) => row.length !== block.headers.length || row.some((cell) => !nonEmpty(cell)),
+        )
+      )
+        fail(`${label} contains an empty or uneven table row.`);
+      continue;
+    }
     if (!block.text || !nonEmpty(block.text))
       fail(`${label} contains an empty ${block.type} block.`);
   }

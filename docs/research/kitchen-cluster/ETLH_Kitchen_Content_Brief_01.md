@@ -3,13 +3,13 @@
 ## Brief status
 
 - **Brief ID:** ETLH-KITCHEN-01
-- **Working title:** Apartment Composting in a Small Space: Prevent and Troubleshoot Odor
+- **Working title:** Apartment Composting Odor & Fruit Flies: A Small-Space Fix
 - **Proposed slug:** `zero-waste-kitchen-ideas-tiny-apartments` (retain the existing URL)
-- **Status:** Refresh existing article; ready for editorial review, not approved for publication
+- **Status:** Owner-approved first content cycle; authoritative claim map complete; implemented for publication review
 - **Created:** 2026-07-19
 - **Last reviewed:** 2026-07-19
-- **Owner approval required:** Yes
-- **Owner decision recorded:** No final cluster approval is recorded. The decision memo is a recommendation.
+- **Owner approval required:** Recorded for this first content cycle only
+- **Owner decision recorded:** Yes, 2026-07-19. The owner approved “Small-space zero-waste kitchen → apartment composting logistics, led by odor/fruit-fly troubleshooting.” This does not permanently approve the architecture or later cluster cycles.
 
 ## Source research packet
 
@@ -17,7 +17,8 @@
 - **Research documents:** `ETLH_Kitchen_Cluster_Decision_Memo.md`, `cluster1_deep_validation.md`, `etlh_firsthand_evidence.csv`, and `ETLH_Content_Cluster_Evidence_Packet.md`
 - **Search-result review date:** 2026-07-19
 - **Existing-content audit date:** 2026-07-19
-- **Unresolved evidence gaps:** no measured volume or ranking difficulty; no captured PAA/related-search data; method-specific odor and fruit-fly fixes still need authoritative technical sources before article drafting; no original apartment setup photos or capacity test
+- **Authoritative claim map:** `ETLH_KITCHEN_01_AUTHORITATIVE_SOURCE_MAP.md`
+- **Unresolved evidence gaps:** no measured volume or ranking difficulty; no captured PAA/related-search data; no original apartment setup photos or capacity test. These gaps limit demand, image-proof, and capacity claims but do not block the bounded refresh.
 
 ## 1. Reader problem
 
@@ -82,8 +83,8 @@
 - **Cannibalization risk:** High if a new cornerstone duplicates the existing tiny-apartment article
 - **Decision:** refresh the existing article in place; do not create a second page or redirect yet
 - **Proposed cluster:** Small-space zero-waste kitchen → apartment composting logistics, odor-led
-- **Cluster status:** Candidate; recommendation only
-- **Article role:** Cornerstone refresh candidate
+- **Cluster status:** Approved for this first content cycle; future architecture remains provisional
+- **Article role:** First troubleshooting-led entry path for the approved cycle
 
 ## 4. Article promise and scope
 
@@ -123,11 +124,11 @@ Claims not permitted:
 
 | Planned claim | Required source | Status |
 |---|---|---|
-| Odor/fruit-fly causes and safe remediation steps | Government, university extension, or other authoritative composting guidance | Pending—must resolve before drafting |
-| Cleaning and sanitizing container materials | Manufacturer care instructions plus authoritative food/waste-container guidance as applicable | Pending |
-| Freezing slows decomposition and changes odor/pest risk | Authoritative technical source | Pending |
-| Bokashi process and required finishing step | University extension, government, or primary technical documentation | Pending |
-| A named program accepts named scraps | Current official local-program page | Verify per example or omit |
+| Odor/fruit-fly causes and bounded remediation steps | EPA; Cornell; Portland, Seattle, and Charleston public-program guidance | Resolved with system boundaries in source map |
+| Cleaning a collection container | Austin and Seattle public guidance; manufacturer care remains controlling | Resolved for hand-wash and dishwasher-compatible paths |
+| Freezing slows microbial activity and can change odor/pest exposure | USDA FSIS plus Long Beach and Portland program guidance | Resolved without sterilization or guarantee language |
+| Bokashi process and required finishing step | Washington State University Extension | Resolved; described as fermentation and pre-compost |
+| A named program accepts named scraps | Current official local-program page | No acceptance list generalized; readers directed to their actual program |
 | Renters report odor, flies, leaks, and space constraints | Stored first-person records | Verified for problem framing only |
 
 California's SB 1383 page may be cited only if a narrowly scoped California section is later approved. It is not needed for this first refresh and should not be used to imply national rights.
@@ -194,4 +195,4 @@ California's SB 1383 page may be cited only if a narrowly scoped California sect
 
 ## Publication gate
 
-Do not publish the full refresh until the pending technical claims have authoritative sources, original troubleshooting guidance is source-mapped, the rendered page passes accessibility and Lighthouse checks, and a final editorial decision records whether this candidate cluster is approved.
+Publish only after repository CI, rendered accessibility, Lighthouse, preview deployment, and final production checks pass. The technical claims are now source-mapped and owner approval is recorded for this cycle.

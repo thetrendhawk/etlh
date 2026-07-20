@@ -182,6 +182,59 @@ function PostPage() {
                   ))}
                 </ul>
               );
+            if (block.type === "linkP")
+              return (
+                <p key={i}>
+                  {block.textBefore}
+                  <a
+                    href={block.href}
+                    className="text-moss underline underline-offset-4 hover:text-moss-dark"
+                  >
+                    {block.linkText}
+                  </a>
+                  {block.textAfter}
+                </p>
+              );
+            if (block.type === "table")
+              return (
+                <div
+                  key={i}
+                  role="region"
+                  aria-label={block.caption}
+                  tabIndex={0}
+                  className="overflow-x-auto rounded-2xl border border-earth-900/10 bg-white focus:outline-none focus:ring-2 focus:ring-moss/50"
+                >
+                  <table className="w-full min-w-[640px] border-collapse text-left text-sm leading-relaxed">
+                    <caption className="sr-only">{block.caption}</caption>
+                    <thead className="bg-moss/5">
+                      <tr>
+                        {block.headers.map((header) => (
+                          <th key={header} scope="col" className="px-4 py-3 font-semibold text-earth-900">
+                            {header}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {block.rows.map((row, rowIndex) => (
+                        <tr key={rowIndex} className="border-t border-earth-900/10 align-top">
+                          {row.map((cell, cellIndex) =>
+                            cellIndex === 0 ? (
+                              <th key={cellIndex} scope="row" className="px-4 py-3 font-medium text-earth-900">
+                                {cell}
+                              </th>
+                            ) : (
+                              <td key={cellIndex} className="px-4 py-3 text-earth-900/75">
+                                {cell}
+                              </td>
+                            ),
+                          )}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              );
             return <p key={i}>{block.text}</p>;
           })}
         </div>

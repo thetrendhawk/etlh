@@ -85,6 +85,15 @@ check_legacy_redirect() {
   pass "Legacy thrwds.com host redirects $path to the preferred host"
 }
 
+check_legacy_head_redirect() {
+  local path="$1"
+  local expected="$production_origin$path"
+  local result
+  result=$(curl --silent --show-error --max-time 20 --head --user-agent "$user_agent" "${legacy_resolve_args[@]}" --output /dev/null --write-out '%{http_code} %{redirect_url}' "https://$legacy_host$path")
+  [[ "$result" == "308 $expected" || "$result" == "301 $expected" ]] || fail "Legacy HEAD $path returned $result; expected a permanent redirect to $expected."
+  pass "Legacy HEAD $path redirects to the preferred host"
+}
+
 check_http_to_https() {
   local path="$1"
   local expected="$production_origin$path"
@@ -166,6 +175,13 @@ check_redirect "/About" "$production_origin/about"
 check_redirect "/privacy/" "$production_origin/privacy"
 check_alias_redirect "/editorial-policy?source=smoke"
 check_legacy_redirect "/contact?source=legacy-smoke"
+check_legacy_redirect "/"
+check_legacy_redirect "/resources"
+check_legacy_redirect "/blog/zero-waste-kitchen-ideas-tiny-apartments"
+check_legacy_redirect "/this-legacy-route-must-not-exist-etlh-smoke?source=legacy&value=1"
+check_legacy_redirect "/encoded-%6dissing-route?source=encoded"
+check_legacy_head_redirect "/"
+check_legacy_head_redirect "/resources"
 check_http_to_https "/privacy?source=http-smoke"
 check_asset "/favicon.svg" "image/svg\+xml"
 check_security_headers

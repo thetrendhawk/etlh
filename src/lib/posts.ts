@@ -3,7 +3,6 @@ import decorCategoryImage from "@/assets/cat-decor.jpg";
 import habitsCategoryImage from "@/assets/cat-habits.jpg";
 import apartmentImage from "@/assets/hero-apartment.jpg";
 import postChecklist from "@/assets/post-checklist.jpg";
-import decorPin1 from "@/assets/DecorPin1.webp";
 
 
 
@@ -501,159 +500,173 @@ export const posts: Post[] = [
 },
 {
   slug: "sustainable-small-apartment-decor-before-after",
-  title: "Sustainable Small Apartment Decor: Before & After on a Budget",
+  title: "Illustrative Small-Apartment Room Reset Plan",
   excerpt:
-    "Walk through a real before-and-after transformation that turns a cluttered small apartment into a calm, sustainable space for under $300.",
+    "Use an illustrative room scenario to organize layout, storage, lighting, and purchase-pause decisions without treating it as a documented transformation.",
   category: "small-apartment-decor",
   date: "2026-06-22",
   readingTime: "7 min read",
-  image: decorPin1, // import this in your file
+  image: decorCategoryImage,
   imageAlt:
-    "Before-and-after photos of a small apartment living room styled with sustainable decor.",
+    "Illustrative small apartment bedroom with natural wood furniture, plants, warm lighting, and layered textiles.",
   tags: [
-    "sustainable small apartment decor",
-    "small space eco decor",
-    "tiny apartment makeover",
-    "budget eco home decor"
+    "illustrative room reset",
+    "small apartment planning",
+    "use what you have",
+    "renter-aware decor"
   ],
   toc: [
-    { id: "the-before", label: "The Before: What Wasn’t Working" },
-    { id: "goals-budget", label: "Goals and Budget for the Makeover" },
-    { id: "step-1-declutter-layout", label: "Step 1: Declutter and Rethink Layout" },
-    { id: "step-2-key-furniture", label: "Step 2: Choose Key Sustainable Furniture Pieces" },
-    { id: "step-3-textiles-lighting", label: "Step 3: Textiles and Lighting for a Cozy Feel" },
-    { id: "step-4-plants-storage", label: "Step 4: Plants, Storage, and Final Details" }
+    { id: "illustrative-starting-point", label: "An Illustrative Starting Point" },
+    { id: "set-priorities", label: "Set Priorities Before Buying" },
+    { id: "test-layout", label: "Test the Layout Without Buying" },
+    { id: "evaluate-furniture", label: "Evaluate Furniture You Already Have" },
+    { id: "lighting-textiles", label: "Use Lighting and Textiles With Restraint" },
+    { id: "storage-details", label: "Add Storage Only When It Fits" }
   ],
   body: [
     {
       type: "p",
       text:
-        "This small apartment living room started out as a typical rental: harsh overhead lighting, random furniture, and visible plastic storage that made the space feel crowded and chaotic."
+        "This is an illustrative room-reset planning example, not a documented before-and-after project. The scenario and imagery are examples for organizing decisions; no real apartment transformation, measurements, photos, receipts, or observed result are being presented."
     },
     {
       type: "p",
       text:
-        "By focusing on a few sustainable choices—thrifted furniture, natural materials, better storage, and plants—we turned it into a calm, eco-conscious space on a budget under $300."
+        "Use the scenario to review what is fixed, what can move, what reversible changes can be tested without buying, and what would require household agreement or landlord/building permission. Restoring the original arrangement or doing nothing are valid outcomes."
     },
 
     {
       type: "h2",
-      id: "the-before",
-      text: "The Before: What Wasn’t Working"
+      id: "illustrative-starting-point",
+      text: "An Illustrative Starting Point"
     },
     {
       type: "p",
       text:
-        "The room had decent natural light and a good layout, but several issues made it feel smaller than it was: a bulky dark sofa, scattered plastic drawers, no clear focal point, and a tangle of cords around the TV."
+        "Imagine a rental living room with decent natural light, a sofa that interrupts a preferred route, scattered storage, and cords that need a safer home. These are planning prompts, not facts about a real room."
     },
     {
       type: "ul",
       items: [
-        "Mismatched, low-quality furniture that took up valuable floor space.",
-        "No defined living zone, so the eye didn’t know where to rest.",
-        "Plastic storage bins stacked in corners, adding visual and physical clutter.",
-        "Only overhead lighting, which made the room feel flat and harsh at night."
+        "Furniture placement that makes one route harder to use.",
+        "Loose items without an obvious place to return to.",
+        "Storage pieces whose footprint needs to be checked against access.",
+        "A lighting setup that may not support the room’s actual tasks."
       ]
     },
 
     {
       type: "h2",
-      id: "goals-budget",
-      text: "Goals and Budget for the Makeover"
+      id: "set-priorities",
+      text: "Set Priorities Before Buying"
     },
     {
       type: "p",
       text:
-        "The goal was not perfection; it was a livable, sustainable reset. We set a hard budget of $300 and decided to prioritize comfort, function, and lower-waste choices."
+        "Start with the room’s actual tasks and constraints. Costs vary by location and what you already own, so this example does not promise a budget or outcome."
     },
     {
       type: "ul",
       items: [
-        "Keep as much as possible out of the landfill by selling, donating, or repurposing old pieces.",
-        "Buy secondhand where we could, and choose natural or long-lasting materials.",
-        "Create a layout that made the room feel open, with clear walking paths and a cozy seating zone."
+        "Reuse, repair, relocate, or pause before considering replacement.",
+        "Measure the room and furniture before bringing anything new home.",
+        "List the one or two functions a change must support, including access and household needs."
       ]
     },
 
     {
       type: "h2",
-      id: "step-1-declutter-layout",
-      text: "Step 1: Declutter and Rethink Layout"
+      id: "test-layout",
+      text: "Test the Layout Without Buying"
     },
     {
       type: "p",
       text:
-        "We removed everything that wasn’t essential, then brought items back with intention. This alone made the room feel 30% bigger."
+        "Use a paper sketch, painter’s tape, or a temporary rearrangement to compare options. This is a test, not proof that the room will feel larger, calmer, or more functional."
     },
     {
       type: "ul",
       items: [
-        "Pulled all loose items and extra storage out of the living room and sorted into keep, donate, and sell piles.",
-        "Shifted the seating area so the sofa faced the window and a single focal wall, instead of the TV dominating the room.",
-        "Left open space near the entry to avoid the “wall of furniture” effect when walking in."
+        "Mark furniture footprints, doors, windows, heaters, vents, outlets, and the route used most often.",
+        "Try one arrangement with current furniture and observe access, cleaning, charging, and shared use.",
+        "Restore the original arrangement if the test adds work or creates an access or safety problem."
       ]
     },
 
     {
       type: "h2",
-      id: "step-2-key-furniture",
-      text: "Step 2: Choose Key Sustainable Furniture Pieces"
+      id: "evaluate-furniture",
+      text: "Evaluate Furniture You Already Have"
     },
     {
       type: "p",
       text:
-        "Instead of buying a full set of new furniture, we identified the two pieces that would make the biggest difference: a smaller sofa and a coffee table with storage."
+        "Before replacing anything, identify the specific function or footprint problem. A purchase is optional and should follow a verified need, not a material label or trend."
     },
     {
       type: "ul",
       items: [
-        "Replaced the bulky dark sofa with a compact, secondhand loveseat in a light neutral fabric.",
-        "Found a thrifted wooden coffee table with a lower shelf for books and baskets, doubling as hidden storage.",
-        "Moved an existing shelving unit to a single wall and used it as a minimal media and decor center instead of scattered surfaces."
+        "Check whether current seating can move without blocking required paths or access.",
+        "Compare any possible table or storage piece by footprint, cleaning, installation, return terms, and household use.",
+        "Do not drill, mount, anchor, alter wiring, or move a heater without lease, building, manufacturer, and safety checks."
       ]
     },
 
     {
       type: "h2",
-      id: "step-3-textiles-lighting",
-      text: "Step 3: Textiles and Lighting for a Cozy Feel"
+      id: "lighting-textiles",
+      text: "Use Lighting and Textiles With Restraint"
     },
     {
       type: "p",
       text:
-        "Textiles and lighting do most of the visual work in a small living room. We swapped a few key pieces to make the room feel warm and calm instead of busy."
+        "Treat lighting and textiles as optional choices to test against care, access, glare, ventilation, and the room’s actual use. They do not establish a wellbeing or spatial outcome."
     },
     {
       type: "ul",
       items: [
-        "Added a light, natural fiber rug to anchor the seating area and reflect light.",
-        "Swapped an old plastic floor lamp for a warm-toned lamp with a linen shade, and used a soft, energy-efficient bulb.",
-        "Layered in a couple of neutral cushion covers and a cotton throw blanket instead of buying new pillows."
+        "Use a rug only when it does not create a trip or maintenance problem.",
+        "Use existing lamps or fixtures according to manufacturer instructions and do not alter electrical fittings.",
+        "Refresh usable cushions with washable covers or leave them unchanged if that is the better fit."
       ]
     },
 
     {
       type: "h2",
-      id: "step-4-plants-storage",
-      text: "Step 4: Plants, Storage, and Final Details"
+      id: "storage-details",
+      text: "Add Storage Only When It Fits"
     },
     {
       type: "p",
       text:
-        "Finally, we brought in green life and smarter storage so daily clutter had a home and surfaces didn’t fill up again right away."
+        "Finish only after the layout test identifies a real storage need. A plant, basket, or wall detail is optional and does not prove a room is healthier, calmer, or more sustainable."
     },
     {
       type: "ul",
       items: [
-        "Placed two medium plants near the window and a small one on the coffee table to bring in color and texture.",
-        "Used lidded baskets on the bottom shelf of the coffee table and shelving unit to hide remotes, cables, and misc items.",
-        "Hung one simple piece of art above the sofa instead of multiple small frames to keep the wall clean and calm."
+        "Choose a plant only when light, care, household, and pet-safety needs make it appropriate.",
+        "Use one existing basket or container for items that otherwise spread across surfaces.",
+        "Leave a wall open or add one item only when it serves the room’s actual use; do not install without permission and safe anchoring."
       ]
     },
     {
       type: "p",
       text:
-        "The final result is a living room that feels larger, brighter, and more intentional—built from a mix of secondhand finds, natural materials, and smarter storage instead of a cart full of brand-new decor."
+        "This illustrative example is a planning sequence, not proof that one look, product list, or budget works for every apartment. Keep the test, revise it, restore the original arrangement, or do nothing."
+    },
+    {
+      type: "linkP",
+      textBefore: "For measurement and pathway planning, see the ",
+      linkText: "small living room layout planning guide",
+      href: "/blog/sustainable-tiny-living-room-layout-ideas",
+      textAfter: "."
+    },
+    {
+      type: "linkP",
+      textBefore: "For a shorter no-purchase reset, see the ",
+      linkText: "small-apartment reset checklist",
+      href: "/blog/eco-friendly-small-apartment-weekend-checklist",
+      textAfter: "."
     }
   ]
 },

@@ -90,7 +90,7 @@ External Perplexity research must be reviewed before cluster-led production orde
 ### 4. Sustainable Small Apartment Decor: A Practical Room Reset Plan
 
 - **Slug/category:** `sustainable-small-apartment-decor-before-after` — Small Apartment Decor; current presentation is supplied by `postPresentation.ts`.
-- **Current hero quality:** **P2.** `cat-decor.jpg` is truthfully labeled illustrative and no longer presents the legacy before/after/$300 graphic. It is reusable but heavily staged and also serves the homepage decor category.
+- **Current hero quality:** **Repaired.** The obsolete `DecorPin1.webp` before/after graphic is preserved as a source artifact but no longer imported or emitted. `cat-decor.jpg` is reused with aligned illustrative source and presentation alt text.
 - **Missing explanatory visuals:** A room-reset sequence focused on circulation, loose-item homes, lighting, and purchase pauses.
 - **Missing diagrams:** An illustrative traffic-flow plan with blocked and clear pathways; no implication that it depicts a completed ETLH project.
 - **Missing tables:** “Keep / relocate / repair / release / buy only if needed” decision table.

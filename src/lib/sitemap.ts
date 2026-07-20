@@ -1,6 +1,7 @@
 import { categories, posts } from "@/lib/posts";
+import { SITE_ORIGIN } from "@/lib/site";
 
-export const SITE_ORIGIN = "https://ecotinylivinghub.thrwds.com";
+export { SITE_ORIGIN };
 
 export interface SitemapEntry {
   loc: string;

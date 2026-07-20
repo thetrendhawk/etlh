@@ -16,10 +16,14 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { buildSitemapXml, SITE_ORIGIN } from "../src/lib/sitemap";
+import { SITE_ORIGIN as CANONICAL_SITE_ORIGIN } from "../src/lib/site";
 import { categories, posts } from "../src/lib/posts";
 
 const failures: string[] = [];
 const fail = (msg: string) => failures.push(msg);
+const AUTHORITATIVE_ORIGIN = "https://ecotinylivinghub.com";
+if (SITE_ORIGIN !== AUTHORITATIVE_ORIGIN) fail(`Sitemap origin drifted from ${AUTHORITATIVE_ORIGIN}: ${SITE_ORIGIN}`);
+if (SITE_ORIGIN !== CANONICAL_SITE_ORIGIN) fail(`Sitemap and canonical origins disagree: ${SITE_ORIGIN} vs ${CANONICAL_SITE_ORIGIN}`);
 
 const publicDir = join(process.cwd(), "public");
 const staticSitemaps = existsSync(publicDir)
@@ -55,6 +59,9 @@ if (locs.length !== openUrlCount) {
 
 for (const loc of locs) {
   if (!loc.startsWith(`${SITE_ORIGIN}/`)) fail(`Relative or non-production <loc>: ${loc}`);
+  if (/ecotinylivinghub\.thrwds\.com|vercel\.app|localhost|127\.0\.0\.1|preview/i.test(loc)) {
+    fail(`Legacy, preview, or local host in sitemap: ${loc}`);
+  }
 }
 
 const seen = new Set<string>();
@@ -98,8 +105,12 @@ if (!existsSync(robotsPath)) {
   fail("public/robots.txt not found.");
 } else {
   const robots = readFileSync(robotsPath, "utf8");
-  if (!robots.includes(`Sitemap: ${SITE_ORIGIN}/sitemap.xml`)) {
+  const robotsLines = robots.split(/\r?\n/).map((line) => line.trim());
+  if (!robotsLines.includes(`Sitemap: ${AUTHORITATIVE_ORIGIN}/sitemap.xml`)) {
     fail(`public/robots.txt is missing the line: Sitemap: ${SITE_ORIGIN}/sitemap.xml`);
+  }
+  if (robotsLines.some((line) => /^(sitemap:|sitemap\s*=)/i.test(line) && !line.includes(`${AUTHORITATIVE_ORIGIN}/sitemap.xml`))) {
+    fail("public/robots.txt declares a non-authoritative sitemap host.");
   }
 }
 

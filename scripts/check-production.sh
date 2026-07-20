@@ -136,6 +136,15 @@ check_sitemap() {
   if grep -o '<loc>[^<]*</loc>' "$body" | grep -Fv "<loc>$production_origin/" >/dev/null; then
     fail "Sitemap contains a URL outside the preferred production origin."
   fi
+  grep -Eiq '<loc>[^<]*(ecotinylivinghub\.thrwds\.com|vercel\.app|localhost|127\.0\.0\.1|preview)' "$body" && fail "Sitemap contains a legacy, preview, or local hostname."
+  local robots
+  robots=$(mktemp)
+  fetch_body "/robots.txt" "$robots"
+  grep -Fqx "Sitemap: $production_origin/sitemap.xml" "$robots" || fail "robots.txt does not point to the preferred production sitemap."
+  if grep -Eiq '^Sitemap:' "$robots" && ! grep -Fqx "Sitemap: $production_origin/sitemap.xml" "$robots"; then
+    fail "robots.txt declares a non-preferred sitemap host."
+  fi
+  rm -f "$robots"
   rm -f "$body"
   pass "sitemap.xml contains $total unique preferred-host URLs"
 }

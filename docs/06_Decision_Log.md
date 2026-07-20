@@ -43,4 +43,5 @@ Active.
 |---|---|---|
 | v1.0 | 2026-07-15 | Replaced the empty scaffold with reconciled durable decisions and provenance notes. |
 | v1.1 | 2026-07-15 | Added the sitemap-integrity decision (dynamic sitemap made authoritative). |
+| v1.2 | 2026-07-20 | Corrected the dynamic sitemap origin to the canonical `https://ecotinylivinghub.com` host; legacy `.thrwds.com` remains redirect-only and is now regression-checked. |
 | v1.2 | 2026-07-15 | Added the GA4 analytics implementation decision. |

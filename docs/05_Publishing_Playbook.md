@@ -18,7 +18,7 @@ Active — sitemap, robots, and analytics operations.
 
 - The dynamic route `src/routes/sitemap[.]xml.ts` is the single authoritative source of `/sitemap.xml`. It builds the sitemap from `src/lib/sitemap.ts`, which derives every URL from the live content source (`src/lib/posts.ts`).
 - `public/sitemap.xml` was deleted on 2026-07-15 and must not be recreated. A static file in `public/` silently shadows the dynamic route on Vercel and will go stale.
-- `public/robots.txt` must always contain the line: `Sitemap: https://ecotinylivinghub.thrwds.com/sitemap.xml`
+- `public/robots.txt` must always contain the line: `Sitemap: https://ecotinylivinghub.com/sitemap.xml`
 - New posts and categories added to `src/lib/posts.ts` appear in the sitemap automatically. No sitemap edit is required when publishing website content.
 
 ### Verification command
@@ -33,14 +33,14 @@ The check fails when: a static sitemap exists in `public/`, output is non-determ
 
 ### Preview checks (before promoting a deployment)
 
-- `/sitemap.xml` returns 200 with an XML content type and only fully qualified `https://ecotinylivinghub.thrwds.com/...` URLs.
+- `/sitemap.xml` returns 200 with an XML content type and only fully qualified `https://ecotinylivinghub.com/...` URLs.
 - `/robots.txt` returns 200 and includes the Sitemap line.
 - `/`, one representative article, and one representative category return 200.
 - An unknown path still returns 404.
 
 ### Search Console
 
-After a sitemap change reaches production, resubmit `https://ecotinylivinghub.thrwds.com/sitemap.xml` in Google Search Console (Sitemaps section) so the updated inventory is recrawled promptly.
+After a sitemap change reaches production, resubmit `https://ecotinylivinghub.com/sitemap.xml` in Google Search Console (Sitemaps section) so the updated inventory is recrawled promptly.
 
 ### Rollback
 
@@ -82,4 +82,5 @@ Revert the GA4 implementation commit and redeploy. Confirm in production HTML/ne
 | Version | Date | Notes |
 |---|---|---|
 | v0.1 | 2026-07-15 | Added sitemap and robots operations (sitemap integrity slice). All other publishing procedures remain TBD. |
+| v0.2 | 2026-07-20 | Corrected sitemap and robots canonical host to `ecotinylivinghub.com`; legacy aliases remain redirect-only. |
 | v0.2 | 2026-07-15 | Added GA4 implementation, verification, preview-exclusion, privacy-review, and rollback procedures. |

@@ -19,11 +19,11 @@ const illustrativeAlt = {
 } as const;
 
 const roomResetPost: Partial<Post> = {
-  title: "Sustainable Small Apartment Decor: A Practical Room Reset Plan",
+  title: "Illustrative Small-Apartment Room Reset Plan",
   excerpt:
-    "Use this illustrative room-reset plan to make a cluttered small apartment feel calmer with layout changes, secondhand options, and smarter storage.",
+    "Use an illustrative room scenario to organize layout, storage, lighting, and purchase-pause decisions without treating it as a documented transformation.",
   image: decorCategoryImage,
-  imageAlt: illustrativeAlt.decor,
+  imageAlt: "Illustrative small apartment bedroom with natural wood furniture, plants, warm lighting, and layered textiles.",
   tags: [
     "sustainable small apartment decor",
     "small space eco decor",
@@ -31,18 +31,18 @@ const roomResetPost: Partial<Post> = {
     "budget eco home decor",
   ],
   toc: [
-    { id: "starting-point", label: "A Common Small-Room Starting Point" },
-    { id: "goals-budget", label: "Set Priorities Before Setting a Budget" },
-    { id: "step-1-declutter-layout", label: "Step 1: Declutter and Rethink the Layout" },
+    { id: "illustrative-starting-point", label: "An Illustrative Starting Point" },
+    { id: "set-priorities", label: "Set Priorities Before Buying" },
+    { id: "test-layout", label: "Test the Layout Without Buying" },
     {
-      id: "step-2-key-furniture",
-      label: "Step 2: Evaluate the Furniture You Actually Need",
+      id: "evaluate-furniture",
+      label: "Evaluate Furniture You Already Have",
     },
     {
-      id: "step-3-textiles-lighting",
-      label: "Step 3: Use Textiles and Lighting With Restraint",
+      id: "lighting-textiles",
+      label: "Use Lighting and Textiles With Restraint",
     },
-    { id: "step-4-plants-storage", label: "Step 4: Add Storage and Finishing Details" },
+    { id: "storage-details", label: "Add Storage Only When It Fits" },
   ],
   body: [
     {
@@ -53,7 +53,7 @@ const roomResetPost: Partial<Post> = {
       type: "p",
       text: "The useful idea is not to copy a finished look. It is to work through the room in a practical order: remove what is creating friction, improve the layout, reuse what already works, and replace only what clearly earns its place.",
     },
-    { type: "h2", id: "starting-point", text: "A Common Small-Room Starting Point" },
+    { type: "h2", id: "illustrative-starting-point", text: "An Illustrative Starting Point" },
     {
       type: "p",
       text: "Imagine a rental living room with decent natural light but a few recurring problems: furniture blocks the easiest walking path, small items collect on every surface, storage is visible and scattered, and overhead lighting makes the room feel flat at night.",
@@ -67,10 +67,10 @@ const roomResetPost: Partial<Post> = {
         "The room relies on one harsh light source instead of a few purposeful layers.",
       ],
     },
-    { type: "h2", id: "goals-budget", text: "Set Priorities Before Setting a Budget" },
+    { type: "h2", id: "set-priorities", text: "Set Priorities Before Buying" },
     {
       type: "p",
-      text: "Start with the outcome the room needs to support: clearer walking paths, comfortable seating, useful storage, and calmer lighting. Costs will vary by location, what you already own, and what is available secondhand, so this plan does not promise a fixed total.",
+      text: "Start with the room’s actual tasks and constraints. Costs vary by location and what you already own, so this example does not promise a budget or outcome.",
     },
     {
       type: "ul",
@@ -82,12 +82,12 @@ const roomResetPost: Partial<Post> = {
     },
     {
       type: "h2",
-      id: "step-1-declutter-layout",
-      text: "Step 1: Declutter and Rethink the Layout",
+      id: "test-layout",
+      text: "Test the Layout Without Buying",
     },
     {
       type: "p",
-      text: "Remove loose items and any movable furniture that makes the room hard to evaluate. Bring pieces back only when they serve a clear function or make the layout easier to use.",
+      text: "Use a paper sketch, painter’s tape, or temporary rearrangement to compare options. This is a test, not proof that the room will feel larger, calmer, or more functional.",
     },
     {
       type: "ul",
@@ -99,58 +99,72 @@ const roomResetPost: Partial<Post> = {
     },
     {
       type: "h2",
-      id: "step-2-key-furniture",
-      text: "Step 2: Evaluate the Furniture You Actually Need",
+      id: "evaluate-furniture",
+      text: "Evaluate Furniture You Already Have",
     },
     {
       type: "p",
-      text: "Before replacing anything, identify which pieces are truly causing the problem. A smaller sofa or a table with storage may help in some rooms, but the right choice depends on measurements, comfort, condition, and how the room is used.",
+      text: "Before replacing anything, identify the specific function or footprint problem. A purchase is optional and should follow a verified need, not a material label or trend.",
     },
     {
       type: "ul",
       items: [
-        "Look for compact seating with dimensions that preserve the main walkway.",
-        "Consider secondhand wood or metal tables that can be cleaned, repaired, and used for more than one purpose.",
-        "Consolidate media and display items onto one useful storage piece rather than several scattered surfaces.",
+        "Check whether current seating can move without blocking required paths or access.",
+        "Compare any possible table or storage piece by footprint, cleaning, installation, return terms, and household use.",
+        "Do not drill, mount, anchor, alter wiring, or move a heater without lease, building, manufacturer, and safety checks.",
       ],
     },
     {
       type: "h2",
-      id: "step-3-textiles-lighting",
-      text: "Step 3: Use Textiles and Lighting With Restraint",
+      id: "lighting-textiles",
+      text: "Use Lighting and Textiles With Restraint",
     },
     {
       type: "p",
-      text: "A few textiles and a second light source can change how a room feels without replacing all of the furniture. Use what you own first, then choose additions based on care needs, durability, and the room's actual light.",
+      text: "Treat lighting and textiles as optional choices to test against care, access, glare, ventilation, and the room’s actual use. They do not establish a wellbeing or spatial outcome.",
     },
     {
       type: "ul",
       items: [
-        "Use a rug only when it helps define the seating area without creating a trip or maintenance problem.",
-        "Add a floor or table lamp where softer task lighting would reduce reliance on the overhead fixture.",
-        "Refresh usable cushions with washable covers or add one practical throw instead of buying a full matching set.",
+        "Use a rug only when it does not create a trip or maintenance problem.",
+        "Use existing lamps or fixtures according to manufacturer instructions and do not alter electrical fittings.",
+        "Refresh usable cushions with washable covers or leave them unchanged if that is the better fit.",
       ],
     },
     {
       type: "h2",
-      id: "step-4-plants-storage",
-      text: "Step 4: Add Storage and Finishing Details",
+      id: "storage-details",
+      text: "Add Storage Only When It Fits",
     },
     {
       type: "p",
-      text: "Finish with storage that matches the items the room actually needs to hold. Decorative details should support the room, not recreate the clutter you just removed.",
+      text: "Finish only after the layout test identifies a real storage need. A plant, basket, or wall detail is optional and does not prove a room is healthier, calmer, or more sustainable.",
     },
     {
       type: "ul",
       items: [
-        "Use one or two lidded baskets for small items that would otherwise spread across surfaces.",
-        "Choose a plant only when the room's light, care routine, household, and pet-safety needs make it appropriate.",
-        "Hang one meaningful piece of art or leave the wall open rather than filling it simply because space is available.",
+        "Use one existing basket or container for items that otherwise spread across surfaces.",
+        "Choose a plant only when light, care, household, and pet-safety needs make it appropriate.",
+        "Leave a wall open or add one item only when it serves the room’s actual use; do not install without permission and safe anchoring.",
       ],
     },
     {
       type: "p",
-      text: "The goal is a room that works better with fewer unnecessary purchases. Treat this as a sequence to test in your own space, not as proof that one look, product list, or budget will work for every apartment.",
+      text: "This illustrative example is a planning sequence, not proof that one look, product list, or budget works for every apartment. Keep the test, revise it, restore the original arrangement, or do nothing.",
+    },
+    {
+      type: "linkP",
+      textBefore: "For measurement and pathway planning, see the ",
+      linkText: "small living room layout planning guide",
+      href: "/blog/sustainable-tiny-living-room-layout-ideas",
+      textAfter: ".",
+    },
+    {
+      type: "linkP",
+      textBefore: "For a shorter no-purchase reset, see the ",
+      linkText: "small-apartment reset checklist",
+      href: "/blog/eco-friendly-small-apartment-weekend-checklist",
+      textAfter: ".",
     },
   ],
 };

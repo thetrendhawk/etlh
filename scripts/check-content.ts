@@ -558,6 +558,57 @@ if (!livingRoomLayout) {
   }
 }
 
+const illustrativeRoomReset = posts.find(
+  (post) => post.slug === "sustainable-small-apartment-decor-before-after",
+);
+if (!illustrativeRoomReset) {
+  fail("Missing illustrative small-apartment room-reset article.");
+} else {
+  const resetCopy = `${illustrativeRoomReset.title} ${illustrativeRoomReset.excerpt} ${JSON.stringify(illustrativeRoomReset.body)}`;
+  const presentedReset = getPresentedPost(illustrativeRoomReset);
+  const presentedCopy = `${presentedReset.title} ${presentedReset.excerpt} ${JSON.stringify(presentedReset.body)}`;
+  for (const pattern of [
+    /real before[- ]and[- ]after/i,
+    /before[- ]and[- ]after transformation/i,
+    /under \$300|hard budget/i,
+    /This alone made the room feel 30% bigger|final result is a living room that feels larger|calm,? eco-conscious space/i,
+    /final result|we (?:removed|replaced|turned|set|brought|hung)/i,
+    /before-and-after photos/i,
+  ]) {
+    if (pattern.test(resetCopy) || pattern.test(presentedCopy)) {
+      fail(`Unsupported documented-transformation framing remains: ${pattern}`);
+    }
+  }
+  for (const required of [
+    "illustrative",
+    "not a documented",
+    "imagery",
+    "fixed",
+    "household agreement",
+    "landlord",
+    "reversible",
+    "do nothing",
+    "/blog/sustainable-tiny-living-room-layout-ideas",
+    "/blog/eco-friendly-small-apartment-weekend-checklist",
+  ]) {
+    if (!presentedCopy.toLowerCase().includes(required.toLowerCase()) && !resetCopy.toLowerCase().includes(required.toLowerCase())) {
+      fail(`Illustrative room reset is missing required disclosure, boundary, or link: ${required}`);
+    }
+  }
+  if (presentedReset.title !== illustrativeRoomReset.title || presentedReset.excerpt !== illustrativeRoomReset.excerpt) {
+    fail("Illustrative room reset source and presentation metadata diverge.");
+  }
+  if (presentedReset.image !== illustrativeRoomReset.image || presentedReset.imageAlt !== illustrativeRoomReset.imageAlt) {
+    fail("Illustrative room reset source and presentation image metadata diverge.");
+  }
+  if (presentedReset.image.includes("DecorPin1")) {
+    fail("Retired DecorPin1 promotional asset is still presented for the illustrative room reset.");
+  }
+  if (readFileSync(join(process.cwd(), "src/lib/posts.ts"), "utf8").includes("decorPin1")) {
+    fail("Retired DecorPin1 asset is still imported by the application.");
+  }
+}
+
 const frictionArticle = posts.find((post) => post.slug === "why-life-feels-harder-than-it-needs-to-sometimes");
 if (!frictionArticle) {
   fail("Missing repaired friction article");

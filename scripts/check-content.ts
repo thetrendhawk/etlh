@@ -174,6 +174,9 @@ if (!apartmentCompostingDecision) {
   ) {
     fail("Apartment food-scrap decision metadata must match the presented article and card.");
   }
+  if (!apartmentCompostingDecision.image.includes("choose-apartment-food-scrap-method-hero-v1.webp")) {
+    fail("Apartment food-scrap decision guide must use its dedicated hero asset.");
+  }
 }
 
 const electricApplianceGuide = posts.find(
@@ -189,6 +192,9 @@ if (!electricApplianceGuide) {
   for (const required of ["do not buy", "output route", "filters", "warranty", "https://www.epa.gov/sustainable-management-food/approaches-composting", "https://lomi.com/pages/faq", "/blog/choose-apartment-food-scrap-method"]) {
     if (!applianceCopy.toLowerCase().includes(required.toLowerCase())) fail(`Electric appliance guide is missing required boundary or source: ${required}`);
   }
+  if (!electricApplianceGuide.image.includes("electric-food-waste-appliances-apartments-hero-v1.webp")) {
+    fail("Electric appliance guide must use its dedicated hero asset.");
+  }
 }
 
 const noDishwasherGuide = posts.find((post) => post.slug === "dishwashing-without-dishwasher-small-kitchen");
@@ -202,7 +208,7 @@ if (!noDishwasherGuide) {
   for (const required of ["not a rule", "manufacturer care instructions", "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/cleanliness-helps-prevent", "https://www.cdc.gov/clean-hands/prevention/about-handwashing-a-healthy-habit-in-the-kitchen.html", "/blog/choose-apartment-food-scrap-method"]) {
     if (!dishCopy.toLowerCase().includes(required.toLowerCase())) fail(`No-dishwasher guide is missing required boundary or source: ${required}`);
   }
-  if (!noDishwasherGuide.image.includes("dishwashing-without-dishwasher-small-kitchen-hero-v1.webp")) fail("No-dishwasher guide must use its dedicated hero asset.");
+  if (!noDishwasherGuide.image.includes("dishwashing-without-dishwasher-small-kitchen-hero-v2.webp")) fail("No-dishwasher guide must use its dedicated hero asset.");
 }
 
 const budgetSwaps = posts.find((post) => post.slug === "zero-waste-kitchen-budget-9-swaps");

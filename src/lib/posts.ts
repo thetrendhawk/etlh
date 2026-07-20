@@ -1,5 +1,7 @@
 import postKitchen from "@/assets/post-kitchen.jpg";
-import dishwashingHero from "@/assets/articles/dishwashing-without-dishwasher-small-kitchen/dishwashing-without-dishwasher-small-kitchen-hero-v1.webp";
+import foodScrapMethodHero from "@/assets/articles/choose-apartment-food-scrap-method/choose-apartment-food-scrap-method-hero-v1.webp";
+import dishwashingHero from "@/assets/articles/dishwashing-without-dishwasher-small-kitchen/dishwashing-without-dishwasher-small-kitchen-hero-v2.webp";
+import electricApplianceHero from "@/assets/articles/electric-food-waste-appliances-apartments/electric-food-waste-appliances-apartments-hero-v1.webp";
 import kitchenCategoryImage from "@/assets/cat-kitchen.jpg";
 import decorCategoryImage from "@/assets/cat-decor.jpg";
 import habitsCategoryImage from "@/assets/cat-habits.jpg";
@@ -170,8 +172,8 @@ export const posts: Post[] = [
     category: "zero-waste-kitchen",
     date: "2026-07-20",
     readingTime: "8 min read",
-    image: kitchenCategoryImage,
-    imageAlt: "Illustrative small kitchen shelves with dry ingredients stored in assorted clear jars.",
+    image: electricApplianceHero,
+    imageAlt: "Illustrative compact apartment kitchen with an unbranded countertop food-waste appliance and a removable food-scrap container.",
     tags: ["food waste appliances", "apartments", "renters", "purchase decision"],
     toc: [
       { id: "name-the-process", label: "Name the process" },
@@ -231,8 +233,8 @@ export const posts: Post[] = [
     category: "zero-waste-kitchen",
     date: "2026-07-20",
     readingTime: "9 min read",
-    image: kitchenCategoryImage,
-    imageAlt: "Illustrative small kitchen shelves with dry ingredients stored in assorted clear jars.",
+    image: foodScrapMethodHero,
+    imageAlt: "Illustrative small apartment kitchen with food scraps, collection containers, a cutting board, and plants in warm daylight.",
     tags: ["apartment composting", "food scraps", "renters", "decision guide"],
     toc: [
       { id: "start-with-destination", label: "Start with the destination" },

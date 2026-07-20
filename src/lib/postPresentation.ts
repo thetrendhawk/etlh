@@ -4,6 +4,7 @@ import kitchenCategoryImage from "@/assets/cat-kitchen.jpg";
 import apartmentImage from "@/assets/hero-apartment.jpg";
 import checklistImage from "@/assets/post-checklist.jpg";
 import kitchenPrepImage from "@/assets/post-kitchen.jpg";
+import foodScrapMethodHero from "@/assets/articles/choose-apartment-food-scrap-method/choose-apartment-food-scrap-method-hero-v1.webp";
 import type { Post } from "@/lib/posts";
 
 const illustrativeAlt = {
@@ -247,8 +248,8 @@ const promotionalSurfaceOverrides: Record<string, Partial<Post>> = {
     imageAlt: illustrativeAlt.kitchenPrep,
   },
   "choose-apartment-food-scrap-method": {
-    image: kitchenCategoryImage,
-    imageAlt: illustrativeAlt.kitchen,
+    image: foodScrapMethodHero,
+    imageAlt: "Illustrative small apartment kitchen with food scraps, collection containers, a cutting board, and plants in warm daylight.",
   },
   "eco-friendly-small-apartment-decor-budget": {
     title: "Small-Apartment Decor on a Budget: Sourcing and Fit Considerations",

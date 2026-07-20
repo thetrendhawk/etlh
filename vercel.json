@@ -36,6 +36,12 @@
     { "source": "/Resources", "destination": "/resources", "permanent": true },
     { "source": "/Terms", "destination": "/terms", "permanent": true },
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "ecotinylivinghub.thrwds.com" }],
+      "destination": "https://ecotinylivinghub.com/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "ecotinylivinghub.thrwds.com" }],
       "destination": "https://ecotinylivinghub.com/:path*",

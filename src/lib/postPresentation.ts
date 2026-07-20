@@ -157,8 +157,9 @@ const roomResetPost: Partial<Post> = {
 
 const promotionalSurfaceOverrides: Record<string, Partial<Post>> = {
   "why-life-feels-harder-than-it-needs-to-sometimes": {
+    title: "Notice Friction at Home: Test One Small Change",
     excerpt:
-      "A gentle guide to noticing recurring friction and testing one small change in an everyday routine.",
+      "Notice recurring extra steps in an everyday routine, then test one small arrangement change without assuming a result.",
     image: habitsCategoryImage,
     imageAlt: illustrativeAlt.checklist,
   },

@@ -1,5 +1,9 @@
 # ETLH Article Claims Review Inventory
 
+## 2026-07-20 friction-systems claims-repair record
+
+`why-life-feels-harder-than-it-needs-to-sometimes` was selected after reconciling all 14 current articles. Its distinct purpose is a friction-observation exercise, but the former source included stress, calm, energy, ease, and habit-success language plus an unsupported “Why We’re Confident” behavior claim. The repair keeps optional, reversible arrangement examples, removes the evidence-style section, adds control/permission boundaries, aligns source and presentation imagery, and retires the unused `SustainablePin1.webp` import from emitted output. See `docs/research/ETLH_FRICTION_SYSTEMS_CLAIMS_AUDIT.md` and `docs/research/ETLH_CLAIMS_REPAIR_INVENTORY_2026-07-20.md`.
+
 ## 2026-07-20 apartment-systems claims-repair record
 
 `sustainable-living-apartment-easy-habits` overlapped the renter checklist, the 20-option renter-aware habits article, and the low-waste practices article when framed as another general list. It was retained and differentiated as a control map for apartment systems: renter-controlled routines, shared-household decisions, building/landlord/utility dependencies, and local-service or purchase-dependent options. Unsupported savings, bill, waste, water, energy, emissions, health, comfort, ease, affordability, timeline, and habit-success outcomes were removed or bounded. See `docs/research/ETLH_APARTMENT_SYSTEMS_CLAIMS_OVERLAP_AUDIT.md`.

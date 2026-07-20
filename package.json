@@ -23,6 +23,7 @@
     "check:ci": "bun run lint && bun run check:sitemap && bun run check:content && bun run check:routes && bun run check:accessibility && bun run check:assets && bun run check:security-policy && bun run check:dependencies && bun run build && bun run check:build-assets"
   },
   "overrides": {
+    "js-yaml": "^4.3.0",
     "undici": "^7.28.0"
   },
   "dependencies": {

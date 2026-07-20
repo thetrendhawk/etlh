@@ -215,8 +215,8 @@ const promotionalSurfaceOverrides: Record<string, Partial<Post>> = {
     title: "Zero-Waste Kitchen on a Budget: 9 Swaps to Evaluate",
     excerpt:
       "Evaluate nine kitchen swaps by replacement timing, local cost, expected use, care needs, and what you already own.",
-    image: kitchenCategoryImage,
-    imageAlt: illustrativeAlt.kitchen,
+    image: kitchenPrepImage,
+    imageAlt: illustrativeAlt.kitchenPrep,
   },
   "small-apartment-eco-upgrade-checklist": {
     title: "A 30-Day Small-Apartment Eco Step Checklist",

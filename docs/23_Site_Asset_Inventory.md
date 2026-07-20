@@ -63,6 +63,8 @@ Risk values are `high`, `medium`, `low`, or `none observed`. `Unknown` means the
 
 ## Current alt text and accuracy
 
+`SustainablePin2.webp` is retired from the easy-habits article in the claims-repair slice; the article now uses the existing `cat-habits.jpg` checklist image. The source asset is preserved in the repository for provenance and is no longer imported by `src/lib/posts.ts`.
+
 **Repair record (2026-07-20):** `SustainablePin3.webp` is no longer imported or emitted for `low-waste-lifestyle-tips-beginners`; its source artifact remains for traceability. The article now uses `cat-habits.jpg`, and its source and presentation alt both describe the visible hand, blank checklist, mug, and plants without treating the illustration as evidence.
 
 | ID  | Current alt text by context                                                                                                                                                                                   | Accuracy and accessibility finding                                                                                                                                                                                            |

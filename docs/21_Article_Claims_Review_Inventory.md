@@ -1,5 +1,9 @@
 # ETLH Article Claims Review Inventory
 
+## 2026-07-20 claims-repair record
+
+`easy-sustainable-habits-on-a-budget` was repaired on branch `agent/easy-sustainable-habits-claims-repair`. The former “21 Easy Sustainable Habits on a Budget (Perfect for Renters)” framing was corrected to 20 renter-aware options, with unsupported savings, environmental, health, ease, durability, and timeline outcomes removed or bounded. The article now leads with use-what-you-own and renter-control constraints, keeps local-service caveats, and links only to the renter checklist, apartment composting guide, and resources page. Its source and presentation image metadata are regression-checked for consistency.
+
 ## Purpose
 
 Identify claims in the 14 current articles that involve percentages, savings, environmental or health effects, professional authority, personal experience, or transformations presented as real.

@@ -126,6 +126,7 @@ External Perplexity research must be reviewed before cluster-led production orde
 
 - **Slug/category:** `easy-sustainable-habits-on-a-budget` — Eco Habits on a Budget.
 - **Current hero quality:** **P0.** `SustainablePin2.webp` contains a retired domain and broad energy-bill, air/mood, ethical-brand, recycling, and planetary claims. Current alt falsely describes a flat lay.
+- **Claims-repair disposition (2026-07-20):** Retired from article presentation; the source asset remains preserved for provenance. The article now uses the existing checklist image with accurate illustrative alt text.
 - **Missing explanatory visuals:** A renter-control map separating actions a renter can change, actions needing landlord approval, and location-dependent services.
 - **Missing diagrams:** Habit selection flow: identify need, check control/fit, use existing option, test, then consider replacement.
 - **Missing tables:** Cost timing, frequency, renter control, local dependency, and evidence caveat for each retained habit.

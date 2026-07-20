@@ -3,7 +3,6 @@ import decorCategoryImage from "@/assets/cat-decor.jpg";
 import habitsCategoryImage from "@/assets/cat-habits.jpg";
 import postChecklist from "@/assets/post-checklist.jpg";
 import sustainablePin1 from "@/assets/SustainablePin1.webp";
-import sustainablePin2 from "@/assets/SustainablePin2.webp";
 import decorPin1 from "@/assets/DecorPin1.webp";
 import decorPin2 from "@/assets/DecorPin2.webp";
 import decorPin3 from "@/assets/DecorPin3.webp";
@@ -776,116 +775,140 @@ export const posts: Post[] = [
 },
 {
   slug: "easy-sustainable-habits-on-a-budget",
-  title: "21 Easy Sustainable Habits on a Budget (Perfect for Renters)",
+  title: "20 Renter-Aware Sustainable Habits to Consider",
   excerpt:
-    "Use these 21 practical, low-cost habits to make your daily life more sustainable without wrecking your budget.",
+    "Review 20 renter-aware options by what you already own, what you control, and what fits your household, access, and local services.",
   category: "eco-habits-budget",
   date: "2026-06-22",
   readingTime: "7 min read",
-  image: sustainablePin2, // import this in your file
+  image: habitsCategoryImage,
   imageAlt:
-    "Flat lay of reusable bottle, cloth bag, LED bulb, and notebook on a wooden table.",
+    "Illustrative hand marking a paper checklist beside a mug in a small apartment.",
   tags: [
+    "renter options",
     "sustainable habits",
-    "budget sustainable living",
-    "eco friendly habits",
     "apartment living",
-    "green on a budget"
+    "use what you own",
+    "small-space living"
   ],
   toc: [
-    { id: "start-small", label: "Start Small and Stack Habits" },
-    { id: "home-energy-habits", label: "Home Energy Habits" },
-    { id: "water-and-cleaning", label: "Water and Cleaning Swaps" },
-    { id: "shopping-and-reusables", label: "Shopping and Reusable Swaps" },
-    { id: "food-and-waste", label: "Food and Waste-Reducing Habits" }
+    { id: "start-small", label: "Start With What You Control" },
+    { id: "home-energy-habits", label: "Home Energy Options" },
+    { id: "water-and-cleaning", label: "Water and Cleaning Options" },
+    { id: "shopping-and-reusables", label: "Shopping and Reusable Options" },
+    { id: "food-and-waste", label: "Food and Waste Options" }
   ],
   body: [
     {
       type: "p",
       text:
-        "Living more sustainably doesn’t require a huge budget or a minimalist-perfect lifestyle. Most of the big wins come from simple, repeatable habits that cost little or nothing to start."
+        "Sustainable living does not require a shopping list or a perfect home. Begin with one part of daily life you can actually change, then check the time, effort, storage, cleaning, safety, access, and household cooperation it would require."
     },
     {
       type: "p",
       text:
-        "These 21 ideas are designed for renters, students, and small-apartment dwellers who want to reduce their impact while keeping things realistic and affordable."
+        "These 20 options are written for renters, students, and small-apartment dwellers, but no option fits every home. Budget here means avoiding unnecessary spending, not a promise that any habit will save money."
     },
 
     {
       type: "h2",
       id: "start-small",
-      text: "Start Small and Stack Habits"
+      text: "Start With What You Control"
     },
     {
       type: "p",
       text:
-        "Trying to change everything at once usually leads to burnout. Instead, choose one or two habits from each section, get comfortable with them, and then add more."
+        "Choose one no-purchase or use-what-you-have option. You can maintain, repair, borrow, share, test, change, or stop; completing all 20 is not the goal."
     },
 
     {
       type: "h2",
       id: "home-energy-habits",
-      text: "Home Energy Habits"
+      text: "Home Energy Options"
     },
     {
       type: "ul",
       items: [
-        "Switch to LED bulbs in your most-used fixtures first. They use less energy and last longer than traditional bulbs.",
-        "Turn off lights and fans whenever you leave a room, and rely on natural light as much as possible during the day.",
-        "Use power strips for electronics and flip them off at night to stop phantom power drain from chargers, TVs, and game consoles.",
-        "In winter, put on socks and a sweater before turning up the heat; in summer, try fans and closing blinds during peak sun hours before lowering the thermostat."
+        "Keep using a working bulb unless replacement is needed; if you replace one, check fixture compatibility, manufacturer guidance, disposal, lease rules, and whether the choice is accessible.",
+        "Turn off or adjust a light or fan only when the control, safety, comfort, and shared-household arrangement make that practical.",
+        "Use an existing power strip only when it is suitable for the devices, outlet, cord path, and household safety plan; do not assume it eliminates all standby draw.",
+        "Before changing heating, cooling, blinds, or thermostat settings, check building controls, utility guidance, equipment instructions, climate, health, and comfort needs.",
+        "Use available daylight when it is comfortable and safe for the room; keep task lighting when visibility or accessibility requires it."
       ]
     },
 
     {
       type: "h2",
       id: "water-and-cleaning",
-      text: "Water and Cleaning Swaps"
+      text: "Water and Cleaning Options"
     },
     {
       type: "ul",
       items: [
-        "Shorten showers by two or three minutes and turn off the tap while brushing your teeth or shaving.",
-        "Only run the dishwasher and washing machine with full loads to make each cycle count.",
-        "Try line drying some loads of laundry instead of using the dryer every time.",
-        "Make a simple DIY all-purpose cleaner with vinegar, water, and a little dish soap or essential oil instead of buying multiple bottled cleaners."
+        "Change shower or tap routines only when the time, mobility, water access, household, and comfort fit; metering and utility responsibility vary.",
+        "Run a dishwasher or washing machine according to the appliance instructions and household needs; no dishwasher, full-load rule, or shared control is assumed.",
+        "Line-dry only when space, weather, building rules, equipment, energy, and accessibility make it workable; using the dryer can be the appropriate option.",
+        "Use a cleaner according to its label and the surface or soil involved. Do not mix products or assume a vinegar, water, soap, or essential-oil mixture is safe.",
+        "Keep a cleaning tool you already own where it is reachable and dry enough for the task; storage and hygiene needs differ by home."
       ]
     },
 
     {
       type: "h2",
       id: "shopping-and-reusables",
-      text: "Shopping and Reusable Swaps"
+      text: "Shopping and Reusable Options"
     },
     {
       type: "ul",
       items: [
-        "Carry a reusable water bottle and coffee cup so you’re not constantly buying bottled drinks or disposable cups.",
-        "Keep reusable shopping bags and produce bags by the door or in your backpack so you actually remember to bring them.",
-        "Choose products with less packaging when you can, and avoid single-use items like plastic cutlery when alternatives are easy.",
-        "Buy secondhand whenever possible—furniture, clothing, and household items are often cheaper and more sustainable used than buying new."
+        "Use a bottle or cup you already have when carrying, washing, storing, and sharing it fit your routine; buying a new reusable item is not required.",
+        "Keep one existing bag where you actually leave from, if carrying it is useful and accessible; a car, backpack, or extra set is not assumed.",
+        "Choose less packaging only when the product, price, access, storage, safety, and local disposal path make sense; no package format is universally better.",
+        "Consider repairing, borrowing, sharing, or secondhand furniture, clothing, and household items after checking condition, transport, cleaning, accessibility, return, and total cost.",
+        "Before buying a replacement, check whether an item you already own can meet the need without creating a storage or maintenance problem."
       ]
     },
 
     {
       type: "h2",
       id: "food-and-waste",
-      text: "Food and Waste-Reducing Habits"
+      text: "Food and Waste Options"
     },
     {
       type: "ul",
       items: [
-        "Plan a few meals each week and shop with a list so you’re less likely to overbuy and waste food.",
-        "Store leftovers in clear containers so you can see what needs to be eaten first.",
-        "Dedicate one shelf in your fridge or pantry as the “eat me first” zone for foods close to their date.",
-        "Swap paper towels for cloth napkins and rags for most everyday spills and cleaning.",
-        "Start collecting compostable food scraps in a small container and look for local drop-off or composting options when you’re ready."
+        "Plan food only as much as helps your household use it; changing schedules, shared decisions, limited freezer space, and no planning system are all possible.",
+        "Store leftovers in a suitable container you already have, following food-safety, package, appliance, and container instructions; clear containers are optional.",
+        "Make food that needs attention visible if that works for your fridge or pantry, without changing storage temperatures or handling practices without authoritative guidance.",
+        "Use a cloth or towel you already own when it suits the task; keep disposable options when sanitation, allergies, contamination, or accessibility make them appropriate.",
+        "If you collect scraps, check local compost, organics, trash, or drop-off instructions first. A pickup service, freezer, car, or outdoor space may not be available."
       ]
     },
     {
       type: "p",
       text:
-        "Pick two or three habits from this list that feel easiest right now and build from there. Over time, these small choices stack into a lifestyle that’s better for your bank account and the planet."
+        "Choose one option, test the smallest version that fits, and keep, change, or stop based on what your home and household actually need. One useful change is enough."
+    },
+    {
+      type: "linkP",
+      textBefore: "For a shorter starting path, use the ",
+      linkText: "beginner sustainable living checklist for renters",
+      href: "/blog/beginner-sustainable-living-checklist-renters",
+      textAfter: "."
+    },
+    {
+      type: "linkP",
+      textBefore: "For food-scrap decisions, see the ",
+      linkText: "apartment composting troubleshooting guide",
+      href: "/blog/zero-waste-kitchen-ideas-tiny-apartments",
+      textAfter: ", then follow local program instructions."
+    },
+    {
+      type: "linkP",
+      textBefore: "You can also use the ",
+      linkText: "Small-Apartment Eco Step Starter Sheet",
+      href: "/resources",
+      textAfter: " directly; email signup is optional."
     }
   ]
 },

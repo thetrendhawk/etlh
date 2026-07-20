@@ -74,6 +74,8 @@ The merged existing-content intent map covers 10 articles. This claims review al
 
 **Disposition:** useful structure, but authority and outcome claims need systematic sourcing or neutral framing.
 
+**Repair record (2026-07-19):** the route and 11-part food-use structure are preserved, while the source metadata and body no longer claim chef authority or guaranteed savings, waste, nutrient, quality, satisfaction, safety, or environmental outcomes. FDA, USDA FSIS, EPA, package, appliance, recall, allergen, lot-code, accessibility, household, and local-program boundaries now control produce, leftovers, freezing, storage, and food-scrap advice. The retired `ZeroWastePin2.webp` remains in repository source for traceability but is no longer imported or emitted. See `docs/research/kitchen-cluster/ETLH_KITCHEN_CHEF_HABITS_CLAIMS_AUDIT.md`.
+
 ### Zero Waste Kitchen on a Budget: 9 Simple Swaps That Actually Save Money
 
 **Repair status (2026-07-19):** the budget-swaps body, source metadata, imagery, safety boundaries, and internal links were repaired in a focused follow-up. The route is preserved. Savings, payback, waste-reduction, unnamed-authority, universal-product, unsafe-cooling, blanket-decanting, and fixed-routine claims in the audited set were removed or narrowed. See `docs/research/kitchen-cluster/ETLH_KITCHEN_BUDGET_SWAPS_CLAIMS_AUDIT.md`. This status does not certify household outcomes.

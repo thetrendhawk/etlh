@@ -174,6 +174,48 @@ if (!budgetSwaps) {
     fail("The retired ZeroWastePin1 promotional asset is imported by the application.");
 }
 
+const kitchenHabits = posts.find((post) => post.slug === "low-waste-kitchen-tips-chef-habits");
+if (!kitchenHabits) {
+  fail("The low-waste kitchen habits article is missing.");
+} else {
+  const habitsCopy = `${kitchenHabits.title} ${kitchenHabits.excerpt} ${JSON.stringify(kitchenHabits.body)}`;
+  const repairedHabitsClaims = [
+    /chefs use/i,
+    /chef[‑ -]inspired/i,
+    /best low waste kitchen tips/i,
+    /transfer perfectly/i,
+    /extra meals and nutrients/i,
+    /usually enough for most produce/i,
+    /major source of plate waste/i,
+    /transform any kitchen/i,
+  ];
+  for (const pattern of repairedHabitsClaims) {
+    if (pattern.test(habitsCopy)) {
+      fail(`The low-waste kitchen habits article reintroduces repaired claim ${pattern}.`);
+    }
+  }
+
+  for (const requiredBoundary of [
+    "https://www.fda.gov/consumers/consumer-updates/7-tips-cleaning-fruits-vegetables",
+    "https://www.fda.gov/consumers/consumer-updates/are-you-storing-food-safely",
+    "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/leftovers-and-food-safety",
+    "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/freezing-and-food-safety",
+    "https://www.epa.gov/sustainable-management-food/composting",
+    "/blog/zero-waste-pantry-organization-small-apartments",
+    "/blog/zero-waste-kitchen-ideas-tiny-apartments",
+  ]) {
+    if (!habitsCopy.includes(requiredBoundary)) {
+      fail(
+        `The low-waste kitchen habits article is missing required evidence or internal link ${requiredBoundary}.`,
+      );
+    }
+  }
+
+  const postsSource = readFileSync(join(process.cwd(), "src/lib/posts.ts"), "utf8");
+  if (postsSource.includes("ZeroWastePin2"))
+    fail("The retired ZeroWastePin2 promotional asset is imported by the application.");
+}
+
 const routeFiles = [
   "src/routes/index.tsx",
   "src/routes/blog.index.tsx",

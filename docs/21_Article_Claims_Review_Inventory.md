@@ -129,6 +129,8 @@ The merged existing-content intent map covers 10 articles. This claims review al
 | `src/lib/posts.ts:837`     | The choices create a lifestyle better for the bank account and planet.                  | Soften wording                 | Replace broad outcome language with specific intended reductions and note that costs vary. |
 | `src/lib/posts.ts:606-837` | Use existing products before replacements and start with manageable actions.            | Safe/common editorial guidance | Practical non-purchase guidance with low claims risk.                                      |
 
+**Repair record (2026-07-20):** the route and 15-practice overview are preserved, while fixed-week framing, dramatic packaging claims, unsupported savings/waste/environmental outcomes, product-format rankings, secondhand price/durability claims, universal household-control assumptions, and habit-success language were removed. The article now starts with observation, use-what-you-own, repair/reuse/sharing, local-service checks, food-safety and product-direction boundaries, and permission to stop. `SustainablePin3.webp` is preserved as a source artifact but is no longer imported or emitted; the replacement `cat-habits.jpg` image and alt are aligned at source and presentation layers. See `docs/research/ETLH_LOW_WASTE_LIFESTYLE_CLAIMS_AUDIT.md`.
+
 ### 21 Easy Sustainable Habits on a Budget (Perfect for Renters)
 
 | Location                        | Claim                                                                                         | Classification                 | Required evidence or action                                                                                                        |

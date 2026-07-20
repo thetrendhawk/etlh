@@ -1,9 +1,9 @@
 import postKitchen from "@/assets/post-kitchen.jpg";
 import decorCategoryImage from "@/assets/cat-decor.jpg";
+import habitsCategoryImage from "@/assets/cat-habits.jpg";
 import postChecklist from "@/assets/post-checklist.jpg";
 import sustainablePin1 from "@/assets/SustainablePin1.webp";
 import sustainablePin2 from "@/assets/SustainablePin2.webp";
-import sustainablePin3 from "@/assets/SustainablePin3.webp";
 import decorPin1 from "@/assets/DecorPin1.webp";
 import decorPin2 from "@/assets/DecorPin2.webp";
 import decorPin3 from "@/assets/DecorPin3.webp";
@@ -634,122 +634,143 @@ export const posts: Post[] = [
 },
 {
   slug: "low-waste-lifestyle-tips-beginners",
-  title: "15 Low Waste Lifestyle Tips You Can Start This Week",
+  title: "15 Low-Waste Lifestyle Practices to Consider",
   excerpt:
-    "Beginner-friendly, low-pressure tips to cut everyday trash, reduce plastic, and live a little lighter—without perfection.",
+    "Review low-waste practices by what you already own, what you control, and what fits your household, access, and local services.",
   category: "eco-habits-budget",
   date: "2026-06-22",
   readingTime: "6 min read",
-  image: sustainablePin3, // import this in your file
+  image: habitsCategoryImage,
   imageAlt:
-    "Collection of reusable items including jars, cloths, a water bottle, and a canvas bag on a kitchen counter.",
+    "Illustrative hand marking a paper checklist beside a mug in a small apartment.",
   tags: [
     "low waste lifestyle",
-    "zero waste tips",
+    "waste-aware habits",
     "eco habits",
-    "reduce waste",
-    "budget eco living"
+    "renter options",
+    "small-space living"
   ],
   toc: [
-    { id: "mindset-first", label: "A Low Waste Mindset (Not Perfection)" },
-    { id: "home-swaps", label: "Home and Cleaning Swaps" },
-    { id: "on-the-go-habits", label: "On-the-Go and Shopping Habits" },
-    { id: "food-and-kitchen", label: "Food and Kitchen Tips" }
+    { id: "mindset-first", label: "Start With Observation" },
+    { id: "home-swaps", label: "Use, Repair, and Reuse at Home" },
+    { id: "on-the-go-habits", label: "Shopping and Carrying Options" },
+    { id: "food-and-kitchen", label: "Food, Storage, and Local End-of-Life" }
   ],
   body: [
     {
       type: "p",
       text:
-        "A low waste lifestyle isn’t about fitting all your trash into a tiny jar. It’s about reducing unnecessary waste in ways that fit your real life, your budget, and your space."
+        "Low-waste living is not a jar challenge or a product quota. Start by noticing one recurring disposable item or waste-producing moment, then choose the smallest option that fits your real space, energy, budget, and household."
     },
     {
       type: "p",
       text:
-        "These 15 tips are simple, beginner-friendly ideas you can start this week. Pick a few that feel doable, then add more as they become habits."
+        "The practices below are options, not a sequence you must complete. Use what you already own before shopping, and stop or adjust when a suggestion creates more work, cost, risk, or inaccessibility."
     },
 
     {
       type: "h2",
       id: "mindset-first",
-      text: "A Low Waste Mindset (Not Perfection)"
+      text: "Start With Observation"
     },
     {
       type: "p",
       text:
-        "Before you change what you buy, it helps to change how you think about stuff. Low waste living is less about trendy products and more about using what you already have."
+        "Before changing what you buy, look at what already exists in your home and what the recurring problem actually is. Prevention, finishing, repair, reuse, borrowing, sharing, and correct local disposal can all be reasonable paths."
     },
     {
       type: "ul",
       items: [
-        "Use it up first. Finish the bottles, bags, and products you already own before switching to new “eco” versions.",
-        "Buy less. Ask yourself if you truly need something before you add it to your cart.",
-        "Choose durable over disposable. When you do buy, look for items that can be repaired, refilled, or reused many times."
+        "Use it up first. Finish a working bottle, bag, or product before considering a replacement marketed as eco-friendly.",
+        "Pause before buying. Ask what problem the item solves, whether you already have an option, and whether borrowing or sharing is realistic.",
+        "When replacement is justified, compare repairability, care, storage, accessibility, expected use, and end-of-life options rather than assuming a material is universally better."
       ]
     },
 
     {
       type: "h2",
       id: "home-swaps",
-      text: "Home and Cleaning Swaps"
+      text: "Use, Repair, and Reuse at Home"
     },
     {
       type: "p",
       text:
-        "Your home is where you have the most control, so it’s a great place to start reducing waste."
+        "At home, control may include some purchases and routines but not shared appliances, utilities, waste service, lease rules, or another household member's choices. Work within the part you can actually change."
     },
     {
       type: "ul",
       items: [
-        "Trade paper towels for cloths. Cut old T-shirts or towels into rags for cleaning and use cloth napkins at meals.",
-        "Switch to concentrated or refillable cleaners. A single multipurpose cleaner or refill system can replace multiple plastic bottles.",
-        "Choose bar soap instead of bottled soap when possible. Bars often come in minimal or recyclable packaging.",
-        "Swap plastic scrubbers for compostable brushes or natural fiber cloths when you’re ready to replace them."
+        "Use a cloth, towel, or napkin you already own when it is suitable for the task; keep disposable supplies when sanitation, allergies, contamination, or accessibility make them the better fit.",
+        "Before choosing a concentrate or refill, check product directions, surface compatibility, storage, cleaning effort, local access, and whether the container you have is suitable.",
+        "Consider bar or packaged alternatives only when the product, care routine, household needs, and local disposal path work for you; no format is universally lower-impact.",
+        "Repair or finish a working brush or scrubber before replacing it, and follow manufacturer or surface instructions for cleaning."
       ]
     },
 
     {
       type: "h2",
       id: "on-the-go-habits",
-      text: "On-the-Go and Shopping Habits"
+      text: "Shopping and Carrying Options"
     },
     {
       type: "p",
       text:
-        "Small changes to how you shop and move through your day can dramatically cut single-use packaging."
+        "Shopping and carrying choices can change how often you encounter packaging, but access, transportation, storage, and energy vary. Pick only an option that reduces friction for your routine."
     },
     {
       type: "ul",
       items: [
-        "Carry a simple low waste kit: a reusable bottle, a tote bag, and a set of utensils wrapped in a napkin or cloth.",
-        "Keep reusable bags in your car or by the door so you don’t forget them on grocery runs.",
-        "Say no to freebies and samples you don’t actually want. Most end up as clutter and then trash.",
-        "Buy secondhand when you can—clothes, furniture, and household items often last just as long at a fraction of the price and packaging."
+        "Carry an existing bottle, mug, bag, or utensils only when doing so is useful, accessible, cleanable, and manageable to store.",
+        "Place one carrier where it fits your actual departure routine; a car, backpack, specialty store, or extra set of bags is not required.",
+        "Decline an item, sample, or receipt when you do not need it and the choice is available; keep what is needed for access, safety, or household coordination.",
+        "Consider borrowing, repairing, sharing, or secondhand options when the condition, transport, cleaning, price, and return or disposal path make sense."
       ]
     },
 
     {
       type: "h2",
       id: "food-and-kitchen",
-      text: "Food and Kitchen Tips"
+      text: "Food, Storage, and Local End-of-Life"
     },
     {
       type: "p",
       text:
-        "Food and packaging are big sources of household waste. A few simple habits help you waste less and save more."
+        "Food storage and end-of-life choices depend on the food, container, household, freezer space, cleaning routine, and local service. Use safety and program instructions before trying an option."
     },
     {
       type: "ul",
       items: [
-        "Store leftovers in glass jars or reusable containers instead of single-use plastic bags.",
-        "Plan a few meals and shop with a list to avoid impulse buys and food you won’t use.",
-        "Set up a small “eat me first” area in your fridge or pantry for foods that need to be used soon.",
-        "Keep a small container for compostable scraps like vegetable peels and coffee grounds, and explore local composting options when you’re ready."
+        "Store food in a suitable container you already have, following food-safety guidance and the container, appliance, and package instructions; glass is not required.",
+        "Plan only as much as helps your household use food, and leave room for changing schedules, shared decisions, limited freezer space, or no planning system at all.",
+        "Make food that needs attention visible if that works for your fridge or pantry; do not change storage temperatures or handling practices without authoritative guidance.",
+        "If you collect food scraps, check local compost, organics, trash, or drop-off instructions first. A container, pickup service, freezer, car, or outdoor space may not be available."
       ]
     },
     {
       type: "p",
       text:
-        "You don’t have to do all 15 tips at once. Choose the two or three that feel easiest to start today—like carrying your own bottle, using cloths instead of paper towels, or saying no to freebies—and you’ll already be living a lower waste lifestyle than you were last week."
+        "You do not have to use all 15 practices. Choose one observation or action, test the smallest version that fits, and keep, change, or stop based on what your home and household actually need. One useful change is enough."
+    },
+    {
+      type: "linkP",
+      textBefore: "For a shorter starting path, use the ",
+      linkText: "beginner sustainable living checklist for renters",
+      href: "/blog/beginner-sustainable-living-checklist-renters",
+      textAfter: "."
+    },
+    {
+      type: "linkP",
+      textBefore: "For food-scrap end-of-life options, see the ",
+      linkText: "apartment composting odor and fruit-fly troubleshooting guide",
+      href: "/blog/zero-waste-kitchen-ideas-tiny-apartments",
+      textAfter: ", then follow local program instructions."
+    },
+    {
+      type: "linkP",
+      textBefore: "You can also use the ",
+      linkText: "Small-Apartment Eco Step Starter Sheet",
+      href: "/resources",
+      textAfter: " directly; email signup is optional."
     }
   ]
 },

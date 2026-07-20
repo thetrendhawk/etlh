@@ -105,6 +105,8 @@ External Perplexity research must be reviewed before cluster-led production orde
 
 ### 5. 15 Low Waste Lifestyle Tips You Can Start This Week
 
+- **Repair record (2026-07-20):** The retired `SustainablePin3.webp` checklist is no longer emitted. The article now uses the existing text-free `cat-habits.jpg` illustration with literal alt text describing the visible hand, blank checklist, mug, and plants. The replacement is illustrative, not evidence of waste reduction or environmental benefit.
+
 - **Slug/category:** `low-waste-lifestyle-tips-beginners` — Eco Habits on a Budget.
 - **Current hero quality:** **P0.** `SustainablePin3.webp` is a 15-item checklist with a retired domain and “Big Impact” language; current alt describes a different lifestyle composition.
 - **Missing explanatory visuals:** A small starting-path visual that helps readers choose one action instead of consuming 15 equal-weight tips.

@@ -177,9 +177,9 @@ const promotionalSurfaceOverrides: Record<string, Partial<Post>> = {
     imageAlt: illustrativeAlt.decor,
   },
   "low-waste-lifestyle-tips-beginners": {
-    title: "15 Low-Waste Lifestyle Practices to Consider This Week",
+    title: "15 Low-Waste Lifestyle Practices to Consider",
     excerpt:
-      "Review beginner-friendly practices and choose the ones that fit your household, local services, and current routine.",
+      "Review low-waste practices by what you already own, what you control, and what fits your household, access, and local services.",
     image: habitsCategoryImage,
     imageAlt: illustrativeAlt.checklist,
   },

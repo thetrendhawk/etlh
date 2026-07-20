@@ -208,7 +208,7 @@ External Perplexity research must be reviewed before cluster-led production orde
 ### 11. 30-Day Small Apartment Eco-Upgrade Checklist (Under 100 Dollars)
 
 - **Slug/category:** `small-apartment-eco-upgrade-checklist` — Eco Habits on a Budget.
-- **Current hero quality:** **P1.** `post-checklist.jpg` is a generic unlabeled cleaning-supply still life. The alt calls the supplies “eco” without evidence, and the 800×512 file is upscaled/cropped into a portrait hero. It is also reused by the beginner checklist.
+- **Current hero quality:** **Claims/alt repaired; P1 explanatory gap remains.** `post-checklist.jpg` is a generic unlabeled cleaning-supply still life with literal illustrative alt text. It is not presented as evidence that the products are environmentally preferable. The 800×512 file remains a generic shared hero rather than the useful flexible-pacing visual described below.
 - **Missing explanatory visuals:** A flexible 30-day pacing view that permits skipping, substituting, or stopping.
 - **Missing diagrams:** Calendar or sequence grouped by observe, use/repair, research, and optional replacement.
 - **Missing tables:** No-cost, use-existing, locally variable, and replacement-time actions with blank reader cost fields.

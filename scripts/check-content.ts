@@ -216,6 +216,43 @@ if (!kitchenHabits) {
     fail("The retired ZeroWastePin2 promotional asset is imported by the application.");
 }
 
+const ecoStepChecklist = posts.find(
+  (post) => post.slug === "small-apartment-eco-upgrade-checklist",
+);
+if (!ecoStepChecklist) {
+  fail("The small-apartment eco step checklist is missing.");
+} else {
+  const checklistCopy = `${ecoStepChecklist.title} ${ecoStepChecklist.excerpt} ${JSON.stringify(ecoStepChecklist.body)}`;
+  const repairedChecklistClaims = [
+    /under \$100/i,
+    /renter[ -]safe/i,
+    /no landlord permission/i,
+    /every post you see costs/i,
+    /vinegar and water handles most surfaces/i,
+    /wool dryer balls last for years/i,
+    /renter[ -]safe command hooks/i,
+    /habits that stick/i,
+  ];
+  for (const pattern of repairedChecklistClaims) {
+    if (pattern.test(checklistCopy)) {
+      fail(`The eco step checklist reintroduces repaired claim ${pattern}.`);
+    }
+  }
+
+  for (const requiredBoundary of [
+    "https://www.cdc.gov/hygiene/about/when-and-how-to-clean-and-disinfect-your-home.html",
+    "https://www.epa.gov/greenerproducts/identifying-greener-cleaning-products",
+    "/blog/zero-waste-kitchen-budget-9-swaps",
+    "/blog/zero-waste-kitchen-ideas-tiny-apartments",
+  ]) {
+    if (!checklistCopy.includes(requiredBoundary)) {
+      fail(
+        `The eco step checklist is missing required evidence or internal link ${requiredBoundary}.`,
+      );
+    }
+  }
+}
+
 const routeFiles = [
   "src/routes/index.tsx",
   "src/routes/blog.index.tsx",

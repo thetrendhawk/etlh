@@ -246,6 +246,10 @@ const promotionalSurfaceOverrides: Record<string, Partial<Post>> = {
     image: kitchenPrepImage,
     imageAlt: illustrativeAlt.kitchenPrep,
   },
+  "choose-apartment-food-scrap-method": {
+    image: kitchenCategoryImage,
+    imageAlt: illustrativeAlt.kitchen,
+  },
   "eco-friendly-small-apartment-decor-budget": {
     title: "Small-Apartment Decor on a Budget: Sourcing and Fit Considerations",
     excerpt:

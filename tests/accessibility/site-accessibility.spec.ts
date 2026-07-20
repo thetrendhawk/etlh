@@ -16,6 +16,10 @@ const pages = [
     heading: /Apartment Composting Odor & Fruit Flies: A Small-Space Fix/i,
   },
   {
+    path: "/blog/choose-apartment-food-scrap-method",
+    heading: /How to Choose an Apartment Food-Scrap Method/i,
+  },
+  {
     path: "/blog/zero-waste-pantry-organization-small-apartments",
     heading: /Pantry Organization for Small Apartments: A Practical Plan/i,
   },

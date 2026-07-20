@@ -1,5 +1,5 @@
 import postKitchen from "@/assets/post-kitchen.jpg";
-import postDecor from "@/assets/post-decor.jpg";
+import decorCategoryImage from "@/assets/cat-decor.jpg";
 import postChecklist from "@/assets/post-checklist.jpg";
 import sustainablePin1 from "@/assets/SustainablePin1.webp";
 import sustainablePin2 from "@/assets/SustainablePin2.webp";
@@ -1929,32 +1929,52 @@ export const posts: Post[] = [
   },
   {
     slug: "eco-friendly-small-apartment-decor-budget",
-    title: "Eco Friendly Small Apartment Decor on a Budget",
+    title: "Small-Apartment Decor on a Budget: Sourcing and Fit Considerations",
     excerpt:
-      "Thrifted, renter-safe, and plant-forward ideas for budget eco home decor that makes a small apartment feel intentional and warm.",
+      "Compare reuse, secondhand, layout, lighting, plant, and removable-decor options against your room, lease, household, and budget.",
     category: "small-apartment-decor",
     date: "2026-06-22",
     readingTime: "7 min read",
-    image: postDecor,
-    imageAlt: "Thrifted ceramic vase with dried pampas grass on wooden side table",
+    image: decorCategoryImage,
+    imageAlt: "Illustrative small bedroom with natural wood furniture, plants, warm lighting, and layered textiles.",
     tags: ["decor", "thrifting", "budget"],
     toc: [
-      { id: "thrift", label: "Where to actually thrift" },
-      { id: "plants", label: "The plant rule" },
-      { id: "renter-safe", label: "Renter-safe upgrades" },
+      { id: "need", label: "Define the need and measure first" },
+      { id: "thrift", label: "Compare sourcing options" },
+      { id: "plants", label: "Evaluate a plant for the household" },
+      { id: "renter-safe", label: "Check lease, surface, and load limits" },
     ],
     body: [
-      { type: "p", text: "Eco friendly small apartment decor on a budget is mostly about buying less, buying secondhand, and adding life with plants. Here's the loose framework I use." },
-      { type: "h2", id: "thrift", text: "Where to actually thrift" },
-      { type: "p", text: "Estate sales beat thrift stores for ceramics and wood. Facebook Marketplace beats both for furniture if you can borrow a car. Buy Nothing groups are unbeatable for anything you'd otherwise throw out." },
-      { type: "h2", id: "plants", text: "The plant rule" },
-      { type: "p", text: "One real plant changes a small apartment more than $200 of new decor. Pothos and snake plants survive almost anything, including renters who travel." },
-      { type: "h2", id: "renter-safe", text: "Renter-safe upgrades" },
+      { type: "p", text: "Start with the function the room needs rather than an assumption that buying decor will improve it. Rearranging, cleaning, repairing, borrowing, or repurposing an item already present may be enough; no sourcing channel or material guarantees savings or an environmental result." },
+      { type: "h2", id: "need", text: "Define the need and measure first" },
       { type: "ul", items: [
-        "Peel-and-stick everything: tile, wallpaper, hooks",
-        "Floor lamps over hardwired fixtures",
-        "Tension rods for plants, curtains, and even shelves",
+        "Name the function first, such as task lighting, concealed storage, seating, privacy, or a place for one frequently used item.",
+        "Measure the available width, depth, height, door path, and any clearance needed for walking, mobility aids, vents, outlets, windows, or maintenance access.",
+        "Check whether something already owned can be moved, repaired, refinished safely, or used differently before adding another item.",
+        "Set a household-specific spending limit that includes pickup, transport, cleaning, repair, hardware, delivery, taxes, and disposal where relevant.",
       ]},
+      { type: "h2", id: "thrift", text: "Compare sourcing options" },
+      { type: "p", text: "Estate sales, thrift stores, online marketplaces, reuse shops, borrowing networks, and gifting groups offer different inventories and access. None is a universal winner for price, quality, safety, transport, accessibility, or availability." },
+      { type: "ul", items: [
+        "Confirm dimensions, material, condition, odors, stains, structural damage, missing hardware, recalls, cleaning needs, and return terms before committing.",
+        "For upholstered, wood, or stored goods, inspect for pests or evidence of infestation and use local public-health guidance when uncertain.",
+        "Plan safe pickup, lifting, stairs, vehicle fit, delivery, and help without assuming a car or physical ability.",
+        "Compare the total usable cost with repair, borrowing, using an existing item, or waiting rather than treating a low listing price as the full cost.",
+      ]},
+      { type: "h2", id: "plants", text: "Evaluate a plant for the household" },
+      { type: "p", text: "A plant is optional decor and a living care commitment, not a measured substitute for a dollar amount of furnishings. Choose a species only after checking its light, water, temperature, space, pot, drainage, travel-care, allergy, and pet or child safety needs." },
+      { type: "linkP", textBefore: "For homes with animals, check the exact species in the ", linkText: "ASPCA toxic and non-toxic plant reference", href: "https://www.aspca.org/pet-care/animal-poison-control/toxic-and-non-toxic-plants", textAfter: " and contact a veterinarian or poison-control service for exposure concerns." },
+      { type: "h2", id: "renter-safe", text: "Check lease, surface, and load limits" },
+      { type: "p", text: "No adhesive, hook, rod, lamp, shelf, or wall covering is universally renter-safe. The lease or building rule and the product's approved surface, span, load, installation, electrical, and removal instructions remain controlling." },
+      { type: "ul", items: [
+        "Prefer freestanding or existing-item layouts when they meet the need without attaching to a finish.",
+        "Use adhesive products only on manufacturer-approved surfaces and loads, after any required cure time and a discreet compatibility test; plan for removal and possible repair.",
+        "Use a floor or plug-in lamp only with a suitable outlet, cord path, bulb, stability, clearance, and household safety plan.",
+        "Use a tension rod only within its rated span and load on compatible surfaces; do not place heavy, breakable, toxic, or watering-dependent items where a fall could harm people, animals, or property.",
+      ]},
+      { type: "linkP", textBefore: "Use the ", linkText: "illustrative small-room reset plan", href: "/blog/sustainable-small-apartment-decor-before-after", textAfter: " to compare layout and existing-item changes without treating imagery as a documented project." },
+      { type: "linkP", textBefore: "For optional pacing across household changes, continue with the ", linkText: "30-day small-apartment eco step checklist", href: "/blog/small-apartment-eco-upgrade-checklist", textAfter: "." },
+      { type: "p", text: "Choose only the changes that fit the room, lease, household, access, and total cost. A secondhand item, plant, or removable product is not automatically cheaper, safer, renter-approved, or environmentally preferable." },
     ],
   },
   {

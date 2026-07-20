@@ -27,6 +27,10 @@ const pages = [
     path: "/blog/small-apartment-eco-upgrade-checklist",
     heading: /A 30-Day Small-Apartment Eco Step Checklist/i,
   },
+  {
+    path: "/blog/eco-friendly-small-apartment-decor-budget",
+    heading: /Small-Apartment Decor on a Budget: Sourcing and Fit Considerations/i,
+  },
   { path: "/contact", heading: /Say hello/i },
 ];
 

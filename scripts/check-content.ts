@@ -225,7 +225,7 @@ if (!ecoStepChecklist) {
   const checklistCopy = `${ecoStepChecklist.title} ${ecoStepChecklist.excerpt} ${JSON.stringify(ecoStepChecklist.body)}`;
   const repairedChecklistClaims = [
     /under \$100/i,
-    /renter[ -]safe/i,
+    /renter[ -]safe(?:,| upgrades| command| ideas)/i,
     /no landlord permission/i,
     /every post you see costs/i,
     /vinegar and water handles most surfaces/i,
@@ -251,6 +251,46 @@ if (!ecoStepChecklist) {
       );
     }
   }
+}
+
+const decorSourcing = posts.find(
+  (post) => post.slug === "eco-friendly-small-apartment-decor-budget",
+);
+if (!decorSourcing) {
+  fail("The small-apartment decor sourcing article is missing.");
+} else {
+  const decorCopy = `${decorSourcing.title} ${decorSourcing.excerpt} ${JSON.stringify(decorSourcing.body)}`;
+  const repairedDecorClaims = [
+    /framework I use/i,
+    /estate sales beat thrift stores/i,
+    /marketplace beats both/i,
+    /unbeatable/i,
+    /more than \$200 of new decor/i,
+    /survive almost anything/i,
+    /peel-and-stick everything/i,
+    /renter[ -]safe(?:,| upgrades| command| ideas)/i,
+  ];
+  for (const pattern of repairedDecorClaims) {
+    if (pattern.test(decorCopy)) {
+      fail(`The decor sourcing article reintroduces repaired claim ${pattern}.`);
+    }
+  }
+
+  for (const requiredBoundary of [
+    "https://www.aspca.org/pet-care/animal-poison-control/toxic-and-non-toxic-plants",
+    "/blog/sustainable-small-apartment-decor-before-after",
+    "/blog/small-apartment-eco-upgrade-checklist",
+  ]) {
+    if (!decorCopy.includes(requiredBoundary)) {
+      fail(
+        `The decor sourcing article is missing required evidence or internal link ${requiredBoundary}.`,
+      );
+    }
+  }
+
+  const postsSource = readFileSync(join(process.cwd(), "src/lib/posts.ts"), "utf8");
+  if (postsSource.includes("postDecor"))
+    fail("The retired watermarked post-decor asset is imported by the application.");
 }
 
 const routeFiles = [

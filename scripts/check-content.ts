@@ -313,6 +313,11 @@ if (!beginnerRenterChecklist) {
     }
   }
 
+  const presentedBeginner = getPresentedPost(beginnerRenterChecklist);
+  if (/hand marking|paper checklist|coffee mug/i.test(presentedBeginner.imageAlt)) {
+    fail("The beginner renter checklist presentation exposes the retired false image alt.");
+  }
+
   for (const requiredBoundary of [
     "/resources",
     "what you already own",

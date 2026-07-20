@@ -92,7 +92,8 @@ for (const post of posts) {
       continue;
     }
     if (block.type === "linkP") {
-      if (!nonEmpty(block.linkText)) fail(`${label} contains a link paragraph with no anchor text.`);
+      if (!nonEmpty(block.linkText))
+        fail(`${label} contains a link paragraph with no anchor text.`);
       if (!nonEmpty(block.href) || !/^(?:https:\/\/|\/)/.test(block.href))
         fail(`${label} contains a link paragraph with an invalid URL.`);
       continue;
@@ -131,6 +132,46 @@ for (const sourcePost of posts) {
   if (retiredImagePattern.test(post.image)) {
     fail(`${label} exposes a retired promotional or watermarked image.`);
   }
+}
+
+const budgetSwaps = posts.find((post) => post.slug === "zero-waste-kitchen-budget-9-swaps");
+if (!budgetSwaps) {
+  fail("The budget-swaps article is missing.");
+} else {
+  const budgetCopy = `${budgetSwaps.title} ${budgetSwaps.excerpt} ${JSON.stringify(budgetSwaps.body)}`;
+  const repairedBudgetClaims = [
+    /actually save money/i,
+    /pays for itself quickly/i,
+    /take out the trash less often/i,
+    /toss expired items/i,
+    /high[‑-]impact reusables/i,
+    /savings on groceries and disposables/i,
+    /let hot food cool slightly/i,
+  ];
+  for (const pattern of repairedBudgetClaims) {
+    if (pattern.test(budgetCopy)) {
+      fail(`The budget-swaps article reintroduces repaired claim ${pattern}.`);
+    }
+  }
+
+  for (const requiredBoundary of [
+    "https://www.epa.gov/recycle/preventing-wasted-food-home",
+    "https://www.fda.gov/food/buy-store-serve-safe-food/refrigerator-thermometers-cold-facts-about-food-safety",
+    "https://www.fsis.usda.gov/guidelines/2019-0022",
+    "https://www.energystar.gov/products/learn-about-led-lighting",
+    "/blog/zero-waste-pantry-organization-small-apartments",
+    "/blog/zero-waste-kitchen-ideas-tiny-apartments",
+  ]) {
+    if (!budgetCopy.includes(requiredBoundary)) {
+      fail(
+        `The budget-swaps article is missing required evidence or internal link ${requiredBoundary}.`,
+      );
+    }
+  }
+
+  const postsSource = readFileSync(join(process.cwd(), "src/lib/posts.ts"), "utf8");
+  if (postsSource.includes("ZeroWastePin1"))
+    fail("The retired ZeroWastePin1 promotional asset is imported by the application.");
 }
 
 const routeFiles = [

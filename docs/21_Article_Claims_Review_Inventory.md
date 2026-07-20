@@ -76,6 +76,8 @@ The merged existing-content intent map covers 10 articles. This claims review al
 
 ### Zero Waste Kitchen on a Budget: 9 Simple Swaps That Actually Save Money
 
+**Repair status (2026-07-19):** the budget-swaps body, source metadata, imagery, safety boundaries, and internal links were repaired in a focused follow-up. The route is preserved. Savings, payback, waste-reduction, unnamed-authority, universal-product, unsafe-cooling, blanket-decanting, and fixed-routine claims in the audited set were removed or narrowed. See `docs/research/kitchen-cluster/ETLH_KITCHEN_BUDGET_SWAPS_CLAIMS_AUDIT.md`. This status does not certify household outcomes.
+
 | Location                     | Claim                                                                                          | Classification    | Required evidence or action                                                                                                                   |
 | ---------------------------- | ---------------------------------------------------------------------------------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | `src/lib/posts.ts:1444-1445` | Title/excerpt promises swaps that "actually save money" and stretch the grocery bill.          | Remove or reframe | Savings depend on local prices, prior behavior, product lifespan, utilities, and replacement timing. Use conditional cost framing.            |

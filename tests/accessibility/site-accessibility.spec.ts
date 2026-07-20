@@ -85,6 +85,36 @@ for (const pageCase of pages) {
   });
 }
 
+const pilotImageRoutes = [
+  {
+    path: "/blog/choose-apartment-food-scrap-method",
+    alt: "Illustrative small apartment kitchen with food scraps, collection containers, a cutting board, and plants in warm daylight.",
+    src: "choose-apartment-food-scrap-method-hero-v1",
+  },
+  {
+    path: "/blog/electric-food-waste-appliances-apartments",
+    alt: "Illustrative compact apartment kitchen with an unbranded countertop food-waste appliance and a removable food-scrap container.",
+    src: "electric-food-waste-appliances-apartments-hero-v1",
+  },
+  {
+    path: "/blog/dishwashing-without-dishwasher-small-kitchen",
+    alt: "Illustrative small apartment kitchen with a sink, dish rack, drying dishes, wood counter, and plants in warm daylight.",
+    src: "dishwashing-without-dishwasher-small-kitchen-hero-v2",
+  },
+];
+
+for (const imageCase of pilotImageRoutes) {
+  test(`${imageCase.path} renders its assigned pilot image and alt text`, async ({ page }) => {
+    await page.addInitScript(() => window.localStorage.setItem("etlh-analytics-consent", "declined"));
+    await gotoHydrated(page, imageCase.path);
+    const image = page.locator(`img[alt="${imageCase.alt}"]`).first();
+    await expect(image).toBeVisible();
+    await expect(image).toHaveAttribute("src", new RegExp(imageCase.src));
+    await expect(image).toHaveAttribute("width");
+    await expect(image).toHaveAttribute("height");
+  });
+}
+
 test("skip link moves focus to main content", async ({ page }) => {
   await page.addInitScript(() => window.localStorage.setItem("etlh-analytics-consent", "declined"));
   await gotoHydrated(page, "/");

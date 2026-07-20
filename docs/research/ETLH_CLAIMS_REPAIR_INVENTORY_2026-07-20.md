@@ -1,14 +1,24 @@
 # ETLH Claims-Repair Inventory Reconciliation
 
-**Baseline:** `main` at `d3a74adbdff9afd370a3ba7810afa7a7cfed4cbb`  
-**Scope:** 14 public articles, current source/presentation layers, claims inventory, asset-gap map, internal-link map, audits through PR #88, and production asset state.
+**Cycle status:** Complete on 2026-07-20
+**Final baseline:** `main` at `051990d8a83286b2fdbb4cb700c07cad60571a9d`
+**Scope:** 14 public articles, current source/presentation layers, claims inventory, asset-gap map, internal-link map, completed audits, and production asset state.
 
-| Route | Current disposition | Evidence and next action |
+All 14 inventory routes have been reconciled. There is no active article claims-repair queue. The four routes that remained unresolved at the earlier baseline were completed in PRs #89, #92, #93, and #94:
+
+- PR #89 — friction-observation systems;
+- PR #92 — bounded small-apartment weekend reset;
+- PR #93 — small living-room layout planning; and
+- PR #94 — illustrative small-apartment room-reset plan.
+
+The owner confirmed that no remaining route requires a provenance, evidence, consolidation, retirement, redirect, or unpublishing decision. Article count is not a preservation goal; those actions still require explicit owner approval when a future evidence-based review warrants them.
+
+| Route | Current disposition | Evidence and closure record |
 | --- | --- | --- |
-| `/blog/why-life-feels-harder-than-it-needs-to-sometimes` | **Partially repaired; selected next** | Useful friction-observation purpose, but stress, calm, energy, ease, and habit-success language remains. Source/presentation image mismatch and unused promotional asset remain. Repair in place and remove the unsupported confidence section. |
-| `/blog/sustainable-tiny-living-room-layout-ideas` | **Repaired in place; layout-planning purpose** | Narrowed to measuring fixed constraints, testing furniture footprints and pathways, and pausing before purchase or installation. Unsupported spatial, wellbeing, material, plant-air, durability, and universal-layout claims removed or bounded. See `ETLH_TINY_LIVING_ROOM_LAYOUT_CLAIMS_AUDIT.md`. |
-| `/blog/eco-friendly-small-apartment-weekend-checklist` | **Repaired in place; bounded reset purpose** | Overlap audit found a defensible one-room inspect–test–review task distinct from habit, systems, layout, sourcing, and proof pages. Broad outcomes, fixed completion, purchase pressure, and unsafe/universal assumptions were removed or narrowed. See `ETLH_WEEKEND_CHECKLIST_CLAIMS_AUDIT.md`. |
-| `/blog/sustainable-small-apartment-decor-before-after` | **Repaired in place; illustrative room-reset planning** | Owner confirmed no project provenance exists. Removed documented transformation framing and reframed the route as a hypothetical planning example with explicit disclosure, reversible tests, and aligned illustrative imagery. See `ETLH_ILLUSTRATIVE_ROOM_RESET_CLAIMS_AUDIT.md`. |
+| `/blog/why-life-feels-harder-than-it-needs-to-sometimes` | **Fully repaired; friction-observation purpose** | PR #89 removed unsupported confidence, wellbeing, and habit-success framing; source/presentation imagery and alt text now align. See `ETLH_FRICTION_SYSTEMS_CLAIMS_AUDIT.md`. |
+| `/blog/sustainable-tiny-living-room-layout-ideas` | **Fully repaired; layout-planning purpose** | PR #93 retained measured, reversible layout planning and removed or bounded spatial, wellbeing, material, plant-air, durability, and universal-layout claims. See `ETLH_TINY_LIVING_ROOM_LAYOUT_CLAIMS_AUDIT.md`. |
+| `/blog/eco-friendly-small-apartment-weekend-checklist` | **Fully repaired; bounded reset purpose** | PR #92 retained a one-room inspect–test–review task distinct from habit, systems, layout, sourcing, and proof pages. Broad outcomes, fixed completion, purchase pressure, and unsafe/universal assumptions were removed or narrowed. See `ETLH_WEEKEND_CHECKLIST_CLAIMS_AUDIT.md`. |
+| `/blog/sustainable-small-apartment-decor-before-after` | **Fully repaired; illustrative room-reset planning** | PR #94 records the owner decision that no project provenance exists; the route is an explicitly illustrative planning example with disclosure, reversible tests, and aligned illustrative imagery. See `ETLH_ILLUSTRATIVE_ROOM_RESET_CLAIMS_AUDIT.md`. |
 | `/blog/low-waste-lifestyle-tips-beginners` | **Fully repaired** | PR #86; audit and production verification recorded. |
 | `/blog/easy-sustainable-habits-on-a-budget` | **Fully repaired** | PR #87; audit and production verification recorded. |
 | `/blog/sustainable-living-apartment-easy-habits` | **Fully repaired** | PR #88; overlap audit and production verification recorded. |
@@ -20,6 +30,15 @@
 | `/blog/eco-friendly-small-apartment-decor-budget` | **Fully repaired** | PR #83; unsupported transformation, sourcing, plant, and renter-safety claims repaired. |
 | `/blog/beginner-sustainable-living-checklist-renters` | **Fully repaired** | PR #84–85; starter purpose, false alt, and renter-control boundaries repaired. |
 
-## Selection rationale
+## Future claims-work entry conditions
 
-The selected route is the only partially repaired article with a distinct, low-risk editorial purpose that can be repaired without consolidation, redirect, unpublishing, new research, or owner-only evidence. It ranks above the remaining unrepaired articles because its unsupported section explicitly presents behavior guidance as confidence-backed, while its source/presentation asset mismatch leaves an obsolete promotional asset emitted solely for this route. The tiny-living-room article, weekend checklist, and before/after article remain queued with higher overlap or provenance/positioning considerations.
+Do not reopen a completed route or select another article automatically. A future claims-repair review must begin with at least one documented trigger:
+
+- a specific newly identified claim issue;
+- new authoritative evidence;
+- a documented provenance problem;
+- a material metadata, body, or schema mismatch;
+- a new accessibility or trust finding; or
+- an owner-approved content review.
+
+Reassess independent purpose, overlap, evidence burden, and reader usefulness before any future repair. Preserve no route merely to maintain article count. Consolidation, retirement, redirect, or unpublishing requires explicit owner approval and must not be inferred from this completed cycle.

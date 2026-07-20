@@ -1,5 +1,11 @@
 # ETLH Article Claims Review Inventory
 
+## Claims-repair cycle completed — 2026-07-20
+
+The 14-route claims-repair inventory is complete at `main` commit `051990d8a83286b2fdbb4cb700c07cad60571a9d`. The final formerly unresolved routes were completed in PR #89 (friction observation), PR #92 (weekend reset), PR #93 (living-room layout), and PR #94 (illustrative room-reset planning). There is no active article claims-repair queue.
+
+Future work must begin with a specific newly identified claim issue, new authoritative evidence, a documented provenance problem, a material metadata/body/schema mismatch, a new accessibility or trust finding, or an owner-approved content review. Do not reopen completed routes without that evidence. Article count is not a preservation goal; consolidation, retirement, redirect, or unpublishing requires explicit owner approval.
+
 ## 2026-07-20 friction-systems claims-repair record
 
 `why-life-feels-harder-than-it-needs-to-sometimes` was selected after reconciling all 14 current articles. Its distinct purpose is a friction-observation exercise, but the former source included stress, calm, energy, ease, and habit-success language plus an unsupported “Why We’re Confident” behavior claim. The repair keeps optional, reversible arrangement examples, removes the evidence-style section, adds control/permission boundaries, aligns source and presentation imagery, and retires the unused `SustainablePin1.webp` import from emitted output. See `docs/research/ETLH_FRICTION_SYSTEMS_CLAIMS_AUDIT.md` and `docs/research/ETLH_CLAIMS_REPAIR_INVENTORY_2026-07-20.md`.
@@ -236,22 +242,9 @@ The merged existing-content intent map covers 10 articles. This claims review al
 - Generated, staged, stock, or illustrative visuals must be labeled accurately and cannot substantiate a real case study.
 - Image alt text must describe the actual asset, not the intended article promise.
 
-## Recommended repair order
+## Historical repair-order and owner-decision notes
 
-1. Reframe or substantiate **Sustainable Small Apartment Decor: Before & After on a Budget**.
-2. Remove or substantiate savings certainty in **Zero Waste Kitchen on a Budget: 9 Simple Swaps That Actually Save Money**.
-3. Source or neutralize chef authority in **Low Waste Kitchen Tips: 11 Habits Chefs Use to Cut Food Waste**.
-4. Reframe or substantiate the pantry before-and-after and add food-storage cautions.
-5. Remove or substantiate the under-$100 promise in the 30-day checklist.
-6. Repair health, air-quality, utility-savings, environmental-impact, universal product, and personal-experience claims across the remaining articles.
-
-## Owner decisions still required
-
-- Whether either before-and-after article is based on a real documented project.
-- Whether original paired visuals, receipts, budgets, dates, and project notes exist.
-- Whether any first-person or professional-authority statement is truthful and approved.
-- Whether fixed budget promises should be substantiated or removed.
-- Public-copy changes after the claims repair plan is reviewed.
+The preceding repair-order and owner-decision items were resolved during the completed cycle. They remain in this historical inventory as the original triage record; the authoritative current status and future-work entry conditions are recorded in `docs/research/ETLH_CLAIMS_REPAIR_INVENTORY_2026-07-20.md`.
 
 ## Definition of done for a future repair
 

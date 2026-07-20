@@ -176,6 +176,21 @@ if (!apartmentCompostingDecision) {
   }
 }
 
+const electricApplianceGuide = posts.find(
+  (post) => post.slug === "electric-food-waste-appliances-apartments",
+);
+if (!electricApplianceGuide) {
+  fail("The electric food-waste appliance guide is missing.");
+} else {
+  const applianceCopy = `${electricApplianceGuide.title} ${electricApplianceGuide.excerpt} ${JSON.stringify(electricApplianceGuide.body)}`;
+  for (const pattern of [/best (?:appliance|product)/i, /odor[- ]free|zero smell/i, /pest[- ]free/i, /save money|save energy|save water/i, /environmentally preferable/i, /(?:produces?|creates?) finished compost/i]) {
+    if (pattern.test(applianceCopy)) fail(`Electric appliance guide has a prohibited claim: ${pattern}`);
+  }
+  for (const required of ["do not buy", "output route", "filters", "warranty", "https://www.epa.gov/sustainable-management-food/approaches-composting", "https://lomi.com/pages/faq", "/blog/choose-apartment-food-scrap-method"]) {
+    if (!applianceCopy.toLowerCase().includes(required.toLowerCase())) fail(`Electric appliance guide is missing required boundary or source: ${required}`);
+  }
+}
+
 const budgetSwaps = posts.find((post) => post.slug === "zero-waste-kitchen-budget-9-swaps");
 if (!budgetSwaps) {
   fail("The budget-swaps article is missing.");

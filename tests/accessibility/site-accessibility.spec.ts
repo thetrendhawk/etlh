@@ -19,6 +19,10 @@ const pages = [
     path: "/blog/zero-waste-pantry-organization-small-apartments",
     heading: /Pantry Organization for Small Apartments: A Practical Plan/i,
   },
+  {
+    path: "/blog/low-waste-kitchen-tips-chef-habits",
+    heading: /11 Low-Waste Kitchen Habits for Using Food More Fully/i,
+  },
   { path: "/contact", heading: /Say hello/i },
 ];
 

@@ -1,7 +1,6 @@
 import postKitchen from "@/assets/post-kitchen.jpg";
 import postDecor from "@/assets/post-decor.jpg";
 import postChecklist from "@/assets/post-checklist.jpg";
-import zeroWastePin2 from "@/assets/ZeroWastePin2.webp";
 import sustainablePin1 from "@/assets/SustainablePin1.webp";
 import sustainablePin2 from "@/assets/SustainablePin2.webp";
 import sustainablePin3 from "@/assets/SustainablePin3.webp";
@@ -1205,15 +1204,14 @@ export const posts: Post[] = [
 },
 {
   slug: "low-waste-kitchen-tips-chef-habits",
-  title: "Low Waste Kitchen Tips: 11 Habits Chefs Use to Cut Food Waste",
+  title: "11 Low-Waste Kitchen Habits for Using Food More Fully",
   excerpt:
-    "Steal 11 chef-inspired low waste kitchen habits that cut food waste, save money, and work in any small apartment.",
+    "Review practical inventory, leftover, freezing, labeling, portioning, and composting habits with safety and local limits in mind.",
   category: "zero-waste-kitchen",
   date: "2026-06-22",
   readingTime: "7 min read",
-  image: zeroWastePin2, // import this in your file
-  imageAlt:
-    "Small apartment kitchen with glass jars, fresh vegetables, and a cutting board laid out for cooking.",
+  image: postKitchen,
+  imageAlt: "Illustrative kitchen counter with fresh herbs in a jar beside a cutting board.",
   tags: [
     "low waste kitchen",
     "zero waste cooking",
@@ -1223,28 +1221,28 @@ export const posts: Post[] = [
   ],
   toc: [
     { id: "why-low-waste-kitchen", label: "Why Low Waste Kitchen Habits Matter" },
-    { id: "plan-meals-around-what-you-have", label: "Plan Meals Around What You Already Have" },
-    { id: "eat-me-first-shelf", label: "Create an “Eat Me First” Shelf" },
-    { id: "flex-recipes", label: "Use Flexible Recipes for Leftovers" },
-    { id: "treat-scraps-like-ingredients", label: "Treat Scraps Like Ingredients" },
-    { id: "skip-unnecessary-peeling", label: "Skip Unnecessary Peeling" },
-    { id: "batch-cook-components", label: "Batch Cook Components" },
-    { id: "freeze-early", label: "Freeze Food Early, Not at the Last Minute" },
-    { id: "leftovers-night", label: "Schedule a Weekly Leftovers Night" },
-    { id: "portion-like-a-pro", label: "Portion Like a Pro" },
-    { id: "label-and-store-smart", label: "Label, Date, and Store Food Smart" },
-    { id: "compost-and-start-small", label: "Compost What You Can & Start Small" }
+    { id: "plan-meals-around-what-you-have", label: "Check What You Have Before Shopping" },
+    { id: "eat-me-first-shelf", label: "Make a Use-First Area" },
+    { id: "flex-recipes", label: "Choose Flexible Meal Formats" },
+    { id: "treat-scraps-like-ingredients", label: "Use Edible Parts Safely" },
+    { id: "skip-unnecessary-peeling", label: "Prepare Produce Safely" },
+    { id: "batch-cook-components", label: "Cook Components That Fit Your Storage" },
+    { id: "freeze-early", label: "Chill and Freeze Food Safely" },
+    { id: "leftovers-night", label: "Choose a Leftover Check-In" },
+    { id: "portion-like-a-pro", label: "Choose Portions for Your Household" },
+    { id: "label-and-store-smart", label: "Label and Store Food With Context" },
+    { id: "compost-and-start-small", label: "Follow Local Food-Scrap Rules" }
   ],
   body: [
     {
       type: "p",
       text:
-        "If your trash fills up with food and packaging every week, you’re not alone—and your grocery bill is paying the price. The good news is that many of the best low waste kitchen tips come straight from restaurant chefs and zero‑waste cooks who are forced to use every ingredient to the max."
+        "Food can be difficult to track in a small kitchen, especially when packages, leftovers, and ingredients compete for limited storage. These practices are options for making food easier to see and plan around; they do not guarantee savings or a measured reduction in waste."
     },
     {
       type: "p",
       text:
-        "This guide breaks down 11 chef‑inspired habits you can use in a small apartment kitchen to reduce food waste, save money, and make better food—without needing special tools or a huge pantry."
+        "Review the 11 sections and choose only what fits your food, storage, appliances, schedule, dietary needs, physical access, and household. Most suggestions use what you already have, and food-safety or package directions take priority."
     },
 
     {
@@ -1260,219 +1258,261 @@ export const posts: Post[] = [
     {
       type: "p",
       text:
-        "Professional kitchens run on tight margins, so chefs have to squeeze maximum value out of every carrot, loaf of bread, and herb bunch. Many of their habits transfer perfectly to a home kitchen—and especially to small apartments where space is limited and wasted food is felt immediately."
+        "Inventory, labels, visible storage, meal planning, prompt chilling, and local food-scrap rules address different parts of the process. None is a universal solution, so start with the point where food is currently becoming hard to find, store, or use safely."
     },
 
     {
       type: "h2",
       id: "plan-meals-around-what-you-have",
-      text: "Plan Meals Around What You Already Have"
+      text: "Check What You Have Before Shopping"
     },
     {
       type: "p",
       text:
-        "Chefs rarely order new ingredients without checking inventory first, because over‑ordering leads to spoilage and lost profit. At home, planning meals around what you already own is one of the strongest low‑waste habits you can build."
+        "A quick inventory can show what is already available before you make a shopping list. It is a planning aid, not proof that every visible item is safe or suitable to use."
     },
     {
       type: "ul",
       items: [
-        "Before you shop, quickly scan your fridge, freezer, and pantry and list ingredients that need to be used soon, especially fresh produce and dairy.",
-        "Choose recipes that feature those ingredients first, then add only the items you truly need to make them work.",
-        "Keep a short weekly note in your phone or on the fridge labeled “Use This First” so you remember what to build meals around."
+        "Check the refrigerator, freezer, and pantry when you are able, including labels and storage directions for foods you may use soon.",
+        "Choose meals that fit safe ingredients already present, then list any missing items you decide are necessary.",
+        "Use a phone note, paper list, or another reminder that is accessible to the people who share food planning."
       ]
     },
 
     {
       type: "h2",
       id: "eat-me-first-shelf",
-      text: "Create an “Eat Me First” Shelf"
+      text: "Make a Use-First Area"
     },
     {
       type: "p",
       text:
-        "Many restaurant kitchens use clearly labeled bins or sections for ingredients that need to be used immediately. At home, an “Eat Me First” shelf is a simple way to copy that system and keep aging items visible."
+        "If space and reach allow, one shelf area, bin, or written list can keep selected foods visible. A use-first area does not override storage instructions, recalls, signs of spoilage, or food-safety limits."
     },
     {
       type: "ul",
       items: [
-        "Pick one shelf or bin in your fridge and label it “Eat Me First.” Put leftovers and foods close to their expiry date there.",
-        "Create a smaller version in the pantry for near‑expiry dry goods, snacks, or baking ingredients.",
-        "Check this shelf when planning lunch, snacks, or dinner so the oldest items get used before you open something new."
+        "Choose a location you can reach and see without blocking refrigerator vents or crowding foods that need cold airflow.",
+        "Keep food in suitable packaging or containers, and retain allergens, lot codes, preparation details, date labels, and storage directions.",
+        "Treat package dates according to the product and current food-safety guidance rather than using one date as a universal discard rule."
       ]
     },
 
     {
       type: "h2",
       id: "flex-recipes",
-      text: "Use Flexible Recipes for Leftovers"
+      text: "Choose Flexible Meal Formats"
     },
     {
       type: "p",
       text:
-        "Restaurants rely on flexible “catch‑all” recipes—like soups, curries, grain bowls, and frittatas—to use up mixed leftover ingredients. At home, relying less on rigid recipes and more on formats makes it much easier to use what you have instead of running to the store for one missing item."
+        "A flexible meal format can accommodate small amounts of compatible ingredients. Use only food that was cooked, chilled, and stored safely, and account for allergies, dietary needs, and the flavors or textures your household will accept."
     },
     {
       type: "ul",
       items: [
-        "Stir‑fries, curries, and fried rice are ideal for mixed vegetables, leftover chicken, tofu, or beans.",
-        "Grain bowls, tacos, and wraps handle small amounts of chopped veg, cooked meat, or roasted tray leftovers.",
-        "Frittatas, omelets, and breakfast burritos are great for using up bits of cheese, herbs, and vegetables before they wilt."
+        "Soups, stir-fries, curries, or grain bowls may work for safely stored ingredients that can be cooked together appropriately.",
+        "Tacos, wraps, or salads may suit small portions of compatible ready-to-eat ingredients.",
+        "Egg dishes may be an option when eggs and additions are suitable for the household and are cooked to safe temperatures."
       ]
     },
 
     {
       type: "h2",
       id: "treat-scraps-like-ingredients",
-      text: "Treat Scraps Like Ingredients, Not Trash"
+      text: "Use Edible Parts Safely"
     },
     {
       type: "p",
       text:
-        "Zero‑waste chefs look at stems, peels, and trimmings as potential flavor, not automatic garbage. Using more of the ingredient means you get extra meals and nutrients from the same grocery budget."
+        "Some parts commonly removed during preparation are edible; others are tough, unsafe, contaminated, allergenic, recalled, or simply unsuitable for a dish. Confirm that a part is edible and sound before treating it as an ingredient."
     },
     {
       type: "ul",
       items: [
-        "Collect clean onion skins, carrot ends, celery leaves, herb stems, and bones in a freezer bag, then simmer a full bag into stock and freeze it in jars or cubes.",
-        "Turn carrot tops, beet greens, or herb stems into pesto, chimichurri, or sautéed side dishes instead of throwing them away.",
-        "Turn stale bread into homemade breadcrumbs or croutons for salads and soups."
+        "Set aside only identified, edible vegetable pieces that were washed and handled safely; do not use spoiled, moldy, recalled, or unknown material.",
+        "Check a reliable preparation source before using an unfamiliar leaf, stem, peel, seed, pit, bone, or trimming.",
+        "Bread that was stored safely and shows no mold may be suitable for another recipe; moldy bread should be discarded rather than trimmed and reused."
       ]
     },
 
     {
       type: "h2",
       id: "skip-unnecessary-peeling",
-      text: "Skip Unnecessary Peeling"
+      text: "Prepare Produce Safely"
     },
     {
       type: "p",
       text:
-        "Peeling vegetables often removes edible flesh and fiber that you pay for and then never eat. Scrubbing rather than peeling is usually enough for most produce."
+        "Whether to peel produce depends on the item, recipe, condition, package directions, and household preference. Cleaning is still required even when the peel will be removed."
     },
     {
       type: "ul",
       items: [
-        "Scrub potatoes, carrots, zucchini, cucumbers, and apples with a vegetable brush instead of peeling for everyday dishes.",
-        "When you do need to cut off bad spots, trim minimally instead of taking thick slices around a bruise or blemish."
+        "Wash hands, rinse produce under plain running water, and gently rub it; use a clean produce brush for firm items.",
+        "Cut away damaged or bruised areas before preparing or eating, and discard produce that is rotten or otherwise unsafe."
       ]
+    },
+    {
+      type: "linkP",
+      textBefore: "The ",
+      linkText: "FDA's produce-cleaning guidance",
+      href: "https://www.fda.gov/consumers/consumer-updates/7-tips-cleaning-fruits-vegetables",
+      textAfter: " provides the preparation boundary used here."
     },
 
     {
       type: "h2",
       id: "batch-cook-components",
-      text: "Batch Cook Components Instead of Full Meals"
+      text: "Cook Components That Fit Your Storage"
     },
     {
       type: "p",
       text:
-        "Restaurant prep sessions focus on ready‑to‑use components—cooked grains, roasted vegetables, sauces—so the kitchen can assemble dishes quickly and use ingredients before they spoil."
+        "Cooking components can make later meals easier to assemble when the quantity fits your refrigerator or freezer. Choose amounts you can cool, store, and use safely rather than treating a large batch as the default."
     },
     {
       type: "ul",
       items: [
-        "Cook a big pot of rice, quinoa, or another grain once and use it across bowls, stir‑fries, stuffed peppers, and soups.",
-        "Roast a tray of mixed vegetables at the start of the week to add to salads, pastas, and grain bowls.",
-        "Blend a simple sauce or dressing from herbs, citrus, yogurt, or pan drippings to give leftovers a new flavor."
+        "Cook an amount of grain, beans, or another component that fits planned meals and available cold storage.",
+        "Prepare vegetables in a quantity the household can store and use within safe limits.",
+        "Keep raw-animal-food drippings and other higher-risk ingredients separate, and follow safe cooking and storage directions."
       ]
     },
 
     {
       type: "h2",
       id: "freeze-early",
-      text: "Freeze Food Early, Not at the Last Minute"
+      text: "Chill and Freeze Food Safely"
     },
     {
       type: "p",
       text:
-        "Many people freeze food only when it’s already on the edge, but freezing items while they’re still in good condition keeps flavor and texture high and prevents last‑minute panic throws into the trash."
+        "Freezing can extend storage for many foods, but it does not make food safe if it was already mishandled. Refrigerate or freeze perishables promptly and follow food-specific and appliance guidance."
     },
     {
       type: "ul",
       items: [
-        "Freeze extra cooked grains, beans, and lentils in flat bags or small containers for quick future meals.",
-        "Portion sauces, stocks, and tomato paste into ice‑cube trays so you can grab exactly what you need.",
-        "Label everything with the name and date so you actually use it instead of letting it become a mystery container."
+        "Use containers or packaging labeled suitable for freezing, leaving any headspace the product or container requires.",
+        "Divide large amounts of hot food into shallow containers for prompt cooling instead of leaving a large pot at room temperature.",
+        "Label stored food with its identity and date, and retain any instructions needed for safe thawing, cooking, or reheating."
       ]
+    },
+    {
+      type: "linkP",
+      textBefore: "Follow the USDA FSIS guidance for ",
+      linkText: "safe leftovers and rapid cooling",
+      href: "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/leftovers-and-food-safety",
+      textAfter: " rather than letting hot food sit out to cool."
+    },
+    {
+      type: "linkP",
+      textBefore: "The USDA also explains the limits of ",
+      linkText: "freezing and food safety",
+      href: "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/freezing-and-food-safety",
+      textAfter: ", including safe thawing and refreezing conditions."
     },
 
     {
       type: "h2",
       id: "leftovers-night",
-      text: "Schedule a Weekly Leftovers Night"
+      text: "Choose a Leftover Check-In"
     },
     {
       type: "p",
       text:
-        "Restaurants write specials to move ingredients quickly; a home version is to dedicate one night each week to eating what’s already cooked."
+        "A recurring check can help a household notice stored food, but the schedule must follow safe storage limits rather than a fixed weekly rule. Choose a time and reminder method that fits the household."
     },
     {
       type: "ul",
       items: [
-        "Plan a weekly “fridge clean‑out” meal using whatever is in your Eat Me First shelf, freezer, and produce drawer.",
-        "Serve different leftover dishes family‑style and treat it like a tasting night rather than a compromise dinner."
+        "Review labels, storage history, package directions, and the food itself before deciding whether an item can be used.",
+        "Do not rely on smell or appearance alone to decide that a perishable food is safe; when safe handling is uncertain, follow authoritative food-safety guidance."
       ]
     },
 
     {
       type: "h2",
       id: "portion-like-a-pro",
-      text: "Portion Like a Pro"
+      text: "Choose Portions for Your Household"
     },
     {
       type: "p",
       text:
-        "Over‑portioning is a major source of plate waste in homes and restaurants. Chefs control portion sizes carefully because every untouched bite is money in the trash."
+        "Food needs and appetites vary by person and from one meal to another. If it suits the people eating, smaller initial servings with the option for more can reduce pressure to finish an unwanted portion."
     },
     {
       type: "ul",
       items: [
-        "Cook realistic quantities for the number of people you’re feeding; you don’t always need to make a full 4–6 serving recipe.",
-        "If you do cook extra intentionally for lunches, portion and refrigerate it right away instead of leaving it in the pot.",
-        "Use slightly smaller plates and bowls so reasonable portions still look satisfying."
+        "Adjust recipe quantities when practical, accounting for the number of people, their needs, and any planned leftovers.",
+        "If you intentionally cook extra, divide and refrigerate or freeze it promptly in suitable containers.",
+        "Let people choose an initial portion when possible; avoid treating one serving size or plate as universally appropriate."
       ]
     },
 
     {
       type: "h2",
       id: "label-and-store-smart",
-      text: "Label, Date, and Store Food Smart"
+      text: "Label and Store Food With Context"
     },
     {
       type: "p",
       text:
-        "Professional kitchens rely on labeling and clear containers so nothing gets lost at the back of the fridge. Adopting a light version of this system at home prevents mystery tubs and surprise science experiments."
+        "Labels can record what a stored food is and when it was prepared or opened. Clear containers are optional; the right choice depends on food suitability, available containers, visibility needs, and the information on the original package."
     },
     {
       type: "ul",
       items: [
-        "Use tape or simple stickers to note the contents and date on leftovers and homemade stocks or sauces.",
-        "Store food in clear containers or jars instead of opaque takeout tubs so you can see what’s inside at a glance.",
-        "Leave enough open space for air to circulate, avoid blocking vents, and follow the capacity and loading guidance in your refrigerator’s manual."
+        "Use tape, a washable marker, or another accessible method to record contents and a relevant date.",
+        "Use intact food-suitable containers according to their temperature, freezer, microwave, and dishwasher limits; do not assume takeout packaging is reusable for every purpose.",
+        "Keep allergens, lot codes, recalls, date labels, preparation and storage directions, and refrigerator airflow visible or otherwise reliably recorded."
       ]
+    },
+    {
+      type: "linkP",
+      textBefore: "Use the ",
+      linkText: "FDA's food-storage guidance",
+      href: "https://www.fda.gov/consumers/consumer-updates/are-you-storing-food-safely",
+      textAfter: " for refrigerator temperature, airflow, package directions, covered storage, spoilage, and date-label context."
+    },
+    {
+      type: "linkP",
+      textBefore: "For a fuller visibility and package-information routine, continue with the ",
+      linkText: "small-apartment pantry organization guide",
+      href: "/blog/zero-waste-pantry-organization-small-apartments",
+      textAfter: "."
     },
 
     {
       type: "h2",
       id: "compost-and-start-small",
-      text: "Compost What You Can & Start with a Few Habits"
+      text: "Follow Local Food-Scrap Rules"
     },
     {
       type: "p",
       text:
-        "Even with careful planning, some inedible food scraps remain. If a local organics program accepts them, keep its collection rules handy so scraps go in the correct container."
+        "Some inedible food scraps may have a local collection or processing route. Confirm the destination first because accepted materials, liners, containers, transfer schedules, and access differ by program and building."
     },
     {
       type: "ul",
       items: [
-        "Use a small countertop container or jar for fruit and vegetable scraps, coffee grounds, and eggshells.",
-        "Look for local compost drop‑off sites, community gardens, or city programs that accept food scraps.",
-        "If you’re new to low‑waste cooking, start with just two or three habits—such as an Eat Me First shelf, one flex‑recipe night, and a freezer scrap bag—and add more once those feel automatic."
+        "Use only a collection container and location that fit the destination's rules, the container instructions, available space, pests, odor, cleaning access, and household agreement.",
+        "Check local municipal, hauler, drop-off, community-garden, or other operator instructions before including a material.",
+        "If no acceptable route is available, do not imply that a renter must buy equipment, use a freezer, keep scraps outdoors, or obtain landlord approval."
       ]
     },
     {
       type: "p",
       text:
-        "You don’t have to be perfect to make a big difference. Small, repeatable habits—planning around what you have, using up scraps, freezing early, and composting what’s left—can transform any kitchen into a low waste kitchen over time."
+        "Choose one practice that addresses a real friction point and revise it if it does not fit. The useful result is a safer, more workable food-use routine for this household—not a guaranteed savings, waste, health, or environmental outcome."
+    },
+    {
+      type: "linkP",
+      textBefore: "The EPA notes that accepted feedstocks vary by facility; review its ",
+      linkText: "composting guidance",
+      href: "https://www.epa.gov/sustainable-management-food/composting",
+      textAfter: " alongside the rules for the service or destination you will actually use."
     },
     {
       type: "linkP",

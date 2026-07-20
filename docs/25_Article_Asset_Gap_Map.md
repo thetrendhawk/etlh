@@ -174,7 +174,7 @@ External Perplexity research must be reviewed before cluster-led production orde
 ### 9. Low Waste Kitchen Tips: 11 Habits Chefs Use to Cut Food Waste
 
 - **Slug/category:** `low-waste-kitchen-tips-chef-habits` — Zero-Waste Kitchen.
-- **Current hero quality:** **P0.** `ZeroWastePin2.webp` contains savings, safety, nutrition, wallet, and planet claims. It is a dense seven-step infographic, while current alt describes a kitchen scene.
+- **Current hero quality:** **Repaired for claims risk.** The article now uses the existing illustrative kitchen image with literal alt text. The retired `ZeroWastePin2.webp` source artifact is preserved for traceability but is no longer imported or emitted. A future article-specific food-flow diagram remains a separate P1 opportunity.
 - **Missing explanatory visuals:** A food-use system from planning and visibility through leftovers/freezing/compost where locally appropriate.
 - **Missing diagrams:** Weekly food flow: inventory → plan → store visibly → use first → repurpose/freeze safely → local end-of-life option.
 - **Missing tables:** Storage decisions and time guidance only after authoritative food-safety sourcing; otherwise keep a source-needed placeholder in planning.

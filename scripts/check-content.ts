@@ -239,6 +239,20 @@ if (!eatFirstGuide) {
   if (!eatFirstGuide.image.includes("eat-first-fridge-freezer-small-apartment-hero-v1.webp")) fail("Eat-first guide must use its dedicated hero asset.");
 }
 
+const foodUseRotation = posts.find((post) => post.slug === "food-use-rotation-check-small-apartment");
+if (!foodUseRotation) {
+  fail("The food-use rotation guide is missing.");
+} else {
+  const foodUseCopy = `${foodUseRotation.title} ${foodUseRotation.excerpt} ${JSON.stringify(foodUseRotation.body)}`;
+  for (const pattern of [/reduce food waste|save money|improves? food safety|prevents? illness|prevents? spoilage|improves? nutrition|extends? shelf life|save time|reduce stress|creates? a habit|improves? sustainability|prevents? allergy|prevents? recall|works for every household/i]) {
+    if (pattern.test(foodUseCopy)) fail(`Food-use rotation guide has a prohibited claim: ${pattern}`);
+  }
+  for (const required of ["Use soon", "not a food-safety classification", "do not taste-test", "infant formula", "https://www.fda.gov/food/consumers/how-cut-food-waste-and-maintain-food-safety", "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/steps-keep-food-safe"]) {
+    if (!foodUseCopy.toLowerCase().includes(required.toLowerCase())) fail(`Food-use rotation guide is missing required boundary or source: ${required}`);
+  }
+  if (!foodUseRotation.image.includes("food-use-rotation-check-small-apartment-hero-v1.webp")) fail("Food-use rotation guide must use its dedicated hero asset.");
+}
+
 const budgetSwaps = posts.find((post) => post.slug === "zero-waste-kitchen-budget-9-swaps");
 if (!budgetSwaps) {
   fail("The budget-swaps article is missing.");

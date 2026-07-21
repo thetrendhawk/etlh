@@ -211,6 +211,34 @@ if (!noDishwasherGuide) {
   if (!noDishwasherGuide.image.includes("dishwashing-without-dishwasher-small-kitchen-hero-v2.webp")) fail("No-dishwasher guide must use its dedicated hero asset.");
 }
 
+const labelsGuide = posts.find((post) => post.slug === "food-labels-storage-small-apartment");
+if (!labelsGuide) {
+  fail("The food-labels storage guide is missing.");
+} else {
+  const labelsCopy = `${labelsGuide.title} ${labelsGuide.excerpt} ${JSON.stringify(labelsGuide.body)}`;
+  for (const pattern of [/prevents? illness|prevents? allergic|reduce food waste|save money|eliminates? mistakes|extends? shelf life|makes transferred food safer|universally suitable/i]) {
+    if (pattern.test(labelsCopy)) fail(`Food-labels guide has a prohibited claim: ${pattern}`);
+  }
+  for (const required of ["original package", "secondary label", "infant formula", "https://www.fda.gov/food/consumers/how-cut-food-waste-and-maintain-food-safety", "https://www.fda.gov/consumers/consumer-updates/have-food-allergies-read-label", "https://www.fda.gov/food/buy-store-serve-safe-food/food-recalls-what-you-need-know"]) {
+    if (!labelsCopy.toLowerCase().includes(required.toLowerCase())) fail(`Food-labels guide is missing required boundary or source: ${required}`);
+  }
+  if (!labelsGuide.image.includes("food-labels-storage-small-apartment-hero-v1.webp")) fail("Food-labels guide must use its dedicated hero asset.");
+}
+
+const eatFirstGuide = posts.find((post) => post.slug === "eat-first-fridge-freezer-small-apartment");
+if (!eatFirstGuide) {
+  fail("The eat-first fridge/freezer guide is missing.");
+} else {
+  const eatFirstCopy = `${eatFirstGuide.title} ${eatFirstGuide.excerpt} ${JSON.stringify(eatFirstGuide.body)}`;
+  for (const pattern of [/reduce food waste|save money|improves? food safety|prevents? illness|extends? shelf life|save time|reduce stress|creates? a habit|improves? sustainability|works for every household/i]) {
+    if (pattern.test(eatFirstCopy)) fail(`Eat-first guide has a prohibited claim: ${pattern}`);
+  }
+  for (const required of ["not automatically safe", "do not taste", "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/steps-keep-food-safe", "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/freezing-and-food-safety", "https://www.fda.gov/food/consumers/how-cut-food-waste-and-maintain-food-safety"]) {
+    if (!eatFirstCopy.toLowerCase().includes(required.toLowerCase())) fail(`Eat-first guide is missing required boundary or source: ${required}`);
+  }
+  if (!eatFirstGuide.image.includes("eat-first-fridge-freezer-small-apartment-hero-v1.webp")) fail("Eat-first guide must use its dedicated hero asset.");
+}
+
 const budgetSwaps = posts.find((post) => post.slug === "zero-waste-kitchen-budget-9-swaps");
 if (!budgetSwaps) {
   fail("The budget-swaps article is missing.");

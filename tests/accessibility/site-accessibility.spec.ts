@@ -39,6 +39,10 @@ const pages = [
     path: "/blog/drying-clothes-small-apartment-space-plan",
     heading: /Drying Clothes in a Small Apartment: Plan the Space Before You Hang a Load/i,
   },
+  {
+    path: "/blog/laundry-transport-without-in-unit-washer",
+    heading: /Getting Laundry to the Machine Without an In-Unit Washer/i,
+  },
   { path: "/blog/electric-food-waste-appliances-apartments", heading: /Electric Food-Waste Appliances for Apartments: What to Check/i },
   { path: "/blog/dishwashing-without-dishwasher-small-kitchen", heading: /Dishwashing Without a Dishwasher in a Small Kitchen/i },
   {
@@ -130,6 +134,11 @@ const pilotImageRoutes = [
     path: "/blog/drying-clothes-small-apartment-space-plan",
     alt: "Illustrative small apartment with a compact drying rack positioned away from the doorway and clear walking space around it.",
     src: "drying-clothes-small-apartment-space-plan-hero-v1",
+  },
+  {
+    path: "/blog/laundry-transport-without-in-unit-washer",
+    alt: "Illustrative renter carrying a modest laundry bag and small supply bag through a clear apartment doorway toward a stairwell.",
+    src: "laundry-transport-without-in-unit-washer-hero-v1",
   },
   {
     path: "/blog/choose-apartment-food-scrap-method",

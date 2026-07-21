@@ -31,6 +31,14 @@ const pages = [
     path: "/blog/food-use-rotation-check-small-apartment",
     heading: /A Small-Apartment Food-Use Rotation Check: What to Review Before You Shop/i,
   },
+  {
+    path: "/blog/shared-apartment-laundry-room-check",
+    heading: /Using a Shared Apartment Laundry Room: What to Check Before You Start/i,
+  },
+  {
+    path: "/blog/drying-clothes-small-apartment-space-plan",
+    heading: /Drying Clothes in a Small Apartment: Plan the Space Before You Hang a Load/i,
+  },
   { path: "/blog/electric-food-waste-appliances-apartments", heading: /Electric Food-Waste Appliances for Apartments: What to Check/i },
   { path: "/blog/dishwashing-without-dishwasher-small-kitchen", heading: /Dishwashing Without a Dishwasher in a Small Kitchen/i },
   {
@@ -112,6 +120,16 @@ const pilotImageRoutes = [
     path: "/blog/food-use-rotation-check-small-apartment",
     alt: "Illustrative small apartment kitchen with pantry, refrigerator, and freezer items arranged for a food-use review.",
     src: "food-use-rotation-check-small-apartment-hero-v1",
+  },
+  {
+    path: "/blog/shared-apartment-laundry-room-check",
+    alt: "Illustrative shared apartment laundry room with unbranded machines, a laundry basket, and clear floor space for preparing a load.",
+    src: "shared-apartment-laundry-room-check-hero-v1",
+  },
+  {
+    path: "/blog/drying-clothes-small-apartment-space-plan",
+    alt: "Illustrative small apartment with a compact drying rack positioned away from the doorway and clear walking space around it.",
+    src: "drying-clothes-small-apartment-space-plan-hero-v1",
   },
   {
     path: "/blog/choose-apartment-food-scrap-method",

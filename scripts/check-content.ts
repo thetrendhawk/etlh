@@ -253,6 +253,32 @@ if (!foodUseRotation) {
   if (!foodUseRotation.image.includes("food-use-rotation-check-small-apartment-hero-v1.webp")) fail("Food-use rotation guide must use its dedicated hero asset.");
 }
 
+for (const laundryCase of [
+  {
+    slug: "shared-apartment-laundry-room-check",
+    name: "shared-laundry",
+    asset: "shared-apartment-laundry-room-check-hero-v1.webp",
+    required: ["manufacturer", "do not dismantle", "children and pets", "fire-prevention guarantee", "https://www.access-board.gov/ada/guides/chapter-3-clear-floor-or-ground-space-and-turning-space/"],
+  },
+  {
+    slug: "drying-clothes-small-apartment-space-plan",
+    name: "drying-space",
+    asset: "drying-clothes-small-apartment-space-plan-hero-v1.webp",
+    required: ["care label", "adds moisture to the air", "do not place garments or a rack directly on radiators", "widespread mold", "https://www.ftc.gov/business-guidance/resources/clothes-captioning-complying-care-labeling-rule"],
+  },
+]) {
+  const laundryPost = posts.find((post) => post.slug === laundryCase.slug);
+  if (!laundryPost) fail(`The ${laundryCase.name} guide is missing.`);
+  else {
+    const copy = `${laundryPost.title} ${laundryPost.excerpt} ${JSON.stringify(laundryPost.body)}`;
+    for (const pattern of [/save money|prevents? mold|improves? indoor air|prevents? allerg|reduces? energy|lowers? utility|extends? garment|environmentally superior|works for every apartment|universal(?:ly)? (?:accessible|safe|humidity)/i]) {
+      if (pattern.test(copy)) fail(`${laundryCase.name} guide has a prohibited claim: ${pattern}`);
+    }
+    for (const required of laundryCase.required) if (!copy.toLowerCase().includes(required.toLowerCase())) fail(`${laundryCase.name} guide is missing required boundary or source: ${required}`);
+    if (!laundryPost.image.includes(laundryCase.asset)) fail(`${laundryCase.name} guide must use its dedicated hero asset.`);
+  }
+}
+
 const budgetSwaps = posts.find((post) => post.slug === "zero-waste-kitchen-budget-9-swaps");
 if (!budgetSwaps) {
   fail("The budget-swaps article is missing.");

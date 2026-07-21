@@ -279,6 +279,19 @@ for (const laundryCase of [
   }
 }
 
+const transportGuide = posts.find((post) => post.slug === "laundry-transport-without-in-unit-washer");
+if (!transportGuide) fail("The laundry transport guide is missing.");
+else {
+  const transportCopy = `${transportGuide.title} ${transportGuide.excerpt} ${JSON.stringify(transportGuide.body)}`;
+  for (const pattern of [/prevents? (?:injury|falls)|reduces? pain|medically recommended|ergonomically safe|guarantees? (?:balance|stability|accessibility)|save money|saves? time|reduces? stress|reduces? environmental|works in every building|works on every staircase|works with every mobility device|best way|universal (?:load|weight|trip|bag|cart)/i]) {
+    if (pattern.test(transportCopy)) fail(`Laundry transport guide has a prohibited claim: ${pattern}`);
+  }
+  for (const required of ["no single load weight", "additional trips also add repetition", "consult a qualified professional", "children and pets", "https://www.access-board.gov/ada/guides/chapter-3-clear-floor-or-ground-space-and-turning-space/", "/blog/shared-apartment-laundry-room-check"]) {
+    if (!transportCopy.toLowerCase().includes(required.toLowerCase())) fail(`Laundry transport guide is missing required boundary or source: ${required}`);
+  }
+  if (!transportGuide.image.includes("laundry-transport-without-in-unit-washer-hero-v1.webp")) fail("Laundry transport guide must use its dedicated hero asset.");
+}
+
 const budgetSwaps = posts.find((post) => post.slug === "zero-waste-kitchen-budget-9-swaps");
 if (!budgetSwaps) {
   fail("The budget-swaps article is missing.");

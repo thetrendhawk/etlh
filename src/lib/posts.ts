@@ -7,6 +7,7 @@ import eatFirstHero from "@/assets/articles/eat-first-fridge-freezer-small-apart
 import foodUseRotationHero from "@/assets/articles/food-use-rotation-check-small-apartment/food-use-rotation-check-small-apartment-hero-v1.webp";
 import sharedLaundryHero from "@/assets/articles/shared-apartment-laundry-room-check/shared-apartment-laundry-room-check-hero-v1.webp";
 import dryingSpaceHero from "@/assets/articles/drying-clothes-small-apartment-space-plan/drying-clothes-small-apartment-space-plan-hero-v1.webp";
+import laundryTransportHero from "@/assets/articles/laundry-transport-without-in-unit-washer/laundry-transport-without-in-unit-washer-hero-v1.webp";
 import kitchenCategoryImage from "@/assets/cat-kitchen.jpg";
 import decorCategoryImage from "@/assets/cat-decor.jpg";
 import habitsCategoryImage from "@/assets/cat-habits.jpg";
@@ -388,6 +389,55 @@ export const posts: Post[] = [
       { type: "p", text: "This article is a temporary-space planning guide, not mold remediation, health, ventilation treatment, appliance buying, energy, utility, or environmental advice. The FTC care-label guidance, garment instructions, appliance manuals, building rules, and qualified moisture guidance remain controlling." },
       { type: "linkP", textBefore: "See the ", linkText: "U.S. Access Board clear-floor guidance", href: "https://www.access-board.gov/ada/guides/chapter-3-clear-floor-or-ground-space-and-turning-space/", textAfter: " for general access concepts." },
       { type: "linkP", textBefore: "Read ETLH’s ", linkText: "room-reset planning example", href: "/blog/sustainable-small-apartment-decor-before-after", textAfter: " only for reversible space-planning framing; it is not moisture or building authority." },
+    ],
+  },
+  {
+    slug: "laundry-transport-without-in-unit-washer",
+    title: "Getting Laundry to the Machine Without an In-Unit Washer",
+    excerpt: "Trace one laundry route from your apartment to a shared machine or laundromat, then adjust the load for the path, weather, rules, and your current capacity.",
+    category: "intentional-living",
+    date: "2026-07-24",
+    readingTime: "7 min read",
+    image: laundryTransportHero,
+    imageAlt: "Illustrative renter carrying a modest laundry bag and small supply bag through a clear apartment doorway toward a stairwell.",
+    tags: ["laundry", "renters", "small apartment", "shared facilities"],
+    toc: [
+      { id: "limits", label: "What a laundry-transfer plan can and cannot determine" },
+      { id: "route", label: "Trace the complete route before packing" },
+      { id: "surfaces", label: "Check doors, stairs, elevators, and surfaces" },
+      { id: "capacity", label: "Assess load shape, grip, and visibility" },
+      { id: "adjust", label: "Adjust the plan for the route" },
+      { id: "supplies", label: "Keep supplies separate when useful" },
+      { id: "boundaries", label: "Check building, laundromat, weather, and transit rules" },
+      { id: "access", label: "Preserve shared access and household boundaries" },
+      { id: "stop", label: "Stop conditions" },
+      { id: "sources", label: "Sources and editorial limits" },
+    ],
+    body: [
+      { type: "p", text: "When the washer is outside your apartment, the useful planning job begins before the laundry room or laundromat: trace one route from home to the machine and back. Carrying laundry can involve weight, bulk, grip, distance, stairs, repetition, and changing surfaces. This guide organizes decisions without promising injury prevention, accessibility, balance, or successful completion." },
+      { type: "h2", id: "limits", text: "What a laundry-transfer plan can and cannot determine" },
+      { type: "p", text: "A route review can reveal obstacles before the load is lifted. It cannot determine what is medically safe for an individual, guarantee a stable carry, establish building compliance, or identify the best transport method for every person or location." },
+      { type: "h2", id: "route", text: "Trace the complete route before packing" },
+      { type: "ul", items: ["Identify the destination: shared building machine, laundromat, or another approved location.", "Trace the route there and back, including doors, stairs, elevators, thresholds, outdoor sections, and places where the load could be set down.", "Notice lighting, wet or icy surfaces, clutter, door swings, and whether a railing or mobility-device path remains usable.", "Check the location-specific rules before leaving: building procedures, laundromat requirements, weather conditions, and the transit operator you will actually use."] },
+      { type: "h2", id: "surfaces", text: "Check doors, stairs, elevators, thresholds, lighting, and outdoor surfaces" },
+      { type: "p", text: "Keep stairs, landings, exits, hallways, and elevator doors clear. Avoid staging bags on stairs or in exit paths. Wet, icy, poorly lit, cluttered, or uneven surfaces may increase slip, trip, or fall hazards; pause when the route condition is not workable." },
+      { type: "h2", id: "capacity", text: "Assess the load’s weight, size, shape, grip, and effect on visibility" },
+      { type: "p", text: "There is no single load weight or trip count that is appropriate for every person, route, container, or building. Notice whether the bag shifts, blocks your view, interferes with a door, railing, balance, or mobility device, or requires awkward twisting or bending. Occupational lifting guidance is used here only for general planning principles, not as a household guarantee." },
+      { type: "h2", id: "adjust", text: "Adjust the plan for the complete route" },
+      { type: "p", text: "A smaller load may reduce the weight or bulk of one trip, but additional trips also add repetition and total movement. Choose based on the complete route and your current capacity. Assistance, postponement, a different approved method, or no action may be the better plan." },
+      { type: "h2", id: "supplies", text: "Keep supplies separate where that improves control" },
+      { type: "p", text: "A small supply bag may keep detergent or payment items separate from clothing, but no bag size or carrying arrangement is universally appropriate. Keep products in original containers and secure them from children and pets. Do not add a product ranking or assume a particular bag, cart, or carrier is best." },
+      { type: "h2", id: "boundaries", text: "Check building, laundromat, weather, and transit constraints" },
+      { type: "p", text: "Building procedures, laundromat rules, weather, and transit policies vary by operator and location. Carry-on limits, cart rules, assistance policies, aisles, doors, seats, and mobility-device spaces may differ. Check the current policy of the operator you will actually use rather than generalizing one system’s rule." },
+      { type: "h2", id: "access", text: "Preserve shared access and household boundaries" },
+      { type: "p", text: "Keep exits, hallways, stairs, doors, and shared circulation areas unobstructed. Account for pain, fatigue, reduced grip, balance concerns, existing injury, mobility devices, children, pets, supervision, and another household member’s belongings. When pain, fatigue, balance, grip, or an existing condition makes the route uncertain, reduce the scope, seek appropriate assistance, postpone the task, or consult a qualified professional about your individual limits." },
+      { type: "h2", id: "stop", text: "Stop conditions" },
+      { type: "p", text: "Stop when the load blocks your view, shifts out of control, interferes with a railing or mobility device, leaves no clear route, meets a locked or restricted door, conflicts with weather or operator rules, or exceeds your current capacity. A postponed trip, additional help, or no-action decision is a valid outcome." },
+      { type: "h2", id: "sources", text: "Sources and editorial limits" },
+      { type: "p", text: "OSHA and CCOHS lifting material, CDC slip-and-fall guidance, fire and life-safety guidance, Access Board mobility concepts, building procedures, and the actual transit or laundromat operator can inform a bounded plan. Workplace examples are not consumer load limits. This article is not medical, rehabilitation, legal, transit, building-code, product, pain-treatment, or injury-prevention advice." },
+      { type: "linkP", textBefore: "For general clear-floor concepts, see the ", linkText: "U.S. Access Board guidance", href: "https://www.access-board.gov/ada/guides/chapter-3-clear-floor-or-ground-space-and-turning-space/", textAfter: "." },
+      { type: "linkP", textBefore: "When you reach the machine, continue with ETLH’s ", linkText: "shared laundry-room check", href: "/blog/shared-apartment-laundry-room-check", textAfter: "." },
+      { type: "linkP", textBefore: "Read ETLH’s ", linkText: "apartment systems guide", href: "/blog/sustainable-living-apartment-easy-habits", textAfter: " only for renter-controlled planning context." },
     ],
   },
 

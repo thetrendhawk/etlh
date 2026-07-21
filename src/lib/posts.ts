@@ -4,6 +4,7 @@ import dishwashingHero from "@/assets/articles/dishwashing-without-dishwasher-sm
 import electricApplianceHero from "@/assets/articles/electric-food-waste-appliances-apartments/electric-food-waste-appliances-apartments-hero-v1.webp";
 import foodLabelsHero from "@/assets/articles/food-labels-storage-small-apartment/food-labels-storage-small-apartment-hero-v1.webp";
 import eatFirstHero from "@/assets/articles/eat-first-fridge-freezer-small-apartment/eat-first-fridge-freezer-small-apartment-hero-v1.webp";
+import foodUseRotationHero from "@/assets/articles/food-use-rotation-check-small-apartment/food-use-rotation-check-small-apartment-hero-v1.webp";
 import kitchenCategoryImage from "@/assets/cat-kitchen.jpg";
 import decorCategoryImage from "@/assets/cat-decor.jpg";
 import habitsCategoryImage from "@/assets/cat-habits.jpg";
@@ -233,6 +234,64 @@ export const posts: Post[] = [
       { type: "h2", id: "limits", text: "Sources and limits" },
       { type: "p", text: "This is an organizational visibility exercise, not a food-safety routine, storage-time chart, nutrition article, cleanout challenge, or food-waste promise. FoodKeeper, package directions, manufacturer instructions, and current FDA/USDA guidance remain controlling. The article does not promise savings, convenience, time, stress, habit success, improved safety, sustainability, or universal fit." },
       { type: "linkP", textBefore: "Read ETLH's ", linkText: "editorial and corrections policy", href: "/editorial-policy", textAfter: " if a source or passage needs review." },
+    ],
+  },
+  {
+    slug: "food-use-rotation-check-small-apartment",
+    title: "A Small-Apartment Food-Use Rotation Check: What to Review Before You Shop",
+    excerpt: "Review one bounded set of pantry, refrigerator, or freezer items before adding more food, without turning visibility into a safety or waste promise.",
+    category: "zero-waste-kitchen",
+    date: "2026-07-22",
+    readingTime: "7 min read",
+    image: foodUseRotationHero,
+    imageAlt: "Illustrative small apartment kitchen with pantry, refrigerator, and freezer items arranged for a food-use review.",
+    tags: ["food storage", "small apartment", "kitchen planning", "renters"],
+    toc: [
+      { id: "what-it-is", label: "What this rotation check is—and is not" },
+      { id: "window", label: "Choose one bounded review window" },
+      { id: "look", label: "Look across storage locations" },
+      { id: "record", label: "Record what is visible" },
+      { id: "status", label: "Choose a review status" },
+      { id: "preserve", label: "Preserve package information" },
+      { id: "adapt", label: "Adapt for the household" },
+      { id: "stop", label: "Stop and note the limits" },
+      { id: "limits", label: "Sources and limits" },
+    ],
+    body: [
+      { type: "p", text: "A food-use rotation check is a short visibility exercise across the food you already have. It can help you notice what is in a pantry, refrigerator, or freezer before adding more food. It does not determine safety, create a meal plan, or promise less waste, lower costs, or a successful habit." },
+      { type: "h2", id: "what-it-is", text: "What this rotation check is—and is not" },
+      { type: "p", text: "The independent task is to review one bounded set of existing food across more than one storage location. “Use soon” is an organizational category, not a food-safety classification. A checklist organizes attention; it does not prove an outcome." },
+      { type: "h2", id: "window", text: "Choose one bounded review window" },
+      { type: "p", text: "Pick one shelf, drawer, freezer section, or short review window before shopping. You may review one location at a time, ask another household member to help, or stop after a single item. You do not need to inspect every item or empty the kitchen." },
+      { type: "h2", id: "look", text: "Look across pantry, refrigerator, and freezer storage" },
+      { type: "ul", items: [
+        "Notice which storage locations are in scope and which are not.",
+        "Look for items the household already knows it may want to consider, without moving anything that belongs to someone else.",
+        "Keep cold food at its directed temperature and avoid leaving perishable food out during a review.",
+        "If there is no separate freezer, treat the available compartment as the freezer context and keep the review smaller.",
+      ] },
+      { type: "h2", id: "record", text: "Record what is visible without handling everything" },
+      { type: "p", text: "A short note can record the item, its storage location, and a review status. Keep the note neutral: it is a memory aid, not a diagnosis. If an item is unidentified, the package is damaged, or ownership is unclear, leave it in place and seek the appropriate guidance." },
+      { type: "h2", id: "status", text: "Choose a review status" },
+      { type: "table", caption: "Organizational review statuses", headers: ["Status", "Meaning", "Boundary"], rows: [
+        ["Review", "Look up the package or authoritative guidance before deciding.", "The status does not mean unsafe or safe."],
+        ["Use soon", "Keep the item visible for a household food-use decision.", "This is not a food-safety classification."],
+        ["Freeze where appropriate", "Consider freezing only when package, manufacturer, FoodKeeper, or agency guidance supports it.", "Do not assume every food or container is suitable."],
+        ["Check guidance", "Pause for food-specific, allergen, infant-formula, or recall information.", "Do not substitute memory or social posts for current sources."],
+        ["No action", "Leave the item where it is or stop the review.", "A partial review is a valid completed action."],
+      ] },
+      { type: "h2", id: "preserve", text: "Preserve original dates, allergens, lot details, and instructions" },
+      { type: "p", text: "Keep original packaging or retain the information needed to identify the food, ingredients, allergens, dates, lot or batch details, storage directions, and manufacturer contact. A secondary note cannot replace complete package information. FDA explains that many date labels communicate quality rather than a universal safety conclusion, with infant formula treated as an exception." },
+      { type: "linkP", textBefore: "Read FDA’s ", linkText: "date-label and food-storage guidance", href: "https://www.fda.gov/food/consumers/how-cut-food-waste-and-maintain-food-safety", textAfter: "." },
+      { type: "linkP", textBefore: "For allergens, use FDA’s ", linkText: "label-reading guidance", href: "https://www.fda.gov/consumers/consumer-updates/have-food-allergies-read-label", textAfter: ". For recalls, use current FDA notices at the point of need." },
+      { type: "h2", id: "adapt", text: "Adapt for shared kitchens, limited reach, and physical capacity" },
+      { type: "p", text: "Ask before moving another person’s food. If low reach, limited grip, one-handed use, visual or cognitive load, fatigue, illness, caregiving, children, pets, allergens, cultural practices, or unclear ownership changes what is possible, review one item, ask for help, or pause. These options are not a universal accessibility prescription." },
+      { type: "h2", id: "stop", text: "Stop before the process becomes a full reorganization project" },
+      { type: "p", text: "Stop after one bounded area. You do not need to buy containers, rewrite every date, create a meal plan, reorganize the pantry, or empty the freezer. You may take no action, discard where appropriate, ask another household member, or return to the check later." },
+      { type: "h2", id: "limits", text: "Sources and limits" },
+      { type: "p", text: "This article is a cross-storage visibility and review sequence, not a food-safety system, storage-time chart, nutrition article, food-waste promise, savings guide, or product recommendation. Food-specific decisions depend on the item, package, temperature history, manufacturer instructions, FoodKeeper where applicable, and current FDA or USDA/FSIS guidance. Do not infer safety from a date, smell, appearance, or taste alone, and do not taste-test questionable food." },
+      { type: "linkP", textBefore: "Use USDA/FSIS ", linkText: "food-safety basics", href: "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/steps-keep-food-safe", textAfter: " for current handling boundaries." },
+      { type: "linkP", textBefore: "Read ETLH’s ", linkText: "editorial and corrections policy", href: "/editorial-policy", textAfter: " if a source or passage needs review." },
     ],
   },
 

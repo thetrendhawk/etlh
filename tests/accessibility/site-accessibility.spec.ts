@@ -27,6 +27,10 @@ const pages = [
     path: "/blog/eat-first-fridge-freezer-small-apartment",
     heading: /An Eat-First Fridge and Freezer Check for Small Apartments/i,
   },
+  {
+    path: "/blog/food-use-rotation-check-small-apartment",
+    heading: /A Small-Apartment Food-Use Rotation Check: What to Review Before You Shop/i,
+  },
   { path: "/blog/electric-food-waste-appliances-apartments", heading: /Electric Food-Waste Appliances for Apartments: What to Check/i },
   { path: "/blog/dishwashing-without-dishwasher-small-kitchen", heading: /Dishwashing Without a Dishwasher in a Small Kitchen/i },
   {
@@ -103,6 +107,11 @@ const pilotImageRoutes = [
     path: "/blog/eat-first-fridge-freezer-small-apartment",
     alt: "Illustrative small apartment refrigerator with a small group of containers arranged together on one shelf.",
     src: "eat-first-fridge-freezer-small-apartment-hero-v1",
+  },
+  {
+    path: "/blog/food-use-rotation-check-small-apartment",
+    alt: "Illustrative small apartment kitchen with pantry, refrigerator, and freezer items arranged for a food-use review.",
+    src: "food-use-rotation-check-small-apartment-hero-v1",
   },
   {
     path: "/blog/choose-apartment-food-scrap-method",

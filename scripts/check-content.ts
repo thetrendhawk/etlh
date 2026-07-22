@@ -305,6 +305,19 @@ else {
   if (!holdingGuide.image.includes("laundry-holding-zones-studio-apartment-hero-v1.webp")) fail("Laundry holding-zones guide must use its dedicated hero asset.");
 }
 
+const productStorageGuide = posts.find((post) => post.slug === "laundry-product-storage-small-apartment");
+if (!productStorageGuide) fail("The laundry product-storage guide is missing.");
+else {
+  const productCopy = `${productStorageGuide.title} ${productStorageGuide.excerpt} ${JSON.stringify(productStorageGuide.body)}`;
+  for (const pattern of [/(?:can|will|helps?|makes?) (?:prevent|protect|guarantee|improve|save|reduce)/i]) {
+    if (pattern.test(productCopy)) fail(`Laundry product-storage guide has a prohibited claim or instruction: ${pattern}`);
+  }
+  for (const required of ["original container", "detergent packets", "children’s and pets’", "Poison Control", "1-800-222-1222", "https://www.poison.org/", "/blog/laundry-holding-zones-studio-apartment"]) {
+    if (!productCopy.toLowerCase().includes(required.toLowerCase())) fail(`Laundry product-storage guide is missing required boundary or source: ${required}`);
+  }
+  if (!productStorageGuide.image.includes("laundry-product-storage-small-apartment-hero-v1.webp")) fail("Laundry product-storage guide must use its dedicated hero asset.");
+}
+
 const budgetSwaps = posts.find((post) => post.slug === "zero-waste-kitchen-budget-9-swaps");
 if (!budgetSwaps) {
   fail("The budget-swaps article is missing.");

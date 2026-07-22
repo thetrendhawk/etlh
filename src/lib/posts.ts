@@ -8,6 +8,7 @@ import foodUseRotationHero from "@/assets/articles/food-use-rotation-check-small
 import sharedLaundryHero from "@/assets/articles/shared-apartment-laundry-room-check/shared-apartment-laundry-room-check-hero-v1.webp";
 import dryingSpaceHero from "@/assets/articles/drying-clothes-small-apartment-space-plan/drying-clothes-small-apartment-space-plan-hero-v1.webp";
 import laundryTransportHero from "@/assets/articles/laundry-transport-without-in-unit-washer/laundry-transport-without-in-unit-washer-hero-v1.webp";
+import laundryHoldingHero from "@/assets/articles/laundry-holding-zones-studio-apartment/laundry-holding-zones-studio-apartment-hero-v1.webp";
 import kitchenCategoryImage from "@/assets/cat-kitchen.jpg";
 import decorCategoryImage from "@/assets/cat-decor.jpg";
 import habitsCategoryImage from "@/assets/cat-habits.jpg";
@@ -438,6 +439,56 @@ export const posts: Post[] = [
       { type: "linkP", textBefore: "For general clear-floor concepts, see the ", linkText: "U.S. Access Board guidance", href: "https://www.access-board.gov/ada/guides/chapter-3-clear-floor-or-ground-space-and-turning-space/", textAfter: "." },
       { type: "linkP", textBefore: "When you reach the machine, continue with ETLH’s ", linkText: "shared laundry-room check", href: "/blog/shared-apartment-laundry-room-check", textAfter: "." },
       { type: "linkP", textBefore: "Read ETLH’s ", linkText: "apartment systems guide", href: "/blog/sustainable-living-apartment-easy-habits", textAfter: " only for renter-controlled planning context." },
+    ],
+  },
+  {
+    slug: "laundry-holding-zones-studio-apartment",
+    title: "Where Laundry Waits in a Studio Apartment",
+    excerpt: "Choose one temporary, reversible place for each laundry stage while preserving movement, appliance access, care instructions, and household boundaries.",
+    category: "intentional-living",
+    date: "2026-07-25",
+    readingTime: "7 min read",
+    image: laundryHoldingHero,
+    imageAlt: "Illustrative studio apartment with a modest laundry basket, a folded stack of clean clothing, and one garment placed separately on a clear table.",
+    tags: ["laundry", "studio apartment", "small spaces", "renter planning"],
+    toc: [
+      { id: "limits", label: "What a holding-zone review can and cannot determine" },
+      { id: "stage", label: "Identify the laundry stage first" },
+      { id: "worn", label: "Recently worn items" },
+      { id: "dirty", label: "Ordinary dirty laundry" },
+      { id: "separate", label: "Separate-care items" },
+      { id: "clean", label: "Clean laundry waiting to be folded" },
+      { id: "access", label: "Preserve doors, exits, and appliance access" },
+      { id: "household", label: "Account for household and physical capacity" },
+      { id: "damp", label: "Stop when dampness or leaks change the decision" },
+      { id: "sources", label: "Sources and editorial limits" },
+    ],
+    body: [
+      { type: "p", text: "A studio apartment may need more than one temporary place for laundry to wait between steps. This review helps you name the stage, choose one reversible location, and check access before using it. It does not promise odor control, hygiene, mold prevention, safety, accessibility, garment protection, or a universally suitable arrangement." },
+      { type: "h2", id: "limits", text: "What a laundry holding-zone review can and cannot determine" },
+      { type: "p", text: "A holding zone is a temporary decision, not a permanent storage system or product recommendation. The useful question is whether one location works for this stage, this route, and this household today." },
+      { type: "h2", id: "stage", text: "Identify the laundry stage before choosing a location" },
+      { type: "ul", items: ["Recently worn items that are not yet part of the ordinary dirty load.", "Ordinary dirty laundry waiting for the next wash.", "Items requiring separate care or a care-label check.", "Clean laundry waiting to be folded or stored."] },
+      { type: "h2", id: "worn", text: "Recently worn items" },
+      { type: "p", text: "Choose a temporary location that keeps recently worn items distinct from clean folded clothing and from anything still wet or actively drying. If the item is wet or actively drying, treat that as a drying decision rather than a holding-zone decision and follow its care instructions." },
+      { type: "linkP", textBefore: "For active drying questions, see ETLH’s ", linkText: "small-apartment drying-space plan", href: "/blog/drying-clothes-small-apartment-space-plan", textAfter: "." },
+      { type: "h2", id: "dirty", text: "Ordinary dirty laundry" },
+      { type: "p", text: "Review one temporary basket, pile, or container location without treating any product or basket as the required answer. Keep it out of doors, exits, stairs, walkways, and appliance access, and move or stop using the location when those conditions change." },
+      { type: "h2", id: "separate", text: "Separate-care items" },
+      { type: "p", text: "Check the care label before combining a separate-care item with the ordinary laundry load. The label governs how the item should ultimately be cleaned or dried, not where every household must temporarily place it. Distinct areas are optional organizational choices, not universal household etiquette." },
+      { type: "linkP", textBefore: "The FTC’s ", linkText: "Care Labeling Rule guidance", href: "https://www.ftc.gov/business-guidance/resources/clothes-captioning-complying-care-labeling-rule", textAfter: " explains the role of garment care instructions." },
+      { type: "h2", id: "clean", text: "Clean laundry waiting to be folded or stored" },
+      { type: "p", text: "A clear table or other temporary surface may hold a folded stack while you finish the next step, provided it does not block movement, doors, exits, or needed appliance access. No setup is universally accessible or the best organization method." },
+      { type: "h2", id: "access", text: "Preserve doors, exits, walkways, and appliance access" },
+      { type: "p", text: "Keep temporary laundry away from doors, exits, stairs, hallways, heaters, fireplaces, radiators, vents, and mechanical equipment. Follow appliance instructions for clearances and service access. Do not make permanent fixtures or structural changes without checking the lease, building instructions, or owner permission." },
+      { type: "h2", id: "household", text: "Account for reach, bending, grip, fatigue, vision, and household boundaries" },
+      { type: "p", text: "A workable location depends on the renter’s reach, grip, bending tolerance, vision, fatigue, and mobility needs. Design standards can identify useful considerations but do not determine whether one household arrangement works for every person. Keep laundry products in original containers, labels available, and products secured according to authoritative child-safety and manufacturer guidance. Bags, cords, containers, and open doors may need additional control around children and pets." },
+      { type: "h2", id: "damp", text: "Stop when dampness, leaks, condensation, or mold change the decision" },
+      { type: "p", text: "If an item is still wet or actively drying, treat that as a drying decision rather than a holding-zone decision. A holding-zone adjustment cannot identify or repair the cause of persistent dampness, leaking, recurring condensation, or mold. Pause use of the location and follow the building’s reporting process or seek qualified guidance." },
+      { type: "h2", id: "sources", text: "Sources and editorial limits" },
+      { type: "p", text: "FTC care-label guidance establishes the role of garment washing and drying instructions; it does not prescribe temporary holding locations. U.S. Fire Administration heating guidance and appliance manuals support keeping combustible textiles away from heat and preserving equipment clearances; they do not guarantee fire prevention. Access Board material offers design considerations, not an ADA-compliance finding for a private apartment. This article is not mold remediation, hygiene, medical, detergent-storage, product, legal, or landlord-liability advice." },
+      { type: "linkP", textBefore: "When laundry is ready to move, use ETLH’s ", linkText: "transport route plan", href: "/blog/laundry-transport-without-in-unit-washer", textAfter: "." },
+      { type: "linkP", textBefore: "When it reaches a shared machine, use the ", linkText: "shared laundry-room check", href: "/blog/shared-apartment-laundry-room-check", textAfter: "." },
     ],
   },
 

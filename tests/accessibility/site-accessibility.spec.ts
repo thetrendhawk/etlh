@@ -47,6 +47,10 @@ const pages = [
     path: "/blog/laundry-holding-zones-studio-apartment",
     heading: /Where Laundry Waits in a Studio Apartment/i,
   },
+  {
+    path: "/blog/laundry-product-storage-small-apartment",
+    heading: /Storing Laundry Products in a Small Apartment/i,
+  },
   { path: "/blog/electric-food-waste-appliances-apartments", heading: /Electric Food-Waste Appliances for Apartments: What to Check/i },
   { path: "/blog/dishwashing-without-dishwasher-small-kitchen", heading: /Dishwashing Without a Dishwasher in a Small Kitchen/i },
   {
@@ -148,6 +152,11 @@ const pilotImageRoutes = [
     path: "/blog/laundry-holding-zones-studio-apartment",
     alt: "Illustrative studio apartment with a modest laundry basket, a folded stack of clean clothing, and one garment placed separately on a clear table.",
     src: "laundry-holding-zones-studio-apartment-hero-v1",
+  },
+  {
+    path: "/blog/laundry-product-storage-small-apartment",
+    alt: "Illustrative small-apartment cabinet with several closed, unbranded laundry-product containers stored upright on two shelves.",
+    src: "laundry-product-storage-small-apartment-hero-v1",
   },
   {
     path: "/blog/choose-apartment-food-scrap-method",

@@ -292,6 +292,19 @@ else {
   if (!transportGuide.image.includes("laundry-transport-without-in-unit-washer-hero-v1.webp")) fail("Laundry transport guide must use its dedicated hero asset.");
 }
 
+const holdingGuide = posts.find((post) => post.slug === "laundry-holding-zones-studio-apartment");
+if (!holdingGuide) fail("The laundry holding-zones guide is missing.");
+else {
+  const holdingCopy = `${holdingGuide.title} ${holdingGuide.excerpt} ${JSON.stringify(holdingGuide.body)}`;
+  for (const pattern of [/(?:can|will|helps?|makes?) (?:prevent|remove|control|improve|sanitize|protect|save|reduce)/i]) {
+    if (pattern.test(holdingCopy)) fail(`Laundry holding-zones guide has a prohibited claim: ${pattern}`);
+  }
+  for (const required of ["still wet or actively drying", "does not prescribe temporary holding locations", "children and pets", "building’s reporting process", "/blog/drying-clothes-small-apartment-space-plan", "https://www.ftc.gov/business-guidance/resources/clothes-captioning-complying-care-labeling-rule"]) {
+    if (!holdingCopy.toLowerCase().includes(required.toLowerCase())) fail(`Laundry holding-zones guide is missing required boundary or source: ${required}`);
+  }
+  if (!holdingGuide.image.includes("laundry-holding-zones-studio-apartment-hero-v1.webp")) fail("Laundry holding-zones guide must use its dedicated hero asset.");
+}
+
 const budgetSwaps = posts.find((post) => post.slug === "zero-waste-kitchen-budget-9-swaps");
 if (!budgetSwaps) {
   fail("The budget-swaps article is missing.");

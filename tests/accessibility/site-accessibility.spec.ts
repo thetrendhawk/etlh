@@ -43,6 +43,10 @@ const pages = [
     path: "/blog/laundry-transport-without-in-unit-washer",
     heading: /Getting Laundry to the Machine Without an In-Unit Washer/i,
   },
+  {
+    path: "/blog/laundry-holding-zones-studio-apartment",
+    heading: /Where Laundry Waits in a Studio Apartment/i,
+  },
   { path: "/blog/electric-food-waste-appliances-apartments", heading: /Electric Food-Waste Appliances for Apartments: What to Check/i },
   { path: "/blog/dishwashing-without-dishwasher-small-kitchen", heading: /Dishwashing Without a Dishwasher in a Small Kitchen/i },
   {
@@ -139,6 +143,11 @@ const pilotImageRoutes = [
     path: "/blog/laundry-transport-without-in-unit-washer",
     alt: "Illustrative renter carrying a modest laundry bag and small supply bag through a clear apartment doorway toward a stairwell.",
     src: "laundry-transport-without-in-unit-washer-hero-v1",
+  },
+  {
+    path: "/blog/laundry-holding-zones-studio-apartment",
+    alt: "Illustrative studio apartment with a modest laundry basket, a folded stack of clean clothing, and one garment placed separately on a clear table.",
+    src: "laundry-holding-zones-studio-apartment-hero-v1",
   },
   {
     path: "/blog/choose-apartment-food-scrap-method",

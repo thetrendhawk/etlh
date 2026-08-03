@@ -1,7 +1,7 @@
 import { Link, useRouter } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
-const GA_MEASUREMENT_ID = "G-G81H19S4TG";
+const GA_MEASUREMENT_ID = "G-G8H1H9S4TG";
 const PRODUCTION_HOSTNAME = "ecotinylivinghub.com";
 const CONSENT_KEY = "etlh-analytics-consent";
 const OPEN_EVENT = "etlh-open-analytics-preferences";

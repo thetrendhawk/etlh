@@ -25,7 +25,7 @@ Snapshot date: July 18, 2026.
 | Search discovery | Videos discovered | 0 | Google Search Console sitemap result recorded in roadmap issue #2 | Does not evaluate whether future video content could be indexed. |
 | Production availability | Homepage response | HTTP 200 | Production validation after the latest merged deployment | A single validation is not uptime monitoring. |
 | URL identity | Preferred production host | `https://ecotinylivinghub.com/` | Production canonical and redirect checks | Does not report search-engine consolidation status. |
-| Analytics implementation | GA4 property tag | `G-G81H19S4TG` | Repository and roadmap configuration | Implementation does not prove traffic volume or data completeness. |
+| Analytics implementation | GA4 property tag | `G-G8H1H9S4TG` | Repository and roadmap configuration | Implementation does not prove traffic volume or data completeness. |
 | Analytics implementation | Consent behavior | Consent-gated; `.com` hostname restricted | Repository and production validation | Consent rates and analytics coverage are not yet recorded. |
 | Deployment | Hosting project | `eco-tiny-living-site` | Vercel project configuration | Deployment readiness is not an availability SLA. |
 

@@ -50,7 +50,7 @@ Revert the sitemap commit with `git revert <commit>` and push; Vercel redeploys 
 
 ### Source of truth
 
-- GA4 measurement ID: `G-G81H19S4TG`.
+- GA4 measurement ID: `G-G8H1H9S4TG`.
 - Global analytics behavior lives in `src/routes/__root.tsx`.
 - Automatic GA4 pageviews are disabled with `send_page_view: false`.
 - ETLH sends one manual `page_view` on the initial production load and one on each TanStack Router location change.

@@ -7,7 +7,7 @@
 - Canonical hostname: `ecotinylivinghub.thrwds.com`
 - Framework setting: Other
 - Node.js runtime: 24.x
-- Build command: `bun run build`
+- Build command: `pnpm run build`
 - Output directory: unset
 - Production branch: `main`
 
@@ -22,17 +22,17 @@ Generated deployment output is not committed.
 ## Dependency installation and validation
 
 ```bash
-bun install --frozen-lockfile
-bun run check:ci
+pnpm install --frozen-lockfile
+pnpm run check:ci
 ```
 
 The required gate runs:
 
 ```bash
-bun run lint && bun run check:sitemap && bun run check:content && bun run check:assets && bun run build
+pnpm run lint && pnpm run check:sitemap && pnpm run check:content && pnpm run check:assets && pnpm run build
 ```
 
-A dependency change is incomplete unless `package.json` and `bun.lock` remain synchronized.
+A dependency change is incomplete unless `package.json` and `pnpm-lock.yaml` remain synchronized.
 
 ## Git-connected deployment workflow
 
@@ -94,8 +94,8 @@ Git-connected deployment is the standard workflow. Manual Vercel deployment is r
 When necessary, build first and deploy the prebuilt output only from a workspace linked to `eco-tiny-living-site`:
 
 ```bash
-bun install --frozen-lockfile
-bun run check:ci
+pnpm install --frozen-lockfile
+pnpm run check:ci
 vercel --prebuilt
 ```
 

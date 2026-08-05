@@ -19,7 +19,7 @@ const outputRoot = outputCandidates.find((root) => existsSync(root));
 
 if (!outputRoot) {
   throw new Error(
-    `No built output found. Checked: ${outputCandidates.join(", ")}. Run bun run build first.`,
+    `No built output found. Checked: ${outputCandidates.join(", ")}. Run pnpm run build first.`,
   );
 }
 

@@ -22,7 +22,12 @@ export default defineConfig({
   projects: [
     {
       name: "desktop-chromium",
-      use: { ...devices["Desktop Chrome"] },
+      use: {
+        ...devices["Desktop Chrome"],
+        launchOptions: {
+          args: ["--host-resolver-rules=MAP ecotinylivinghub.com 127.0.0.1"],
+        },
+      },
     },
     {
       name: "mobile-chromium",

@@ -33,3 +33,8 @@ dist-ssr
 *.sw?
 .vercel/
 .env.local
+
+# Local validation reports (uploaded as CI artifacts)
+build-asset-audit.json
+build-asset-audit.md
+.audit-lighthouse/

@@ -106,7 +106,7 @@ After deployment, confirm:
 - the article appears in `/blog`
 - the article appears on its category page
 - the article appears in `/sitemap.xml`
-- canonical and structured-data URLs use `https://ecotinylivinghub.thrwds.com`
+- canonical and structured-data URLs use `https://ecotinylivinghub.com`
 - production smoke checks pass
 
 Do not mark an article Published based only on a draft, PR, or merge. Published status requires confirmation that the intended public release occurred.

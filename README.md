@@ -4,11 +4,11 @@ Eco Tiny Living Hub (ETLH) is the repository for the live website, brand operati
 
 ## Production identity
 
-- Website: `https://ecotinylivinghub.thrwds.com/`
+- Website: `https://ecotinylivinghub.com/`
 - Repository: `thetrendhawk/etlh`
 - Vercel project: `eco-tiny-living-site`
 - Runtime: TanStack Start with Vercel SSR
-- Package manager: Bun
+- Package manager: pnpm 11.9.0
 
 Only `eco-tiny-living-site` is connected to this repository for Vercel deployment.
 
@@ -44,13 +44,7 @@ Run the complete repository gate before merging:
 pnpm run check:ci
 ```
 
-That command runs:
-
-```bash
-pnpm run lint && pnpm run check:sitemap && pnpm run check:content && pnpm run check:assets && pnpm run build
-```
-
-The gate verifies code correctness, sitemap integrity, article/category structure, metadata coverage, internal-route validity, placeholder-link absence, image budgets, and a production build.
+The gate verifies lint and type correctness, sitemap integrity, article/category structure, metadata coverage, internal-route validity, placeholder-link absence, responsive-image configuration, dependency security, image and JavaScript budgets, the production build, and an HTTP request against the built Vercel server.
 
 Formatting is separate from lint:
 
@@ -108,7 +102,7 @@ Vercel deploys the GitHub-connected `main` branch to production and pull-request
 The canonical production hostname is:
 
 ```text
-https://ecotinylivinghub.thrwds.com
+https://ecotinylivinghub.com
 ```
 
 Stable Vercel production aliases permanently redirect to that hostname. Paths use no trailing slash except for `/`.

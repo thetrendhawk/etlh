@@ -42,6 +42,7 @@ Each post in `src/lib/posts.ts` requires:
 - final `title` and `excerpt`
 - existing `category`
 - verified `date` in `YYYY-MM-DD` format
+- optional verified `updatedDate` in `YYYY-MM-DD` format for a material review
 - `readingTime`
 - imported `image`
 - useful `imageAlt`
@@ -49,7 +50,7 @@ Each post in `src/lib/posts.ts` requires:
 - `toc`
 - non-empty `body`
 
-Supported body blocks are `p`, `h2`, `h3`, and `ul`. Every TOC ID must match an `h2` or `h3` body ID.
+Supported body blocks are `p`, `h2`, `h3`, `ul`, `callout`, `linkP`, and `table`. Every TOC ID must match an `h2`, `h3`, or `callout` body ID.
 
 Changing a published slug is a URL migration and must not be treated as a routine copy edit.
 

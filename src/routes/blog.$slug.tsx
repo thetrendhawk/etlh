@@ -18,6 +18,7 @@ export const Route = createFileRoute("/blog/$slug")({
     const p = loaderData?.post;
     if (!p) return {};
     const publicationDate = p.date;
+    const modifiedDate = p.updatedDate ?? publicationDate;
     const pageUrl = absoluteUrl(`/blog/${p.slug}`);
     const imageUrl = absoluteUrl(p.image);
     const organizationUrl = absoluteUrl("/");
@@ -28,6 +29,8 @@ export const Route = createFileRoute("/blog/$slug")({
         { property: "og:title", content: p.title },
         { property: "og:description", content: p.excerpt },
         { property: "og:type", content: "article" },
+        { property: "article:published_time", content: publicationDate },
+        { property: "article:modified_time", content: modifiedDate },
         { property: "og:url", content: pageUrl },
         { property: "og:image", content: imageUrl },
         { name: "twitter:title", content: p.title },
@@ -44,6 +47,7 @@ export const Route = createFileRoute("/blog/$slug")({
             headline: p.title,
             description: p.excerpt,
             datePublished: publicationDate,
+            dateModified: modifiedDate,
             image: imageUrl,
             url: pageUrl,
             mainEntityOfPage: pageUrl,
@@ -82,6 +86,7 @@ function PostPage() {
   const cat = getCategory(post.category);
   const related = getRelatedPosts(post);
   const publicationDate = post.date;
+  const modifiedDate = post.updatedDate;
 
   return (
     <div className="min-h-screen bg-earth-100 text-earth-900">
@@ -103,6 +108,14 @@ function PostPage() {
           </Link>
           <span>·</span>
           <time dateTime={publicationDate}>{formatDate(publicationDate)}</time>
+          {modifiedDate && (
+            <>
+              <span>·</span>
+              <span>
+                Updated <time dateTime={modifiedDate}>{formatDate(modifiedDate)}</time>
+              </span>
+            </>
+          )}
           <span>·</span>
           <span>{post.readingTime}</span>
         </div>
@@ -181,6 +194,29 @@ function PostPage() {
                     <li key={j}>{it}</li>
                   ))}
                 </ul>
+              );
+            if (block.type === "callout")
+              return (
+                <aside
+                  key={i}
+                  id={block.id}
+                  className="scroll-mt-24 rounded-2xl border border-moss/20 bg-moss/5 p-6 md:p-8"
+                >
+                  {block.eyebrow && (
+                    <p className="text-xs font-bold uppercase tracking-widest text-moss">
+                      {block.eyebrow}
+                    </p>
+                  )}
+                  <h2 className="font-serif text-3xl md:text-4xl mt-2 text-earth-900">
+                    {block.title}
+                  </h2>
+                  {block.text && <p className="mt-3 text-earth-900/75">{block.text}</p>}
+                  <ul className="mt-5 list-disc pl-6 space-y-2">
+                    {block.items.map((item: string, itemIndex: number) => (
+                      <li key={itemIndex}>{item}</li>
+                    ))}
+                  </ul>
+                </aside>
               );
             if (block.type === "linkP")
               return (

@@ -200,9 +200,9 @@ const promotionalSurfaceOverrides: Record<string, Partial<Post>> = {
     imageAlt: illustrativeAlt.checklist,
   },
   "easy-sustainable-habits-on-a-budget": {
-    title: "20 Renter-Aware Sustainable Habits to Consider",
+    title: "20 Sustainable Habits for Renters on a Budget",
     excerpt:
-      "Review 20 renter-aware options by what you already own, what you control, and what fits your household, access, and local services.",
+      "Start with 20 practical sustainable habits for renters and small apartments, including five no-buy actions that use what you already own.",
     image: habitsCategoryImage,
     imageAlt: illustrativeAlt.checklist,
   },

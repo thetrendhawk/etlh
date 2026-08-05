@@ -64,6 +64,10 @@ for (const post of posts) {
   if (!categorySlugs.has(post.category))
     fail(`${label} references unknown category ${post.category}.`);
   if (!datePattern.test(post.date)) fail(`${label} has an invalid source date: ${post.date}`);
+  if (post.updatedDate && !datePattern.test(post.updatedDate))
+    fail(`${label} has an invalid updated date: ${post.updatedDate}`);
+  if (post.updatedDate && post.updatedDate < post.date)
+    fail(`${label} has an updated date earlier than its publication date.`);
   if (!nonEmpty(post.readingTime)) fail(`${label} has no reading time.`);
   if (!nonEmpty(post.image)) fail(`${label} has no image.`);
   if (!nonEmpty(post.imageAlt)) fail(`${label} has no image alt text.`);
@@ -78,7 +82,7 @@ for (const post of posts) {
   for (const id of findDuplicates(tocIds)) fail(`${label} has duplicate TOC id: ${id}`);
 
   const headingIds = post.body
-    .filter((block) => block.type === "h2" || block.type === "h3")
+    .filter((block) => block.type === "h2" || block.type === "h3" || block.type === "callout")
     .map((block) => block.id)
     .filter((id): id is string => Boolean(id));
 
@@ -89,6 +93,14 @@ for (const post of posts) {
   for (const block of post.body) {
     if (block.type === "ul") {
       if (!block.items || block.items.length === 0) fail(`${label} contains an empty list block.`);
+      continue;
+    }
+    if (block.type === "callout") {
+      if (!nonEmpty(block.title)) fail(`${label} contains a callout with no title.`);
+      if (block.text !== undefined && !nonEmpty(block.text))
+        fail(`${label} contains a callout with empty supporting text.`);
+      if (block.items.length === 0 || block.items.some((item) => !nonEmpty(item)))
+        fail(`${label} contains a callout with missing actions.`);
       continue;
     }
     if (block.type === "linkP") {
@@ -583,8 +595,28 @@ if (!easyHabits) {
     if (pattern.test(easyCopy)) fail(`Unsupported easy-habits claim remains: ${pattern}`);
   }
   const presentedEasy = getPresentedPost(easyHabits);
-  if (presentedEasy.image !== easyHabits.image || presentedEasy.imageAlt !== easyHabits.imageAlt) {
-    fail("Easy-habits source and presentation image metadata diverge");
+  if (
+    presentedEasy.title !== easyHabits.title ||
+    presentedEasy.excerpt !== easyHabits.excerpt ||
+    presentedEasy.image !== easyHabits.image ||
+    presentedEasy.imageAlt !== easyHabits.imageAlt
+  ) {
+    fail("Easy-habits source and presentation metadata diverge");
+  }
+  if (easyHabits.title !== "20 Sustainable Habits for Renters on a Budget")
+    fail("Easy-habits article is missing the approved search-focused title");
+  if (easyHabits.updatedDate !== "2026-08-05")
+    fail("Easy-habits article is missing its verified material-review date");
+  const noBuyCallout = easyHabits.body.find(
+    (block) => block.type === "callout" && block.id === "start-small",
+  );
+  if (!noBuyCallout || noBuyCallout.type !== "callout") {
+    fail("Easy-habits article is missing the no-buy action callout");
+  } else if (
+    noBuyCallout.title !== "Start with these five no-buy actions" ||
+    noBuyCallout.items.length !== 5
+  ) {
+    fail("Easy-habits no-buy action callout is incomplete");
   }
   if (easyCopy.includes("SustainablePin2")) fail("Retired SustainablePin2 asset remains in easy-habits content");
   const optionCount = easyHabits.body.filter((block) => block.type === "ul").flatMap((block) => block.items ?? []).length;
@@ -596,6 +628,10 @@ if (!easyHabits) {
     if (!easyCopy.includes(required)) fail(`Easy-habits repair is missing required guidance: ${required}`);
   }
   if (readFileSync(join(process.cwd(), "src/lib/posts.ts"), "utf8").includes("sustainablePin2")) fail("Retired SustainablePin2 import/reference remains in posts.ts");
+  const homepageSource = readFileSync(join(process.cwd(), "src/routes/index.tsx"), "utf8");
+  for (const marker of ["Featured guide", "easy-sustainable-habits-on-a-budget"]) {
+    if (!homepageSource.includes(marker)) fail(`Homepage is missing featured-guide marker: ${marker}`);
+  }
 }
 
 const apartmentSystems = posts.find((post) => post.slug === "sustainable-living-apartment-easy-habits");
@@ -858,6 +894,7 @@ for (const marker of [
   'name: "twitter:image"',
   "mainEntityOfPage",
   "datePublished",
+  "dateModified",
   "author",
   "publisher",
 ]) {

@@ -19,9 +19,10 @@
     "check:assets": "vite-node scripts/check-assets.ts",
     "check:security-policy": "vite-node scripts/check-security-policy.ts",
     "check:build-assets": "vite-node scripts/audit-build-assets.ts",
+    "check:built-server": "node scripts/check-built-server.mjs",
     "check:dependencies": "pnpm audit --prod --audit-level high",
     "check:production": "bash scripts/check-production.sh",
-    "check:ci": "pnpm run lint && pnpm run check:sitemap && pnpm run check:content && pnpm run check:routes && pnpm run check:accessibility && pnpm run check:assets && pnpm run check:security-policy && pnpm run check:dependencies && pnpm run build && pnpm run check:build-assets"
+    "check:ci": "pnpm run lint && pnpm run check:sitemap && pnpm run check:content && pnpm run check:routes && pnpm run check:accessibility && pnpm run check:assets && pnpm run check:security-policy && pnpm run check:dependencies && pnpm run build && pnpm run check:built-server && pnpm run check:build-assets"
   },
   "overrides": {
     "js-yaml": "^4.3.0",
@@ -59,7 +60,7 @@
     "@tailwindcss/vite": "^4.3.3",
     "@tanstack/react-query": "^5.83.0",
     "@tanstack/react-router": "^1.170.18",
-    "@tanstack/react-start": "^1.168.34",
+    "@tanstack/react-start": "1.168.34",
     "@tanstack/router-plugin": "^1.168.23",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -86,7 +87,7 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",
     "@eslint/js": "^9.32.0",
-    "@lovable.dev/vite-tanstack-config": "^2.5.2",
+    "@lovable.dev/vite-tanstack-config": "2.5.2",
     "@playwright/test": "^1.55.1",
     "@types/node": "^22.16.5",
     "@types/react": "^19.2.0",
@@ -98,6 +99,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^15.15.0",
+    "jiti": "2.7.0",
     "nitro": "3.0.260603-beta",
     "prettier": "^3.7.3",
     "typescript": "^5.8.3",

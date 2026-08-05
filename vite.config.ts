@@ -8,6 +8,15 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
   vite: {
+    build: {
+      rolldownOptions: {
+        output: {
+          // Keep cross-chunk helper exports stable. Rolldown's minified helper
+          // aliases have produced a Linux-only Vercel runtime failure.
+          minifyInternalExports: false,
+        },
+      },
+    },
     server: {
       allowedHosts: ["ecotinylivinghub.com"],
     },

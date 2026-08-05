@@ -19,9 +19,10 @@
     "check:assets": "vite-node scripts/check-assets.ts",
     "check:security-policy": "vite-node scripts/check-security-policy.ts",
     "check:build-assets": "vite-node scripts/audit-build-assets.ts",
+    "check:built-server": "node scripts/check-built-server.mjs",
     "check:dependencies": "pnpm audit --prod --audit-level high",
     "check:production": "bash scripts/check-production.sh",
-    "check:ci": "pnpm run lint && pnpm run check:sitemap && pnpm run check:content && pnpm run check:routes && pnpm run check:accessibility && pnpm run check:assets && pnpm run check:security-policy && pnpm run check:dependencies && pnpm run build && pnpm run check:build-assets"
+    "check:ci": "pnpm run lint && pnpm run check:sitemap && pnpm run check:content && pnpm run check:routes && pnpm run check:accessibility && pnpm run check:assets && pnpm run check:security-policy && pnpm run check:dependencies && pnpm run build && pnpm run check:built-server && pnpm run check:build-assets"
   },
   "overrides": {
     "js-yaml": "^4.3.0",

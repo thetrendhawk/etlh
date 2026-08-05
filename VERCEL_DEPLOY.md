@@ -4,7 +4,7 @@
 
 - Vercel project: `eco-tiny-living-site`
 - Project ID: `prj_cSWztySMbIFGnnt3tRI5mo1nqTXL`
-- Canonical hostname: `ecotinylivinghub.thrwds.com`
+- Canonical hostname: `ecotinylivinghub.com`
 - Framework setting: Other
 - Node.js runtime: 24.x
 - Build command: `pnpm run build`
@@ -26,11 +26,7 @@ pnpm install --frozen-lockfile
 pnpm run check:ci
 ```
 
-The required gate runs:
-
-```bash
-pnpm run lint && pnpm run check:sitemap && pnpm run check:content && pnpm run check:assets && pnpm run build
-```
+The required gate includes lint, type checking, source validations, a production build, a request against the built Vercel server, and emitted-asset budgets. `pnpm run check:ci` is the single source of truth used by GitHub Actions.
 
 A dependency change is incomplete unless `package.json` and `pnpm-lock.yaml` remain synchronized.
 
@@ -55,7 +51,7 @@ One Git push should create only one ETLH Vercel deployment. If duplicate project
 - no trailing slash except for `/`
 - permanent redirects from stable Vercel production aliases
 - requested path and query-string preservation
-- `https://ecotinylivinghub.thrwds.com` as the preferred host
+- `https://ecotinylivinghub.com` as the preferred host; the legacy `.thrwds.com` host redirects to it
 
 Preview branch aliases remain separate from production.
 

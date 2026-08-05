@@ -55,7 +55,7 @@ Revert the sitemap commit with `git revert <commit>` and push; Vercel redeploys 
 - Automatic GA4 pageviews are disabled with `send_page_view: false`.
 - ETLH sends one manual `page_view` on the initial production load and one on each TanStack Router location change.
 - Duplicate pageviews for the same path and query string are suppressed in the browser.
-- Analytics loads only when the hostname is exactly `ecotinylivinghub.thrwds.com`; Vercel preview and alternate-host traffic is intentionally excluded.
+- Analytics loads only when the hostname is exactly `ecotinylivinghub.com`; Vercel preview and alternate-host traffic is intentionally excluded.
 
 ### Verification
 

@@ -9,7 +9,9 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
+    "preview:built-server": "node scripts/serve-built-server.mjs",
     "lint": "eslint .",
+    "check:types": "tsc --noEmit",
     "format": "prettier --write .",
     "check:sitemap": "vite-node scripts/check-sitemap.ts",
     "check:content": "vite-node scripts/check-content.ts",
@@ -17,12 +19,13 @@
     "check:accessibility": "vite-node scripts/check-accessibility.ts",
     "check:accessibility:browser": "playwright test",
     "check:assets": "vite-node scripts/check-assets.ts",
+    "check:responsive-images": "vite-node scripts/check-responsive-images.ts",
     "check:security-policy": "vite-node scripts/check-security-policy.ts",
     "check:build-assets": "vite-node scripts/audit-build-assets.ts",
     "check:built-server": "node scripts/check-built-server.mjs",
     "check:dependencies": "pnpm audit --prod --audit-level high",
     "check:production": "bash scripts/check-production.sh",
-    "check:ci": "pnpm run lint && pnpm run check:sitemap && pnpm run check:content && pnpm run check:routes && pnpm run check:accessibility && pnpm run check:assets && pnpm run check:security-policy && pnpm run check:dependencies && pnpm run build && pnpm run check:built-server && pnpm run check:build-assets"
+    "check:ci": "pnpm run lint && pnpm run check:types && pnpm run check:sitemap && pnpm run check:content && pnpm run check:routes && pnpm run check:accessibility && pnpm run check:assets && pnpm run check:responsive-images && pnpm run check:security-policy && pnpm run check:dependencies && pnpm run build && pnpm run check:built-server && pnpm run check:build-assets"
   },
   "overrides": {
     "js-yaml": "^4.3.0",

@@ -29,29 +29,27 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
-      - name: Set up pnpm for pull-request audit
-        if: github.event_name == 'pull_request'
-        uses: pnpm/action-setup@v4
+      - name: Set up pnpm and Node.js
+        uses: pnpm/setup@v2
         with:
-          version: 11.9.0
-
-      - name: Set up Node.js for pull-request audit
-        if: github.event_name == 'pull_request'
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: pnpm
+          runtime: node@24
+          cache: true
+          install: false
 
       - name: Install branch dependencies
         if: github.event_name == 'pull_request'
         run: pnpm install --frozen-lockfile
 
-      - name: Start branch server
+      - name: Build branch application
+        if: github.event_name == 'pull_request'
+        run: pnpm run build
+
+      - name: Start branch production preview
         if: github.event_name == 'pull_request'
         run: |
-          nohup pnpm run dev --host 127.0.0.1 --port 4173 > /tmp/etlh-lighthouse-server.log 2>&1 &
+          nohup pnpm run preview:built-server --host 127.0.0.1 --port 4173 > /tmp/etlh-lighthouse-server.log 2>&1 &
           for attempt in {1..60}; do
             if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then
               exit 0
@@ -122,7 +120,7 @@ jobs:
           NODE
 
       - name: Upload Lighthouse reports
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: lighthouse-audit
           path: lighthouse-results

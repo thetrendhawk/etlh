@@ -21,51 +21,20 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v4
+      - name: Set up pnpm and Node.js
+        uses: pnpm/setup@v2
         with:
-          version: 11.9.0
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: pnpm
+          runtime: node@24
+          cache: true
+          install: false
 
       - name: Install dependencies from lockfile
         run: pnpm install --frozen-lockfile
 
-      - name: Lint source
-        run: pnpm run lint
-
-      - name: Validate sitemap
-        run: pnpm run check:sitemap
-
-      - name: Validate content
-        run: pnpm run check:content
-
-      - name: Validate routes
-        run: pnpm run check:routes
-
-      - name: Validate accessibility source rules
-        run: pnpm run check:accessibility
-
-      - name: Validate assets
-        run: pnpm run check:assets
-
-      - name: Validate security policy
-        run: pnpm run check:security-policy
-
-      - name: Audit production dependencies
-        run: pnpm run check:dependencies
-
-      - name: Build production application
-        run: pnpm run build
-
-      - name: Audit emitted images and JavaScript
-        run: pnpm run check:build-assets
+      - name: Run repository validation gate
+        run: pnpm run check:ci
 
       - name: Install Chromium for rendered accessibility tests
         run: pnpm exec playwright install --with-deps chromium
@@ -75,7 +44,7 @@ jobs:
 
       - name: Upload rendered accessibility report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: rendered-accessibility-report
           path: |
@@ -86,7 +55,7 @@ jobs:
 
       - name: Upload build asset audit
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: build-asset-audit
           path: |

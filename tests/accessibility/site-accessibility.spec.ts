@@ -207,6 +207,46 @@ test("analytics banner exposes a clear non-modal choice", async ({ page }) => {
   await expect(dialog).toBeHidden();
 });
 
+test("accepting analytics attempts a GA4 page_view request", async ({ page }, testInfo) => {
+  test.skip(!testInfo.project.name.includes("desktop"), "Desktop analytics regression coverage");
+
+  await page.addInitScript(() => window.localStorage.removeItem("etlh-analytics-consent"));
+  await page.route("https://www.googletagmanager.com/gtag/js**", async (route) => {
+    await route.fulfill({
+      contentType: "application/javascript",
+      body: `
+        (() => {
+          const dataLayer = window.dataLayer;
+          const originalPush = dataLayer.push.bind(dataLayer);
+          const processCommand = (command) => {
+            if (!Array.isArray(command) && command[0] === "event" && command[1] === "page_view") {
+              fetch("https://www.google-analytics.com/g/collect?v=2&tid=G-G8H1H9S4TG&en=page_view", {
+                mode: "no-cors",
+              });
+            }
+          };
+          dataLayer.forEach(processCommand);
+          dataLayer.push = (...commands) => {
+            commands.forEach(processCommand);
+            return originalPush(...commands);
+          };
+        })();
+      `,
+    });
+  });
+
+  const collectRequest = page.waitForRequest(
+    (request) =>
+      request.url().startsWith("https://www.google-analytics.com/g/collect") &&
+      new URL(request.url()).searchParams.get("en") === "page_view",
+  );
+
+  await page.goto("http://ecotinylivinghub.com:4173/");
+  await page.getByRole("button", { name: "Accept analytics" }).click();
+
+  await expect.poll(async () => (await collectRequest).url()).toContain("tid=G-G8H1H9S4TG");
+});
+
 test("mobile menu exposes state and restores focus", async ({ page }, testInfo) => {
   test.skip(!testInfo.project.name.includes("mobile"), "Mobile interaction coverage");
   await page.addInitScript(() => window.localStorage.setItem("etlh-analytics-consent", "declined"));

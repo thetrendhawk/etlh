@@ -65,6 +65,7 @@ export function AnalyticsConsent() {
 
   useEffect(() => {
     const stored = window.localStorage.getItem(CONSENT_KEY) as ConsentChoice;
+    if (stored === "accepted") loadGoogleAnalytics();
     setChoice(stored === "accepted" || stored === "declined" ? stored : null);
     setOpen(stored !== "accepted" && stored !== "declined");
 
@@ -81,6 +82,7 @@ export function AnalyticsConsent() {
 
   function save(nextChoice: Exclude<ConsentChoice, null>) {
     window.localStorage.setItem(CONSENT_KEY, nextChoice);
+    if (nextChoice === "accepted") loadGoogleAnalytics();
     setChoice(nextChoice);
     setOpen(false);
   }

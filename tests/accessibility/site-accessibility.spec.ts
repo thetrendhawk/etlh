@@ -220,7 +220,7 @@ test("accepting analytics attempts a GA4 page_view request", async ({ page }, te
           const originalPush = dataLayer.push.bind(dataLayer);
           const processCommand = (command) => {
             if (!Array.isArray(command) && command[0] === "event" && command[1] === "page_view") {
-              fetch("https://www.google-analytics.com/g/collect?v=2&tid=G-G8H1H9S4TG&en=page_view", {
+              fetch("https://www.google-analytics.com/g/collect?v=2&tid=G-9BD6WKV3B7&en=page_view", {
                 mode: "no-cors",
               });
             }
@@ -244,7 +244,7 @@ test("accepting analytics attempts a GA4 page_view request", async ({ page }, te
   await page.goto("http://ecotinylivinghub.com:4173/");
   await page.getByRole("button", { name: "Accept analytics" }).click();
 
-  await expect.poll(async () => (await collectRequest).url()).toContain("tid=G-G8H1H9S4TG");
+  await expect.poll(async () => (await collectRequest).url()).toContain("tid=G-9BD6WKV3B7");
 });
 
 test("mobile menu exposes state and restores focus", async ({ page }, testInfo) => {

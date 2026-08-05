@@ -1,6 +1,7 @@
 {
   "name": "tanstack_start_ts",
   "private": true,
+  "packageManager": "pnpm@11.9.0",
   "sideEffects": false,
   "type": "module",
   "scripts": {
@@ -10,17 +11,17 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "check:sitemap": "bun scripts/check-sitemap.ts",
-    "check:content": "bun scripts/check-content.ts",
-    "check:routes": "bun scripts/check-routes.ts",
-    "check:accessibility": "bun scripts/check-accessibility.ts",
+    "check:sitemap": "vite-node scripts/check-sitemap.ts",
+    "check:content": "vite-node scripts/check-content.ts",
+    "check:routes": "vite-node scripts/check-routes.ts",
+    "check:accessibility": "vite-node scripts/check-accessibility.ts",
     "check:accessibility:browser": "playwright test",
-    "check:assets": "bun scripts/check-assets.ts",
-    "check:security-policy": "bun scripts/check-security-policy.ts",
-    "check:build-assets": "bun scripts/audit-build-assets.ts",
-    "check:dependencies": "bun audit --prod --audit-level=high",
+    "check:assets": "vite-node scripts/check-assets.ts",
+    "check:security-policy": "vite-node scripts/check-security-policy.ts",
+    "check:build-assets": "vite-node scripts/audit-build-assets.ts",
+    "check:dependencies": "pnpm audit --prod --audit-level high",
     "check:production": "bash scripts/check-production.sh",
-    "check:ci": "bun run lint && bun run check:sitemap && bun run check:content && bun run check:routes && bun run check:accessibility && bun run check:assets && bun run check:security-policy && bun run check:dependencies && bun run build && bun run check:build-assets"
+    "check:ci": "pnpm run lint && pnpm run check:sitemap && pnpm run check:content && pnpm run check:routes && pnpm run check:accessibility && pnpm run check:assets && pnpm run check:security-policy && pnpm run check:dependencies && pnpm run build && pnpm run check:build-assets"
   },
   "overrides": {
     "js-yaml": "^4.3.0",
@@ -100,6 +101,7 @@
     "nitro": "3.0.260603-beta",
     "prettier": "^3.7.3",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.56.1"
+    "typescript-eslint": "^8.56.1",
+    "vite-node": "^6.0.0"
   }
 }

@@ -26,7 +26,7 @@ Active — sitemap, robots, and analytics operations.
 Run from the repository root:
 
 ```sh
-bun run check:sitemap
+pnpm run check:sitemap
 ```
 
 The check fails when: a static sitemap exists in `public/`, output is non-deterministic, any `<loc>` is relative or uses a non-production origin, URLs are duplicated, expected posts or categories are missing, unexpected URLs appear, or `robots.txt` lacks the sitemap declaration.

@@ -50,7 +50,7 @@ When a pull request includes `src/routeTree.gen.ts`:
 2. Confirm every added generated route corresponds to a real route file.
 3. Confirm every removed generated route corresponds to an intentional deletion or rename.
 4. Confirm no unrelated route identities changed.
-5. Run `bun run check:ci`.
+5. Run `pnpm run check:ci`.
 
 When a pull request changes route files but does not include the expected generated update, regenerate the route tree before merge.
 

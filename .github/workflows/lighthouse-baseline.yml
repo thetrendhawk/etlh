@@ -9,7 +9,8 @@ on:
       - "public/**"
       - "styles.css"
       - "package.json"
-      - "bun.lock"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
   schedule:
     - cron: "17 15 * * 1"
 
@@ -30,20 +31,27 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Set up Bun for pull-request audit
+      - name: Set up pnpm for pull-request audit
         if: github.event_name == 'pull_request'
-        uses: oven-sh/setup-bun@v2
+        uses: pnpm/action-setup@v4
         with:
-          bun-version: latest
+          version: 11.9.0
+
+      - name: Set up Node.js for pull-request audit
+        if: github.event_name == 'pull_request'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
 
       - name: Install branch dependencies
         if: github.event_name == 'pull_request'
-        run: bun install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Start branch server
         if: github.event_name == 'pull_request'
         run: |
-          nohup bun run dev --host 127.0.0.1 --port 4173 > /tmp/etlh-lighthouse-server.log 2>&1 &
+          nohup pnpm run dev --host 127.0.0.1 --port 4173 > /tmp/etlh-lighthouse-server.log 2>&1 &
           for attempt in {1..60}; do
             if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then
               exit 0

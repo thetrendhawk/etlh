@@ -24,16 +24,16 @@ Only `eco-tiny-living-site` is connected to this repository for Vercel deploymen
 
 ## Install and local development
 
-Install the exact dependency graph from the committed Bun lockfile:
+Install the exact dependency graph from the committed pnpm lockfile:
 
 ```bash
-bun install --frozen-lockfile
+pnpm install --frozen-lockfile
 ```
 
 Start the local development server:
 
 ```bash
-bun run dev
+pnpm run dev
 ```
 
 ## Required validation
@@ -41,13 +41,13 @@ bun run dev
 Run the complete repository gate before merging:
 
 ```bash
-bun run check:ci
+pnpm run check:ci
 ```
 
 That command runs:
 
 ```bash
-bun run lint && bun run check:sitemap && bun run check:content && bun run check:assets && bun run build
+pnpm run lint && pnpm run check:sitemap && pnpm run check:content && pnpm run check:assets && pnpm run build
 ```
 
 The gate verifies code correctness, sitemap integrity, article/category structure, metadata coverage, internal-route validity, placeholder-link absence, image budgets, and a production build.
@@ -55,7 +55,7 @@ The gate verifies code correctness, sitemap integrity, article/category structur
 Formatting is separate from lint:
 
 ```bash
-bun run format
+pnpm run format
 ```
 
 Do not run a repository-wide formatting pass as part of an unrelated change.

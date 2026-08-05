@@ -12,6 +12,10 @@ on:
       - "scripts/check-production.sh"
       - "src/**"
       - "package.json"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+      - "vercel.json"
+      - "vite.config.ts"
 
 permissions:
   contents: read
@@ -28,12 +32,17 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
-      - name: Set up Bun
-        uses: oven-sh/setup-bun@v2
+      - name: Set up pnpm and Node.js
+        uses: pnpm/setup@v2
         with:
-          bun-version: latest
+          runtime: node@24
+          cache: true
+          install: false
+
+      - name: Install dependencies from lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Allow production deployment to become ready
         if: github.event_name == 'push'
@@ -43,11 +52,11 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
-          bun run check:production 2>&1 | tee production-smoke.log
+          pnpm run check:production 2>&1 | tee production-smoke.log
 
       - name: Upload smoke diagnostics
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: production-smoke-diagnostics
           path: production-smoke.log

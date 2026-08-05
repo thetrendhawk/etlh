@@ -66,4 +66,4 @@ A renter wants to divert food scraps but does not know whether building collecti
 
 ## Publication and verification plan
 
-Run `bun install --frozen-lockfile`, `bun run check:ci`, browser accessibility checks, preview verification, and the production smoke check after the merged deployment. Verify title, canonical, Article JSON-LD, TOC, tables, internal links, sitemap, robots, alt text, keyboard-focusable horizontal table regions, mobile overflow, and prohibited claim families.
+Run `pnpm install --frozen-lockfile`, `pnpm run check:ci`, browser accessibility checks, preview verification, and the production smoke check after the merged deployment. Verify title, canonical, Article JSON-LD, TOC, tables, internal links, sitemap, robots, alt text, keyboard-focusable horizontal table regions, mobile overflow, and prohibited claim families.

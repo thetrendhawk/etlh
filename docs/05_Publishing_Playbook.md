@@ -26,7 +26,7 @@ Active — sitemap, robots, and analytics operations.
 Run from the repository root:
 
 ```sh
-bun run check:sitemap
+pnpm run check:sitemap
 ```
 
 The check fails when: a static sitemap exists in `public/`, output is non-deterministic, any `<loc>` is relative or uses a non-production origin, URLs are duplicated, expected posts or categories are missing, unexpected URLs appear, or `robots.txt` lacks the sitemap declaration.
@@ -55,7 +55,7 @@ Revert the sitemap commit with `git revert <commit>` and push; Vercel redeploys 
 - Automatic GA4 pageviews are disabled with `send_page_view: false`.
 - ETLH sends one manual `page_view` on the initial production load and one on each TanStack Router location change.
 - Duplicate pageviews for the same path and query string are suppressed in the browser.
-- Analytics loads only when the hostname is exactly `ecotinylivinghub.thrwds.com`; Vercel preview and alternate-host traffic is intentionally excluded.
+- Analytics loads only when the hostname is exactly `ecotinylivinghub.com`; Vercel preview and alternate-host traffic is intentionally excluded.
 
 ### Verification
 

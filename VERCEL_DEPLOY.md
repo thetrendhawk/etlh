@@ -4,10 +4,10 @@
 
 - Vercel project: `eco-tiny-living-site`
 - Project ID: `prj_cSWztySMbIFGnnt3tRI5mo1nqTXL`
-- Canonical hostname: `ecotinylivinghub.thrwds.com`
+- Canonical hostname: `ecotinylivinghub.com`
 - Framework setting: Other
 - Node.js runtime: 24.x
-- Build command: `bun run build`
+- Build command: `pnpm run build`
 - Output directory: unset
 - Production branch: `main`
 
@@ -22,17 +22,13 @@ Generated deployment output is not committed.
 ## Dependency installation and validation
 
 ```bash
-bun install --frozen-lockfile
-bun run check:ci
+pnpm install --frozen-lockfile
+pnpm run check:ci
 ```
 
-The required gate runs:
+The required gate includes lint, type checking, source validations, a production build, a request against the built Vercel server, and emitted-asset budgets. `pnpm run check:ci` is the single source of truth used by GitHub Actions.
 
-```bash
-bun run lint && bun run check:sitemap && bun run check:content && bun run check:assets && bun run build
-```
-
-A dependency change is incomplete unless `package.json` and `bun.lock` remain synchronized.
+A dependency change is incomplete unless `package.json` and `pnpm-lock.yaml` remain synchronized.
 
 ## Git-connected deployment workflow
 
@@ -55,7 +51,7 @@ One Git push should create only one ETLH Vercel deployment. If duplicate project
 - no trailing slash except for `/`
 - permanent redirects from stable Vercel production aliases
 - requested path and query-string preservation
-- `https://ecotinylivinghub.thrwds.com` as the preferred host
+- `https://ecotinylivinghub.com` as the preferred host; the legacy `.thrwds.com` host redirects to it
 
 Preview branch aliases remain separate from production.
 
@@ -94,8 +90,8 @@ Git-connected deployment is the standard workflow. Manual Vercel deployment is r
 When necessary, build first and deploy the prebuilt output only from a workspace linked to `eco-tiny-living-site`:
 
 ```bash
-bun install --frozen-lockfile
-bun run check:ci
+pnpm install --frozen-lockfile
+pnpm run check:ci
 vercel --prebuilt
 ```
 

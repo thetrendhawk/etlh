@@ -33,7 +33,7 @@ function subscribeViaJsonp(email: string, firstName: string): Promise<MailchimpR
     });
     const script = document.createElement("script");
     const url = `${MAILCHIMP_BASE}?${params.toString()}&c=${cb}`;
-    const jsonpWindow = window as JsonpWindow;
+    const jsonpWindow = window as unknown as JsonpWindow;
 
     jsonpWindow[cb] = (data: MailchimpResponse) => {
       resolve(data);

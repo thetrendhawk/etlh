@@ -1,6 +1,6 @@
 /**
  * Deterministic sitemap integrity check for ETLH.
- * Run from the repository root: bun run check:sitemap
+ * Run from the repository root: pnpm run check:sitemap
  *
  * Fails (exit 1) when:
  * - a second sitemap source exists (any sitemap*.xml in public/)

@@ -76,8 +76,8 @@ For a route-changing pull request:
 3. Run:
 
 ```bash
-bun install --frozen-lockfile
-bun run check:ci
+pnpm install --frozen-lockfile
+pnpm run check:ci
 ```
 
 4. Inspect `src/routeTree.gen.ts`.

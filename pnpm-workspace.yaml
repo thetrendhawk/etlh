@@ -1,0 +1,8 @@
+minimumReleaseAge: 1440
+minimumReleaseAgeExclude:
+  - "@lovable.dev/vite-tanstack-config"
+  - "@lovable.dev/mcp-js"
+  - "@lovable.dev/vite-plugin-dev-server-bridge"
+  - "@lovable.dev/vite-plugin-hmr-gate"
+allowBuilds:
+  esbuild: true

@@ -14,7 +14,7 @@ The full source image library now totals approximately 2,249,997 bytes (2.15 MiB
 
 ## Enforced budgets
 
-`bun run check:assets` runs in required CI and enforces:
+`pnpm run check:assets` runs in required CI and enforces:
 
 - Maximum individual source image: 400 KiB
 - Maximum total source image library: 3 MiB

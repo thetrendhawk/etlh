@@ -12,15 +12,17 @@ declare global {
   interface Window {
     dataLayer?: unknown[];
     gtag?: (...args: unknown[]) => void;
+    __etlhGaReady?: boolean;
     __etlhLastGaPagePath?: string;
   }
 }
 
 function sendPageView() {
+  if (!window.__etlhGaReady || !window.gtag) return;
   const pagePath = `${window.location.pathname}${window.location.search}`;
   if (window.__etlhLastGaPagePath === pagePath) return;
   window.__etlhLastGaPagePath = pagePath;
-  window.gtag?.("event", "page_view", {
+  window.gtag("event", "page_view", {
     page_title: document.title,
     page_location: window.location.href,
     page_path: pagePath,
@@ -45,6 +47,11 @@ function loadGoogleAnalytics() {
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
   script.id = "etlh-google-analytics";
+  script.addEventListener("load", () => {
+    window.__etlhGaReady = true;
+    window.gtag?.("config", GA_MEASUREMENT_ID, { send_page_view: false });
+    sendPageView();
+  });
   document.head.appendChild(script);
 
   window.gtag("js", new Date());
@@ -54,8 +61,6 @@ function loadGoogleAnalytics() {
     ad_user_data: "denied",
     ad_personalization: "denied",
   });
-  window.gtag("config", GA_MEASUREMENT_ID, { send_page_view: false });
-  sendPageView();
 }
 
 export function AnalyticsConsent() {

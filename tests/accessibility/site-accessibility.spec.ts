@@ -63,7 +63,7 @@ const pages = [
   },
   {
     path: "/blog/easy-sustainable-habits-on-a-budget",
-    heading: /20 Renter-Aware Sustainable Habits to Consider/i,
+    heading: /20 Sustainable Habits for Renters on a Budget/i,
   },
   {
     path: "/blog/sustainable-living-apartment-easy-habits",

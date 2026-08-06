@@ -8,6 +8,7 @@ import catHabits from "@/assets/cat-habits.jpg";
 import catKitchen from "@/assets/cat-kitchen.jpg";
 import heroImg from "@/assets/hero-apartment.jpg";
 import { vercelImageSrcSet } from "@/lib/image";
+import { getPresentedPost } from "@/lib/postPresentation";
 import { posts, promotedCategories, type CategorySlug } from "@/lib/posts";
 import { absoluteUrl } from "@/lib/site";
 
@@ -30,6 +31,10 @@ const pageUrl = absoluteUrl("/");
 const imageUrl = absoluteUrl(heroImg);
 const heroWidths = [480, 640, 960, 1200];
 const categoryWidths = [320, 480, 640, 800];
+const featuredSourcePost = posts.find(
+  (post) => post.slug === "easy-sustainable-habits-on-a-budget",
+);
+const featuredPost = featuredSourcePost ? getPresentedPost(featuredSourcePost) : undefined;
 
 type HomepageCategorySlug = keyof typeof categoryLabels;
 
@@ -160,6 +165,58 @@ function Home() {
           })}
         </div>
       </section>
+
+      {featuredPost && (
+        <section
+          aria-labelledby="featured-guide-heading"
+          className="max-w-6xl mx-auto px-6 py-20 border-t border-earth-900/5"
+        >
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center rounded-3xl border border-earth-900/10 bg-white p-6 md:p-10">
+            <Link
+              to="/blog/$slug"
+              params={{ slug: featuredPost.slug }}
+              className="group block aspect-[16/10] overflow-hidden rounded-2xl outline-1 -outline-offset-1 outline-black/5"
+            >
+              <img
+                src={featuredPost.image}
+                srcSet={vercelImageSrcSet(featuredPost.image, categoryWidths, 75)}
+                sizes="(min-width: 768px) 45vw, calc(100vw - 6rem)"
+                alt={featuredPost.imageAlt}
+                loading="lazy"
+                decoding="async"
+                width={800}
+                height={500}
+                className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+              />
+            </Link>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-moss">
+                Featured guide
+              </p>
+              <h2
+                id="featured-guide-heading"
+                className="font-serif text-4xl md:text-5xl mt-3 leading-tight text-balance"
+              >
+                <Link
+                  to="/blog/$slug"
+                  params={{ slug: featuredPost.slug }}
+                  className="hover:text-moss transition-colors"
+                >
+                  {featuredPost.title}
+                </Link>
+              </h2>
+              <p className="text-earth-900/70 mt-5 leading-relaxed">{featuredPost.excerpt}</p>
+              <Link
+                to="/blog/$slug"
+                params={{ slug: featuredPost.slug }}
+                className="inline-flex mt-7 bg-moss text-white px-7 py-3.5 rounded-full font-medium hover:bg-moss-dark transition-colors"
+              >
+                Read the guide
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       <EmailOptIn />
 

@@ -86,6 +86,7 @@ export interface Post {
   excerpt: string;
   category: CategorySlug;
   date: string;
+  updatedDate?: string;
   readingTime: string;
   image: string;
   imageAlt: string;
@@ -97,6 +98,14 @@ export interface Post {
 export type PostBodyBlock =
   | { type: "p" | "h2" | "h3"; id?: string; text: string }
   | { type: "ul"; items: string[] }
+  | {
+      type: "callout";
+      id?: string;
+      eyebrow?: string;
+      title: string;
+      text?: string;
+      items: string[];
+    }
   | {
       type: "linkP";
       textBefore?: string;
@@ -1523,11 +1532,12 @@ export const posts: Post[] = [
 },
 {
   slug: "easy-sustainable-habits-on-a-budget",
-  title: "20 Renter-Aware Sustainable Habits to Consider",
+  title: "20 Sustainable Habits for Renters on a Budget",
   excerpt:
-    "Review 20 renter-aware options by what you already own, what you control, and what fits your household, access, and local services.",
+    "Start with 20 practical sustainable habits for renters and small apartments, including five no-buy actions that use what you already own.",
   category: "eco-habits-budget",
   date: "2026-06-22",
+  updatedDate: "2026-08-05",
   readingTime: "7 min read",
   image: habitsCategoryImage,
   imageAlt:
@@ -1540,7 +1550,7 @@ export const posts: Post[] = [
     "small-space living"
   ],
   toc: [
-    { id: "start-small", label: "Start With What You Control" },
+    { id: "start-small", label: "Start With Five No-Buy Actions" },
     { id: "home-energy-habits", label: "Home Energy Options" },
     { id: "water-and-cleaning", label: "Water and Cleaning Options" },
     { id: "shopping-and-reusables", label: "Shopping and Reusable Options" },
@@ -1550,23 +1560,28 @@ export const posts: Post[] = [
     {
       type: "p",
       text:
-        "Sustainable living does not require a shopping list or a perfect home. Begin with one part of daily life you can actually change, then check the time, effort, storage, cleaning, safety, access, and household cooperation it would require."
+        "The most practical sustainable habits for renters usually begin with what you already control: how you use lights and appliances, clean, shop, store food, and handle waste. You do not need a perfect home or a shopping spree to begin."
     },
     {
       type: "p",
       text:
-        "These 20 options are written for renters, students, and small-apartment dwellers, but no option fits every home. Budget here means avoiding unnecessary spending, not a promise that any habit will save money."
+        "This guide offers 20 options for renters, students, and small-apartment dwellers. Start with one of the five no-buy actions below, then check whether it fits your time, energy, storage, lease, shared household, access, and local services. Budget here means avoiding unnecessary spending, not a promise that every habit will save money."
     },
 
     {
-      type: "h2",
+      type: "callout",
       id: "start-small",
-      text: "Start With What You Control"
-    },
-    {
-      type: "p",
+      eyebrow: "Start here",
+      title: "Start with these five no-buy actions",
       text:
-        "Choose one no-purchase or use-what-you-have option. You can maintain, repair, borrow, share, test, change, or stop; completing all 20 is not the goal."
+        "Choose one action that fits your home today. These are starting points, not requirements.",
+      items: [
+        "Use available daylight when it is comfortable and safe, while keeping task lighting when you need it.",
+        "Keep one bag you already own where you actually leave your home.",
+        "Move one existing cleaning tool closer to where you use it, if it can be stored safely and hygienically.",
+        "Make one food item that needs attention more visible without changing its safe storage conditions.",
+        "Before replacing one item, check whether something you already own can meet the need without creating another storage problem."
+      ]
     },
 
     {
@@ -1807,7 +1822,7 @@ export const posts: Post[] = [
     {
       type: "linkP",
       textBefore: "For a wider option set, see ",
-      linkText: "20 renter-aware sustainable habits",
+      linkText: "20 sustainable habits for renters on a budget",
       href: "/blog/easy-sustainable-habits-on-a-budget",
       textAfter: "."
     },

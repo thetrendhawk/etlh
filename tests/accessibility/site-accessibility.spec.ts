@@ -25,7 +25,7 @@ const pages = [
   },
   {
     path: "/blog/eat-first-fridge-freezer-small-apartment",
-    heading: /An Eat-First Fridge and Freezer Check for Small Apartments/i,
+    heading: /Fridge or Freezer First\? A Practical Guide for a Small Apartment/i,
   },
   {
     path: "/blog/food-use-rotation-check-small-apartment",

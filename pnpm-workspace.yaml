@@ -6,3 +6,8 @@ minimumReleaseAgeExclude:
   - "@lovable.dev/vite-plugin-hmr-gate"
 allowBuilds:
   esbuild: true
+overrides:
+  js-yaml: ^4.3.0
+  nanoid: ^3.3.18
+  postcss: ^8.5.12
+  undici: ^7.29.0

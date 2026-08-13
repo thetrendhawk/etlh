@@ -195,8 +195,8 @@ export const posts: Post[] = [
   },
   {
     slug: "eat-first-fridge-freezer-small-apartment",
-    title: "An Eat-First Fridge and Freezer Check for Small Apartments",
-    excerpt: "Make already-purchased refrigerated and frozen food more visible for one bounded decision check while keeping organization separate from food-safety judgment.",
+    title: "Fridge or Freezer First? A Practical Guide for a Small Apartment",
+    excerpt: "Decide whether a refrigerator, freezer, or combined appliance fits your first apartment, then use a bounded eat-first check for food you already own.",
     category: "zero-waste-kitchen",
     date: "2026-07-21",
     readingTime: "7 min read",
@@ -204,6 +204,8 @@ export const posts: Post[] = [
     imageAlt: "Illustrative small apartment refrigerator with a small group of containers arranged together on one shelf.",
     tags: ["food storage", "leftovers", "freezer", "small apartment"],
     toc: [
+      { id: "fridge-or-freezer-first", label: "Should you get a fridge or freezer first?" },
+      { id: "compare", label: "Compare the practical tradeoffs" },
       { id: "what-it-is", label: "What an eat-first area is—and is not" },
       { id: "present", label: "Look only at what is currently present" },
       { id: "bounded-area", label: "Choose one bounded visible area" },
@@ -214,7 +216,17 @@ export const posts: Post[] = [
       { id: "limits", label: "Sources and limits" },
     ],
     body: [
-      { type: "p", text: "An eat-first area is a visibility cue for food you already own. It is not a safety classification: food placed there is not automatically safe, unsafe, fresh, or spoiled. The useful task is smaller than cleaning out the refrigerator or creating a meal plan." },
+      { type: "p", text: "For most first apartments, confirm what refrigeration is already included before buying anything. If no appliance is provided, a refrigerator with a freezer compartment is usually the more flexible first purchase because it supports everyday refrigerated food while preserving some frozen-food capacity. A separate freezer makes more sense only when your household already has dependable refrigeration and a specific need for additional frozen storage." },
+      { type: "h2", id: "fridge-or-freezer-first", text: "Should you get a fridge or freezer first?" },
+      { type: "p", text: "Start with the lease, the available space, the electrical requirements, and the foods you actually use. Many rentals already include a refrigerator, and an extra appliance may be restricted by the lease or impractical for the outlet and ventilation available. Do not purchase a freezer merely because bulk storage sounds economical; it adds cost, floor space, energy use, and a need to keep an inventory." },
+      { type: "h2", id: "compare", text: "Compare the practical tradeoffs" },
+      { type: "table", caption: "Fridge or freezer first-apartment comparison", headers: ["Situation", "Likely first step", "Check before deciding"], rows: [
+        ["The apartment includes neither appliance", "Look first for a refrigerator with a freezer compartment.", "Measure the opening, door swing, ventilation clearance, outlet, delivery path, and lease rules."],
+        ["The apartment already includes a working refrigerator", "Use its freezer space before adding another appliance.", "Track whether frozen storage is genuinely limiting for several weeks."],
+        ["The refrigerator has no freezer compartment", "Choose based on the food you routinely store, not hypothetical bulk purchases.", "Compare a compact freezer with replacing or supplementing the refrigerator only if the lease permits it."],
+        ["Space, budget, or power is tight", "Delay the extra appliance and adapt shopping frequency where practical.", "Avoid extension cords and follow the appliance manufacturer’s installation requirements."],
+      ] },
+      { type: "p", text: "Once the appliance decision is settled, an eat-first area can make already-purchased food more visible. It is not a safety classification: food placed there is not automatically safe, unsafe, fresh, or spoiled. The useful task is smaller than cleaning out the refrigerator or creating a meal plan." },
       { type: "h2", id: "what-it-is", text: "What an eat-first area is—and is not" },
       { type: "p", text: "Choose a small group of refrigerated or frozen items that you want the household to notice before making the next meal or shopping decision. Keep the label organizational. Use authoritative food-safety guidance separately for any question about whether an item should be eaten, frozen, retained, or discarded." },
       { type: "h2", id: "present", text: "Look only at what is currently present" },

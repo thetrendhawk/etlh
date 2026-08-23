@@ -57,11 +57,15 @@ requireMarkers("src/components/EmailOptIn.tsx", [
 ]);
 
 requireMarkers("src/components/AnalyticsConsent.tsx", [
-  'const PRODUCTION_HOSTNAME = "ecotinylivinghub.com"',
   'role="dialog"',
   'aria-labelledby="analytics-consent-title"',
   'aria-describedby="analytics-consent-description"',
   'id="analytics-consent-description"',
+]);
+
+requireMarkers("src/lib/analytics.ts", [
+  'const PRODUCTION_HOSTNAME = "ecotinylivinghub.com"',
+  'const GA_MEASUREMENT_ID = "G-G81H19S4TG"',
 ]);
 
 const consentSource = readFileSync(
@@ -73,8 +77,9 @@ if (consentSource.includes('aria-modal="true"')) {
     "src/components/AnalyticsConsent.tsx marks the non-blocking consent banner as modal without trapping focus.",
   );
 }
-if (consentSource.includes("ecotinylivinghub.thrwds.com")) {
-  fail("src/components/AnalyticsConsent.tsx still restricts analytics to the legacy hostname.");
+const analyticsSource = readFileSync(join(process.cwd(), "src/lib/analytics.ts"), "utf8");
+if (analyticsSource.includes("ecotinylivinghub.thrwds.com")) {
+  fail("src/lib/analytics.ts still restricts analytics to the legacy hostname.");
 }
 
 requireMarkers("src/styles.css", [

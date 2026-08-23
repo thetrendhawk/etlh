@@ -19,6 +19,7 @@ export const Route = createFileRoute("/category/$slug")({
   head: ({ loaderData }) => {
     const c = loaderData?.cat;
     if (!c) return {};
+    const posts = loaderData?.posts ?? [];
     const title = `${c.name} — Eco Tiny Living Hub`;
     const pageUrl = absoluteUrl(`/category/${c.slug}`);
     return {
@@ -32,6 +33,53 @@ export const Route = createFileRoute("/category/$slug")({
         { name: "twitter:description", content: c.intro },
       ],
       links: [{ rel: "canonical", href: pageUrl }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "CollectionPage",
+                "@id": `${pageUrl}#collection`,
+                name: c.name,
+                description: c.intro,
+                url: pageUrl,
+                isPartOf: { "@id": `${absoluteUrl("/")}#website` },
+                mainEntity: { "@id": `${pageUrl}#articles` },
+              },
+              {
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Home",
+                    item: absoluteUrl("/"),
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: c.name,
+                    item: pageUrl,
+                  },
+                ],
+              },
+              {
+                "@type": "ItemList",
+                "@id": `${pageUrl}#articles`,
+                numberOfItems: posts.length,
+                itemListElement: posts.map((post, index) => ({
+                  "@type": "ListItem",
+                  position: index + 1,
+                  name: post.title,
+                  url: absoluteUrl(`/blog/${post.slug}`),
+                })),
+              },
+            ],
+          }),
+        },
+      ],
     };
   },
   notFoundComponent: () => (
@@ -62,6 +110,54 @@ function CategoryPage() {
           <h1 className="font-serif text-5xl md:text-6xl mt-3 leading-tight">{cat.name}</h1>
           <p className="text-earth-900/70 mt-4 text-lg leading-relaxed">{cat.intro}</p>
         </header>
+        {cat.slug === "small-apartment-decor" ? (
+          <section
+            aria-labelledby="decor-start-heading"
+            className="mb-14 rounded-3xl border border-earth-900/10 bg-white p-7 md:p-10"
+          >
+            <h2 id="decor-start-heading" className="font-serif text-3xl md:text-4xl">
+              Plan the space before you shop
+            </h2>
+            <div className="mt-4 max-w-3xl space-y-4 text-earth-900/70 leading-relaxed">
+              <p>
+                A useful small-apartment update starts with the room you have: its measurements,
+                walking paths, storage limits, lease rules, and the routines that happen there.
+                Rearranging what you own or giving one frequently used item a clearer home may solve
+                the problem without adding more furniture or décor.
+              </p>
+              <p>
+                Begin with one reversible test. Measure first, keep doors, vents, heaters, outlets,
+                and access routes usable, then live with the change before deciding whether to buy
+                or install anything. If a purchase still fills a specific need, compare its full
+                size, cleaning, transport, installation, return terms, and household fit—not only
+                its material or style label.
+              </p>
+            </div>
+            <div className="mt-7 grid gap-3 md:grid-cols-3">
+              <Link
+                to="/blog/$slug"
+                params={{ slug: "sustainable-tiny-living-room-layout-ideas" }}
+                className="rounded-2xl border border-earth-900/10 p-5 font-medium hover:border-earth-900/30 hover:text-moss transition-colors"
+              >
+                Measure and test a living-room layout
+              </Link>
+              <Link
+                to="/blog/$slug"
+                params={{ slug: "eco-friendly-small-apartment-weekend-checklist" }}
+                className="rounded-2xl border border-earth-900/10 p-5 font-medium hover:border-earth-900/30 hover:text-moss transition-colors"
+              >
+                Try a no-purchase room reset
+              </Link>
+              <Link
+                to="/blog/$slug"
+                params={{ slug: "eco-friendly-small-apartment-decor-budget" }}
+                className="rounded-2xl border border-earth-900/10 p-5 font-medium hover:border-earth-900/30 hover:text-moss transition-colors"
+              >
+                Compare budget sourcing options
+              </Link>
+            </div>
+          </section>
+        ) : null}
         {posts.length === 0 ? (
           <p className="text-earth-900/60">No posts in this category yet — check back soon.</p>
         ) : (

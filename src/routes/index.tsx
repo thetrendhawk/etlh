@@ -56,6 +56,33 @@ export const Route = createFileRoute("/")({
       { name: "twitter:image", content: imageUrl },
     ],
     links: [{ rel: "canonical", href: pageUrl }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": `${pageUrl}#organization`,
+              name: "Eco Tiny Living Hub",
+              url: pageUrl,
+              description,
+              sameAs: ["https://www.instagram.com/ecotinylivinghub/"],
+            },
+            {
+              "@type": "WebSite",
+              "@id": `${pageUrl}#website`,
+              name: "Eco Tiny Living Hub",
+              url: pageUrl,
+              description,
+              publisher: { "@id": `${pageUrl}#organization` },
+              inLanguage: "en",
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: Home,
 });

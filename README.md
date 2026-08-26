@@ -113,7 +113,8 @@ See `VERCEL_DEPLOY.md` for the current deployment configuration and verification
 
 Core operating standards are maintained in:
 
-- `docs/01_Operating_Manual.md`
+- `docs/01_Operating_Manual.md` — mission, vision, values, strategic thesis, guardrails, and long-term project governance
+- `GOALS.md` — time-bounded SMART-goal framework, historical goal reconciliation, and outcome decision rules
 - `docs/02_Editorial_Manual.md`
 - `docs/03_Research_Manual.md`
 - `docs/04_Design_System.md`

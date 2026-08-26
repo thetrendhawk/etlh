@@ -6,7 +6,7 @@ Record durable ETLH decisions, their rationale, and relevant repository history 
 
 ## Scope
 
-This log covers major brand, editorial, production, publishing, migration, and repository-governance decisions.
+This log covers major brand, editorial, production, publishing, measurement, migration, and repository-governance decisions.
 
 ## Status
 
@@ -26,18 +26,23 @@ Active.
 | 2026-07-15 | Adopt the reconciled five-pillar framework: Reduce Unnecessary Friction; Take Practical Eco Steps; Create Supportive Small-Space Systems; Practice Focused Consistency; Build Trust Through Thoughtful Living. | These pillars are directly supported by repeated user approvals, published ETLH content, and surviving strategy evidence. | `docs/01_Operating_Manual.md` |
 | 2026-07-15 | Adopt the reconciled stepping-stone framework: Notice → Choose → Reduce → Repeat → Align. | This sequence preserves the approved stepping-stone concept and connects the Friction Finder Question, Eco Steps, simple systems, focused consistency, and meaningful alignment. | `docs/01_Operating_Manual.md` |
 | 2026-07-15 | Defer Logo Concept A and the glossary term “Traveler” from active reconciliation. | Neither item is currently important enough to justify unsupported reconstruction. | No repo change required |
-| 2026-07-15 | Make the dynamic `/sitemap.xml` route the single authoritative sitemap: emit absolute production URLs from `src/lib/sitemap.ts`, delete `public/sitemap.xml` (must not be recreated), declare the sitemap in `robots.txt`, and guard integrity with `bun run check:sitemap`. | The static file shadowed the dynamic route on Vercel, went stale (the old static sitemap contained 12 URLs, while the authoritative content-derived inventory contains 23 URLs, omitting the cornerstone article and the intentional-living category), and both implementations emitted spec-violating relative `<loc>` values. | `src/routes/sitemap[.]xml.ts`; `src/lib/sitemap.ts`; `scripts/check-sitemap.ts`; `docs/05_Publishing_Playbook.md` |
-| 2026-07-15 | Implement GA4 measurement ID `G-G8H1H9S4TG` with manual SPA pageviews, duplicate suppression, and production-host-only loading. | Establish a trustworthy traffic baseline while preventing double-counted TanStack Router navigations and excluding Vercel preview traffic. | `src/routes/__root.tsx`; `docs/05_Publishing_Playbook.md` |
-| 2026-08-05 | Replace the non-reporting GA4 web stream `G-G8H1H9S4TG` with verified stream `G-9BD6WKV3B7`, preserving the existing consent-gated manual SPA pageview implementation. | The original stream accepted `collect` requests but did not surface events in Realtime or DebugView; a controlled `debug_mode` event to the replacement stream appeared immediately in DebugView. | `src/components/AnalyticsConsent.tsx`; `tests/accessibility/site-accessibility.spec.ts` |
-| 2026-08-05 | Standardize local development, CI, browser tests, and Vercel builds on pnpm 11 with Node.js 24, replacing Bun while retaining the 24-hour dependency release-age policy. | pnpm provides a portable Node-based workflow, a content-addressed dependency store, deterministic frozen installs, and avoids requiring a separate Bun runtime on contributor machines. | `package.json`; `pnpm-lock.yaml`; `pnpm-workspace.yaml`; `.github/workflows/ci.yml` |
-| 2026-08-26 | Extend the existing Operating Manual rather than create a competing project charter; add strategic thesis, key assumptions, non-goals, guardrails, long-term success, project/portfolio discipline, and separate SMART-goal governance. | Preserve ETLH's existing canonical mission/vision/values while closing the gap between brand philosophy and measurable strategy. Separate durable identity from time-bounded targets, and stop treating additional building as progress once foundational capability is sufficient unless it advances an outcome, tests an assumption, protects a capability, or resolves a blocker. | `docs/01_Operating_Manual.md`; `GOALS.md` |
+| 2026-07-15 | Make the dynamic `/sitemap.xml` route the single authoritative sitemap: emit absolute production URLs from `src/lib/sitemap.ts`, delete `public/sitemap.xml` (must not be recreated), declare the sitemap in `robots.txt`, and guard integrity with the sitemap check. | The static file shadowed the dynamic route on Vercel, went stale, and both implementations had emitted spec-violating relative `<loc>` values. | `src/routes/sitemap[.]xml.ts`; `src/lib/sitemap.ts`; `scripts/check-sitemap.ts`; `docs/05_Publishing_Playbook.md` |
+| 2026-07-15 | Implement the first documented manual SPA GA4 pageview system with duplicate suppression and production-host-only loading. | Establish a traffic baseline while preventing double-counted TanStack Router navigations and excluding Vercel preview traffic. | Historical analytics implementation |
+| 2026-08-05 | Temporarily replace the non-reporting original GA4 stream with verified stream `G-9BD6WKV3B7`, preserving consent-gated manual SPA pageviews. | The original stream accepted `collect` requests but did not surface events in Realtime or DebugView; a controlled event appeared immediately in the temporary stream. | PR #110; analytics history |
+| 2026-08-05 | Standardize local development, CI, browser tests, and Vercel builds on pnpm 11 with Node.js 24, replacing Bun while retaining the dependency release-age policy. | pnpm provides a portable Node-based workflow and deterministic frozen installs without requiring a separate Bun runtime. | `package.json`; `pnpm-lock.yaml`; `pnpm-workspace.yaml`; `.github/workflows/ci.yml` |
+| 2026-08-13 | Return consent-based GA4 collection to the original ETLH Analytics property/stream family, link the canonical `sc-domain:ecotinylivinghub.com` Search Console property to the ETLH Analytics property, and use current Search Console query evidence to improve the fridge/freezer article. | Consolidate split analytics history and respond to an actual search-query signal instead of publishing from assumption alone. | PR #115; `src/components/AnalyticsConsent.tsx`; `src/lib/posts.ts` |
+| 2026-08-23 | Correct the production GA4 measurement ID to current source-of-truth `G-G81H19S4TG`, centralize analytics in `src/lib/analytics.ts`, make the initializer reliable, and add consent-gated `resource_open`, `resource_download`, `contact_email_click`, and `social_click` events. | The August 13 state still required a production configuration correction. The new implementation creates a clear, testable measurement boundary for future GA4 comparisons. | PR #116; `src/lib/analytics.ts`; `scripts/check-accessibility.ts` |
+| 2026-08-26 | Extend the existing Operating Manual rather than create a competing project charter; add strategic thesis, key assumptions, non-goals, guardrails, long-term success, project/portfolio discipline, and separate SMART-goal governance. | Preserve ETLH's existing canonical mission/vision/values while closing the gap between brand philosophy and measurable strategy. | `docs/01_Operating_Manual.md`; `GOALS.md` |
+| 2026-08-26 | Reconcile measurement documentation to the actual August implementation history; designate 2026-08-23 forward as the clean comparable GA4 era for the current goal; preserve earlier analytics observations as historical/diagnostic rather than silently treating them as comparable. | Prevent stale documentation and changing instrumentation from corrupting performance conclusions. Search Console remains independently authoritative for organic discovery. | `docs/05_Publishing_Playbook.md`; `docs/17_KPI_Baseline_and_Measurement.md`; `GOALS.md` |
+| 2026-08-26 | Activate ETLH's first post-foundation SMART outcome goal around Google organic discovery and verified useful on-site actions, without a publishing-volume quota. | The brand, site, content system, and measurement capability are sufficiently built; the next question is whether the existing system can earn qualified discovery and observable usefulness. | `GOALS.md` |
 
 ## Operating Notes
 
 - Do not rewrite pushed history.
 - Prefer updating an existing authoritative document over creating a duplicate.
-- Do not invent project history, strategy, publication dates, asset status, or completed work.
+- Do not invent project history, strategy, publication dates, asset status, traffic, conversions, or completed work.
 - Mark unknown or unrecoverable information honestly.
+- Historical analytics IDs remain valid provenance for their dates but must not be represented as current configuration.
 - Asset archive checkboxes may be completed only when corresponding final assets are actually committed.
 
 ## Revision History
@@ -45,9 +50,9 @@ Active.
 | Version | Date | Notes |
 |---|---|---|
 | v1.0 | 2026-07-15 | Replaced the empty scaffold with reconciled durable decisions and provenance notes. |
-| v1.1 | 2026-07-15 | Added the sitemap-integrity decision (dynamic sitemap made authoritative). |
-| v1.3 | 2026-08-05 | Recorded the verified GA4 production-stream replacement. |
+| v1.1 | 2026-07-15 | Added the sitemap-integrity decision. |
+| v1.2 | 2026-07-20 | Corrected the dynamic sitemap origin to the canonical `https://ecotinylivinghub.com` host; legacy `.thrwds.com` remains redirect-only. |
+| v1.3 | 2026-08-05 | Recorded the temporary verified GA4 stream replacement. |
 | v1.4 | 2026-08-05 | Recorded the Bun-to-pnpm toolchain migration. |
 | v1.5 | 2026-08-26 | Recorded strategic-governance and separate SMART-goal framework decision. |
-| v1.2 | 2026-07-20 | Corrected the dynamic sitemap origin to the canonical `https://ecotinylivinghub.com` host; legacy `.thrwds.com` remains redirect-only and is now regression-checked. |
-| v1.2 | 2026-07-15 | Added the GA4 analytics implementation decision. |
+| v1.6 | 2026-08-26 | Reconciled the August 13/23 analytics history, established the clean measurement boundary, and recorded activation of the first post-foundation outcome goal. |

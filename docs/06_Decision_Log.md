@@ -30,6 +30,7 @@ Active.
 | 2026-07-15 | Implement GA4 measurement ID `G-G8H1H9S4TG` with manual SPA pageviews, duplicate suppression, and production-host-only loading. | Establish a trustworthy traffic baseline while preventing double-counted TanStack Router navigations and excluding Vercel preview traffic. | `src/routes/__root.tsx`; `docs/05_Publishing_Playbook.md` |
 | 2026-08-05 | Replace the non-reporting GA4 web stream `G-G8H1H9S4TG` with verified stream `G-9BD6WKV3B7`, preserving the existing consent-gated manual SPA pageview implementation. | The original stream accepted `collect` requests but did not surface events in Realtime or DebugView; a controlled `debug_mode` event to the replacement stream appeared immediately in DebugView. | `src/components/AnalyticsConsent.tsx`; `tests/accessibility/site-accessibility.spec.ts` |
 | 2026-08-05 | Standardize local development, CI, browser tests, and Vercel builds on pnpm 11 with Node.js 24, replacing Bun while retaining the 24-hour dependency release-age policy. | pnpm provides a portable Node-based workflow, a content-addressed dependency store, deterministic frozen installs, and avoids requiring a separate Bun runtime on contributor machines. | `package.json`; `pnpm-lock.yaml`; `pnpm-workspace.yaml`; `.github/workflows/ci.yml` |
+| 2026-08-26 | Extend the existing Operating Manual rather than create a competing project charter; add strategic thesis, key assumptions, non-goals, guardrails, long-term success, project/portfolio discipline, and separate SMART-goal governance. | Preserve ETLH's existing canonical mission/vision/values while closing the gap between brand philosophy and measurable strategy. Separate durable identity from time-bounded targets, and stop treating additional building as progress once foundational capability is sufficient unless it advances an outcome, tests an assumption, protects a capability, or resolves a blocker. | `docs/01_Operating_Manual.md`; `GOALS.md` |
 
 ## Operating Notes
 
@@ -47,5 +48,6 @@ Active.
 | v1.1 | 2026-07-15 | Added the sitemap-integrity decision (dynamic sitemap made authoritative). |
 | v1.3 | 2026-08-05 | Recorded the verified GA4 production-stream replacement. |
 | v1.4 | 2026-08-05 | Recorded the Bun-to-pnpm toolchain migration. |
+| v1.5 | 2026-08-26 | Recorded strategic-governance and separate SMART-goal framework decision. |
 | v1.2 | 2026-07-20 | Corrected the dynamic sitemap origin to the canonical `https://ecotinylivinghub.com` host; legacy `.thrwds.com` remains redirect-only and is now regression-checked. |
 | v1.2 | 2026-07-15 | Added the GA4 analytics implementation decision. |

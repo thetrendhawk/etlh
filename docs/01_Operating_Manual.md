@@ -6,11 +6,11 @@ Define the canonical brand foundation and operating principles for Eco Tiny Livi
 
 ## Scope
 
-This manual covers ETLH's identity, audience, positioning, promise, values, five-pillar framework, stepping-stone framework, reader transformation, and creator role.
+This manual covers ETLH's identity, audience, positioning, promise, values, five-pillar framework, stepping-stone framework, reader transformation, creator role, strategic thesis, non-goals, guardrails, long-term success, and governance.
 
 ## Status
 
-Reconciled canonical version v1.0.
+Reconciled canonical version v1.1.
 
 This document was reconstructed in July 2026 from surviving conversation evidence, explicit user approvals, published ETLH content, and repository artifacts. It is not presented as a verbatim copy of the original lost Brand Strategy Guide.
 
@@ -212,12 +212,82 @@ A strong ETLH piece should:
 - Make modest, supportable claims
 - Leave the reader with more value than they came with
 
+## Strategic Thesis
+
+There is durable demand for practical sustainability guidance that respects the realities of small, rented, imperfect, and budget-constrained homes. If ETLH consistently translates sustainability into calm, low-friction, repeatable actions rather than guilt, aesthetic perfection, or unnecessary consumption, it can earn enough reader trust, repeat attention, organic discovery, and commercially useful intent to support a durable content brand.
+
+### Key Assumptions to Test
+
+1. A meaningful audience wants sustainability guidance framed around practical small-space constraints rather than perfection.
+2. ETLH's friction-reduction and Eco Step frameworks create more useful and memorable guidance than generic inspiration alone.
+3. Search, social, Pinterest, and other appropriate distribution channels can repeatedly expose the work to the right audience.
+4. Readers will demonstrate usefulness through repeat visits, saves, shares, subscriptions, qualified clicks, or other meaningful actions.
+5. ETLH can eventually generate sustainable revenue without pushing unnecessary consumption or weakening reader trust.
+6. The cost and effort required to produce trustworthy, high-quality ETLH content can be supported by the audience and economics the project develops.
+
+## Non-Goals
+
+ETLH is not trying to become:
+
+- a sustainability purity test;
+- a guilt- or fear-driven environmental brand;
+- a luxury interiors publication disguised as sustainability content;
+- a home-organization content farm;
+- a product-recommendation engine that encourages buying as the default solution;
+- an influencer brand centered primarily on the creator's lifestyle;
+- a high-volume publishing operation where output count matters more than usefulness;
+- a source of exaggerated environmental, health, savings, or product claims.
+
+## Guardrails
+
+- Do not shame readers for imperfect choices, limited budgets, rental constraints, small spaces, or incomplete progress.
+- Do not recommend a purchase when repairing, reusing, simplifying, rearranging, borrowing, or doing nothing is the better answer.
+- Do not publish material claims with greater certainty than the evidence supports.
+- Do not manufacture savings, environmental, health, or performance claims.
+- Keep affiliate and commercial incentives subordinate to reader benefit and trust.
+- Do not imply hands-on experience, testing, or personal use that did not occur.
+- Do not scale output beyond ETLH's ability to maintain usefulness, accuracy, accessibility, and brand coherence.
+- Correct material errors and preserve important decision history.
+- Do not add infrastructure, automation, content volume, or channels merely because they are possible.
+
+## Long-Term Definition of Success
+
+ETLH succeeds if it becomes a trusted and financially sustainable source of practical small-space sustainability guidance that measurably helps people feel more capable and make repeatable improvements without demanding perfection or unnecessary consumption.
+
+Long-term success requires all four dimensions:
+
+- **Reader value:** people use ETLH guidance to make practical improvements.
+- **Trust:** readers believe ETLH respects their constraints and earns its claims and recommendations.
+- **Reach:** enough of the intended audience discovers and returns to the work for the project to matter.
+- **Sustainability:** the economics support maintaining and improving the project without compromising its values.
+
+Large output without audience value is not success. Large reach achieved through guilt, exaggeration, or consumption pressure is not success. High-quality work that never develops enough reach or sustainability to continue serving readers is also insufficient as a long-term business outcome.
+
+## Project and Portfolio Discipline
+
+Once foundational capability is sufficient, further building does not count as progress unless it materially advances a defined outcome, tests an important assumption, protects a demonstrated capability, or resolves a genuine blocker.
+
+Publishing, coding, researching, designing, and automating are means rather than outcomes. Work should produce reader value, measurable learning, durable capability, or progress toward an approved goal.
+
+When evidence shows that a strategy is not working, prior effort does not entitle it to continued resources. A well-run experiment that disproves an assumption can still be successful if it prevents larger future waste.
+
+## Governance
+
+- This operating foundation should change infrequently.
+- Material changes to mission, vision, core values, strategic thesis, non-goals, guardrails, or long-term success require an explicit decision recorded in `docs/06_Decision_Log.md` rather than silent rewriting.
+- Time-bounded SMART goals and outcome thresholds are maintained separately in `GOALS.md` and may change each goal period.
+- Goal success should be defined before results are known whenever practical.
+- ETLH should use evidence to decide whether to Scale, Continue, Modify, or Pause a strategy rather than relying on sunk effort or enthusiasm alone.
+
 ## Source and Reconciliation Note
 
 The original Brand Strategy Guide, exact five-pillar wording, and exact stepping-stone wording were never committed to the repository and could not be recovered from Git history. This version preserves all strongly supported decisions while clearly distinguishing reconciled structure from verbatim historical source.
+
+The v1.1 strategic-governance additions were approved on 2026-08-26 after review of ETLH's earlier goals and current canonical repository state. They extend the existing reconciled foundation rather than replacing its mission, vision, values, five pillars, or stepping-stone framework.
 
 ## Revision History
 
 | Version | Date | Notes |
 |---|---|---|
 | v1.0 | 2026-07-15 | Reconciled canonical brand foundation, five pillars, and stepping-stone framework from surviving source evidence and approved ETLH work. |
+| v1.1 | 2026-08-26 | Added strategic thesis, assumptions, non-goals, guardrails, long-term success, project/portfolio discipline, and goal governance after owner approval. |

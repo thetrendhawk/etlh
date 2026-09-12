@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { FirstApartmentKitCard } from "@/components/FirstApartmentKitCard";
 import { EmailOptIn } from "@/components/EmailOptIn";
 import { PostCard } from "@/components/PostCard";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -137,6 +138,10 @@ function Home() {
           />
         </div>
       </header>
+
+      <div className="max-w-6xl mx-auto px-6 pt-4 pb-8">
+        <FirstApartmentKitCard />
+      </div>
 
       <section
         id="categories"

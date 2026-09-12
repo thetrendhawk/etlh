@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { FirstApartmentKitCard } from "@/components/FirstApartmentKitCard";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { trackAnalyticsEvent } from "@/lib/analytics";
@@ -108,6 +109,8 @@ function Resources() {
             published until they have been reviewed and can be presented honestly.
           </p>
         </header>
+
+        <FirstApartmentKitCard />
 
         <section className="bg-white rounded-3xl border border-earth-900/5 p-7 md:p-10 mb-20 grid md:grid-cols-[1.4fr_1fr] gap-8 items-center">
           <div>

@@ -30,7 +30,7 @@ export function getSitemapEntries(): SitemapEntry[] {
     })),
     ...posts.map((p) => ({
       loc: `${SITE_ORIGIN}/blog/${p.slug}`,
-      lastmod: p.date,
+      lastmod: p.updatedDate ?? p.date,
       changefreq: "monthly",
       priority: "0.7",
     })),

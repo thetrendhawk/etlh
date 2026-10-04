@@ -252,6 +252,41 @@ function Home() {
 
       <EmailOptIn />
 
+      <section aria-labelledby="laundry-guides-heading" className="max-w-6xl mx-auto px-6 pt-16">
+        <h2 id="laundry-guides-heading" className="font-serif text-3xl md:text-4xl">
+          Laundry in a small apartment
+        </h2>
+        <p className="mt-4 max-w-2xl text-earth-900/70">
+          Plan the trip to a shared washer, check the machine before a cycle, and find a place for
+          laundry between loads.
+        </p>
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          {[
+            {
+              slug: "shared-apartment-laundry-room-check",
+              label: "Shared washer and dryer checklist",
+            },
+            {
+              slug: "drying-clothes-small-apartment-space-plan",
+              label: "Plan where to dry clothes",
+            },
+            {
+              slug: "laundry-holding-zones-studio-apartment",
+              label: "Find a place for laundry between loads",
+            },
+          ].map((guide) => (
+            <Link
+              key={guide.slug}
+              to="/blog/$slug"
+              params={{ slug: guide.slug }}
+              className="rounded-2xl border border-earth-900/10 bg-white p-6 font-medium hover:text-moss"
+            >
+              {guide.label}
+            </Link>
+          ))}
+        </div>
+      </section>
+
       <section className="max-w-6xl mx-auto px-6 py-24">
         <div className="flex justify-between items-end mb-12 flex-wrap gap-4">
           <div>

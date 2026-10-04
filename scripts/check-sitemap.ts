@@ -53,6 +53,13 @@ if (openUrlCount !== closeUrlCount) {
 }
 
 const locs = [...xml.matchAll(/<loc>([^<]*)<\/loc>/g)].map((m) => m[1]);
+for (const post of posts) {
+  const loc = `${SITE_ORIGIN}/blog/${post.slug}`;
+  const entry = xml.split("<url>").find((block) => block.includes(`<loc>${loc}</loc>`));
+  if (!entry?.includes(`<lastmod>${post.updatedDate ?? post.date}</lastmod>`)) {
+    fail(`Article lastmod does not match its latest editorial date: ${loc}`);
+  }
+}
 if (locs.length !== openUrlCount) {
   fail(`Expected one <loc> per <url>: found ${locs.length} locs for ${openUrlCount} urls.`);
 }

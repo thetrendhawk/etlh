@@ -57,6 +57,7 @@ As of the **2026-08-23** analytics correction merged through PR #116:
 - Global analytics behavior lives in `src/lib/analytics.ts`.
 - Consent UI lives in `src/components/AnalyticsConsent.tsx` and calls the shared analytics library.
 - Automatic GA4 pageviews are disabled with `send_page_view: false`.
+- In the production web stream's Enhanced measurement → Page views → advanced settings, keep **Page changes based on browser history events** unchecked. `send_page_view: false` alone does not disable those events. This account setting was corrected and verified on 2026-10-04.
 - ETLH sends one manual `page_view` on the initial accepted-consent production load and one on each resolved TanStack Router location change.
 - Duplicate pageviews for the same path and query string are suppressed in the browser.
 - Analytics loads only when the hostname is exactly `ecotinylivinghub.com`; Vercel preview and alternate-host traffic is intentionally excluded.

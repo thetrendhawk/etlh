@@ -1,6 +1,6 @@
 # ETLH KPI Baseline and Measurement Rules
 
-Last reconciled: 2026-08-26
+Last reconciled: 2026-10-04
 Status: Active
 
 ## Purpose
@@ -96,6 +96,15 @@ Use one dated row per reporting period. Do not overwrite prior periods.
 | 2026-08-23 | ongoing | 2026-08-26 reconciliation | Repository implementation | Production GA4 | Measurement boundary | Active | `ecotinylivinghub.com` | PR #116; `src/lib/analytics.ts` | Clean goal-era GA4 comparisons begin here. |
 
 ## Search visibility
+
+### October 4, 2026 account review
+
+The current account snapshot, query/page evidence, indexing exclusions, and implementation actions are recorded in [Search and analytics review](research/search-analytics-2026-10-04.md). Search Console's complete displayed 28-day window (September 2–29) recorded **208 impressions, 0 clicks, 0% CTR, and average position 17.3**. The page-indexing report last updated September 20 showed **29 indexed and 12 excluded URLs**. These reporting windows differ and should not be treated as simultaneous live totals.
+
+GA4's September 27–October 3 home summary showed **2 active users, 10 views, 16 events, and 0 key events** before this review's production QA. Enhanced Measurement history-based pageviews were still enabled alongside manual pageviews; disabled October 4. Pre-correction views may be duplicated. Consent coverage and owner/test exclusions are unverified, so these counts do not establish external-session usefulness or satisfy the SMART action target.
+
+GA4's September 6–October 3 window showed **3 active users, 17 views, 26 events, and 3 sessions**, with one session each from Direct, Organic Search, and AI Assistant. Traffic acquisition reported three engaged sessions, 100% engagement rate, and one minute average engagement per session. The same sample and measurement caveats apply.
+
 
 ### Required Search Console metrics
 

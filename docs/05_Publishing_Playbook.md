@@ -105,3 +105,9 @@ Revert the relevant analytics implementation commit and redeploy. Confirm in pro
 | v0.1 | 2026-07-15 | Added sitemap and robots operations. |
 | v0.2 | 2026-07-20 | Corrected sitemap and robots canonical host to `ecotinylivinghub.com`; legacy aliases remain redirect-only. |
 | v0.3 | 2026-08-26 | Reconciled current analytics source of truth after PR #116, documented the 2026-08-23 clean measurement boundary, current event names, and canonical Search Console property handling. |
+
+### Owner and QA visits
+
+Before owner or QA testing, open `https://ecotinylivinghub.com/?etlh_qa=1`. This suppresses GA4 in that tab for the rest of its session, including subsequent route changes and resource clicks. It does not change consent preferences or other tabs. Use `?etlh_qa=0` to resume normal consent-controlled collection. Previously unmarked QA visits remain reporting exclusions to annotate manually.
+
+As of October 4, `resource_open`, `resource_download`, and `contact_email_click` are GA4 key events, counted once per event without an assigned monetary value. These are useful-interaction diagnostics; a click does not establish completed download, confirmed contact, resource use, or an external session. `social_click` does not satisfy the frozen useful-action goal.

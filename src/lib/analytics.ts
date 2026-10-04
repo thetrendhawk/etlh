@@ -21,6 +21,13 @@ declare global {
 }
 
 function hasAnalyticsConsent() {
+  const qaChoice = new URLSearchParams(window.location.search).get("etlh_qa");
+  if (qaChoice === "1") window.sessionStorage.setItem("etlh-analytics-qa", "1");
+  if (qaChoice === "0") window.sessionStorage.removeItem("etlh-analytics-qa");
+  if (window.sessionStorage.getItem("etlh-analytics-qa") === "1") {
+    window[`ga-disable-${GA_MEASUREMENT_ID}`] = true;
+    return false;
+  }
   return window.localStorage.getItem(ANALYTICS_CONSENT_KEY) === "accepted";
 }
 

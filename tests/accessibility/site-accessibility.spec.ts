@@ -331,6 +331,23 @@ test("starter sheet actions across page and article placements respect consent",
   }
 });
 
+test("marked owner QA visits stay excluded across navigation", async ({ page }, testInfo) => {
+  test.skip(!testInfo.project.name.includes("desktop"), "Desktop analytics regression coverage");
+  await page.addInitScript(() => window.localStorage.setItem("etlh-analytics-consent", "accepted"));
+  await page.route("https://www.googletagmanager.com/gtag/js**", (route) =>
+    route.fulfill({ contentType: "application/javascript", body: "/* analytics stub */" }),
+  );
+  await gotoHydrated(page, "http://ecotinylivinghub.com:4173/?etlh_qa=1");
+  await expect(page.locator("#etlh-google-analytics")).toHaveCount(0);
+  expect(await page.evaluate(() => window["ga-disable-G-G81H19S4TG"])).toBe(true);
+  await page.getByRole("link", { name: "Start reading", exact: true }).click();
+  await expect(page).toHaveURL(/\/blog$/);
+  await expect(page.locator("#etlh-google-analytics")).toHaveCount(0);
+  await gotoHydrated(page, "http://ecotinylivinghub.com:4173/?etlh_qa=0");
+  await expect(page.locator("#etlh-google-analytics")).toHaveCount(1);
+  expect(await page.evaluate(() => window["ga-disable-G-G81H19S4TG"])).toBe(false);
+});
+
 test("mobile menu exposes state and restores focus", async ({ page }, testInfo) => {
   test.skip(!testInfo.project.name.includes("mobile"), "Mobile interaction coverage");
   await page.addInitScript(() => window.localStorage.setItem("etlh-analytics-consent", "declined"));

@@ -1,6 +1,6 @@
 # ETLH search and analytics review — October 4, 2026
 
-Status: Local validation passed; release verification in progress.
+Status: Released and verified on production; Search Console submissions accepted. Growth remains unverified.
 
 Goal: Improve discovery and useful visits for the existing ETLH site. Preserve the frozen November 30 targets in `GOALS.md`: 15 trailing-28-day Google clicks, 500 impressions, and three verified useful actions from two distinct external sessions.
 
@@ -57,3 +57,28 @@ Local validation: `pnpm run check:ci` passed; final lint and type checks passed 
 Release blocker found on preview `dpl_F8LQepZw2QyBFiKbntJtpExTCjZZ`: Vercel rejected TanStack Start 1.168.34 with `BLOCKED_PACKAGE`. The September 30 [official advisory GHSA-qx66-fv34-fjm8](https://github.com/TanStack/router/security/advisories/GHSA-qx66-fv34-fjm8) identifies React Start 1.168.60 and start-server-core 1.169.39 as patched versions. Updated React Start to exactly 1.168.60; the resolved server core is 1.169.39. This necessary release fix supersedes the preceding no-dependency-change statement. No Vercel security bypass was enabled.
 
 Live collection check after the account change: navigating homepage → blog produced one observed `page_view` collection request to `G-G81H19S4TG`, with the blog location and title. GA4 Realtime showed an active user after the QA visit. September 6–October 3 landing-page report showed all three sessions landing on `/`.
+
+Final release: PR #121 merged without rewriting history at 9c83a8145299141378cbd65d03e897f35803535f. Patched full check:ci passed from a clean frozen-lockfile install; GitHub publishing checks, desktop/mobile Lighthouse, and Vercel preview passed. Production deployment dpl_8XtHfbH2gL71eCwA3Rn8J8wiAGkG is READY on ecotinylivinghub.com. Homepage, article, and sitemap returned HTTP 200 with the intended navigation, title/checklist, and October 4 article lastmod. Production smoke checks passed.
+
+Search Console live inspection confirmed successful smartphone fetch, crawling/indexing allowed, and the article's self-canonical URL. The guide's indexing request was accepted into the priority crawl queue. Sitemap resubmission was accepted October 4; the table remained Success with 38 discovered pages, and the last-read date still showed September 29. Submission is not evidence of a new crawl or increased rankings.
+
+## Approved follow-up: useful actions and reader paths
+
+October 4 follow-up authorized by the owner after review of the five recommendations.
+
+- Found a measurement gap in EmailOptIn: homepage, About, and article starter-sheet links lacked the resource_open/resource_download events already used on Resources. Added consent-gated events with resource name, format, placement, and page path. A download event measures the click, not proof of a completed download or use. No email or form content is included in events.
+- Added article-specific explanations of how to use the existing planning sheet for laundry and dishwashing, preserving direct access and optional email signup.
+- Dishwashing page filter, Web/all devices/countries, September 2–29: 40 impressions, zero clicks, average position 8.9, no visible query rows. Preserved its title because query wording is unavailable; improved description, opening answer, checklist and editorial date.
+- Drying guide: clearer opening and space checklist. Drying and transport guides now link directly to laundry holding zones and product storage. Updated only revised articles' dates.
+- Storage URL inspection: crawled but currently not indexed, last crawl August 23, no referring page reported, sitemap temporary processing error and no historical canonical supplied. Live October 4 test: successful smartphone fetch, crawl/indexing allowed, correct self-canonical. No current technical exclusion proved. Stronger contextual links are appropriate; an indexing request remains a request, not guaranteed inclusion.
+- GA4 Recent events showed only first_visit, page_view, scroll, session_start, user_engagement. Useful events were absent in the last 28 days, which does not establish broken collection given tiny traffic. Key events initially showed only default purchase. All three useful-event definitions (resource_download, resource_open, contact_email_click) were added using Create with code, matching existing site events, once per event with no monetary value; saved key-event states were verified. Controlled live collection verification follows release.
+
+Validation: full check:ci passed (six existing Fast Refresh warnings); the new resource-action regression passed across homepage, About, laundry and dishwashing article placements with declined/accepted consent. Full browser suite and release verification are in progress.
+
+Measurement boundary: changes effective October 4. Exclude controlled owner/QA visits and synthetic tests from November 30 outcome evidence. No historical traffic is reclassified as verified external activity. Key-event configuration is not proof of resource usefulness or goal attainment.
+
+Follow-up indexing detail: the individual holding-zones inspection says URL unknown to Google, no referring page/sitemap detected and no crawl. This differs from the older aggregate report. Live test on October 4 confirms successful smartphone fetch, crawling/indexing allowed and the correct self-canonical. Preserve both observations with their dates rather than inferring a new regression.
+
+Owner/QA exclusion: open https://ecotinylivinghub.com/?etlh_qa=1 before testing. The flag suppresses GA4 for that browser tab's session, persists across route navigation and reloads, and sets Google's per-ID disable flag to stop automatic events from an already loaded tag. To return that tab to normal consent-controlled collection, visit ?etlh_qa=0. Other tabs and earlier unmarked visits are not automatically excluded. Do not share QA URLs as audience campaign links or count previously ambiguous sessions toward the goal.
+
+Local browser results: 91 passed, four device-specific skips and one homepage timeout while four workers competed with browser control. The isolated homepage rerun passed in 6.9 seconds; no accessibility violation was reported. New owner/QA suppression and resource-action checks passed separately. GitHub runs the full suite with one worker and remains the release gate.

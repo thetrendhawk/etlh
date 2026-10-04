@@ -1,7 +1,9 @@
 import { useId, useState, type FormEvent } from "react";
+import { trackAnalyticsEvent } from "@/lib/analytics";
 
 interface Props {
   variant?: "full" | "inline";
+  resourceContext?: "laundry" | "dishwashing";
 }
 
 type Status = "idle" | "loading" | "success" | "error";
@@ -60,7 +62,7 @@ function subscribeViaJsonp(email: string, firstName: string): Promise<MailchimpR
   });
 }
 
-export function EmailOptIn({ variant = "full" }: Props) {
+export function EmailOptIn({ variant = "full", resourceContext }: Props) {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [status, setStatus] = useState<Status>("idle");
@@ -96,6 +98,18 @@ export function EmailOptIn({ variant = "full" }: Props) {
 
   const loading = status === "loading";
   const hasError = status === "error";
+  const resourceDescription = resourceContext === "laundry"
+    ? "Use the free planning sheet to record one laundry bottleneck, choose a small change to your route or holding space, and review it after your next load. Follow garment labels and building instructions."
+    : resourceContext === "dishwashing"
+      ? "Use the free planning sheet to record where dishes get stuck, test one change to your batch size or drying space, and review what worked. Follow item-care and food-safety guidance."
+      : "Choose one small, reversible action without turning sustainable living into another overwhelming project.";
+  const trackResource = (format: "pdf" | "html") =>
+    trackAnalyticsEvent(format === "pdf" ? "resource_download" : "resource_open", {
+      resource_name: "eco_step_starter_sheet",
+      resource_format: format,
+      link_location: variant === "inline" ? "article_resource" : "page_resource",
+      page_path: window.location.pathname,
+    });
 
   if (variant === "inline") {
     return (
@@ -103,18 +117,20 @@ export function EmailOptIn({ variant = "full" }: Props) {
         <p className="uppercase text-[11px] font-bold tracking-widest text-moss">Free Resource</p>
         <h3 className="font-serif text-2xl mt-2 mb-2">Small-Apartment Eco Step Starter Sheet</h3>
         <p className="text-earth-900/70 text-sm mb-5">
-          Choose one small, reversible action without turning sustainable living into another overwhelming project.
+          {resourceDescription}
         </p>
         <div className="flex flex-wrap gap-3 mb-6">
           <a
             href={PDF_PATH}
             download
+            onClick={() => trackResource("pdf")}
             className="bg-earth-900 text-white px-6 py-3 rounded-full font-medium hover:bg-earth-900/90 transition-colors text-sm"
           >
             Download the PDF
           </a>
           <a
             href={HTML_PATH}
+            onClick={() => trackResource("html")}
             className="border border-earth-900/15 px-6 py-3 rounded-full font-medium hover:bg-earth-900/5 transition-colors text-sm"
           >
             Use the online version
@@ -179,12 +195,14 @@ export function EmailOptIn({ variant = "full" }: Props) {
           <a
             href={PDF_PATH}
             download
+            onClick={() => trackResource("pdf")}
             className="bg-earth-900 text-white px-8 py-4 rounded-full font-medium hover:bg-earth-900/90 transition-colors"
           >
             Download the free PDF
           </a>
           <a
             href={HTML_PATH}
+            onClick={() => trackResource("html")}
             className="border border-earth-900/15 px-8 py-4 rounded-full font-medium hover:bg-earth-900/5 transition-colors"
           >
             Use the online version

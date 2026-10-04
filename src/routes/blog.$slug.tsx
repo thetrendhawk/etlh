@@ -286,7 +286,12 @@ function PostPage() {
           </p>
         </section>
 
-        <EmailOptIn variant="inline" />
+        <EmailOptIn
+          variant="inline"
+          resourceContext={post.slug.startsWith("laundry-") || post.slug.startsWith("drying-clothes-") || post.tags.includes("shared laundry")
+            ? "laundry"
+            : post.slug === "dishwashing-without-dishwasher-small-kitchen" ? "dishwashing" : undefined}
+        />
 
         <div className="mt-12 flex flex-wrap gap-2">
           {(post.tags as string[]).map((t: string) => (

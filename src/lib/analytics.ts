@@ -11,6 +11,7 @@ type AnalyticsEventParameters = Record<string, string | number | boolean>;
 
 declare global {
   interface Window {
+    [key: `ga-disable-${string}`]: boolean;
     dataLayer?: unknown[];
     gtag?: (...args: unknown[]) => void;
     __etlhGaReady?: boolean;
@@ -24,6 +25,7 @@ function hasAnalyticsConsent() {
 }
 
 export function sendAnalyticsPageView() {
+  if (window.location.hostname !== PRODUCTION_HOSTNAME || !hasAnalyticsConsent()) return;
   if (!window.__etlhGaReady || !window.gtag) return;
   const pagePath = `${window.location.pathname}${window.location.search}`;
   if (window.__etlhLastGaPagePath === pagePath) return;
@@ -36,7 +38,8 @@ export function sendAnalyticsPageView() {
 }
 
 export function loadGoogleAnalytics() {
-  if (window.location.hostname !== PRODUCTION_HOSTNAME) return;
+  if (window.location.hostname !== PRODUCTION_HOSTNAME || !hasAnalyticsConsent()) return;
+  window[`ga-disable-${GA_MEASUREMENT_ID}`] = false;
 
   window.dataLayer = window.dataLayer || [];
   window.gtag =
@@ -58,6 +61,8 @@ export function loadGoogleAnalytics() {
     window.gtag("config", GA_MEASUREMENT_ID, { send_page_view: false });
     window.__etlhGaConfigured = true;
     window.__etlhGaReady = true;
+  } else {
+    window.gtag("consent", "update", { analytics_storage: "granted" });
   }
 
   if (!document.getElementById("etlh-google-analytics")) {
@@ -72,6 +77,8 @@ export function loadGoogleAnalytics() {
 }
 
 export function disableGoogleAnalytics() {
+  window[`ga-disable-${GA_MEASUREMENT_ID}`] = true;
+  window.__etlhLastGaPagePath = undefined;
   window.gtag?.("consent", "update", { analytics_storage: "denied" });
 }
 

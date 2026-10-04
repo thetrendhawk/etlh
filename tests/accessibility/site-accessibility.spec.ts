@@ -33,7 +33,7 @@ const pages = [
   },
   {
     path: "/blog/shared-apartment-laundry-room-check",
-    heading: /Using a Shared Apartment Laundry Room: What to Check Before You Start/i,
+    heading: /Shared Apartment Laundry Room: Washer and Dryer Checklist/i,
   },
   {
     path: "/blog/drying-clothes-small-apartment-space-plan",
@@ -51,8 +51,14 @@ const pages = [
     path: "/blog/laundry-product-storage-small-apartment",
     heading: /Storing Laundry Products in a Small Apartment/i,
   },
-  { path: "/blog/electric-food-waste-appliances-apartments", heading: /Electric Food-Waste Appliances for Apartments: What to Check/i },
-  { path: "/blog/dishwashing-without-dishwasher-small-kitchen", heading: /Dishwashing Without a Dishwasher in a Small Kitchen/i },
+  {
+    path: "/blog/electric-food-waste-appliances-apartments",
+    heading: /Electric Food-Waste Appliances for Apartments: What to Check/i,
+  },
+  {
+    path: "/blog/dishwashing-without-dishwasher-small-kitchen",
+    heading: /Dishwashing Without a Dishwasher in a Small Kitchen/i,
+  },
   {
     path: "/blog/zero-waste-pantry-organization-small-apartments",
     heading: /Pantry Organization for Small Apartments: A Practical Plan/i,
@@ -177,7 +183,9 @@ const pilotImageRoutes = [
 
 for (const imageCase of pilotImageRoutes) {
   test(`${imageCase.path} renders its assigned pilot image and alt text`, async ({ page }) => {
-    await page.addInitScript(() => window.localStorage.setItem("etlh-analytics-consent", "declined"));
+    await page.addInitScript(() =>
+      window.localStorage.setItem("etlh-analytics-consent", "declined"),
+    );
     await gotoHydrated(page, imageCase.path);
     const image = page.locator(`img[alt="${imageCase.alt}"]`).first();
     await expect(image).toBeVisible();
@@ -220,7 +228,8 @@ test("accepting analytics attempts a GA4 page_view request", async ({ page }, te
           const originalPush = dataLayer.push.bind(dataLayer);
           const processCommand = (command) => {
             if (!Array.isArray(command) && command[0] === "event" && command[1] === "page_view") {
-              fetch("https://www.google-analytics.com/g/collect?v=2&tid=G-G8H1H9S4TG&en=page_view", {
+              const config = dataLayer.find((entry) => entry[0] === "config");
+              fetch("https://www.google-analytics.com/g/collect?v=2&tid=" + config[1] + "&en=page_view", {
                 mode: "no-cors",
               });
             }
@@ -244,7 +253,50 @@ test("accepting analytics attempts a GA4 page_view request", async ({ page }, te
   await page.goto("http://ecotinylivinghub.com:4173/");
   await page.getByRole("button", { name: "Accept analytics" }).click();
 
-  await expect.poll(async () => (await collectRequest).url()).toContain("tid=G-G8H1H9S4TG");
+  await expect.poll(async () => (await collectRequest).url()).toContain("tid=G-G81H19S4TG");
+  await expect(page.locator("#etlh-google-analytics")).toHaveAttribute(
+    "src",
+    "https://www.googletagmanager.com/gtag/js?id=G-G81H19S4TG",
+  );
+});
+
+test("analytics consent withdrawal stops events and reacceptance restores collection", async ({
+  page,
+}, testInfo) => {
+  test.skip(!testInfo.project.name.includes("desktop"), "Desktop analytics regression coverage");
+  await page.route("https://www.googletagmanager.com/gtag/js**", (route) =>
+    route.fulfill({ contentType: "application/javascript", body: "/* analytics stub */" }),
+  );
+  await page.goto("http://ecotinylivinghub.com:4173/");
+  await expect(page.locator("#etlh-google-analytics")).toHaveCount(0);
+  await page.getByRole("button", { name: "Accept analytics" }).click();
+  const pageViews = () =>
+    page.evaluate(
+      () =>
+        (window.dataLayer ?? []).filter((command) => {
+          const entry = command as IArguments;
+          return entry[0] === "event" && entry[1] === "page_view";
+        }).length,
+    );
+  await expect.poll(pageViews).toBe(1);
+  await page.getByRole("button", { name: "Analytics preferences" }).click();
+  await page.getByRole("button", { name: "Decline analytics" }).click();
+  await expect.poll(() => page.evaluate(() => window["ga-disable-G-G81H19S4TG"])).toBe(true);
+  await page.getByRole("link", { name: "Start reading", exact: true }).click();
+  await expect(page).toHaveURL(/\/blog$/);
+  expect(await pageViews()).toBe(1);
+  await page.getByRole("button", { name: "Analytics preferences" }).click();
+  await page.getByRole("button", { name: "Accept analytics" }).click();
+  await expect.poll(pageViews).toBe(2);
+  await expect.poll(() => page.evaluate(() => window["ga-disable-G-G81H19S4TG"])).toBe(false);
+  const update = await page.evaluate(() => {
+    const commands = (window.dataLayer ?? []).map((command) => Array.from(command as IArguments));
+    return commands.filter((command) => command[0] === "consent").at(-1);
+  });
+  expect(update).toEqual(["consent", "update", { analytics_storage: "granted" }]);
+  await expect(page.locator("#etlh-google-analytics")).toHaveCount(1);
+  await page.getByRole("link", { name: "← Back to home", exact: true }).click();
+  await expect.poll(pageViews).toBe(3);
 });
 
 test("mobile menu exposes state and restores focus", async ({ page }, testInfo) => {

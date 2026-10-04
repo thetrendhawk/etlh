@@ -53,3 +53,7 @@ Compare the first complete 28-day post-release Search Console window with Septem
 Validation/release results will be appended below.
 
 Local validation: `pnpm run check:ci` passed; final lint and type checks passed (six existing React Fast Refresh warnings). `pnpm run check:accessibility:browser`: 91 passed, three intentionally skipped by device scope. The focused analytics suite also passed. No dependency versions changed.
+
+Release blocker found on preview `dpl_F8LQepZw2QyBFiKbntJtpExTCjZZ`: Vercel rejected TanStack Start 1.168.34 with `BLOCKED_PACKAGE`. The September 30 [official advisory GHSA-qx66-fv34-fjm8](https://github.com/TanStack/router/security/advisories/GHSA-qx66-fv34-fjm8) identifies React Start 1.168.60 and start-server-core 1.169.39 as patched versions. Updated React Start to exactly 1.168.60; the resolved server core is 1.169.39. This necessary release fix supersedes the preceding no-dependency-change statement. No Vercel security bypass was enabled.
+
+Live collection check after the account change: navigating homepage → blog produced one observed `page_view` collection request to `G-G81H19S4TG`, with the blog location and title. GA4 Realtime showed an active user after the QA visit. September 6–October 3 landing-page report showed all three sessions landing on `/`.

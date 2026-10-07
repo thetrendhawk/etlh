@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Link, createFileRoute } from "@tanstack/react-router";
 import { FirstApartmentKitCard } from "@/components/FirstApartmentKitCard";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -7,7 +7,7 @@ import { absoluteUrl } from "@/lib/site";
 
 const title = "Resources — Eco Tiny Living Hub";
 const description =
-  "Free planning tools and transparently reviewed resources for sustainable small-space living.";
+  "Free planning tools and practical kitchen, laundry, and storage guides for small-apartment living.";
 const pageUrl = absoluteUrl("/resources");
 const pdfPath = "/downloads/small-apartment-eco-step-starter-sheet-v1.pdf";
 const htmlPath = "/downloads/small-apartment-eco-step-starter-sheet-v1.html";
@@ -28,67 +28,53 @@ export const Route = createFileRoute("/resources")({
   component: Resources,
 });
 
-interface Item {
-  title: string;
-  description: string;
-}
-
-const sections: { title: string; intro: string; items: Item[] }[] = [
+const sections = [
   {
-    title: "Zero-waste kitchen swaps",
-    intro: "Refillable, reusable, and renter-friendly categories under review.",
+    title: "Kitchen routines",
+    intro: "Plan the next step around the kitchen you have.",
     items: [
       {
-        title: "Reusable beeswax wraps",
-        description: "A possible alternative to disposable plastic wrap for selected kitchen uses.",
+        slug: "dishwashing-without-dishwasher-small-kitchen",
+        title: "Dishwashing without a dishwasher",
+        description: "Set up a manageable wash, rinse, and dry flow in a small kitchen.",
       },
       {
-        title: "Glass jar storage",
-        description: "Reusable containers that can make pantry contents easier to see and use.",
-      },
-      {
-        title: "Plant-based dish sponges",
+        slug: "choose-apartment-food-scrap-method",
+        title: "Choose a food-scrap method",
         description:
-          "Lower-plastic cleaning options that still need durability and performance review.",
+          "Compare options against your space, collection access, and household routine.",
+      },
+    ],
+  },
+  {
+    title: "Apartment laundry",
+    intro: "Work with shared machines and limited drying space.",
+    items: [
+      {
+        slug: "shared-apartment-laundry-room-check",
+        title: "Shared laundry room checklist",
+        description: "Check machine instructions, carrying needs, and timing before a load.",
+      },
+      {
+        slug: "drying-clothes-small-apartment-space-plan",
+        title: "Plan your drying space",
+        description: "Check airflow, clearance, and household needs before hanging clothes.",
       },
     ],
   },
   {
     title: "Small-space storage",
-    intro: "Renter-friendly categories that do not require permanent installation.",
+    intro: "Give everyday items a place before buying more organizers.",
     items: [
       {
-        title: "Tension shelf systems",
-        description: "Vertical storage options designed to avoid drilling into walls.",
+        slug: "laundry-holding-zones-studio-apartment",
+        title: "Where laundry waits",
+        description: "Separate worn, ready-to-wash, and clean laundry in a studio apartment.",
       },
       {
-        title: "Woven storage baskets",
-        description:
-          "Flexible containers that can reduce visible clutter while fitting into open shelving.",
-      },
-      {
-        title: "Over-the-door organizers",
-        description: "Storage that uses otherwise empty door space in closets and small rooms.",
-      },
-    ],
-  },
-  {
-    title: "Eco cleaning supplies",
-    intro: "Simple reusable categories being evaluated for everyday apartment cleaning.",
-    items: [
-      {
-        title: "Refillable cleaning concentrates",
-        description: "Concentrated products that may reduce repeat packaging when used correctly.",
-      },
-      {
-        title: "Wool dryer balls",
-        description:
-          "A reusable alternative to disposable dryer sheets for compatible laundry routines.",
-      },
-      {
-        title: "Replaceable-head dish brushes",
-        description:
-          "Brush systems intended to replace only the worn cleaning head instead of the full handle.",
+        slug: "zero-waste-pantry-organization-small-apartments",
+        title: "Organize a small pantry",
+        description: "Make food easier to find and use with the storage you already have.",
       },
     ],
   },
@@ -105,8 +91,8 @@ function Resources() {
             Practical tools for lighter small-space living
           </h1>
           <p className="text-earth-900/70 mt-4 text-lg">
-            Start with free planning tools. Product recommendations remain separate and are not
-            published until they have been reviewed and can be presented honestly.
+            Start with a free planning tool or choose a guide for the kitchen, laundry, or storage
+            task you want to make easier.
           </p>
         </header>
 
@@ -141,6 +127,8 @@ function Resources() {
                   trackAnalyticsEvent("resource_download", {
                     resource_name: "eco_step_starter_sheet",
                     resource_format: "pdf",
+                    link_location: "page_resource",
+                    page_path: window.location.pathname,
                   })
                 }
                 className="bg-earth-900 text-white px-6 py-3 rounded-full text-center font-medium hover:bg-earth-900/90 transition-colors"
@@ -153,6 +141,8 @@ function Resources() {
                   trackAnalyticsEvent("resource_open", {
                     resource_name: "eco_step_starter_sheet",
                     resource_format: "html",
+                    link_location: "page_resource",
+                    page_path: window.location.pathname,
                   })
                 }
                 className="border border-earth-900/15 px-6 py-3 rounded-full text-center font-medium hover:bg-earth-900/5 transition-colors"
@@ -167,14 +157,14 @@ function Resources() {
           </div>
         </section>
 
-        <section aria-labelledby="reviews-heading">
+        <section aria-labelledby="guides-heading">
           <div className="max-w-2xl mb-10">
-            <h2 id="reviews-heading" className="font-serif text-4xl md:text-5xl">
-              Product reviews in progress
+            <h2 id="guides-heading" className="font-serif text-4xl md:text-5xl">
+              Find a guide for your next task
             </h2>
             <p className="text-earth-900/70 mt-3">
-              These categories may be evaluated in the future. No product link is published merely
-              because a commission is available.
+              Use these practical guides to plan around your space and routine. No purchase is
+              required.
             </p>
           </div>
 
@@ -185,23 +175,22 @@ function Resources() {
                   <h3 className="font-serif text-3xl md:text-4xl">{section.title}</h3>
                   <p className="text-earth-900/60 mt-2">{section.intro}</p>
                 </div>
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-2 gap-6">
                   {section.items.map((item) => (
                     <article
                       key={item.title}
                       className="bg-white rounded-2xl p-6 border border-earth-900/5 flex flex-col"
                     >
-                      <div className="aspect-video bg-earth-100 rounded-xl mb-5 grid place-items-center text-earth-900/30 text-xs uppercase tracking-widest">
-                        Review pending
-                      </div>
                       <h4 className="font-serif text-xl">{item.title}</h4>
                       <p className="text-sm text-earth-900/60 mt-2 flex-1">{item.description}</p>
-                      <span
-                        className="mt-5 inline-block text-center border border-earth-900/10 text-earth-900/55 px-5 py-2.5 rounded-full text-sm font-medium"
-                        aria-label={`${item.title} recommendation is not yet published`}
+                      <Link
+                        to="/blog/$slug"
+                        params={{ slug: item.slug }}
+                        className="mt-5 inline-block text-center border border-earth-900/20 px-5 py-2.5 rounded-full text-sm font-medium hover:bg-earth-900/5 transition-colors"
+                        aria-label={`Read the guide: ${item.title}`}
                       >
-                        Not yet recommended
-                      </span>
+                        Read the guide
+                      </Link>
                     </article>
                   ))}
                 </div>
@@ -209,6 +198,10 @@ function Resources() {
             ))}
           </div>
         </section>
+        <aside className="mt-12 border-t border-earth-900/10 pt-6 text-sm text-earth-900/70">
+          Product recommendations may be added after review. No product link is published merely
+          because a commission is available.
+        </aside>
       </main>
       <SiteFooter />
     </div>

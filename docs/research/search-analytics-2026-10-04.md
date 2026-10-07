@@ -82,3 +82,30 @@ Follow-up indexing detail: the individual holding-zones inspection says URL unkn
 Owner/QA exclusion: open https://ecotinylivinghub.com/?etlh_qa=1 before testing. The flag suppresses GA4 for that browser tab's session, persists across route navigation and reloads, and sets Google's per-ID disable flag to stop automatic events from an already loaded tag. To return that tab to normal consent-controlled collection, visit ?etlh_qa=0. Other tabs and earlier unmarked visits are not automatically excluded. Do not share QA URLs as audience campaign links or count previously ambiguous sessions toward the goal.
 
 Local browser results: 91 passed, four device-specific skips and one homepage timeout while four workers competed with browser control. The isolated homepage rerun passed in 6.9 seconds; no accessibility violation was reported. New owner/QA suppression and resource-action checks passed separately. GitHub runs the full suite with one worker and remains the release gate.
+
+## Follow-up release verification
+
+PR #122 merged at 6f1bf24d5552ccd12e8cb09121d7d75ab9a3f758. Final PR CI passed: 93 browser tests passed, five device-scoped skips; publishing checks, desktop/mobile Lighthouse and preview passed. Production deployment dpl_5KxhdSiddvzFEkibexKtzoDeJmxg is READY and production smoke checks passed.
+
+Production dishwashing, drying, transport and sitemap responses were HTTP 200 with the intended resource context and updated editorial dates. Controlled production article clicks sent resource_open (html) and resource_download (pdf), both to G-G81H19S4TG with article_resource placement. GA4 Realtime recorded resource_open as a key event. Google also emitted automatic file_download, which is distinct from the qualifying custom resource_download and must not be added to it when evaluating the goal.
+
+Production owner/QA mode loaded no GA tag. The controlled collection verification deliberately used etlh_qa=0, then returned the tab to etlh_qa=1; these owner actions on October 4 are excluded from goal evidence.
+
+Storage and holding-zone indexing requests were accepted after successful live tests. The refreshed dishwashing guide passed live fetch, crawl/indexing permission and self-canonical checks, and its recrawl request was accepted. None of these submissions establishes completed indexing or improved ranking.
+
+Additional page-filter evidence for September 2–29: drying 21 impressions, zero clicks, position 27.4, five visible query variants about drying clothes in small spaces/apartments (two with two impressions, three with one). Transport 22 impressions, zero clicks, position 10.3; only one visibly noisy query row, with no reliable basis for a title rewrite. Preserved both existing titles and improved reader paths.
+
+Sitemap table showed Success, 38 discovered pages and October 4 last-read date during follow-up. Prior September 29 last-read observation is historical, not a current error.
+
+Final account receipt: GA4 Realtime showed both resource_open and resource_download in the key-event table, one each in that visible snapshot. These are controlled QA actions, not verified external goal actions. The follow-up sitemap submission displayed 'Sitemap submitted successfully'. Final verification notes are saved locally; the implementation and pre-release review are committed, and release evidence is also preserved in merged PR #122.
+## October 7 Resources and distribution preparation
+
+Replaced nine unavailable product-review cards with six existing kitchen, laundry, and storage guide links. Retained a short review-policy note. Resources starter-sheet actions and homepage/Resources apartment-kit actions now carry page_resource placement and the actual page path, consistent with existing full-page starter-sheet actions.
+
+Prepared the bounded Pinterest/Instagram resource test in content/ETLH-RESOURCE-TEST-20261007/Distribution_Test.md. Copy, tagged destinations, creative briefs, and decision rules are prepared; posts and visual assets are not published or produced. The 14-day test starts with actual publication, not this preparation date. Frozen goals are unchanged. No October 7 analytics baseline or ranking improvement is asserted.
+
+Focused consent/event checks passed for both resources and all relevant placements. Full local CI and GitHub/preview acceptance remain the release gates.
+
+Release-gate maintenance: the October 7 dependency audit flagged GHSA-68fv-2mgg-jv7q in source-map-js 1.2.1. Added a scoped override to patched 1.2.2 and refreshed only that dependency in the lockfile; frozen install passed. Advisory: https://github.com/advisories/GHSA-68fv-2mgg-jv7q.
+
+Final local acceptance: full check:ci passed, including zero known dependency vulnerabilities, build and built-server checks. Six existing Fast Refresh warnings remain. Two focused desktop analytics regressions passed (starter-sheet placements and apartment-kit placements, including accepted/declined consent). GitHub full browser/Lighthouse checks and preview verification follow before merge.

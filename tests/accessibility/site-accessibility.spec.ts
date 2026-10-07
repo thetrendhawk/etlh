@@ -308,7 +308,7 @@ test("starter sheet actions across page and article placements respect consent",
   await page.route("**/downloads/small-apartment-eco-step-starter-sheet-v1.pdf", (route) =>
     route.fulfill({ contentType: "application/pdf", body: "test download" }),
   );
-  const paths = ["/", "/about", "/blog/shared-apartment-laundry-room-check", "/blog/dishwashing-without-dishwasher-small-kitchen"];
+  const paths = ["/", "/resources", "/about", "/blog/shared-apartment-laundry-room-check", "/blog/dishwashing-without-dishwasher-small-kitchen"];
   for (const path of paths) {
     await gotoHydrated(page, `http://ecotinylivinghub.com:4173${path}`);
     await page.getByRole("button", { name: "Analytics preferences" }).click();
@@ -327,6 +327,38 @@ test("starter sheet actions across page and article placements respect consent",
     expect(events).toEqual([
       ["event", "resource_download", { resource_name: "eco_step_starter_sheet", resource_format: "pdf", link_location: path.startsWith("/blog/") ? "article_resource" : "page_resource", page_path: path }],
       ["event", "resource_open", { resource_name: "eco_step_starter_sheet", resource_format: "html", link_location: path.startsWith("/blog/") ? "article_resource" : "page_resource", page_path: path }],
+    ]);
+  }
+});
+
+test("apartment planner actions identify their page and respect consent", async ({ page }, testInfo) => {
+  test.skip(!testInfo.project.name.includes("desktop"), "Desktop analytics regression coverage");
+  await page.route("https://www.googletagmanager.com/gtag/js**", (route) =>
+    route.fulfill({ contentType: "application/javascript", body: "/* analytics stub */" }),
+  );
+  await page.route("**/downloads/first-apartment-less-waste-v1.pdf", (route) =>
+    route.fulfill({ contentType: "application/pdf", body: "test download" }),
+  );
+  await page.route("**/tools/first-apartment-kit.html", (route) => route.abort());
+  for (const path of ["/", "/resources"]) {
+    await gotoHydrated(page, `http://ecotinylivinghub.com:4173${path}`);
+    await page.getByRole("button", { name: "Analytics preferences" }).click();
+    await page.getByRole("button", { name: "Decline analytics" }).click();
+    const pdf = page.getByRole("link", { name: "Download the four-page kit", exact: true });
+    const online = page.getByRole("link", { name: "Open the free apartment planner", exact: true });
+    const actions = () => page.evaluate(() => (window.dataLayer ?? [])
+      .map((entry) => Array.from(entry as IArguments))
+      .filter((entry) => entry[0] === "event" && ["resource_download", "resource_open"].includes(entry[1] as string)));
+    await pdf.click();
+    await online.click({ modifiers: ["Control"] });
+    expect(await actions()).toEqual([]);
+    await page.getByRole("button", { name: "Analytics preferences" }).click();
+    await page.getByRole("button", { name: "Accept analytics" }).click();
+    await pdf.click();
+    await online.click({ modifiers: ["Control"] });
+    expect(await actions()).toEqual([
+      ["event", "resource_download", { resource_name: "first_apartment_kit", resource_format: "pdf", link_location: "page_resource", page_path: path }],
+      ["event", "resource_open", { resource_name: "first_apartment_kit", resource_format: "html", link_location: "page_resource", page_path: path }],
     ]);
   }
 });

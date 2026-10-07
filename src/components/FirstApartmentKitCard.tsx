@@ -32,6 +32,8 @@ export function FirstApartmentKitCard() {
               trackAnalyticsEvent("resource_open", {
                 resource_name: "first_apartment_kit",
                 resource_format: "html",
+                link_location: "page_resource",
+                page_path: window.location.pathname,
               })
             }
             className="bg-earth-900 text-white px-6 py-3 rounded-full text-center font-medium hover:bg-earth-900/90 transition-colors"
@@ -45,6 +47,8 @@ export function FirstApartmentKitCard() {
               trackAnalyticsEvent("resource_download", {
                 resource_name: "first_apartment_kit",
                 resource_format: "pdf",
+                link_location: "page_resource",
+                page_path: window.location.pathname,
               })
             }
             className="border border-earth-900/20 px-6 py-3 rounded-full text-center font-medium hover:bg-earth-900/5 transition-colors"
